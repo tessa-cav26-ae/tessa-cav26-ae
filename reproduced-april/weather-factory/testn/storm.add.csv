@@ -1,0 +1,9 @@
+suite,case_id,tool,storm_extra_args,num_trials,property,horizon,constants,N,H,status,probability,elapsed_seconds,error_message
+weather-factory,n2-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,2,10,ok,0.1840589397,0.06571103096939623,
+weather-factory,n7-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,7,10,ok,6.763643872e-05,2.4019174479180947,
+weather-factory,n8-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,8,10,ok,1.298863213e-05,3.819713947013952,
+weather-factory,n9-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,9,10,ok,2.518555747e-06,9.759306026040576,
+weather-factory,n10-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,10,10,ok,3.993548678e-07,37.76479391299654,
+weather-factory,n11-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,11,10,ok,6.353660432e-08,188.88538564101327,
+weather-factory,n12-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,12,10,failed,,51.27548778592609,Exit code 1
+weather-factory,n13-h10,storm.add,-tm --sylvan:threads 1,1,allStrike,10,,13,10,failed,,101.38187574199401,Exit code 1

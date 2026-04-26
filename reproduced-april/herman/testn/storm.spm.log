@@ -1,0 +1,278 @@
+2026-04-10 13:56:20,368 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/herman/testn'), 'engine': 'spm', 'mode': None, 'einsum_optimize': None}
+2026-04-10 13:56:20,371 - __main__ - INFO - [herman] n3-h100 :: storm.spm
+2026-04-10 13:56:20,372 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-3.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:20 2026
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Time for model construction: 0.031s.
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,446 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   States: 	8
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Transitions: 	22
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:20,447 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:20,447 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:20,447 - __main__ - DEBUG -      * stable -> 6 item(s)
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Result (for initial states): 1
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   
+2026-04-10 13:56:20,447 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:20,447 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 13:56:20,447 - __main__ - DEBUG -     * CPU time: 0.044s
+2026-04-10 13:56:20,447 - __main__ - DEBUG -     * wallclock time: 0.033s
+2026-04-10 13:56:20,448 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:20,448 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.074s
+2026-04-10 13:56:20,448 - __main__ - INFO - [herman] n5-h100 :: storm.spm
+2026-04-10 13:56:20,448 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-5.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:20 2026
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   
+2026-04-10 13:56:20,516 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   States: 	32
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   Transitions: 	234
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:20,517 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:20,517 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:20,517 - __main__ - DEBUG -      * stable -> 10 item(s)
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:20,517 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,518 - __main__ - DEBUG -   
+2026-04-10 13:56:20,518 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:20,518 - __main__ - DEBUG -   Result (for initial states): 1
+2026-04-10 13:56:20,518 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 13:56:20,518 - __main__ - DEBUG -   
+2026-04-10 13:56:20,518 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:20,518 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 13:56:20,518 - __main__ - DEBUG -     * CPU time: 0.049s
+2026-04-10 13:56:20,518 - __main__ - DEBUG -     * wallclock time: 0.016s
+2026-04-10 13:56:20,519 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:20,519 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.067s
+2026-04-10 13:56:20,519 - __main__ - INFO - [herman] n7-h100 :: storm.spm
+2026-04-10 13:56:20,520 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-7.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:20,615 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:20,615 - __main__ - DEBUG -   
+2026-04-10 13:56:20,615 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:20 2026
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-7.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Time for model construction: 0.017s.
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   States: 	128
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Transitions: 	2174
+2026-04-10 13:56:20,616 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:20,617 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:20,617 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:20,617 - __main__ - DEBUG -      * stable -> 14 item(s)
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   Result (for initial states): 0.9999999992
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 13:56:20,617 - __main__ - DEBUG -   
+2026-04-10 13:56:20,618 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:20,618 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 13:56:20,618 - __main__ - DEBUG -     * CPU time: 0.072s
+2026-04-10 13:56:20,618 - __main__ - DEBUG -     * wallclock time: 0.021s
+2026-04-10 13:56:20,619 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:20,619 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.095s
+2026-04-10 13:56:20,619 - __main__ - INFO - [herman] n9-h100 :: storm.spm
+2026-04-10 13:56:20,619 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-9.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:20,708 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:20,708 - __main__ - DEBUG -   
+2026-04-10 13:56:20,708 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:20 2026
+2026-04-10 13:56:20,708 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-9.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:20,708 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   Time for model construction: 0.032s.
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   States: 	512
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   Transitions: 	19666
+2026-04-10 13:56:20,709 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:20,710 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:20,710 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:20,710 - __main__ - DEBUG -      * stable -> 18 item(s)
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   Result (for initial states): 0.9999968293
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   Time for model checking: 0.004s.
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   
+2026-04-10 13:56:20,710 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:20,711 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 13:56:20,711 - __main__ - DEBUG -     * CPU time: 0.067s
+2026-04-10 13:56:20,711 - __main__ - DEBUG -     * wallclock time: 0.040s
+2026-04-10 13:56:20,711 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:20,711 - __main__ - INFO -   => ok  P=9.999968e-01  total=0.088s
+2026-04-10 13:56:20,712 - __main__ - INFO - [herman] n11-h100 :: storm.spm
+2026-04-10 13:56:20,712 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-11.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:20,962 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:20,962 - __main__ - DEBUG -   
+2026-04-10 13:56:20,962 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:20 2026
+2026-04-10 13:56:20,962 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-11.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:20,962 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Time for model construction: 0.138s.
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   States: 	2048
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Transitions: 	177126
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:20,963 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:20,963 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:20,963 - __main__ - DEBUG -      * stable -> 22 item(s)
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Result (for initial states): 0.9997919004
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Time for model checking: 0.055s.
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   
+2026-04-10 13:56:20,963 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:20,963 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 13:56:20,963 - __main__ - DEBUG -     * CPU time: 0.228s
+2026-04-10 13:56:20,963 - __main__ - DEBUG -     * wallclock time: 0.197s
+2026-04-10 13:56:20,964 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:20,964 - __main__ - INFO -   => ok  P=9.997919e-01  total=0.250s
+2026-04-10 13:56:20,964 - __main__ - INFO - [herman] n13-h100 :: storm.spm
+2026-04-10 13:56:20,964 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-13.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:23,012 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:23,012 - __main__ - DEBUG -   
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:21 2026
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-13.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   Time for model construction: 1.210s.
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:23,013 - __main__ - DEBUG -   States: 	8192
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   Transitions: 	1594298
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:23,014 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:23,014 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:23,014 - __main__ - DEBUG -      * stable -> 26 item(s)
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   
+2026-04-10 13:56:23,014 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:23,015 - __main__ - DEBUG -   Result (for initial states): 0.9977004904
+2026-04-10 13:56:23,015 - __main__ - DEBUG -   Time for model checking: 0.784s.
+2026-04-10 13:56:23,015 - __main__ - DEBUG -   
+2026-04-10 13:56:23,015 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:23,015 - __main__ - DEBUG -     * peak memory usage: 155MB
+2026-04-10 13:56:23,015 - __main__ - DEBUG -     * CPU time: 1.962s
+2026-04-10 13:56:23,015 - __main__ - DEBUG -     * wallclock time: 2.000s
+2026-04-10 13:56:23,016 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:23,016 - __main__ - INFO -   => ok  P=9.977005e-01  total=2.048s
+2026-04-10 13:56:23,016 - __main__ - INFO - [herman] n15-h100 :: storm.spm
+2026-04-10 13:56:23,016 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-15.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:56:42,283 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:56:42,283 - __main__ - DEBUG -   
+2026-04-10 13:56:42,283 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:23 2026
+2026-04-10 13:56:42,283 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-15.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:56:42,283 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   Time for model construction: 10.792s.
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   States: 	32768
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   Transitions: 	14348878
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:56:42,284 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:56:42,285 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:56:42,285 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:56:42,285 - __main__ - DEBUG -      * stable -> 30 item(s)
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   Result (for initial states): 0.9896116509
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   Time for model checking: 8.419s.
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   
+2026-04-10 13:56:42,285 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:56:42,286 - __main__ - DEBUG -     * peak memory usage: 1020MB
+2026-04-10 13:56:42,286 - __main__ - DEBUG -     * CPU time: 18.733s
+2026-04-10 13:56:42,286 - __main__ - DEBUG -     * wallclock time: 19.230s
+2026-04-10 13:56:42,286 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:56:42,287 - __main__ - INFO -   => ok  P=9.896117e-01  total=19.266s
+2026-04-10 13:56:42,287 - __main__ - INFO - [herman] n17-h100 :: storm.spm
+2026-04-10 13:56:42,287 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-17.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Date: Fri Apr 10 13:56:42 2026
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/herman/herman-17.prism --prop 'P=? [ F<=100 "stable" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Time for model construction: 105.924s.
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   States: 	131072
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Transitions: 	129140130
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 13:59:51,429 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 13:59:51,429 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 13:59:51,429 - __main__ - DEBUG -      * stable -> 34 item(s)
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Result (for initial states): 0.9715068235
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Time for model checking: 83.052s.
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   
+2026-04-10 13:59:51,429 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 13:59:51,429 - __main__ - DEBUG -     * peak memory usage: 8924MB
+2026-04-10 13:59:51,430 - __main__ - DEBUG -     * CPU time: 184.139s
+2026-04-10 13:59:51,430 - __main__ - DEBUG -     * wallclock time: 189.092s
+2026-04-10 13:59:51,430 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 13:59:51,430 - __main__ - INFO -   => ok  P=9.715068e-01  total=189.141s
+2026-04-10 13:59:51,430 - __main__ - INFO - [herman] n19-h100 :: storm.spm
+2026-04-10 13:59:51,430 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/herman/herman-19.prism --prop P=? [ F<=100 "stable" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 14:20:53,708 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 14:20:53,709 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/herman/testn/storm.spm.csv
+2026-04-10 14:20:53,709 - __main__ - INFO -   => timeout

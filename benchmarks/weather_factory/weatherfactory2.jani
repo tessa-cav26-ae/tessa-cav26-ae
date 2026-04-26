@@ -1,0 +1,634 @@
+{
+  "actions": [
+    {
+      "name": "act"
+    }
+  ],
+  "automata": [
+    {
+      "edges": [
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "sun <- sun",
+                  "ref": "sun",
+                  "value": "sun"
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "7/10",
+                "exp": 0.7
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "sun <- !(sun)",
+                  "ref": "sun",
+                  "value": {
+                    "exp": "sun",
+                    "op": "\u00ac"
+                  }
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "3/10",
+                "exp": 0.3
+              }
+            }
+          ],
+          "guard": {
+            "comment": "sun",
+            "exp": "sun"
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "sun <- sun",
+                  "ref": "sun",
+                  "value": "sun"
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "2/5",
+                "exp": {
+                  "left": 2.0,
+                  "op": "/",
+                  "right": 5.0
+                }
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "sun <- !(sun)",
+                  "ref": "sun",
+                  "value": {
+                    "exp": "sun",
+                    "op": "\u00ac"
+                  }
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "3/5",
+                "exp": 0.6
+              }
+            }
+          ],
+          "guard": {
+            "comment": "!(sun)",
+            "exp": {
+              "exp": "sun",
+              "op": "\u00ac"
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l",
+          "transient-values": [
+            {
+              "comment": "allStrike <- (state1 & state2)",
+              "ref": "allStrike",
+              "value": {
+                "left": "state1",
+                "op": "\u2227",
+                "right": "state2"
+              }
+            }
+          ]
+        }
+      ],
+      "name": "weathermodule",
+      "variables": []
+    },
+    {
+      "edges": [
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- true",
+                  "ref": "state1",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(3/10 * 1/10)",
+                "exp": 0.03
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- false",
+                  "ref": "state1",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (3/10 * 1/10))",
+                "exp": 0.97
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(state1 & sun)",
+            "exp": {
+              "left": "state1",
+              "op": "\u2227",
+              "right": "sun"
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- true",
+                  "ref": "state1",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(7/10 * 1/5)",
+                "exp": {
+                  "left": 7.0,
+                  "op": "/",
+                  "right": 50.0
+                }
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- false",
+                  "ref": "state1",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (7/10 * 1/5))",
+                "exp": 0.86
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(!(state1) & sun)",
+            "exp": {
+              "left": {
+                "exp": "state1",
+                "op": "\u00ac"
+              },
+              "op": "\u2227",
+              "right": "sun"
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- true",
+                  "ref": "state1",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(3/5 * 1/10)",
+                "exp": 0.06
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- false",
+                  "ref": "state1",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (3/5 * 1/10))",
+                "exp": 0.94
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(state1 & !(sun))",
+            "exp": {
+              "left": "state1",
+              "op": "\u2227",
+              "right": {
+                "exp": "sun",
+                "op": "\u00ac"
+              }
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- true",
+                  "ref": "state1",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(2/5 * 1/5)",
+                "exp": {
+                  "left": 2.0,
+                  "op": "/",
+                  "right": 25.0
+                }
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state1 <- false",
+                  "ref": "state1",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (2/5 * 1/5))",
+                "exp": {
+                  "left": 23.0,
+                  "op": "/",
+                  "right": 25.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(!(state1) & !(sun))",
+            "exp": {
+              "left": {
+                "exp": "state1",
+                "op": "\u00ac"
+              },
+              "op": "\u2227",
+              "right": {
+                "exp": "sun",
+                "op": "\u00ac"
+              }
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l"
+        }
+      ],
+      "name": "factory1",
+      "variables": []
+    },
+    {
+      "edges": [
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- true",
+                  "ref": "state2",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(3/10 * 1/5)",
+                "exp": 0.06
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- false",
+                  "ref": "state2",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (3/10 * 1/5))",
+                "exp": 0.94
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(state2 & sun)",
+            "exp": {
+              "left": "state2",
+              "op": "\u2227",
+              "right": "sun"
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- true",
+                  "ref": "state2",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(7/10 * 3/10)",
+                "exp": 0.21
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- false",
+                  "ref": "state2",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (7/10 * 3/10))",
+                "exp": {
+                  "left": 79.0,
+                  "op": "/",
+                  "right": 100.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(!(state2) & sun)",
+            "exp": {
+              "left": {
+                "exp": "state2",
+                "op": "\u00ac"
+              },
+              "op": "\u2227",
+              "right": "sun"
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- true",
+                  "ref": "state2",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(3/5 * 1/5)",
+                "exp": 0.12
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- false",
+                  "ref": "state2",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (3/5 * 1/5))",
+                "exp": {
+                  "left": 22.0,
+                  "op": "/",
+                  "right": 25.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(state2 & !(sun))",
+            "exp": {
+              "left": "state2",
+              "op": "\u2227",
+              "right": {
+                "exp": "sun",
+                "op": "\u00ac"
+              }
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "act",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- true",
+                  "ref": "state2",
+                  "value": true
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(2/5 * 3/10)",
+                "exp": 0.12
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "state2 <- false",
+                  "ref": "state2",
+                  "value": false
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - (2/5 * 3/10))",
+                "exp": {
+                  "left": 22.0,
+                  "op": "/",
+                  "right": 25.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(!(state2) & !(sun))",
+            "exp": {
+              "left": {
+                "exp": "state2",
+                "op": "\u00ac"
+              },
+              "op": "\u2227",
+              "right": {
+                "exp": "sun",
+                "op": "\u00ac"
+              }
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l"
+        }
+      ],
+      "name": "factory2",
+      "variables": []
+    }
+  ],
+  "constants": [
+    {
+      "name": "p1",
+      "type": "real",
+      "value": {
+        "left": 1.0,
+        "op": "/",
+        "right": 10.0
+      }
+    },
+    {
+      "name": "q1",
+      "type": "real",
+      "value": {
+        "left": 1.0,
+        "op": "/",
+        "right": 5.0
+      }
+    },
+    {
+      "name": "p2",
+      "type": "real",
+      "value": {
+        "left": 1.0,
+        "op": "/",
+        "right": 5.0
+      }
+    },
+    {
+      "name": "q2",
+      "type": "real",
+      "value": 0.3
+    }
+  ],
+  "features": [
+    "derived-operators"
+  ],
+  "jani-version": 1,
+  "name": "weatherfactory2",
+  "properties": [
+    {
+      "name": "allStrike",
+      "expression": {
+        "left": "state1",
+        "op": "\u2227",
+        "right": "state2"
+      }
+    }
+  ],
+  "restrict-initial": {
+    "exp": true
+  },
+  "system": {
+    "elements": [
+      {
+        "automaton": "weathermodule"
+      },
+      {
+        "automaton": "factory1"
+      },
+      {
+        "automaton": "factory2"
+      }
+    ],
+    "syncs": [
+      {
+        "result": "act",
+        "synchronise": [
+          "act",
+          "act",
+          "act"
+        ]
+      }
+    ]
+  },
+  "type": "dtmc",
+  "variables": [
+    {
+      "initial-value": false,
+      "name": "allStrike",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": true,
+      "name": "sun",
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "state1",
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "state2",
+      "type": "bool"
+    }
+  ]
+}

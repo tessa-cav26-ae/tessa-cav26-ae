@@ -1,0 +1,35 @@
+// Parametric version of Knuth-Yao die
+// Knuth's model of a fair die using only fair coins.
+// Parameters x, y are coin biases in [0, 1]; the die is fair iff x = y = 0.5.
+dtmc
+
+const double x;
+const double y;
+
+module die
+
+    // local state
+    s : [0..7] init 0;
+    // value of the dice
+    d : [0..6] init 0;
+
+    [] s=0 -> x : (s'=1) + 1-x : (s'=2);
+
+    [] s=1 -> y : (s'=3) + 1-y : (s'=4);
+    [] s=2 -> y : (s'=5) + 1-y : (s'=6);
+
+    [] s=3 -> x : (s'=1)          + 1-x : (s'=7) & (d'=1);
+    [] s=4 -> x : (s'=7) & (d'=3) + 1-x : (s'=7) & (d'=2);
+    [] s=5 -> x : (s'=2)          + 1-x : (s'=7) & (d'=4);
+    [] s=6 -> x : (s'=7) & (d'=6) + 1-x : (s'=7) & (d'=5);
+    [] s=7 -> (s'=7);
+
+endmodule
+
+label "done" = (s=7);
+label "die1" = (s=7) & (d=1);
+label "die2" = (s=7) & (d=2);
+label "die3" = (s=7) & (d=3);
+label "die4" = (s=7) & (d=4);
+label "die5" = (s=7) & (d=5);
+label "die6" = (s=7) & (d=6);

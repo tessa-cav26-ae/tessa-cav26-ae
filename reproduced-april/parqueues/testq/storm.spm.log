@@ -1,0 +1,299 @@
+2026-04-11 22:43:11,257 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/parqueues/testq'), 'engine': 'spm', 'mode': None, 'einsum_optimize': None}
+2026-04-11 22:43:11,261 - __main__ - INFO - [parqueues] q3-n3-h10 :: storm.spm
+2026-04-11 22:43:11,261 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-3.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:11 2026
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-3.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   States: 	64
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Transitions: 	343
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:11,324 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:11,324 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:11,324 - __main__ - DEBUG -      * target -> 1 item(s)
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Result (for initial states): 0.7833762427
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   
+2026-04-11 22:43:11,324 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:11,324 - __main__ - DEBUG -     * peak memory usage: 51MB
+2026-04-11 22:43:11,324 - __main__ - DEBUG -     * CPU time: 0.047s
+2026-04-11 22:43:11,324 - __main__ - DEBUG -     * wallclock time: 0.014s
+2026-04-11 22:43:11,325 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:11,325 - __main__ - INFO -   => ok  P=7.833762e-01  total=0.062s
+2026-04-11 22:43:11,325 - __main__ - INFO - [parqueues] q4-n3-h10 :: storm.spm
+2026-04-11 22:43:11,325 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-4.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,391 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:11,391 - __main__ - DEBUG -   
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:11 2026
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-4.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Time for model construction: 0.014s.
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   States: 	256
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Transitions: 	2398
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:11,392 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:11,392 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:11,392 - __main__ - DEBUG -      * target -> 3 item(s)
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Result (for initial states): 0.02648762758
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   
+2026-04-11 22:43:11,392 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:11,392 - __main__ - DEBUG -     * peak memory usage: 51MB
+2026-04-11 22:43:11,392 - __main__ - DEBUG -     * CPU time: 0.042s
+2026-04-11 22:43:11,392 - __main__ - DEBUG -     * wallclock time: 0.016s
+2026-04-11 22:43:11,393 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:11,393 - __main__ - INFO -   => ok  P=2.648763e-02  total=0.066s
+2026-04-11 22:43:11,393 - __main__ - INFO - [parqueues] q5-n3-h10 :: storm.spm
+2026-04-11 22:43:11,393 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-5.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,461 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:11,461 - __main__ - DEBUG -   
+2026-04-11 22:43:11,461 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:11 2026
+2026-04-11 22:43:11,461 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-5.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   Time for model construction: 0.021s.
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   States: 	1024
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   Transitions: 	16774
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:11,462 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:11,463 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:11,463 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:11,463 - __main__ - DEBUG -      * target -> 15 item(s)
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   Result (for initial states): 0.03240260198
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   Time for model checking: 0.001s.
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   
+2026-04-11 22:43:11,463 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:11,463 - __main__ - DEBUG -     * peak memory usage: 51MB
+2026-04-11 22:43:11,463 - __main__ - DEBUG -     * CPU time: 0.052s
+2026-04-11 22:43:11,463 - __main__ - DEBUG -     * wallclock time: 0.024s
+2026-04-11 22:43:11,463 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:11,463 - __main__ - INFO -   => ok  P=3.240260e-02  total=0.068s
+2026-04-11 22:43:11,463 - __main__ - INFO - [parqueues] q6-n3-h10 :: storm.spm
+2026-04-11 22:43:11,464 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-6.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,583 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:11 2026
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-6.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   Time for model construction: 0.060s.
+2026-04-11 22:43:11,584 - __main__ - DEBUG -   
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   States: 	4096
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   Transitions: 	117370
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:11,585 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:11,585 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:11,585 - __main__ - DEBUG -      * target -> 63 item(s)
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   
+2026-04-11 22:43:11,585 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:11,586 - __main__ - DEBUG -   Result (for initial states): 0.03444141195
+2026-04-11 22:43:11,586 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-11 22:43:11,586 - __main__ - DEBUG -   
+2026-04-11 22:43:11,586 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:11,586 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-11 22:43:11,586 - __main__ - DEBUG -     * CPU time: 0.091s
+2026-04-11 22:43:11,586 - __main__ - DEBUG -     * wallclock time: 0.070s
+2026-04-11 22:43:11,587 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:11,587 - __main__ - INFO -   => ok  P=3.444141e-02  total=0.120s
+2026-04-11 22:43:11,587 - __main__ - INFO - [parqueues] q7-n3-h10 :: storm.spm
+2026-04-11 22:43:11,587 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-7.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:12,049 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:12,049 - __main__ - DEBUG -   
+2026-04-11 22:43:12,049 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:11 2026
+2026-04-11 22:43:12,049 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-7.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:12,049 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   Time for model construction: 0.345s.
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   States: 	16384
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   Transitions: 	821398
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:12,050 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:12,050 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:12,051 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:12,051 - __main__ - DEBUG -      * target -> 255 item(s)
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   Result (for initial states): 0.03559797426
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   Time for model checking: 0.064s.
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   
+2026-04-11 22:43:12,051 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:12,051 - __main__ - DEBUG -     * peak memory usage: 83MB
+2026-04-11 22:43:12,051 - __main__ - DEBUG -     * CPU time: 0.424s
+2026-04-11 22:43:12,052 - __main__ - DEBUG -     * wallclock time: 0.412s
+2026-04-11 22:43:12,052 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:12,052 - __main__ - INFO -   => ok  P=3.559797e-02  total=0.461s
+2026-04-11 22:43:12,052 - __main__ - INFO - [parqueues] q8-n3-h10 :: storm.spm
+2026-04-11 22:43:12,053 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-8.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:15,121 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:15,121 - __main__ - DEBUG -   
+2026-04-11 22:43:15,121 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:12 2026
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-8.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Time for model construction: 2.533s.
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   States: 	65536
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Transitions: 	5749018
+2026-04-11 22:43:15,122 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:15,123 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:15,123 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:15,123 - __main__ - DEBUG -      * target -> 1023 item(s)
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   Result (for initial states): 0.03584754923
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   Time for model checking: 0.469s.
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   
+2026-04-11 22:43:15,123 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:15,124 - __main__ - DEBUG -     * peak memory usage: 396MB
+2026-04-11 22:43:15,124 - __main__ - DEBUG -     * CPU time: 2.845s
+2026-04-11 22:43:15,124 - __main__ - DEBUG -     * wallclock time: 3.010s
+2026-04-11 22:43:15,124 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:15,125 - __main__ - INFO -   => ok  P=3.584755e-02  total=3.068s
+2026-04-11 22:43:15,125 - __main__ - INFO - [parqueues] q9-n3-h10 :: storm.spm
+2026-04-11 22:43:15,125 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:15 2026
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   
+2026-04-11 22:43:35,586 - __main__ - DEBUG -   Time for model construction: 17.143s.
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   States: 	262144
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   Transitions: 	40240054
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:43:35,587 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:43:35,587 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:43:35,587 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:43:35,587 - __main__ - DEBUG -   
+2026-04-11 22:43:35,588 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:43:35,588 - __main__ - DEBUG -   Result (for initial states): 0.03729385656
+2026-04-11 22:43:35,588 - __main__ - DEBUG -   Time for model checking: 3.205s.
+2026-04-11 22:43:35,588 - __main__ - DEBUG -   
+2026-04-11 22:43:35,588 - __main__ - DEBUG -   Performance statistics:
+2026-04-11 22:43:35,588 - __main__ - DEBUG -     * peak memory usage: 2485MB
+2026-04-11 22:43:35,588 - __main__ - DEBUG -     * CPU time: 19.093s
+2026-04-11 22:43:35,588 - __main__ - DEBUG -     * wallclock time: 20.395s
+2026-04-11 22:43:35,589 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:43:35,589 - __main__ - INFO -   => ok  P=3.729386e-02  total=20.460s
+2026-04-11 22:43:35,589 - __main__ - INFO - [parqueues] q10-n3-h10 :: storm.spm
+2026-04-11 22:43:35,589 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-10.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 22:46:00,153 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 22:46:00,153 - __main__ - DEBUG -   
+2026-04-11 22:46:00,153 - __main__ - DEBUG -   Date: Sat Apr 11 22:43:35 2026
+2026-04-11 22:46:00,153 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-10.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 22:46:00,153 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 22:46:00,153 - __main__ - DEBUG -   
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   Time for model construction: 124.332s.
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   States: 	1048576
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   Transitions: 	281668090
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 22:46:00,154 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 22:46:00,154 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 22:46:00,154 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 22:46:00,155 - __main__ - DEBUG -      * target -> 16383 item(s)
+2026-04-11 22:46:00,155 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 22:46:00,155 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 22:46:00,155 - __main__ - DEBUG -   
+2026-04-11 22:46:00,155 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 22:46:00,155 - __main__ - WARNING -   ERROR: The program received signal 11 and will be aborted in 3s.
+2026-04-11 22:46:00,155 - __main__ - WARNING -   Received signal 11
+2026-04-11 22:46:00,155 - __main__ - ERROR -   failed: Exit code 11
+2026-04-11 22:46:00,156 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 22:46:00,156 - __main__ - INFO -   => failed  total=144.563s
+2026-04-11 22:46:00,156 - __main__ - INFO - [parqueues] q11-n3-h10 :: storm.spm
+2026-04-11 22:46:00,156 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-11.nm --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm
+2026-04-11 23:06:12,674 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-11 23:06:12,877 - __main__ - DEBUG -   
+2026-04-11 23:06:12,877 - __main__ - DEBUG -   Date: Sat Apr 11 22:46:00 2026
+2026-04-11 23:06:12,877 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-11.nm --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm
+2026-04-11 23:06:12,878 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-11 23:06:12,878 - __main__ - DEBUG -   
+2026-04-11 23:06:12,878 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-11 23:06:12,878 - __main__ - DEBUG -   
+2026-04-11 23:06:12,878 - __main__ - DEBUG -   Time for model construction: 912.087s.
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   States: 	4194304
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   Transitions: 	1971627478
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   Reward Models:  none
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-11 23:06:12,879 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-11 23:06:12,879 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-11 23:06:12,879 - __main__ - DEBUG -      * target -> 65535 item(s)
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-11 23:06:12,879 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-11 23:06:12,880 - __main__ - DEBUG -   
+2026-04-11 23:06:12,880 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-11 23:06:12,891 - __main__ - WARNING -   ERROR: The program received signal 15 and will be aborted in 3s.
+2026-04-11 23:06:12,944 - __main__ - WARNING -   Received signal 14
+2026-04-11 23:06:12,954 - __main__ - ERROR -   failed: Exit code 15
+2026-04-11 23:06:14,007 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testq/storm.spm.csv
+2026-04-11 23:06:14,025 - __main__ - INFO -   => failed  total=1212.441s

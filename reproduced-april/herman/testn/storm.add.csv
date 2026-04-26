@@ -1,0 +1,10 @@
+suite,case_id,tool,storm_extra_args,num_trials,property,horizon,constants,N,H,status,probability,elapsed_seconds,error_message
+herman,n3-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,3,100,ok,1.0,0.0657791969133541,
+herman,n5-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,5,100,ok,1.0,0.43253484601154923,
+herman,n7-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,7,100,ok,0.9999999992,1.5088390589226037,
+herman,n9-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,9,100,ok,0.9999968293,2.893088390934281,
+herman,n11-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,11,100,ok,0.9997919004,7.4228793639922515,
+herman,n13-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,13,100,ok,0.9977004904,39.83984353300184,
+herman,n15-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,15,100,ok,0.9896116509,234.4300985749578,
+herman,n17-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,17,100,timeout,,,Timed out after 1260 seconds
+herman,n19-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,19,100,timeout,,,Timed out after 1260 seconds

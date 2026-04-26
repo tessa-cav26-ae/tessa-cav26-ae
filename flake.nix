@@ -1,0 +1,84 @@
+{
+  inputs = {
+    nixpkgs.url = "nixpkgs/nixos-25.05";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachSystem [ "x86_64-linux" ] (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          config = {
+            allowUnfree = true;
+            cudaCapabilities = [ "7.5" "8.0" "8.6" "8.9" "9.0" "10.0" "12.0" ];
+            cudaForwardCompat = true;
+            allowUnsupportedSystem = true;
+            allowBroken = true;
+          };
+          overlays = [
+            (final: prev: { cudaPackages = prev.cudaPackages_12_8; })
+          ];
+        };
+        plot = pkgs.callPackage ./nix/plot.nix { };
+
+        jax = (pkgs.python312.pkgs.jax.override { cudaSupport = true; }).overridePythonAttrs (_: { doCheck = false; });
+        python312 = pkgs.python312.override {
+          packageOverrides = final: prev: { jax = jax; };
+        };
+
+        storm = pkgs.callPackage ./nix/storm.nix { };
+        stormpy = pkgs.callPackage ./nix/stormpy.nix { storm = storm; };
+        tessa = pkgs.callPackage ./nix/tessa.nix {
+          python312 = python312;
+          stormpy = stormpy;
+        };
+
+      in
+      {
+        packages = {
+          tessa = tessa;
+          storm = storm;
+          stormpy = stormpy;
+        };
+
+        devShells.default = pkgs.mkShell {
+          shellHook = ''
+              echo "NIX_LD=$NIX_LD"
+              echo "NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH"
+              echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+              # Avoid nix-ld overriding Nix's libstdc++ inside the dev shell.
+              unset NIX_LD
+              unset NIX_LD_LIBRARY_PATH
+              unset LD_LIBRARY_PATH
+              # Putting $PWD first on PYTHONPATH also makes sitecustomize.py
+              # (in the repo root) auto-run at interpreter startup, which
+              # ctypes-preloads libcuda.so.1 so jaxlib finds it.
+              export PYTHONPATH="$PWD''${PYTHONPATH:+:}$PYTHONPATH"
+          '';
+          buildInputs = (with pkgs; [
+            which
+            bash
+            fish
+            zsh
+            nano
+            vim
+            tree
+            htop
+            python312
+          ]) ++ (with python312.pkgs; [
+            jax
+            jaxlib
+            numpy
+            matplotlib
+            optax
+          ]) ++ [
+            plot
+            storm
+            stormpy
+            tessa
+          ];
+        };
+      }
+    );
+}

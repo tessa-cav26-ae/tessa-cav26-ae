@@ -1,0 +1,283 @@
+2026-04-10 17:52:37,803 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/weather-factory/testn'), 'engine': 'spm', 'mode': None, 'einsum_optimize': None}
+2026-04-10 17:52:37,806 - __main__ - INFO - [weather-factory] n2-h10 :: storm.spm
+2026-04-10 17:52:37,806 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory2.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:52:37,851 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:37 2026
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory2.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Time for model construction: 0.011s.
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   States: 	8
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Transitions: 	50
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:52:37,852 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:52:37,852 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:52:37,852 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Result (for initial states): 0.1840589397
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   
+2026-04-10 17:52:37,852 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:52:37,852 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 17:52:37,852 - __main__ - DEBUG -     * CPU time: 0.033s
+2026-04-10 17:52:37,852 - __main__ - DEBUG -     * wallclock time: 0.012s
+2026-04-10 17:52:37,853 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:52:37,853 - __main__ - INFO -   => ok  P=1.840589e-01  total=0.045s
+2026-04-10 17:52:37,853 - __main__ - INFO - [weather-factory] n7-h10 :: storm.spm
+2026-04-10 17:52:37,853 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory7.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:52:37,951 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:52:37,951 - __main__ - DEBUG -   
+2026-04-10 17:52:37,951 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:37 2026
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory7.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   Time for model construction: 0.042s.
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   States: 	256
+2026-04-10 17:52:37,952 - __main__ - DEBUG -   Transitions: 	65026
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:52:37,953 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:52:37,953 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:52:37,953 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:52:37,953 - __main__ - DEBUG -   Result (for initial states): 6.763643872e-05
+2026-04-10 17:52:37,954 - __main__ - DEBUG -   Time for model checking: 0.005s.
+2026-04-10 17:52:37,954 - __main__ - DEBUG -   
+2026-04-10 17:52:37,954 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:52:37,954 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 17:52:37,954 - __main__ - DEBUG -     * CPU time: 0.079s
+2026-04-10 17:52:37,954 - __main__ - DEBUG -     * wallclock time: 0.051s
+2026-04-10 17:52:37,954 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:52:37,954 - __main__ - INFO -   => ok  P=6.763644e-05  total=0.098s
+2026-04-10 17:52:37,954 - __main__ - INFO - [weather-factory] n8-h10 :: storm.spm
+2026-04-10 17:52:37,954 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory8.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:52:38,143 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:52:38,143 - __main__ - DEBUG -   
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:38 2026
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory8.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   Time for model construction: 0.112s.
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:52:38,144 - __main__ - DEBUG -   States: 	512
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   Transitions: 	261122
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:52:38,145 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:52:38,145 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:52:38,145 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   Result (for initial states): 1.298863213e-05
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   Time for model checking: 0.016s.
+2026-04-10 17:52:38,145 - __main__ - DEBUG -   
+2026-04-10 17:52:38,146 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:52:38,146 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 17:52:38,146 - __main__ - DEBUG -     * CPU time: 0.165s
+2026-04-10 17:52:38,146 - __main__ - DEBUG -     * wallclock time: 0.133s
+2026-04-10 17:52:38,146 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:52:38,146 - __main__ - INFO -   => ok  P=1.298863e-05  total=0.189s
+2026-04-10 17:52:38,147 - __main__ - INFO - [weather-factory] n9-h10 :: storm.spm
+2026-04-10 17:52:38,147 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory9.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:52:38,701 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:52:38,701 - __main__ - DEBUG -   
+2026-04-10 17:52:38,701 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:38 2026
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory9.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   Time for model construction: 0.424s.
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   States: 	1024
+2026-04-10 17:52:38,702 - __main__ - DEBUG -   Transitions: 	1046530
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:52:38,703 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:52:38,703 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:52:38,703 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   Result (for initial states): 2.518555747e-06
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   Time for model checking: 0.076s.
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   
+2026-04-10 17:52:38,703 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:52:38,704 - __main__ - DEBUG -     * peak memory usage: 97MB
+2026-04-10 17:52:38,704 - __main__ - DEBUG -     * CPU time: 0.514s
+2026-04-10 17:52:38,704 - __main__ - DEBUG -     * wallclock time: 0.505s
+2026-04-10 17:52:38,704 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:52:38,704 - __main__ - INFO -   => ok  P=2.518556e-06  total=0.554s
+2026-04-10 17:52:38,705 - __main__ - INFO - [weather-factory] n10-h10 :: storm.spm
+2026-04-10 17:52:38,705 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory10.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:38 2026
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory10.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   
+2026-04-10 17:52:40,821 - __main__ - DEBUG -   Time for model construction: 1.734s.
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   States: 	2048
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   Transitions: 	4190210
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:52:40,822 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:52:40,822 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:52:40,822 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:40,822 - __main__ - DEBUG -   
+2026-04-10 17:52:40,823 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:52:40,823 - __main__ - DEBUG -   Result (for initial states): 3.993548678e-07
+2026-04-10 17:52:40,823 - __main__ - DEBUG -   Time for model checking: 0.324s.
+2026-04-10 17:52:40,823 - __main__ - DEBUG -   
+2026-04-10 17:52:40,823 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:52:40,823 - __main__ - DEBUG -     * peak memory usage: 305MB
+2026-04-10 17:52:40,823 - __main__ - DEBUG -     * CPU time: 1.976s
+2026-04-10 17:52:40,823 - __main__ - DEBUG -     * wallclock time: 2.066s
+2026-04-10 17:52:40,824 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:52:40,824 - __main__ - INFO -   => ok  P=3.993549e-07  total=2.116s
+2026-04-10 17:52:40,824 - __main__ - INFO - [weather-factory] n11-h10 :: storm.spm
+2026-04-10 17:52:40,824 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory11.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:52:49,516 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:40 2026
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory11.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   
+2026-04-10 17:52:49,517 - __main__ - DEBUG -   Time for model construction: 7.310s.
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   States: 	4096
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   Transitions: 	16769026
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:52:49,518 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:52:49,518 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:52:49,518 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:52:49,518 - __main__ - DEBUG -   
+2026-04-10 17:52:49,519 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:52:49,519 - __main__ - DEBUG -   Result (for initial states): 6.353660432e-08
+2026-04-10 17:52:49,519 - __main__ - DEBUG -   Time for model checking: 1.298s.
+2026-04-10 17:52:49,519 - __main__ - DEBUG -   
+2026-04-10 17:52:49,519 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:52:49,519 - __main__ - DEBUG -     * peak memory usage: 1072MB
+2026-04-10 17:52:49,519 - __main__ - DEBUG -     * CPU time: 8.189s
+2026-04-10 17:52:49,519 - __main__ - DEBUG -     * wallclock time: 8.629s
+2026-04-10 17:52:49,520 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:52:49,520 - __main__ - INFO -   => ok  P=6.353660e-08  total=8.692s
+2026-04-10 17:52:49,520 - __main__ - INFO - [weather-factory] n12-h10 :: storm.spm
+2026-04-10 17:52:49,520 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory12.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:53:25,344 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:53:25,344 - __main__ - DEBUG -   
+2026-04-10 17:53:25,344 - __main__ - DEBUG -   Date: Fri Apr 10 17:52:49 2026
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory12.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Time for model construction: 30.038s.
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   States: 	8192
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Transitions: 	67092482
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:53:25,345 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:53:25,345 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:53:25,345 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Result (for initial states): 1.014243888e-08
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Time for model checking: 5.647s.
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   
+2026-04-10 17:53:25,345 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:53:25,345 - __main__ - DEBUG -     * peak memory usage: 4144MB
+2026-04-10 17:53:25,345 - __main__ - DEBUG -     * CPU time: 33.761s
+2026-04-10 17:53:25,345 - __main__ - DEBUG -     * wallclock time: 35.766s
+2026-04-10 17:53:25,346 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:53:25,346 - __main__ - INFO -   => ok  P=1.014244e-08  total=35.824s
+2026-04-10 17:53:25,346 - __main__ - INFO - [weather-factory] n13-h10 :: storm.spm
+2026-04-10 17:53:25,346 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory13.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 17:55:52,636 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Date: Fri Apr 10 17:53:25 2026
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Time for model construction: 124.145s.
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   States: 	16384
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Transitions: 	268402690
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 17:55:52,637 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 17:55:52,637 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 17:55:52,637 - __main__ - DEBUG -      * allStrike -> 2 item(s)
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Result (for initial states): 1.615787795e-09
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Time for model checking: 22.788s.
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   
+2026-04-10 17:55:52,637 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 17:55:52,637 - __main__ - DEBUG -     * peak memory usage: 16431MB
+2026-04-10 17:55:52,637 - __main__ - DEBUG -     * CPU time: 139.723s
+2026-04-10 17:55:52,637 - __main__ - DEBUG -     * wallclock time: 147.244s
+2026-04-10 17:55:52,638 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 17:55:52,638 - __main__ - INFO -   => ok  P=1.615788e-09  total=147.291s
+2026-04-10 17:55:52,638 - __main__ - INFO - [weather-factory] n15-h10 :: storm.spm
+2026-04-10 17:55:52,638 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory15.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 18:16:54,915 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 18:16:54,976 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 18:16:54,976 - __main__ - INFO -   => timeout
+2026-04-10 18:16:54,977 - __main__ - INFO - [weather-factory] n16-h10 :: storm.spm
+2026-04-10 18:16:54,977 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory16.prism --prop P=? [ F<=10 "allStrike" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 18:37:56,828 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 18:37:56,828 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testn/storm.spm.csv
+2026-04-10 18:37:56,828 - __main__ - INFO -   => timeout

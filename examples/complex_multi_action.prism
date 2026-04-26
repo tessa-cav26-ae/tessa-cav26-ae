@@ -1,0 +1,62 @@
+// Complex multi-action model exercising all features:
+// - Multiple modules with synchronized and anonymous actions
+// - Overlapping guards within the same action (command-level averaging)
+// - Multiple actions enabled at the same state (action-level averaging)
+// - Deadlock states
+//
+// Module m1 (owns x : [0..2]):
+//   [a] x=0 -> (x'=1)        -- action a, guard x=0
+//   [a] x=0 -> (x'=2)        -- action a, guard x=0 (overlaps! averaged with above)
+//   [b] x<2 -> (x'=x+1)      -- action b, guard x<2
+//   [] x=1 -> (x'=0)          -- anonymous, guard x=1
+//
+// Module m2 (owns y : [0..2]):
+//   [a] true -> (y'=y)        -- action a, always enabled (identity for m2)
+//   [b] y<2 -> 0.5:(y'=y) + 0.5:(y'=y+1)  -- action b, guard y<2
+//   [b] y<2 -> (y'=0)         -- action b, guard y<2 (overlaps! averaged with above)
+//
+// Action analysis per global state (x, y):
+//
+// (0,0): [a] enabled (m1: x=0, m2: true), [b] enabled (m1: x<2, m2: y<2),
+//        anon NOT enabled (m1: x=1 false) → 2 actions
+//   [a]: m1 averages two commands → 0.5*(x'=1)+0.5*(x'=2), m2 identity → y'=0
+//        result: 0.5*(1,0) + 0.5*(2,0)
+//   [b]: m1: x'=1, m2 averages two commands → 0.5*(0.5*y+0.5*(y+1)) + 0.5*0
+//        = 0.5*(0.5*0+0.5*1) + 0.5*0 = 0.25*(y'=1)  wait...
+//        m2 cmd1: 0.5*(y'=0)+0.5*(y'=1), m2 cmd2: (y'=0)
+//        averaged: 0.5*(0.5*δ₀+0.5*δ₁) + 0.5*δ₀ = 0.75*δ₀ + 0.25*δ₁
+//        result: (1, 0.75*0+0.25*1) = 0.75*(1,0) + 0.25*(1,1)
+//   action average: 0.5*[a] + 0.5*[b]
+//        = 0.5*(0.5*(1,0)+0.5*(2,0)) + 0.5*(0.75*(1,0)+0.25*(1,1))
+//        = 0.25*(1,0)+0.25*(2,0)+0.375*(1,0)+0.125*(1,1)
+//        = 0.625*(1,0) + 0.25*(2,0) + 0.125*(1,1)
+//
+// (0,1): [a] enabled, [b] enabled, anon NOT → 2 actions
+// (0,2): [a] enabled, [b] NOT (m2: y<2 false), anon NOT → 1 action
+// (1,0): [a] NOT (m1: x=0 false), [b] enabled, anon enabled → 2 actions
+// (1,1): [a] NOT, [b] enabled, anon enabled → 2 actions
+// (1,2): [a] NOT, [b] NOT (m2 y<2 false), anon enabled → 1 action
+// (2,0): [a] NOT, [b] NOT (m1 x<2 false), anon NOT → deadlock!
+// (2,1): [a] NOT, [b] NOT, anon NOT → deadlock!
+// (2,2): [a] NOT, [b] NOT, anon NOT → deadlock!
+//
+// Best verified numerically against Storm.
+
+dtmc
+
+module m1
+    x : [0..2] init 0;
+    [a] x=0 -> (x'=1);
+    [a] x=0 -> (x'=2);
+    [b] x<2 -> (x'=x+1);
+    [] x=1 -> (x'=0);
+endmodule
+
+module m2
+    y : [0..2] init 0;
+    [a] true -> (y'=y);
+    [b] y<2 -> 0.5:(y'=y) + 0.5:(y'=y+1);
+    [b] y<2 -> (y'=0);
+endmodule
+
+label "goal" = x=2 & y=0;

@@ -1,0 +1,130 @@
+=> parqueues/queue-10.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-10.prism --tojani parqueues/queue-10.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-10.jani' done. (0.001s seconds).
+=> parqueues/queue-11.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-11.prism --tojani parqueues/queue-11.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-11.jani' done. (0.001s seconds).
+=> parqueues/queue-12.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-12.prism --tojani parqueues/queue-12.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-12.jani' done. (0.001s seconds).
+=> parqueues/queue-13.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-13.prism --tojani parqueues/queue-13.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-13.jani' done. (0.001s seconds).
+=> parqueues/queue-14.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-14.prism --tojani parqueues/queue-14.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-14.jani' done. (0.001s seconds).
+=> parqueues/queue-2.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-2.prism --tojani parqueues/queue-2.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-2.jani' done. (0.000s seconds).
+=> parqueues/queue-3.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism parqueues/queue-3.prism --tojani parqueues/queue-3.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-3.jani' done. (0.000s seconds).
+=> parqueues/queue-4.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:07 2026
+Command line arguments: --prism parqueues/queue-4.prism --tojani parqueues/queue-4.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-4.jani' done. (0.000s seconds).
+=> parqueues/queue-5.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:07 2026
+Command line arguments: --prism parqueues/queue-5.prism --tojani parqueues/queue-5.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-5.jani' done. (0.000s seconds).
+=> parqueues/queue-6.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:07 2026
+Command line arguments: --prism parqueues/queue-6.prism --tojani parqueues/queue-6.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-6.jani' done. (0.000s seconds).
+=> parqueues/queue-7.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:07 2026
+Command line arguments: --prism parqueues/queue-7.prism --tojani parqueues/queue-7.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-7.jani' done. (0.000s seconds).
+=> parqueues/queue-8.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:07 2026
+Command line arguments: --prism parqueues/queue-8.prism --tojani parqueues/queue-8.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-8.jani' done. (0.000s seconds).
+=> parqueues/queue-9.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:07 2026
+Command line arguments: --prism parqueues/queue-9.prism --tojani parqueues/queue-9.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'parqueues/queue-9.jani' done. (0.000s seconds).

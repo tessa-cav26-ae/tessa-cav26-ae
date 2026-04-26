@@ -1,0 +1,3 @@
+suite,case_id,tool,storm_extra_args,num_trials,property,horizon,constants,N,H,status,probability,elapsed_seconds,error_message
+weather-factory,n13-h1,storm.add,-tm --sylvan:threads 1,1,allStrike,1,,13,1,failed,,99.75739550893195,Exit code 1
+weather-factory,n13-h2,storm.add,-tm --sylvan:threads 1,1,allStrike,2,,13,2,failed,,99.74229304795153,Exit code 1

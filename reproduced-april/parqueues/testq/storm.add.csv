@@ -1,0 +1,9 @@
+suite,case_id,tool,storm_extra_args,num_trials,property,horizon,constants,Q,N,H,status,probability,elapsed_seconds,error_message
+parqueues,q3-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",3,3,10,ok,0.7833762427,0.13508238608483225,
+parqueues,q4-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",4,3,10,ok,0.02648762758,0.5326539640082046,
+parqueues,q5-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",5,3,10,ok,0.03240260198,1.3899734050501138,
+parqueues,q6-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",6,3,10,ok,0.03444141195,2.7286527439719066,
+parqueues,q7-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",7,3,10,ok,0.03559797426,7.181914992979728,
+parqueues,q8-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",8,3,10,ok,0.03584754923,43.51598190993536,
+parqueues,q9-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",9,3,10,ok,0.03729385656,302.012191649992,
+parqueues,q10-n3-h10,storm.add,-tm --sylvan:threads 1,1,target,10,"{""N"": 3}",10,3,10,timeout,,,Timed out after 1260 seconds

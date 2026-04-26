@@ -1,0 +1,362 @@
+{
+  "actions": [
+    {
+      "name": "step"
+    }
+  ],
+  "automata": [
+    {
+      "edges": [
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x1 <- 0",
+                  "ref": "x1",
+                  "value": 0
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "3/5",
+                "exp": 0.6
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "x1 <- 1",
+                  "ref": "x1",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - 3/5)",
+                "exp": {
+                  "left": 2.0,
+                  "op": "/",
+                  "right": 5.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(x1 = x2)",
+            "exp": {
+              "left": "x1",
+              "op": "=",
+              "right": "x2"
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x1 <- x2",
+                  "ref": "x1",
+                  "value": "x2"
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "!((x1 = x2))",
+            "exp": {
+              "exp": {
+                "left": "x1",
+                "op": "=",
+                "right": "x2"
+              },
+              "op": "\u00ac"
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l",
+          "transient-values": [
+            {
+              "comment": "stable <- ((((x1 = x2) ? 1 : 0) + ((x2 = x1) ? 1 : 0)) = 1)",
+              "ref": "stable",
+              "value": {
+                "left": {
+                  "left": {
+                    "else": 0,
+                    "if": {
+                      "left": "x1",
+                      "op": "=",
+                      "right": "x2"
+                    },
+                    "op": "ite",
+                    "then": 1
+                  },
+                  "op": "+",
+                  "right": {
+                    "else": 0,
+                    "if": {
+                      "left": "x2",
+                      "op": "=",
+                      "right": "x1"
+                    },
+                    "op": "ite",
+                    "then": 1
+                  }
+                },
+                "op": "=",
+                "right": 1
+              }
+            },
+            {
+              "comment": "steps <- 1",
+              "ref": "steps",
+              "value": 1
+            }
+          ]
+        }
+      ],
+      "name": "process1",
+      "variables": []
+    },
+    {
+      "edges": [
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x2 <- 0",
+                  "ref": "x2",
+                  "value": 0
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "3/5",
+                "exp": 0.6
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "x2 <- 1",
+                  "ref": "x2",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - 3/5)",
+                "exp": {
+                  "left": 2.0,
+                  "op": "/",
+                  "right": 5.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(x2 = x1)",
+            "exp": {
+              "left": "x2",
+              "op": "=",
+              "right": "x1"
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x2 <- x1",
+                  "ref": "x2",
+                  "value": "x1"
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "!((x2 = x1))",
+            "exp": {
+              "exp": {
+                "left": "x2",
+                "op": "=",
+                "right": "x1"
+              },
+              "op": "\u00ac"
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l"
+        }
+      ],
+      "name": "process2",
+      "variables": []
+    }
+  ],
+  "constants": [
+    {
+      "name": "p",
+      "type": "real",
+      "value": 0.6
+    }
+  ],
+  "features": [
+    "derived-operators",
+    "functions"
+  ],
+  "functions": [
+    {
+      "body": {
+        "left": {
+          "else": 0,
+          "if": {
+            "left": "num_tokens__param__x1",
+            "op": "=",
+            "right": "num_tokens__param__x2"
+          },
+          "op": "ite",
+          "then": 1
+        },
+        "op": "+",
+        "right": {
+          "else": 0,
+          "if": {
+            "left": "num_tokens__param__x2",
+            "op": "=",
+            "right": "num_tokens__param__x1"
+          },
+          "op": "ite",
+          "then": 1
+        }
+      },
+      "name": "num_tokens",
+      "parameters": [
+        {
+          "name": "num_tokens__param__x1",
+          "type": "int"
+        },
+        {
+          "name": "num_tokens__param__x2",
+          "type": "int"
+        }
+      ],
+      "type": "int"
+    }
+  ],
+  "jani-version": 1,
+  "name": "herman-2",
+  "properties": [
+    {
+      "name": "stable",
+      "expression": {
+        "left": {
+          "left": {
+            "else": 0,
+            "if": {
+              "left": "x1",
+              "op": "=",
+              "right": "x2"
+            },
+            "op": "ite",
+            "then": 1
+          },
+          "op": "+",
+          "right": {
+            "else": 0,
+            "if": {
+              "left": "x2",
+              "op": "=",
+              "right": "x1"
+            },
+            "op": "ite",
+            "then": 1
+          }
+        },
+        "op": "=",
+        "right": 1
+      }
+    }
+  ],
+  "restrict-initial": {
+    "exp": true
+  },
+  "system": {
+    "elements": [
+      {
+        "automaton": "process1"
+      },
+      {
+        "automaton": "process2"
+      }
+    ],
+    "syncs": [
+      {
+        "result": "step",
+        "synchronise": [
+          "step",
+          "step"
+        ]
+      }
+    ]
+  },
+  "type": "dtmc",
+  "variables": [
+    {
+      "initial-value": false,
+      "name": "stable",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": 0.0,
+      "name": "steps",
+      "transient": true,
+      "type": "real"
+    },
+    {
+      "initial-value": 1,
+      "name": "x1",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 1
+      }
+    },
+    {
+      "initial-value": 1,
+      "name": "x2",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 1
+      }
+    }
+  ]
+}

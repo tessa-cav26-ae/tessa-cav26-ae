@@ -1,0 +1,250 @@
+=> weather_factory/weatherfactory10.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory10.prism --tojani weather_factory/weatherfactory10.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory10.jani' done. (0.002s seconds).
+=> weather_factory/weatherfactory11.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory11.prism --tojani weather_factory/weatherfactory11.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory11.jani' done. (0.006s seconds).
+=> weather_factory/weatherfactory12.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory12.prism --tojani weather_factory/weatherfactory12.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory12.jani' done. (0.003s seconds).
+=> weather_factory/weatherfactory13.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory13.prism --tojani weather_factory/weatherfactory13.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory13.jani' done. (0.003s seconds).
+=> weather_factory/weatherfactory14.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory14.prism --tojani weather_factory/weatherfactory14.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory14.jani' done. (0.003s seconds).
+=> weather_factory/weatherfactory15.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory15.prism --tojani weather_factory/weatherfactory15.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory15.jani' done. (0.003s seconds).
+=> weather_factory/weatherfactory16.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory16.prism --tojani weather_factory/weatherfactory16.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory16.jani' done. (0.004s seconds).
+=> weather_factory/weatherfactory17.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism weather_factory/weatherfactory17.prism --tojani weather_factory/weatherfactory17.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory17.jani' done. (0.004s seconds).
+=> weather_factory/weatherfactory18.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory18.prism --tojani weather_factory/weatherfactory18.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.004s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory18.jani' done. (0.007s seconds).
+=> weather_factory/weatherfactory19.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory19.prism --tojani weather_factory/weatherfactory19.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory19.jani' done. (0.004s seconds).
+=> weather_factory/weatherfactory1.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory1.prism --tojani weather_factory/weatherfactory1.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory1.jani' done. (0.000s seconds).
+=> weather_factory/weatherfactory20.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory20.prism --tojani weather_factory/weatherfactory20.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory20.jani' done. (0.004s seconds).
+=> weather_factory/weatherfactory21.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory21.prism --tojani weather_factory/weatherfactory21.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.007s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory21.jani' done. (0.010s seconds).
+=> weather_factory/weatherfactory22.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory22.prism --tojani weather_factory/weatherfactory22.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.009s seconds).
+Converting PRISM Program to JANI model ...  done. (0.002s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory22.jani' done. (0.015s seconds).
+=> weather_factory/weatherfactory23.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory23.prism --tojani weather_factory/weatherfactory23.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory23.jani' done. (0.005s seconds).
+=> weather_factory/weatherfactory24.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory24.prism --tojani weather_factory/weatherfactory24.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.003s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory24.jani' done. (0.006s seconds).
+=> weather_factory/weatherfactory25.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory25.prism --tojani weather_factory/weatherfactory25.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.006s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory25.jani' done. (0.009s seconds).
+=> weather_factory/weatherfactory2.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:05 2026
+Command line arguments: --prism weather_factory/weatherfactory2.prism --tojani weather_factory/weatherfactory2.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory2.jani' done. (0.000s seconds).
+=> weather_factory/weatherfactory3.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory3.prism --tojani weather_factory/weatherfactory3.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory3.jani' done. (0.000s seconds).
+=> weather_factory/weatherfactory4.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory4.prism --tojani weather_factory/weatherfactory4.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory4.jani' done. (0.001s seconds).
+=> weather_factory/weatherfactory5.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory5.prism --tojani weather_factory/weatherfactory5.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory5.jani' done. (0.001s seconds).
+=> weather_factory/weatherfactory6.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory6.prism --tojani weather_factory/weatherfactory6.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory6.jani' done. (0.001s seconds).
+=> weather_factory/weatherfactory7.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory7.prism --tojani weather_factory/weatherfactory7.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory7.jani' done. (0.001s seconds).
+=> weather_factory/weatherfactory8.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory8.prism --tojani weather_factory/weatherfactory8.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory8.jani' done. (0.002s seconds).
+=> weather_factory/weatherfactory9.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:06 2026
+Command line arguments: --prism weather_factory/weatherfactory9.prism --tojani weather_factory/weatherfactory9.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'weather_factory/weatherfactory9.jani' done. (0.002s seconds).

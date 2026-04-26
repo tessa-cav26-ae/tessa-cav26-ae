@@ -1,0 +1,696 @@
+{
+  "actions": [],
+  "automata": [
+    {
+      "edges": [
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 1",
+                  "ref": "s",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "x",
+                "exp": "x"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 2",
+                  "ref": "s",
+                  "value": 2
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - x)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "x"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 0)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 0
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 3",
+                  "ref": "s",
+                  "value": 3
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "y",
+                "exp": "y"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 4",
+                  "ref": "s",
+                  "value": 4
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - y)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "y"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 1)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 1
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 5",
+                  "ref": "s",
+                  "value": 5
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "y",
+                "exp": "y"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 6",
+                  "ref": "s",
+                  "value": 6
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - y)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "y"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 2)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 2
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 1",
+                  "ref": "s",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "x",
+                "exp": "x"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                },
+                {
+                  "comment": "d <- 1",
+                  "ref": "d",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - x)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "x"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 3)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 3
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                },
+                {
+                  "comment": "d <- 3",
+                  "ref": "d",
+                  "value": 3
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "x",
+                "exp": "x"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                },
+                {
+                  "comment": "d <- 2",
+                  "ref": "d",
+                  "value": 2
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - x)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "x"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 4)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 4
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 2",
+                  "ref": "s",
+                  "value": 2
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "x",
+                "exp": "x"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                },
+                {
+                  "comment": "d <- 4",
+                  "ref": "d",
+                  "value": 4
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - x)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "x"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 5)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 5
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                },
+                {
+                  "comment": "d <- 6",
+                  "ref": "d",
+                  "value": 6
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "x",
+                "exp": "x"
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                },
+                {
+                  "comment": "d <- 5",
+                  "ref": "d",
+                  "value": 5
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - x)",
+                "exp": {
+                  "left": 1,
+                  "op": "-",
+                  "right": "x"
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s = 6)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 6
+            }
+          },
+          "location": "l"
+        },
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s <- 7",
+                  "ref": "s",
+                  "value": 7
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(s = 7)",
+            "exp": {
+              "left": "s",
+              "op": "=",
+              "right": 7
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l",
+          "transient-values": [
+            {
+              "comment": "done <- (s = 7)",
+              "ref": "done",
+              "value": {
+                "left": "s",
+                "op": "=",
+                "right": 7
+              }
+            },
+            {
+              "comment": "die1 <- ((s = 7) & (d = 1))",
+              "ref": "die1",
+              "value": {
+                "left": {
+                  "left": "s",
+                  "op": "=",
+                  "right": 7
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "d",
+                  "op": "=",
+                  "right": 1
+                }
+              }
+            },
+            {
+              "comment": "die2 <- ((s = 7) & (d = 2))",
+              "ref": "die2",
+              "value": {
+                "left": {
+                  "left": "s",
+                  "op": "=",
+                  "right": 7
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "d",
+                  "op": "=",
+                  "right": 2
+                }
+              }
+            },
+            {
+              "comment": "die3 <- ((s = 7) & (d = 3))",
+              "ref": "die3",
+              "value": {
+                "left": {
+                  "left": "s",
+                  "op": "=",
+                  "right": 7
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "d",
+                  "op": "=",
+                  "right": 3
+                }
+              }
+            },
+            {
+              "comment": "die4 <- ((s = 7) & (d = 4))",
+              "ref": "die4",
+              "value": {
+                "left": {
+                  "left": "s",
+                  "op": "=",
+                  "right": 7
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "d",
+                  "op": "=",
+                  "right": 4
+                }
+              }
+            },
+            {
+              "comment": "die5 <- ((s = 7) & (d = 5))",
+              "ref": "die5",
+              "value": {
+                "left": {
+                  "left": "s",
+                  "op": "=",
+                  "right": 7
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "d",
+                  "op": "=",
+                  "right": 5
+                }
+              }
+            },
+            {
+              "comment": "die6 <- ((s = 7) & (d = 6))",
+              "ref": "die6",
+              "value": {
+                "left": {
+                  "left": "s",
+                  "op": "=",
+                  "right": 7
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "d",
+                  "op": "=",
+                  "right": 6
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "die",
+      "variables": []
+    }
+  ],
+  "constants": [
+    {
+      "name": "x",
+      "type": "real"
+    },
+    {
+      "name": "y",
+      "type": "real"
+    }
+  ],
+  "features": [
+    "derived-operators"
+  ],
+  "jani-version": 1,
+  "name": "kydice",
+  "properties": [
+    {
+      "name": "die1",
+      "expression": {
+        "left": {
+          "left": "s",
+          "op": "=",
+          "right": 7
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "d",
+          "op": "=",
+          "right": 1
+        }
+      }
+    },
+    {
+      "name": "die2",
+      "expression": {
+        "left": {
+          "left": "s",
+          "op": "=",
+          "right": 7
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "d",
+          "op": "=",
+          "right": 2
+        }
+      }
+    },
+    {
+      "name": "die3",
+      "expression": {
+        "left": {
+          "left": "s",
+          "op": "=",
+          "right": 7
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "d",
+          "op": "=",
+          "right": 3
+        }
+      }
+    },
+    {
+      "name": "die4",
+      "expression": {
+        "left": {
+          "left": "s",
+          "op": "=",
+          "right": 7
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "d",
+          "op": "=",
+          "right": 4
+        }
+      }
+    },
+    {
+      "name": "die5",
+      "expression": {
+        "left": {
+          "left": "s",
+          "op": "=",
+          "right": 7
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "d",
+          "op": "=",
+          "right": 5
+        }
+      }
+    },
+    {
+      "name": "die6",
+      "expression": {
+        "left": {
+          "left": "s",
+          "op": "=",
+          "right": 7
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "d",
+          "op": "=",
+          "right": 6
+        }
+      }
+    },
+    {
+      "name": "done",
+      "expression": {
+        "left": "s",
+        "op": "=",
+        "right": 7
+      }
+    }
+  ],
+  "restrict-initial": {
+    "exp": true
+  },
+  "system": {
+    "elements": [
+      {
+        "automaton": "die"
+      }
+    ]
+  },
+  "type": "dtmc",
+  "variables": [
+    {
+      "initial-value": false,
+      "name": "done",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "die1",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "die2",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "die3",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "die4",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "die5",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": false,
+      "name": "die6",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": 0,
+      "name": "s",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 7
+      }
+    },
+    {
+      "initial-value": 0,
+      "name": "d",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 6
+      }
+    }
+  ]
+}

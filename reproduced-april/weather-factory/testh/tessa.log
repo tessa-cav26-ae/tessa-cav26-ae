@@ -1,0 +1,169 @@
+2026-04-25 17:47:55,684 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('reproduced-april/weather-factory/testh'), 'engine': None}
+2026-04-25 17:47:55,686 - __main__ - INFO - [weather-factory] n13-h1 :: tessa
+2026-04-25 17:47:55,686 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 1 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h1.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:48:09,790 - __main__ - DEBUG -   gpu
+2026-04-25 17:48:09,790 - __main__ - DEBUG -   Array(4.08526965e-10, dtype=float64)
+2026-04-25 17:48:09,793 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:48:09,793 - __main__ - INFO -   => ok  P=4.085270e-10  total=14.104s  work=1.810±0.059s  compile=0.063s  run=0.000s
+2026-04-25 17:48:09,793 - __main__ - INFO - [weather-factory] n13-h2 :: tessa
+2026-04-25 17:48:09,794 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 2 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h2.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:48:23,486 - __main__ - DEBUG -   gpu
+2026-04-25 17:48:23,486 - __main__ - DEBUG -   Array(5.2620061e-10, dtype=float64)
+2026-04-25 17:48:23,489 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:48:23,489 - __main__ - INFO -   => ok  P=5.262006e-10  total=13.692s  work=1.794±0.108s  compile=0.053s  run=0.000s
+2026-04-25 17:48:23,489 - __main__ - INFO - [weather-factory] n13-h3 :: tessa
+2026-04-25 17:48:23,490 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 3 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h3.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:48:36,817 - __main__ - DEBUG -   gpu
+2026-04-25 17:48:36,817 - __main__ - DEBUG -   Array(6.62865726e-10, dtype=float64)
+2026-04-25 17:48:36,819 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:48:36,820 - __main__ - INFO -   => ok  P=6.628657e-10  total=13.326s  work=1.623±0.049s  compile=0.043s  run=0.000s
+2026-04-25 17:48:36,820 - __main__ - INFO - [weather-factory] n13-h4 :: tessa
+2026-04-25 17:48:36,821 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 4 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h4.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:48:50,450 - __main__ - DEBUG -   gpu
+2026-04-25 17:48:50,450 - __main__ - DEBUG -   Array(7.98774149e-10, dtype=float64)
+2026-04-25 17:48:50,452 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:48:50,453 - __main__ - INFO -   => ok  P=7.987741e-10  total=13.629s  work=1.840±0.124s  compile=0.055s  run=0.001s
+2026-04-25 17:48:50,453 - __main__ - INFO - [weather-factory] n13-h5 :: tessa
+2026-04-25 17:48:50,454 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 5 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h5.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:49:04,766 - __main__ - DEBUG -   gpu
+2026-04-25 17:49:04,766 - __main__ - DEBUG -   Array(9.34936094e-10, dtype=float64)
+2026-04-25 17:49:04,769 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:49:04,769 - __main__ - INFO -   => ok  P=9.349361e-10  total=14.312s  work=1.825±0.072s  compile=0.053s  run=0.001s
+2026-04-25 17:49:04,769 - __main__ - INFO - [weather-factory] n13-h6 :: tessa
+2026-04-25 17:49:04,770 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 6 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h6.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:49:18,686 - __main__ - DEBUG -   gpu
+2026-04-25 17:49:18,687 - __main__ - DEBUG -   Array(1.07110124e-09, dtype=float64)
+2026-04-25 17:49:18,689 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:49:18,690 - __main__ - INFO -   => ok  P=1.071101e-09  total=13.916s  work=1.882±0.079s  compile=0.059s  run=0.001s
+2026-04-25 17:49:18,690 - __main__ - INFO - [weather-factory] n13-h7 :: tessa
+2026-04-25 17:49:18,691 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 7 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h7.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:49:32,627 - __main__ - DEBUG -   gpu
+2026-04-25 17:49:32,627 - __main__ - DEBUG -   Array(1.20727221e-09, dtype=float64)
+2026-04-25 17:49:32,630 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:49:32,630 - __main__ - INFO -   => ok  P=1.207272e-09  total=13.936s  work=1.902±0.045s  compile=0.070s  run=0.001s
+2026-04-25 17:49:32,630 - __main__ - INFO - [weather-factory] n13-h8 :: tessa
+2026-04-25 17:49:32,631 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 8 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h8.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:49:46,345 - __main__ - DEBUG -   gpu
+2026-04-25 17:49:46,345 - __main__ - DEBUG -   Array(1.3434439e-09, dtype=float64)
+2026-04-25 17:49:46,347 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:49:46,347 - __main__ - INFO -   => ok  P=1.343444e-09  total=13.714s  work=1.853±0.050s  compile=0.051s  run=0.001s
+2026-04-25 17:49:46,347 - __main__ - INFO - [weather-factory] n13-h9 :: tessa
+2026-04-25 17:49:46,347 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 9 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h9.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:49:59,674 - __main__ - DEBUG -   gpu
+2026-04-25 17:49:59,675 - __main__ - DEBUG -   Array(1.47961582e-09, dtype=float64)
+2026-04-25 17:49:59,677 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:49:59,677 - __main__ - INFO -   => ok  P=1.479616e-09  total=13.327s  work=1.760±0.202s  compile=0.046s  run=0.001s
+2026-04-25 17:49:59,677 - __main__ - INFO - [weather-factory] n13-h10 :: tessa
+2026-04-25 17:49:59,678 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:50:13,481 - __main__ - DEBUG -   gpu
+2026-04-25 17:50:13,481 - __main__ - DEBUG -   Array(1.6157878e-09, dtype=float64)
+2026-04-25 17:50:13,484 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:50:13,484 - __main__ - INFO -   => ok  P=1.615788e-09  total=13.803s  work=1.833±0.217s  compile=0.046s  run=0.001s
+2026-04-25 17:50:13,484 - __main__ - INFO - [weather-factory] n13-h20 :: tessa
+2026-04-25 17:50:13,486 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 20 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h20.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:50:27,268 - __main__ - DEBUG -   gpu
+2026-04-25 17:50:27,269 - __main__ - DEBUG -   Array(2.97750769e-09, dtype=float64)
+2026-04-25 17:50:27,271 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:50:27,272 - __main__ - INFO -   => ok  P=2.977508e-09  total=13.783s  work=1.852±0.080s  compile=0.065s  run=0.002s
+2026-04-25 17:50:27,272 - __main__ - INFO - [weather-factory] n13-h30 :: tessa
+2026-04-25 17:50:27,273 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 30 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h30.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:50:41,092 - __main__ - DEBUG -   gpu
+2026-04-25 17:50:41,092 - __main__ - DEBUG -   Array(4.3392276e-09, dtype=float64)
+2026-04-25 17:50:41,095 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:50:41,095 - __main__ - INFO -   => ok  P=4.339228e-09  total=13.819s  work=1.870±0.065s  compile=0.061s  run=0.002s
+2026-04-25 17:50:41,095 - __main__ - INFO - [weather-factory] n13-h40 :: tessa
+2026-04-25 17:50:41,096 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 40 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h40.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:50:54,984 - __main__ - DEBUG -   gpu
+2026-04-25 17:50:54,984 - __main__ - DEBUG -   Array(5.7009475e-09, dtype=float64)
+2026-04-25 17:50:54,986 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:50:54,987 - __main__ - INFO -   => ok  P=5.700947e-09  total=13.887s  work=1.848±0.090s  compile=0.059s  run=0.003s
+2026-04-25 17:50:54,987 - __main__ - INFO - [weather-factory] n13-h50 :: tessa
+2026-04-25 17:50:54,988 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 50 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h50.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:51:08,375 - __main__ - DEBUG -   gpu
+2026-04-25 17:51:08,376 - __main__ - DEBUG -   Array(7.06266739e-09, dtype=float64)
+2026-04-25 17:51:08,378 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:51:08,378 - __main__ - INFO -   => ok  P=7.062667e-09  total=13.387s  work=1.841±0.013s  compile=0.056s  run=0.003s
+2026-04-25 17:51:08,379 - __main__ - INFO - [weather-factory] n13-h60 :: tessa
+2026-04-25 17:51:08,379 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 60 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h60.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:51:21,471 - __main__ - DEBUG -   gpu
+2026-04-25 17:51:21,471 - __main__ - DEBUG -   Array(8.42438729e-09, dtype=float64)
+2026-04-25 17:51:21,473 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:51:21,473 - __main__ - INFO -   => ok  P=8.424387e-09  total=13.091s  work=1.749±0.093s  compile=0.047s  run=0.004s
+2026-04-25 17:51:21,474 - __main__ - INFO - [weather-factory] n13-h70 :: tessa
+2026-04-25 17:51:21,475 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 70 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h70.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:51:34,921 - __main__ - DEBUG -   gpu
+2026-04-25 17:51:34,922 - __main__ - DEBUG -   Array(9.78610718e-09, dtype=float64)
+2026-04-25 17:51:34,924 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:51:34,924 - __main__ - INFO -   => ok  P=9.786107e-09  total=13.447s  work=1.833±0.059s  compile=0.063s  run=0.005s
+2026-04-25 17:51:34,925 - __main__ - INFO - [weather-factory] n13-h80 :: tessa
+2026-04-25 17:51:34,926 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 80 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h80.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:51:49,388 - __main__ - DEBUG -   gpu
+2026-04-25 17:51:49,388 - __main__ - DEBUG -   Array(1.11478271e-08, dtype=float64)
+2026-04-25 17:51:49,391 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:51:49,391 - __main__ - INFO -   => ok  P=1.114783e-08  total=14.462s  work=1.957±0.092s  compile=0.064s  run=0.005s
+2026-04-25 17:51:49,391 - __main__ - INFO - [weather-factory] n13-h90 :: tessa
+2026-04-25 17:51:49,392 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 90 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h90.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:52:03,617 - __main__ - DEBUG -   gpu
+2026-04-25 17:52:03,617 - __main__ - DEBUG -   Array(1.2509547e-08, dtype=float64)
+2026-04-25 17:52:03,620 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:52:03,620 - __main__ - INFO -   => ok  P=1.250955e-08  total=14.225s  work=1.874±0.025s  compile=0.059s  run=0.006s
+2026-04-25 17:52:03,620 - __main__ - INFO - [weather-factory] n13-h100 :: tessa
+2026-04-25 17:52:03,621 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:52:17,742 - __main__ - DEBUG -   gpu
+2026-04-25 17:52:17,742 - __main__ - DEBUG -   Array(1.38712669e-08, dtype=float64)
+2026-04-25 17:52:17,745 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:52:17,745 - __main__ - INFO -   => ok  P=1.387127e-08  total=14.121s  work=1.904±0.180s  compile=0.088s  run=0.007s
+2026-04-25 17:52:17,746 - __main__ - INFO - [weather-factory] n13-h200 :: tessa
+2026-04-25 17:52:17,747 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 200 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h200.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:52:32,358 - __main__ - DEBUG -   gpu
+2026-04-25 17:52:32,358 - __main__ - DEBUG -   Array(2.74884656e-08, dtype=float64)
+2026-04-25 17:52:32,360 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:52:32,361 - __main__ - INFO -   => ok  P=2.748847e-08  total=14.611s  work=1.926±0.112s  compile=0.058s  run=0.013s
+2026-04-25 17:52:32,361 - __main__ - INFO - [weather-factory] n13-h300 :: tessa
+2026-04-25 17:52:32,362 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 300 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h300.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:52:46,844 - __main__ - DEBUG -   gpu
+2026-04-25 17:52:46,845 - __main__ - DEBUG -   Array(4.11056642e-08, dtype=float64)
+2026-04-25 17:52:46,847 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:52:46,847 - __main__ - INFO -   => ok  P=4.110566e-08  total=14.482s  work=1.819±0.093s  compile=0.052s  run=0.020s
+2026-04-25 17:52:46,847 - __main__ - INFO - [weather-factory] n13-h400 :: tessa
+2026-04-25 17:52:46,848 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 400 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h400.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:53:00,807 - __main__ - DEBUG -   gpu
+2026-04-25 17:53:00,807 - __main__ - DEBUG -   Array(5.47228627e-08, dtype=float64)
+2026-04-25 17:53:00,810 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:53:00,810 - __main__ - INFO -   => ok  P=5.472286e-08  total=13.959s  work=1.910±0.076s  compile=0.049s  run=0.025s
+2026-04-25 17:53:00,810 - __main__ - INFO - [weather-factory] n13-h500 :: tessa
+2026-04-25 17:53:00,811 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 500 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h500.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:53:16,239 - __main__ - DEBUG -   gpu
+2026-04-25 17:53:16,240 - __main__ - DEBUG -   Array(6.83400609e-08, dtype=float64)
+2026-04-25 17:53:16,242 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:53:16,242 - __main__ - INFO -   => ok  P=6.834006e-08  total=15.428s  work=2.081±0.045s  compile=0.061s  run=0.032s
+2026-04-25 17:53:16,242 - __main__ - INFO - [weather-factory] n13-h600 :: tessa
+2026-04-25 17:53:16,243 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 600 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h600.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:53:31,508 - __main__ - DEBUG -   gpu
+2026-04-25 17:53:31,509 - __main__ - DEBUG -   Array(8.19572589e-08, dtype=float64)
+2026-04-25 17:53:31,511 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:53:31,512 - __main__ - INFO -   => ok  P=8.195726e-08  total=15.265s  work=1.894±0.111s  compile=0.062s  run=0.039s
+2026-04-25 17:53:31,512 - __main__ - INFO - [weather-factory] n13-h700 :: tessa
+2026-04-25 17:53:31,513 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 700 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h700.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:53:46,329 - __main__ - DEBUG -   gpu
+2026-04-25 17:53:46,329 - __main__ - DEBUG -   Array(9.55744568e-08, dtype=float64)
+2026-04-25 17:53:46,332 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:53:46,332 - __main__ - INFO -   => ok  P=9.557446e-08  total=14.816s  work=2.091±0.064s  compile=0.050s  run=0.046s
+2026-04-25 17:53:46,332 - __main__ - INFO - [weather-factory] n13-h800 :: tessa
+2026-04-25 17:53:46,333 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 800 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h800.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:54:01,308 - __main__ - DEBUG -   gpu
+2026-04-25 17:54:01,308 - __main__ - DEBUG -   Array(1.09191654e-07, dtype=float64)
+2026-04-25 17:54:01,310 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:54:01,310 - __main__ - INFO -   => ok  P=1.091917e-07  total=14.974s  work=2.020±0.113s  compile=0.056s  run=0.052s
+2026-04-25 17:54:01,311 - __main__ - INFO - [weather-factory] n13-h900 :: tessa
+2026-04-25 17:54:01,312 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 900 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h900.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:54:15,986 - __main__ - DEBUG -   gpu
+2026-04-25 17:54:15,987 - __main__ - DEBUG -   Array(1.22808852e-07, dtype=float64)
+2026-04-25 17:54:15,988 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:54:15,988 - __main__ - INFO -   => ok  P=1.228089e-07  total=14.674s  work=1.904±0.100s  compile=0.065s  run=0.059s
+2026-04-25 17:54:15,988 - __main__ - INFO - [weather-factory] n13-h1000 :: tessa
+2026-04-25 17:54:15,989 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory13.jani --type jani --property allStrike --horizon 1000 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/weather-factory/testh/n13-h1000.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:54:31,103 - __main__ - DEBUG -   gpu
+2026-04-25 17:54:31,103 - __main__ - DEBUG -   Array(1.36426049e-07, dtype=float64)
+2026-04-25 17:54:31,104 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/weather-factory/testh/tessa.csv
+2026-04-25 17:54:31,104 - __main__ - INFO -   => ok  P=1.364260e-07  total=15.114s  work=1.971±0.183s  compile=0.060s  run=0.065s

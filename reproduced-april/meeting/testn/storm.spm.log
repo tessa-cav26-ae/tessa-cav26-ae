@@ -1,0 +1,371 @@
+2026-04-10 16:17:49,898 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/meeting/testn'), 'engine': 'spm', 'mode': None, 'einsum_optimize': None}
+2026-04-10 16:17:49,901 - __main__ - INFO - [meeting] n2-h10 :: storm.spm
+2026-04-10 16:17:49,902 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:49,951 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:49 2026
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-10 16:17:49,952 - __main__ - DEBUG -   
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   States: 	9
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   Transitions: 	25
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:49,953 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:49,953 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:49,953 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:49,953 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   
+2026-04-10 16:17:49,954 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:49,954 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 16:17:49,954 - __main__ - DEBUG -     * CPU time: 0.033s
+2026-04-10 16:17:49,954 - __main__ - DEBUG -     * wallclock time: 0.014s
+2026-04-10 16:17:49,955 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:49,955 - __main__ - INFO -   => ok  P=6.325176e-02  total=0.049s
+2026-04-10 16:17:49,956 - __main__ - INFO - [meeting] n3-h10 :: storm.spm
+2026-04-10 16:17:49,956 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:50,006 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:50,006 - __main__ - DEBUG -   
+2026-04-10 16:17:50,006 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:49 2026
+2026-04-10 16:17:50,006 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   Time for model construction: 0.012s.
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   States: 	27
+2026-04-10 16:17:50,007 - __main__ - DEBUG -   Transitions: 	125
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:50,008 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:50,008 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:50,008 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 16:17:50,008 - __main__ - DEBUG -   
+2026-04-10 16:17:50,009 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:50,009 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 16:17:50,009 - __main__ - DEBUG -     * CPU time: 0.035s
+2026-04-10 16:17:50,009 - __main__ - DEBUG -     * wallclock time: 0.014s
+2026-04-10 16:17:50,009 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:50,010 - __main__ - INFO -   => ok  P=2.354395e-02  total=0.050s
+2026-04-10 16:17:50,010 - __main__ - INFO - [meeting] n4-h10 :: storm.spm
+2026-04-10 16:17:50,010 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-4.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:50 2026
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-4.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   Time for model construction: 0.014s.
+2026-04-10 16:17:50,078 - __main__ - DEBUG -   
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   States: 	81
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Transitions: 	625
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:50,079 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:50,079 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:50,079 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Result (for initial states): 0.01048038677
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:50,079 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 16:17:50,079 - __main__ - DEBUG -     * CPU time: 0.042s
+2026-04-10 16:17:50,079 - __main__ - DEBUG -     * wallclock time: 0.016s
+2026-04-10 16:17:50,079 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:50,079 - __main__ - INFO -   => ok  P=1.048039e-02  total=0.068s
+2026-04-10 16:17:50,079 - __main__ - INFO - [meeting] n5-h10 :: storm.spm
+2026-04-10 16:17:50,079 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-5.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:50,148 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:50,148 - __main__ - DEBUG -   
+2026-04-10 16:17:50,148 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:50 2026
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-5.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Time for model construction: 0.015s.
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   States: 	243
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Transitions: 	3125
+2026-04-10 16:17:50,149 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:50,150 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:50,150 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:50,150 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   Result (for initial states): 0.005381740005
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-10 16:17:50,150 - __main__ - DEBUG -   
+2026-04-10 16:17:50,151 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:50,151 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 16:17:50,151 - __main__ - DEBUG -     * CPU time: 0.047s
+2026-04-10 16:17:50,151 - __main__ - DEBUG -     * wallclock time: 0.017s
+2026-04-10 16:17:50,151 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:50,151 - __main__ - INFO -   => ok  P=5.381740e-03  total=0.069s
+2026-04-10 16:17:50,152 - __main__ - INFO - [meeting] n6-h10 :: storm.spm
+2026-04-10 16:17:50,152 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-6.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:50,277 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:50,277 - __main__ - DEBUG -   
+2026-04-10 16:17:50,277 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:50 2026
+2026-04-10 16:17:50,277 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-6.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:50,277 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   Time for model input parsing: 0.004s.
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   Time for model construction: 0.041s.
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,278 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   States: 	729
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   Transitions: 	15625
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:50,279 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:50,279 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:50,279 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   Result (for initial states): 0.00310550674
+2026-04-10 16:17:50,279 - __main__ - DEBUG -   Time for model checking: 0.001s.
+2026-04-10 16:17:50,280 - __main__ - DEBUG -   
+2026-04-10 16:17:50,280 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:50,280 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 16:17:50,280 - __main__ - DEBUG -     * CPU time: 0.085s
+2026-04-10 16:17:50,280 - __main__ - DEBUG -     * wallclock time: 0.049s
+2026-04-10 16:17:50,280 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:50,281 - __main__ - INFO -   => ok  P=3.105507e-03  total=0.125s
+2026-04-10 16:17:50,281 - __main__ - INFO - [meeting] n7-h10 :: storm.spm
+2026-04-10 16:17:50,281 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-7.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:50 2026
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-7.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Time for model construction: 0.086s.
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   States: 	2187
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Transitions: 	78125
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:50,438 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:50,439 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:50,439 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:50,439 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   Result (for initial states): 0.001973787081
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   Time for model checking: 0.009s.
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:50,439 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-10 16:17:50,439 - __main__ - DEBUG -     * CPU time: 0.132s
+2026-04-10 16:17:50,439 - __main__ - DEBUG -     * wallclock time: 0.099s
+2026-04-10 16:17:50,439 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:50,439 - __main__ - INFO -   => ok  P=1.973787e-03  total=0.157s
+2026-04-10 16:17:50,439 - __main__ - INFO - [meeting] n8-h10 :: storm.spm
+2026-04-10 16:17:50,439 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-8.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:50,853 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:50,853 - __main__ - DEBUG -   
+2026-04-10 16:17:50,853 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:50 2026
+2026-04-10 16:17:50,853 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-8.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:50,853 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   Time for model construction: 0.310s.
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   States: 	6561
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   Transitions: 	390625
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:50,854 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:50,855 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:50,855 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:50,855 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   Result (for initial states): 0.001359947825
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   Time for model checking: 0.049s.
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   
+2026-04-10 16:17:50,855 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:50,855 - __main__ - DEBUG -     * peak memory usage: 65MB
+2026-04-10 16:17:50,855 - __main__ - DEBUG -     * CPU time: 0.379s
+2026-04-10 16:17:50,856 - __main__ - DEBUG -     * wallclock time: 0.364s
+2026-04-10 16:17:50,856 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:50,856 - __main__ - INFO -   => ok  P=1.359948e-03  total=0.414s
+2026-04-10 16:17:50,856 - __main__ - INFO - [meeting] n9-h10 :: storm.spm
+2026-04-10 16:17:50,857 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-9.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:17:52,422 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:17:52,422 - __main__ - DEBUG -   
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:50 2026
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-9.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Time for model construction: 1.186s.
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   States: 	19683
+2026-04-10 16:17:52,423 - __main__ - DEBUG -   Transitions: 	1953125
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:17:52,424 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:17:52,424 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:17:52,424 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   Result (for initial states): 0.001002708801
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   Time for model checking: 0.311s.
+2026-04-10 16:17:52,424 - __main__ - DEBUG -   
+2026-04-10 16:17:52,425 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:17:52,425 - __main__ - DEBUG -     * peak memory usage: 184MB
+2026-04-10 16:17:52,425 - __main__ - DEBUG -     * CPU time: 1.455s
+2026-04-10 16:17:52,425 - __main__ - DEBUG -     * wallclock time: 1.504s
+2026-04-10 16:17:52,425 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:17:52,426 - __main__ - INFO -   => ok  P=1.002709e-03  total=1.565s
+2026-04-10 16:17:52,426 - __main__ - INFO - [meeting] n10-h10 :: storm.spm
+2026-04-10 16:17:52,426 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-10.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:18:00,176 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Date: Fri Apr 10 16:17:52 2026
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-10.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Time for model construction: 6.123s.
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   States: 	59049
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Transitions: 	9765625
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:18:00,177 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:18:00,177 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:18:00,177 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Result (for initial states): 0.0007826807609
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Time for model checking: 1.557s.
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   
+2026-04-10 16:18:00,177 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:18:00,177 - __main__ - DEBUG -     * peak memory usage: 722MB
+2026-04-10 16:18:00,177 - __main__ - DEBUG -     * CPU time: 7.291s
+2026-04-10 16:18:00,177 - __main__ - DEBUG -     * wallclock time: 7.696s
+2026-04-10 16:18:00,178 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:18:00,178 - __main__ - INFO -   => ok  P=7.826808e-04  total=7.750s
+2026-04-10 16:18:00,178 - __main__ - INFO - [meeting] n11-h10 :: storm.spm
+2026-04-10 16:18:00,178 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-11.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   Date: Fri Apr 10 16:18:00 2026
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-11.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   
+2026-04-10 16:18:40,024 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   Time for model construction: 32.051s.
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   States: 	177147
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   Transitions: 	48828125
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:18:40,025 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:18:40,025 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:18:40,025 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:18:40,025 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   Result (for initial states): 0.0006409284511
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   Time for model checking: 7.667s.
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   
+2026-04-10 16:18:40,026 - __main__ - DEBUG -   Performance statistics:
+2026-04-10 16:18:40,026 - __main__ - DEBUG -     * peak memory usage: 3407MB
+2026-04-10 16:18:40,026 - __main__ - DEBUG -     * CPU time: 37.818s
+2026-04-10 16:18:40,026 - __main__ - DEBUG -     * wallclock time: 39.786s
+2026-04-10 16:18:40,027 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:18:40,027 - __main__ - INFO -   => ok  P=6.409285e-04  total=39.846s
+2026-04-10 16:18:40,027 - __main__ - INFO - [meeting] n12-h10 :: storm.spm
+2026-04-10 16:18:40,028 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-12.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-10 16:21:58,768 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-10 16:21:58,768 - __main__ - DEBUG -   
+2026-04-10 16:21:58,768 - __main__ - DEBUG -   Date: Fri Apr 10 16:18:40 2026
+2026-04-10 16:21:58,768 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Time for model construction: 161.361s.
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   States: 	531441
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Transitions: 	244140625
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Reward Models:  none
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-10 16:21:58,769 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-10 16:21:58,769 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-10 16:21:58,769 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   
+2026-04-10 16:21:58,769 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-10 16:21:58,769 - __main__ - WARNING -   ERROR: The program received signal 11 and will be aborted in 3s.
+2026-04-10 16:21:58,769 - __main__ - WARNING -   Received signal 11
+2026-04-10 16:21:58,769 - __main__ - ERROR -   failed: Exit code 11
+2026-04-10 16:21:58,770 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testn/storm.spm.csv
+2026-04-10 16:21:58,770 - __main__ - INFO -   => failed  total=198.740s

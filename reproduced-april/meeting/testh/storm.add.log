@@ -1,0 +1,31 @@
+2026-04-09 22:01:38,700 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/meeting/testh'), 'engine': 'add', 'mode': None, 'einsum_optimize': None}
+2026-04-09 22:01:38,703 - __main__ - INFO - [meeting] n12-h1 :: storm.add
+2026-04-09 22:01:38,703 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-12.prism --prop P=? [ F<=1 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-04-09 22:02:39,403 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:02:39,403 - __main__ - DEBUG -   
+2026-04-09 22:02:39,403 - __main__ - DEBUG -   Date: Thu Apr  9 22:01:38 2026
+2026-04-09 22:02:39,403 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=1 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-09 22:02:39,403 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:02:39,404 - __main__ - DEBUG -   
+2026-04-09 22:02:39,404 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-09 22:02:39,404 - __main__ - DEBUG -   
+2026-04-09 22:02:39,404 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:02:39,404 - __main__ - WARNING -   BDD Unique table full, 65652655 of 67108864 buckets filled!
+2026-04-09 22:02:39,404 - __main__ - ERROR -   failed: Exit code 1
+2026-04-09 22:02:39,406 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testh/storm.add.csv
+2026-04-09 22:02:39,406 - __main__ - INFO -   => failed  total=60.699s
+2026-04-09 22:02:39,406 - __main__ - INFO - [meeting] n12-h2 :: storm.add
+2026-04-09 22:02:39,406 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-12.prism --prop P=? [ F<=2 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   Date: Thu Apr  9 22:02:39 2026
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=2 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   
+2026-04-09 22:03:40,270 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:03:40,270 - __main__ - WARNING -   BDD Unique table full, 65652655 of 67108864 buckets filled!
+2026-04-09 22:03:40,270 - __main__ - ERROR -   failed: Exit code 1
+2026-04-09 22:03:40,270 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/meeting/testh/storm.add.csv
+2026-04-09 22:03:40,270 - __main__ - INFO -   => failed  total=60.863s

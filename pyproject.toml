@@ -1,0 +1,29 @@
+[project]
+name = "tessa"
+version = "0.1.0"
+description = "Python loaders for JANI and PRISM models"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "click",
+    "jax",
+    "jaxlib",
+    "numpy",
+    "optax",
+]
+
+[project.scripts]
+tessa = "tessa.cli:main"
+tessa-benchmark = "tessa.benchmarks:main"
+tessa-postprocess = "tessa.postprocess:main"
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["tessa", "tessa.compiler"]
+
+[tool.setuptools.package-dir]
+tessa = "src"
+"tessa.compiler" = "src/compiler"

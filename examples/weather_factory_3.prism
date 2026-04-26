@@ -1,0 +1,54 @@
+dtmc
+
+const double p1 = 0.1;
+const double q1 = 0.2;
+
+const double p2 = 0.2;
+const double q2 = 0.3;
+
+const double p3 = 0.41;
+const double q3 = 0.45;
+
+
+module weathermodule
+    sun : bool init true;
+    [act]  sun -> 0.7: (sun'=sun) + 0.3: (sun'=!sun);
+    [act] !sun -> 0.4: (sun'=sun) + 0.6: (sun'=!sun);
+endmodule
+
+module factory1
+    state1 : bool init false;
+    [act] state1 & sun  -> 0.3 * p1: (state1'=true) + 1-(0.3 * p1): (state1'=false);
+    [act] !state1 & sun -> 0.7 * q1: (state1'=true) + 1-(0.7 * q1): (state1'=false);
+    [act] state1 & !sun -> 0.6 * p1: (state1'=true) + 1-(0.6 * p1): (state1'=false);
+    [act] !state1 & !sun -> 0.4 * q1: (state1'=true) + 1-(0.4 * q1): (state1'=false);
+endmodule
+
+module factory2 = factory1[state1=state2,p1=p2,q1=q2] endmodule
+module factory3 = factory1[state1=state3,p1=p3,q1=q3] endmodule
+
+label "allStrike" = state1 & state2 & state3;
+
+// > storm --prism weather_factory_3.prism --prop 'P=? [F<=10 "allStrike" ]'
+//
+// Storm 1.11.1
+//
+// Command line arguments: --prism weather_factory_3.prism --prop 'P=? [F<=10 "allStrike" ]'
+// Time for model input parsing: 0.001s.
+// Time for model construction: 0.030s.
+//
+// -------------------------------------------------------------- 
+// Model type:     DTMC (sparse)
+// States:         16
+// Transitions:    226
+// Reward Models:  none
+// State Labels:   3 labels
+//    * deadlock -> 0 item(s)
+//    * init -> 1 item(s)
+//    * allStrike -> 2 item(s)
+// Choice Labels:  none
+// -------------------------------------------------------------- 
+//
+// Model checking property "1": P=? [true U<=10 "allStrike"] ...
+// Result (for initial states): 0.05142680456
+// Time for model checking: 0.080s.

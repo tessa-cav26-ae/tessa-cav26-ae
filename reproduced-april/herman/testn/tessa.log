@@ -1,0 +1,55 @@
+2026-04-25 17:33:13,679 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('reproduced-april/herman/testn'), 'engine': None}
+2026-04-25 17:33:13,683 - __main__ - INFO - [herman] n3-h100 :: tessa
+2026-04-25 17:33:13,683 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-3.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n3-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:18,470 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:18,471 - __main__ - DEBUG -   Array(1., dtype=float64)
+2026-04-25 17:33:18,474 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:18,474 - __main__ - INFO -   => ok  P=1.000000e+00  total=4.787s  work=0.374±0.005s  compile=0.017s  run=0.003s
+2026-04-25 17:33:18,474 - __main__ - INFO - [herman] n5-h100 :: tessa
+2026-04-25 17:33:18,475 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-5.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n5-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:23,612 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:23,612 - __main__ - DEBUG -   Array(1., dtype=float64)
+2026-04-25 17:33:23,614 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:23,615 - __main__ - INFO -   => ok  P=1.000000e+00  total=5.136s  work=0.436±0.012s  compile=0.021s  run=0.002s
+2026-04-25 17:33:23,615 - __main__ - INFO - [herman] n7-h100 :: tessa
+2026-04-25 17:33:23,616 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-7.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n7-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:29,546 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:29,546 - __main__ - DEBUG -   Array(1., dtype=float64)
+2026-04-25 17:33:29,549 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:29,549 - __main__ - INFO -   => ok  P=1.000000e+00  total=5.930s  work=0.581±0.056s  compile=0.030s  run=0.003s
+2026-04-25 17:33:29,549 - __main__ - INFO - [herman] n9-h100 :: tessa
+2026-04-25 17:33:29,550 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-9.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n9-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:36,140 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:36,140 - __main__ - DEBUG -   Array(0.99999683, dtype=float64)
+2026-04-25 17:33:36,141 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:36,141 - __main__ - INFO -   => ok  P=9.999968e-01  total=6.590s  work=0.629±0.058s  compile=0.037s  run=0.003s
+2026-04-25 17:33:36,141 - __main__ - INFO - [herman] n11-h100 :: tessa
+2026-04-25 17:33:36,141 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-11.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n11-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:43,111 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:43,111 - __main__ - DEBUG -   Array(0.9997919, dtype=float64)
+2026-04-25 17:33:43,113 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:43,114 - __main__ - INFO -   => ok  P=9.997919e-01  total=6.969s  work=0.640±0.013s  compile=0.043s  run=0.004s
+2026-04-25 17:33:43,114 - __main__ - INFO - [herman] n13-h100 :: tessa
+2026-04-25 17:33:43,115 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-13.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n13-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:50,418 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:50,418 - __main__ - DEBUG -   Array(0.99770049, dtype=float64)
+2026-04-25 17:33:50,421 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:50,421 - __main__ - INFO -   => ok  P=9.977005e-01  total=7.303s  work=0.669±0.033s  compile=0.043s  run=0.005s
+2026-04-25 17:33:50,421 - __main__ - INFO - [herman] n15-h100 :: tessa
+2026-04-25 17:33:50,422 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-15.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n15-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:33:58,378 - __main__ - DEBUG -   gpu
+2026-04-25 17:33:58,378 - __main__ - DEBUG -   Array(0.98961165, dtype=float64)
+2026-04-25 17:33:58,381 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:33:58,381 - __main__ - INFO -   => ok  P=9.896116e-01  total=7.956s  work=0.806±0.071s  compile=0.046s  run=0.008s
+2026-04-25 17:33:58,381 - __main__ - INFO - [herman] n17-h100 :: tessa
+2026-04-25 17:33:58,382 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-17.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n17-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:34:08,029 - __main__ - DEBUG -   gpu
+2026-04-25 17:34:08,029 - __main__ - DEBUG -   Array(0.97150682, dtype=float64)
+2026-04-25 17:34:08,031 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:34:08,031 - __main__ - INFO -   => ok  P=9.715068e-01  total=9.646s  work=1.106±0.060s  compile=0.082s  run=0.020s
+2026-04-25 17:34:08,032 - __main__ - INFO - [herman] n19-h100 :: tessa
+2026-04-25 17:34:08,033 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-19.jani --type jani --property stable --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced-april/herman/testn/n19-h100.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-25 17:34:20,875 - __main__ - DEBUG -   gpu
+2026-04-25 17:34:20,876 - __main__ - DEBUG -   Array(0.94213136, dtype=float64)
+2026-04-25 17:34:20,878 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced-april/herman/testn/tessa.csv
+2026-04-25 17:34:20,879 - __main__ - INFO -   => ok  P=9.421314e-01  total=12.842s  work=1.532±0.062s  compile=0.079s  run=0.094s

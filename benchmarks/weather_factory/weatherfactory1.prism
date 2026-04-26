@@ -1,0 +1,23 @@
+dtmc
+
+const double p1 = 0.1;
+const double q1 = 0.2;
+
+
+module weathermodule
+    sun : bool init true;
+    [act]  sun -> 0.7: (sun'=sun) + 0.3: (sun'=!sun);
+    [act] !sun -> 0.4: (sun'=sun) + 0.6: (sun'=!sun);
+endmodule
+
+module factory1
+    state1 : bool init false;
+    [act] state1 & sun  -> 0.3 * p1: (state1'=true) + 1-(0.3 * p1): (state1'=false);
+    [act] !state1 & sun -> 0.7 * q1: (state1'=true) + 1-(0.7 * q1): (state1'=false);
+    [act] state1 & !sun -> 0.6 * p1: (state1'=true) + 1-(0.6 * p1): (state1'=false);
+    [act] !state1 & !sun -> 0.4 * q1: (state1'=true) + 1-(0.4 * q1): (state1'=false);
+endmodule
+
+
+label "allStrike" = state1;
+

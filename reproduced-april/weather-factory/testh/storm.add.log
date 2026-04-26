@@ -1,0 +1,31 @@
+2026-04-09 22:10:16,051 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/weather-factory/testh'), 'engine': 'add', 'mode': None, 'einsum_optimize': None}
+2026-04-09 22:10:16,061 - __main__ - INFO - [weather-factory] n13-h1 :: storm.add
+2026-04-09 22:10:16,061 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory13.prism --prop P=? [ F<=1 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   Date: Thu Apr  9 22:10:16 2026
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=1 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-09 22:11:55,819 - __main__ - DEBUG -   
+2026-04-09 22:11:55,820 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:11:55,820 - __main__ - WARNING -   BDD Unique table full, 65856705 of 67108864 buckets filled!
+2026-04-09 22:11:55,820 - __main__ - ERROR -   failed: Exit code 1
+2026-04-09 22:11:55,821 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testh/storm.add.csv
+2026-04-09 22:11:55,821 - __main__ - INFO -   => failed  total=99.757s
+2026-04-09 22:11:55,821 - __main__ - INFO - [weather-factory] n13-h2 :: storm.add
+2026-04-09 22:11:55,821 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory13.prism --prop P=? [ F<=2 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-09 22:13:35,564 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:13:35,564 - __main__ - DEBUG -   
+2026-04-09 22:13:35,564 - __main__ - DEBUG -   Date: Thu Apr  9 22:11:55 2026
+2026-04-09 22:13:35,565 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=2 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-09 22:13:35,565 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:13:35,565 - __main__ - DEBUG -   
+2026-04-09 22:13:35,565 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-09 22:13:35,565 - __main__ - DEBUG -   
+2026-04-09 22:13:35,565 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:13:35,565 - __main__ - WARNING -   BDD Unique table full, 65856705 of 67108864 buckets filled!
+2026-04-09 22:13:35,566 - __main__ - ERROR -   failed: Exit code 1
+2026-04-09 22:13:35,567 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/weather-factory/testh/storm.add.csv
+2026-04-09 22:13:35,567 - __main__ - INFO -   => failed  total=99.742s

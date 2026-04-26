@@ -1,0 +1,22 @@
+suite,case_id,tool,storm_extra_args,num_trials,property,horizon,constants,N,H,status,probability,elapsed_seconds,error_message
+herman,n17-h1,storm.add,-tm --sylvan:threads 1,1,stable,1,,17,1,ok,0.0001871280341,2.2739636739715934,
+herman,n17-h2,storm.add,-tm --sylvan:threads 1,1,stable,2,,17,2,ok,0.003729208483,4.191004322958179,
+herman,n17-h3,storm.add,-tm --sylvan:threads 1,1,stable,3,,17,3,ok,0.01465386225,11.898095246986486,
+herman,n17-h4,storm.add,-tm --sylvan:threads 1,1,stable,4,,17,4,ok,0.03295467304,23.30284602800384,
+herman,n17-h5,storm.add,-tm --sylvan:threads 1,1,stable,5,,17,5,ok,0.05684208239,35.92109861294739,
+herman,n17-h6,storm.add,-tm --sylvan:threads 1,1,stable,6,,17,6,ok,0.08444970738,54.49007556808647,
+herman,n17-h7,storm.add,-tm --sylvan:threads 1,1,stable,7,,17,7,ok,0.1142782091,66.24742486898322,
+herman,n17-h8,storm.add,-tm --sylvan:threads 1,1,stable,8,,17,8,ok,0.1452254011,77.51940929994453,
+herman,n17-h9,storm.add,-tm --sylvan:threads 1,1,stable,9,,17,9,ok,0.1765164067,94.54786880500615,
+herman,n17-h10,storm.add,-tm --sylvan:threads 1,1,stable,10,,17,10,ok,0.2076203636,106.23410356999375,
+herman,n17-h20,storm.add,-tm --sylvan:threads 1,1,stable,20,,17,20,ok,0.4697421099,243.6970018290449,
+herman,n17-h30,storm.add,-tm --sylvan:threads 1,1,stable,30,,17,30,ok,0.6406714371,380.22690427699126,
+herman,n17-h40,storm.add,-tm --sylvan:threads 1,1,stable,40,,17,40,ok,0.7525656265,519.5108150240267,
+herman,n17-h50,storm.add,-tm --sylvan:threads 1,1,stable,50,,17,50,ok,0.8281557957,657.6261254829587,
+herman,n17-h60,storm.add,-tm --sylvan:threads 1,1,stable,60,,17,60,ok,0.8802169372,799.9659522100119,
+herman,n17-h70,storm.add,-tm --sylvan:threads 1,1,stable,70,,17,70,ok,0.9163881459,938.2910974719562,
+herman,n17-h80,storm.add,-tm --sylvan:threads 1,1,stable,80,,17,80,ok,0.9416066036,1067.0187526569935,
+herman,n17-h90,storm.add,-tm --sylvan:threads 1,1,stable,90,,17,90,ok,0.9592114172,1189.3096677260473,
+herman,n17-h100,storm.add,-tm --sylvan:threads 1,1,stable,100,,17,100,timeout,,,Timed out after 1260 seconds
+herman,n17-h200,storm.add,-tm --sylvan:threads 1,1,stable,200,,17,200,timeout,,,Timed out after 1260 seconds
+herman,n17-h300,storm.add,-tm --sylvan:threads 1,1,stable,300,,17,300,timeout,,,Timed out after 1260 seconds

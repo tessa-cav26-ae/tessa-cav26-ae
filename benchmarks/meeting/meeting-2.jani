@@ -1,0 +1,412 @@
+{
+  "actions": [
+    {
+      "name": "step"
+    }
+  ],
+  "automata": [
+    {
+      "edges": [
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s1 <- 0",
+                  "ref": "s1",
+                  "value": 0
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - 1/20)",
+                "exp": 0.95
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s1 <- 1",
+                  "ref": "s1",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "1/20",
+                "exp": {
+                  "left": 1.0,
+                  "op": "/",
+                  "right": 20.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s1 = 0)",
+            "exp": {
+              "left": "s1",
+              "op": "=",
+              "right": 0
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s1 <- 0",
+                  "ref": "s1",
+                  "value": 0
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - 27/50)",
+                "exp": {
+                  "left": 23.0,
+                  "op": "/",
+                  "right": 50.0
+                }
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s1 <- 2",
+                  "ref": "s1",
+                  "value": 2
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "27/50",
+                "exp": {
+                  "left": 27.0,
+                  "op": "/",
+                  "right": 50.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s1 = 1)",
+            "exp": {
+              "left": "s1",
+              "op": "=",
+              "right": 1
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s1 <- 2",
+                  "ref": "s1",
+                  "value": 2
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(s1 = 2)",
+            "exp": {
+              "left": "s1",
+              "op": "=",
+              "right": 2
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l",
+          "transient-values": [
+            {
+              "comment": "goal <- ((s1 = 2) & (s2 = 2))",
+              "ref": "goal",
+              "value": {
+                "left": {
+                  "left": "s1",
+                  "op": "=",
+                  "right": 2
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "s2",
+                  "op": "=",
+                  "right": 2
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "P1",
+      "variables": []
+    },
+    {
+      "edges": [
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s2 <- 0",
+                  "ref": "s2",
+                  "value": 0
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - 7/100)",
+                "exp": {
+                  "left": 93.0,
+                  "op": "/",
+                  "right": 100.0
+                }
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s2 <- 1",
+                  "ref": "s2",
+                  "value": 1
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "7/100",
+                "exp": {
+                  "left": 7.0,
+                  "op": "/",
+                  "right": 100.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s2 = 0)",
+            "exp": {
+              "left": "s2",
+              "op": "=",
+              "right": 0
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s2 <- 0",
+                  "ref": "s2",
+                  "value": 0
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "(1 - 14/25)",
+                "exp": {
+                  "left": 11.0,
+                  "op": "/",
+                  "right": 25.0
+                }
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "s2 <- 2",
+                  "ref": "s2",
+                  "value": 2
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "14/25",
+                "exp": {
+                  "left": 14.0,
+                  "op": "/",
+                  "right": 25.0
+                }
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(s2 = 1)",
+            "exp": {
+              "left": "s2",
+              "op": "=",
+              "right": 1
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "step",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "s2 <- 2",
+                  "ref": "s2",
+                  "value": 2
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(s2 = 2)",
+            "exp": {
+              "left": "s2",
+              "op": "=",
+              "right": 2
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l"
+        }
+      ],
+      "name": "P2",
+      "variables": []
+    }
+  ],
+  "constants": [
+    {
+      "name": "p1",
+      "type": "real",
+      "value": {
+        "left": 1.0,
+        "op": "/",
+        "right": 20.0
+      }
+    },
+    {
+      "name": "q1",
+      "type": "real",
+      "value": {
+        "left": 27.0,
+        "op": "/",
+        "right": 50.0
+      }
+    },
+    {
+      "name": "p2",
+      "type": "real",
+      "value": {
+        "left": 7.0,
+        "op": "/",
+        "right": 100.0
+      }
+    },
+    {
+      "name": "q2",
+      "type": "real",
+      "value": {
+        "left": 14.0,
+        "op": "/",
+        "right": 25.0
+      }
+    }
+  ],
+  "features": [
+    "derived-operators"
+  ],
+  "jani-version": 1,
+  "name": "meeting-2",
+  "properties": [
+    {
+      "name": "goal",
+      "expression": {
+        "left": {
+          "left": "s1",
+          "op": "=",
+          "right": 2
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "s2",
+          "op": "=",
+          "right": 2
+        }
+      }
+    }
+  ],
+  "restrict-initial": {
+    "exp": true
+  },
+  "system": {
+    "elements": [
+      {
+        "automaton": "P1"
+      },
+      {
+        "automaton": "P2"
+      }
+    ],
+    "syncs": [
+      {
+        "result": "step",
+        "synchronise": [
+          "step",
+          "step"
+        ]
+      }
+    ]
+  },
+  "type": "dtmc",
+  "variables": [
+    {
+      "initial-value": false,
+      "name": "goal",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": 0,
+      "name": "s1",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 2
+      }
+    },
+    {
+      "initial-value": 0,
+      "name": "s2",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 2
+      }
+    }
+  ]
+}

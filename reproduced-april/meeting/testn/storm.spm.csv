@@ -1,0 +1,12 @@
+suite,case_id,tool,storm_extra_args,num_trials,property,horizon,constants,N,H,status,probability,elapsed_seconds,error_message
+meeting,n2-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,2,10,ok,0.0632517554,0.049356647999957204,
+meeting,n3-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,3,10,ok,0.02354395006,0.05000534700229764,
+meeting,n4-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,4,10,ok,0.01048038677,0.06803683703765273,
+meeting,n5-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,5,10,ok,0.005381740005,0.06853652594145387,
+meeting,n6-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,6,10,ok,0.00310550674,0.12485502299387008,
+meeting,n7-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,7,10,ok,0.001973787081,0.15682971593923867,
+meeting,n8-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,8,10,ok,0.001359947825,0.413530578953214,
+meeting,n9-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,9,10,ok,0.001002708801,1.5652617589803413,
+meeting,n10-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,10,10,ok,0.0007826807609,7.7503852089867,
+meeting,n11-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,11,10,ok,0.0006409284511,39.84570811293088,
+meeting,n12-h10,storm.spm,-tm --sylvan:threads 1,1,goal,10,,12,10,failed,,198.74023485102225,Exit code 11

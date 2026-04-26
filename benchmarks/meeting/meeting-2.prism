@@ -1,0 +1,17 @@
+dtmc
+
+const double p1=0.05;
+const double q1=0.54;
+const double p2=0.07;
+const double q2=0.56;
+
+module P1
+    s1 : [0.. 2] init 0;
+    [step] s1 = 0 -> (1 - p1) : (s1' = 0) + p1 : (s1' = 1);
+    [step] s1 = 1 -> (1 - q1) : (s1' = 0) + q1 : (s1' = 2);
+    [step] s1 = 2 -> 1.0 : (s1' = 2);
+endmodule
+
+module P2 = P1[s1=s2,p1=p2,q1=q2] endmodule
+
+label "goal" = (s1 = 2) & (s2 = 2);

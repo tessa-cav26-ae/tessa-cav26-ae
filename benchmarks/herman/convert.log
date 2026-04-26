@@ -1,0 +1,290 @@
+=> herman/herman-10.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:58 2026
+Command line arguments: --prism /tmp/tmp.8LTvhjfD8Q.prism --tojani herman/herman-10.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-10.jani' done. (0.001s seconds).
+=> herman/herman-11.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:58 2026
+Command line arguments: --prism /tmp/tmp.RGv7Chd4dI.prism --tojani herman/herman-11.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-11.jani' done. (0.001s seconds).
+=> herman/herman-12.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:58 2026
+Command line arguments: --prism /tmp/tmp.8mCPeikane.prism --tojani herman/herman-12.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.003s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-12.jani' done. (0.003s seconds).
+=> herman/herman-13.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:58 2026
+Command line arguments: --prism /tmp/tmp.ZIGRtTX7r9.prism --tojani herman/herman-13.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-13.jani' done. (0.001s seconds).
+=> herman/herman-13-random-input.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:58 2026
+Command line arguments: --prism /tmp/tmp.HZBTELBmB3.prism --tojani herman/herman-13-random-input.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-13-random-input.jani' done. (0.001s seconds).
+=> herman/herman-13-random-parametric.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:59 2026
+Command line arguments: --prism /tmp/tmp.9SWc7r4QrS.prism --tojani herman/herman-13-random-parametric.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-13-random-parametric.jani' done. (0.001s seconds).
+=> herman/herman-14.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:59 2026
+Command line arguments: --prism /tmp/tmp.1wQaAuHGNM.prism --tojani herman/herman-14.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-14.jani' done. (0.001s seconds).
+=> herman/herman-15.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:59 2026
+Command line arguments: --prism /tmp/tmp.702COns08U.prism --tojani herman/herman-15.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-15.jani' done. (0.001s seconds).
+=> herman/herman-16.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:59 2026
+Command line arguments: --prism /tmp/tmp.wQ1ColGfNH.prism --tojani herman/herman-16.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-16.jani' done. (0.001s seconds).
+=> herman/herman-17.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:59 2026
+Command line arguments: --prism /tmp/tmp.mpSXtGy85m.prism --tojani herman/herman-17.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-17.jani' done. (0.001s seconds).
+=> herman/herman-17-random-input.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:30:59 2026
+Command line arguments: --prism /tmp/tmp.sBg8xYASbE.prism --tojani herman/herman-17-random-input.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-17-random-input.jani' done. (0.001s seconds).
+=> herman/herman-17-random-parametric.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.v4K2Kuawz9.prism --tojani herman/herman-17-random-parametric.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-17-random-parametric.jani' done. (0.001s seconds).
+=> herman/herman-18.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.ZmjSWlZkrS.prism --tojani herman/herman-18.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.004s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-18.jani' done. (0.005s seconds).
+=> herman/herman-19.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.43rygcGJrH.prism --tojani herman/herman-19.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-19.jani' done. (0.001s seconds).
+=> herman/herman-19-random-input.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.Y8ICPcW0xW.prism --tojani herman/herman-19-random-input.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-19-random-input.jani' done. (0.001s seconds).
+=> herman/herman-20.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.N1tHgIGU1h.prism --tojani herman/herman-20.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.005s seconds).
+Converting PRISM Program to JANI model ...  done. (0.002s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-20.jani' done. (0.003s seconds).
+=> herman/herman-21.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.Hsui2H2IfB.prism --tojani herman/herman-21.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-21.jani' done. (0.001s seconds).
+=> herman/herman-22.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:00 2026
+Command line arguments: --prism /tmp/tmp.NFMCW1xRLy.prism --tojani herman/herman-22.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-22.jani' done. (0.002s seconds).
+=> herman/herman-23.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:01 2026
+Command line arguments: --prism /tmp/tmp.pIJpH3Tjxq.prism --tojani herman/herman-23.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-23.jani' done. (0.002s seconds).
+=> herman/herman-24.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:01 2026
+Command line arguments: --prism /tmp/tmp.aa79RrsTEw.prism --tojani herman/herman-24.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.003s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-24.jani' done. (0.002s seconds).
+=> herman/herman-25.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:01 2026
+Command line arguments: --prism /tmp/tmp.Ly54MdR3Hm.prism --tojani herman/herman-25.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-25.jani' done. (0.002s seconds).
+=> herman/herman-2.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:01 2026
+Command line arguments: --prism /tmp/tmp.jokB7uEsiL.prism --tojani herman/herman-2.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-2.jani' done. (0.000s seconds).
+=> herman/herman-3.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:01 2026
+Command line arguments: --prism /tmp/tmp.8aqTLzivhX.prism --tojani herman/herman-3.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-3.jani' done. (0.000s seconds).
+=> herman/herman-4.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:01 2026
+Command line arguments: --prism /tmp/tmp.DfOS5PyNBq.prism --tojani herman/herman-4.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-4.jani' done. (0.001s seconds).
+=> herman/herman-5.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism /tmp/tmp.gFIlpvFnKT.prism --tojani herman/herman-5.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-5.jani' done. (0.000s seconds).
+=> herman/herman-6.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism /tmp/tmp.2J1M8u0SHf.prism --tojani herman/herman-6.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-6.jani' done. (0.000s seconds).
+=> herman/herman-7.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism /tmp/tmp.M6m4TqB266.prism --tojani herman/herman-7.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-7.jani' done. (0.002s seconds).
+=> herman/herman-8.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism /tmp/tmp.YdziX00DsY.prism --tojani herman/herman-8.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-8.jani' done. (0.000s seconds).
+=> herman/herman-9.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism /tmp/tmp.TomgjNwm0v.prism --tojani herman/herman-9.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'herman/herman-9.jani' done. (0.000s seconds).

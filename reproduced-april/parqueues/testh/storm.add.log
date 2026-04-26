@@ -1,0 +1,501 @@
+2026-04-09 22:40:33,867 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_warmup': 1, 'num_timed_runs': 1, 'num_trials': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/parqueues/testh'), 'engine': 'add', 'mode': None, 'einsum_optimize': None}
+2026-04-09 22:40:33,870 - __main__ - INFO - [parqueues] q9-n3-h1 :: storm.add
+2026-04-09 22:40:33,871 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=1 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Date: Thu Apr  9 22:40:33 2026
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=1 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Time for model construction: 1.204s.
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:40:35,574 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:40:35,574 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:40:35,574 - __main__ - DEBUG -      * target
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=1 "target"] ...
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Result (for initial states): 0
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Time for model checking: 0.162s.
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   
+2026-04-09 22:40:35,574 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:40:35,574 - __main__ - DEBUG -     * peak memory usage: 2167MB
+2026-04-09 22:40:35,575 - __main__ - DEBUG -     * CPU time: 0.788s
+2026-04-09 22:40:35,575 - __main__ - DEBUG -     * wallclock time: 1.669s
+2026-04-09 22:40:35,575 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:40:35,575 - __main__ - INFO -   => ok  P=0.000000e+00  total=1.703s
+2026-04-09 22:40:35,575 - __main__ - INFO - [parqueues] q9-n3-h2 :: storm.add
+2026-04-09 22:40:35,575 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=2 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:40:38,340 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:40:38,340 - __main__ - DEBUG -   
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Date: Thu Apr  9 22:40:35 2026
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=2 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Time for model construction: 1.317s.
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:40:38,341 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:40:38,341 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:40:38,341 - __main__ - DEBUG -      * target
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=2 "target"] ...
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Result (for initial states): 0
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Time for model checking: 1.065s.
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   
+2026-04-09 22:40:38,341 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:40:38,341 - __main__ - DEBUG -     * peak memory usage: 2848MB
+2026-04-09 22:40:38,341 - __main__ - DEBUG -     * CPU time: 1.493s
+2026-04-09 22:40:38,341 - __main__ - DEBUG -     * wallclock time: 2.717s
+2026-04-09 22:40:38,342 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:40:38,342 - __main__ - INFO -   => ok  P=0.000000e+00  total=2.765s
+2026-04-09 22:40:38,342 - __main__ - INFO - [parqueues] q9-n3-h3 :: storm.add
+2026-04-09 22:40:38,342 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=3 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   Date: Thu Apr  9 22:40:38 2026
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=3 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   
+2026-04-09 22:40:52,272 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Time for model construction: 1.199s.
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:40:52,273 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:40:52,273 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:40:52,273 - __main__ - DEBUG -      * target
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=3 "target"] ...
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Result (for initial states): 0.001981573309
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Time for model checking: 12.315s.
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:40:52,273 - __main__ - DEBUG -     * peak memory usage: 3267MB
+2026-04-09 22:40:52,273 - __main__ - DEBUG -     * CPU time: 12.569s
+2026-04-09 22:40:52,273 - __main__ - DEBUG -     * wallclock time: 13.895s
+2026-04-09 22:40:52,273 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:40:52,273 - __main__ - INFO -   => ok  P=1.981573e-03  total=13.930s
+2026-04-09 22:40:52,273 - __main__ - INFO - [parqueues] q9-n3-h4 :: storm.add
+2026-04-09 22:40:52,273 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=4 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Date: Thu Apr  9 22:40:52 2026
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=4 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Time for model construction: 1.177s.
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:41:46,785 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:41:46,786 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:41:46,786 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:41:46,786 - __main__ - DEBUG -      * target
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=4 "target"] ...
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Result (for initial states): 0.01457853112
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Time for model checking: 52.833s.
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:41:46,786 - __main__ - DEBUG -     * peak memory usage: 3865MB
+2026-04-09 22:41:46,786 - __main__ - DEBUG -     * CPU time: 51.471s
+2026-04-09 22:41:46,786 - __main__ - DEBUG -     * wallclock time: 54.450s
+2026-04-09 22:41:46,786 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:41:46,786 - __main__ - INFO -   => ok  P=1.457853e-02  total=54.512s
+2026-04-09 22:41:46,786 - __main__ - INFO - [parqueues] q9-n3-h5 :: storm.add
+2026-04-09 22:41:46,786 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=5 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   Date: Thu Apr  9 22:41:46 2026
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=5 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   
+2026-04-09 22:43:24,520 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   Time for model construction: 1.248s.
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:43:24,521 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:43:24,521 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:43:24,521 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:43:24,521 - __main__ - DEBUG -      * target
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=5 "target"] ...
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   Result (for initial states): 0.02758535924
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   Time for model checking: 96.000s.
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   
+2026-04-09 22:43:24,522 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:43:24,522 - __main__ - DEBUG -     * peak memory usage: 3865MB
+2026-04-09 22:43:24,522 - __main__ - DEBUG -     * CPU time: 91.662s
+2026-04-09 22:43:24,522 - __main__ - DEBUG -     * wallclock time: 97.693s
+2026-04-09 22:43:24,523 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:43:24,523 - __main__ - INFO -   => ok  P=2.758536e-02  total=97.733s
+2026-04-09 22:43:24,523 - __main__ - INFO - [parqueues] q9-n3-h6 :: storm.add
+2026-04-09 22:43:24,524 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=6 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   Date: Thu Apr  9 22:43:24 2026
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=6 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   
+2026-04-09 22:45:42,220 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Time for model construction: 1.230s.
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:45:42,221 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:45:42,221 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:45:42,222 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:45:42,222 - __main__ - DEBUG -      * target
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=6 "target"] ...
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   Result (for initial states): 0.03411829351
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   Time for model checking: 135.998s.
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   
+2026-04-09 22:45:42,222 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:45:42,222 - __main__ - DEBUG -     * peak memory usage: 3865MB
+2026-04-09 22:45:42,222 - __main__ - DEBUG -     * CPU time: 130.320s
+2026-04-09 22:45:42,222 - __main__ - DEBUG -     * wallclock time: 137.649s
+2026-04-09 22:45:42,223 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:45:42,223 - __main__ - INFO -   => ok  P=3.411829e-02  total=137.696s
+2026-04-09 22:45:42,224 - __main__ - INFO - [parqueues] q9-n3-h7 :: storm.add
+2026-04-09 22:45:42,224 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=7 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   Date: Thu Apr  9 22:45:42 2026
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=7 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   
+2026-04-09 22:48:42,701 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   Time for model construction: 1.244s.
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:48:42,702 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:48:42,702 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:48:42,702 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:48:42,702 - __main__ - DEBUG -      * target
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=7 "target"] ...
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   Result (for initial states): 0.03642315309
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   Time for model checking: 178.808s.
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   
+2026-04-09 22:48:42,703 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:48:42,703 - __main__ - DEBUG -     * peak memory usage: 3865MB
+2026-04-09 22:48:42,703 - __main__ - DEBUG -     * CPU time: 170.380s
+2026-04-09 22:48:42,703 - __main__ - DEBUG -     * wallclock time: 180.437s
+2026-04-09 22:48:42,704 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:48:42,704 - __main__ - INFO -   => ok  P=3.642315e-02  total=180.476s
+2026-04-09 22:48:42,704 - __main__ - INFO - [parqueues] q9-n3-h8 :: storm.add
+2026-04-09 22:48:42,705 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=8 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:52:22,044 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   Date: Thu Apr  9 22:48:42 2026
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=8 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   Time for model construction: 1.231s.
+2026-04-09 22:52:22,045 - __main__ - DEBUG -   
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:52:22,046 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:52:22,046 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:52:22,046 - __main__ - DEBUG -      * target
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:52:22,046 - __main__ - DEBUG -   
+2026-04-09 22:52:22,047 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=8 "target"] ...
+2026-04-09 22:52:22,047 - __main__ - DEBUG -   Result (for initial states): 0.03708667992
+2026-04-09 22:52:22,047 - __main__ - DEBUG -   Time for model checking: 217.657s.
+2026-04-09 22:52:22,047 - __main__ - DEBUG -   
+2026-04-09 22:52:22,047 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:52:22,047 - __main__ - DEBUG -     * peak memory usage: 3865MB
+2026-04-09 22:52:22,047 - __main__ - DEBUG -     * CPU time: 207.833s
+2026-04-09 22:52:22,047 - __main__ - DEBUG -     * wallclock time: 219.300s
+2026-04-09 22:52:22,048 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:52:22,048 - __main__ - INFO -   => ok  P=3.708668e-02  total=219.340s
+2026-04-09 22:52:22,048 - __main__ - INFO - [parqueues] q9-n3-h9 :: storm.add
+2026-04-09 22:52:22,048 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=9 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 22:56:41,022 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Date: Thu Apr  9 22:52:22 2026
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=9 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Time for model construction: 1.238s.
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 22:56:41,023 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 22:56:41,023 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 22:56:41,023 - __main__ - DEBUG -      * target
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=9 "target"] ...
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Result (for initial states): 0.03725475008
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Time for model checking: 257.287s.
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   
+2026-04-09 22:56:41,023 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 22:56:41,023 - __main__ - DEBUG -     * peak memory usage: 3866MB
+2026-04-09 22:56:41,023 - __main__ - DEBUG -     * CPU time: 246.131s
+2026-04-09 22:56:41,023 - __main__ - DEBUG -     * wallclock time: 258.938s
+2026-04-09 22:56:41,023 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 22:56:41,024 - __main__ - INFO -   => ok  P=3.725475e-02  total=258.974s
+2026-04-09 22:56:41,024 - __main__ - INFO - [parqueues] q9-n3-h10 :: storm.add
+2026-04-09 22:56:41,024 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=10 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Date: Thu Apr  9 22:56:41 2026
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=10 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Time for model construction: 1.166s.
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 23:01:40,836 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 23:01:40,836 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 23:01:40,836 - __main__ - DEBUG -      * target
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Result (for initial states): 0.03729385656
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Time for model checking: 298.218s.
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   
+2026-04-09 23:01:40,836 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 23:01:40,837 - __main__ - DEBUG -     * peak memory usage: 3866MB
+2026-04-09 23:01:40,837 - __main__ - DEBUG -     * CPU time: 283.976s
+2026-04-09 23:01:40,837 - __main__ - DEBUG -     * wallclock time: 299.777s
+2026-04-09 23:01:40,837 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 23:01:40,837 - __main__ - INFO -   => ok  P=3.729386e-02  total=299.812s
+2026-04-09 23:01:40,837 - __main__ - INFO - [parqueues] q9-n3-h20 :: storm.add
+2026-04-09 23:01:40,837 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=20 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 23:13:34,825 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 23:13:34,825 - __main__ - DEBUG -   
+2026-04-09 23:13:34,825 - __main__ - DEBUG -   Date: Thu Apr  9 23:01:40 2026
+2026-04-09 23:13:34,825 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=20 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Time for model construction: 1.164s.
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 23:13:34,826 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 23:13:34,826 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 23:13:34,826 - __main__ - DEBUG -      * target
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=20 "target"] ...
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Result (for initial states): 0.03730469803
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Time for model checking: 712.409s.
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   
+2026-04-09 23:13:34,826 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 23:13:34,826 - __main__ - DEBUG -     * peak memory usage: 3867MB
+2026-04-09 23:13:34,826 - __main__ - DEBUG -     * CPU time: 678.702s
+2026-04-09 23:13:34,826 - __main__ - DEBUG -     * wallclock time: 713.954s
+2026-04-09 23:13:34,827 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 23:13:34,827 - __main__ - INFO -   => ok  P=3.730470e-02  total=713.988s
+2026-04-09 23:13:34,827 - __main__ - INFO - [parqueues] q9-n3-h30 :: storm.add
+2026-04-09 23:13:34,827 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=30 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 23:32:14,923 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Date: Thu Apr  9 23:13:34 2026
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Command line arguments: --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop 'P=? [ F<=30 "target" ]' --engine dd --constants N=3 -tm '--sylvan:threads' 1
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Current working directory: ~/tessa_space/tessa
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Time for model construction: 1.198s.
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   States: 	262144 (1 nodes)
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Transitions: 	40240054 (61148 nodes)
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Reward Models:  none
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (18 DD variables), columns: 9 meta variables (18 DD variables)
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Labels: 	3
+2026-04-09 23:32:14,924 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-09 23:32:14,924 - __main__ - DEBUG -      * init -> 1 state(s) (19 nodes)
+2026-04-09 23:32:14,924 - __main__ - DEBUG -      * target
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=30 "target"] ...
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Result (for initial states): 0.03730469803
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Time for model checking: 1118.440s.
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   
+2026-04-09 23:32:14,924 - __main__ - DEBUG -   Performance statistics:
+2026-04-09 23:32:14,924 - __main__ - DEBUG -     * peak memory usage: 3868MB
+2026-04-09 23:32:14,924 - __main__ - DEBUG -     * CPU time: 1064.194s
+2026-04-09 23:32:14,924 - __main__ - DEBUG -     * wallclock time: 1120.050s
+2026-04-09 23:32:14,925 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 23:32:14,925 - __main__ - INFO -   => ok  P=3.730470e-02  total=1120.097s
+2026-04-09 23:32:14,925 - __main__ - INFO - [parqueues] q9-n3-h40 :: storm.add
+2026-04-09 23:32:14,925 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=40 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-09 23:53:15,331 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-09 23:53:15,331 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-09 23:53:15,331 - __main__ - INFO -   => timeout
+2026-04-09 23:53:15,332 - __main__ - INFO - [parqueues] q9-n3-h50 :: storm.add
+2026-04-09 23:53:15,332 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=50 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 00:14:15,739 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 00:14:15,739 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 00:14:15,739 - __main__ - INFO -   => timeout
+2026-04-10 00:14:15,740 - __main__ - INFO - [parqueues] q9-n3-h60 :: storm.add
+2026-04-10 00:14:15,740 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=60 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 00:35:16,091 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 00:35:16,091 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 00:35:16,091 - __main__ - INFO -   => timeout
+2026-04-10 00:35:16,091 - __main__ - INFO - [parqueues] q9-n3-h70 :: storm.add
+2026-04-10 00:35:16,091 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=70 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 00:56:16,447 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 00:56:16,447 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 00:56:16,447 - __main__ - INFO -   => timeout
+2026-04-10 00:56:16,447 - __main__ - INFO - [parqueues] q9-n3-h80 :: storm.add
+2026-04-10 00:56:16,447 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=80 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 01:17:16,761 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 01:17:16,762 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 01:17:16,762 - __main__ - INFO -   => timeout
+2026-04-10 01:17:16,762 - __main__ - INFO - [parqueues] q9-n3-h90 :: storm.add
+2026-04-10 01:17:16,762 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=90 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 01:38:17,071 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 01:38:17,072 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 01:38:17,072 - __main__ - INFO -   => timeout
+2026-04-10 01:38:17,072 - __main__ - INFO - [parqueues] q9-n3-h100 :: storm.add
+2026-04-10 01:38:17,072 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=100 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 01:59:17,478 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 01:59:17,479 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 01:59:17,479 - __main__ - INFO -   => timeout
+2026-04-10 01:59:17,479 - __main__ - INFO - [parqueues] q9-n3-h200 :: storm.add
+2026-04-10 01:59:17,479 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=200 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 02:20:17,838 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 02:20:17,839 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 02:20:17,839 - __main__ - INFO -   => timeout
+2026-04-10 02:20:17,839 - __main__ - INFO - [parqueues] q9-n3-h300 :: storm.add
+2026-04-10 02:20:17,840 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=300 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 02:41:18,203 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 02:41:18,203 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 02:41:18,203 - __main__ - INFO -   => timeout
+2026-04-10 02:41:18,203 - __main__ - INFO - [parqueues] q9-n3-h400 :: storm.add
+2026-04-10 02:41:18,203 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=400 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 03:02:18,346 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 03:02:18,347 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 03:02:18,347 - __main__ - INFO -   => timeout
+2026-04-10 03:02:18,347 - __main__ - INFO - [parqueues] q9-n3-h500 :: storm.add
+2026-04-10 03:02:18,347 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=500 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 03:23:18,686 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 03:23:18,687 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 03:23:18,687 - __main__ - INFO -   => timeout
+2026-04-10 03:23:18,687 - __main__ - INFO - [parqueues] q9-n3-h600 :: storm.add
+2026-04-10 03:23:18,687 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=600 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 03:44:19,090 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 03:44:19,091 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 03:44:19,091 - __main__ - INFO -   => timeout
+2026-04-10 03:44:19,091 - __main__ - INFO - [parqueues] q9-n3-h700 :: storm.add
+2026-04-10 03:44:19,091 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=700 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 04:05:19,513 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 04:05:19,513 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 04:05:19,513 - __main__ - INFO -   => timeout
+2026-04-10 04:05:19,513 - __main__ - INFO - [parqueues] q9-n3-h800 :: storm.add
+2026-04-10 04:05:19,513 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=800 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 04:26:19,834 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 04:26:19,835 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 04:26:19,835 - __main__ - INFO -   => timeout
+2026-04-10 04:26:19,835 - __main__ - INFO - [parqueues] q9-n3-h900 :: storm.add
+2026-04-10 04:26:19,836 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=900 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 04:47:20,262 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 04:47:20,263 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 04:47:20,263 - __main__ - INFO -   => timeout
+2026-04-10 04:47:20,263 - __main__ - INFO - [parqueues] q9-n3-h1000 :: storm.add
+2026-04-10 04:47:20,264 - __main__ - DEBUG -   $ storm --prism ~/tessa_space/tessa/benchmarks/parqueues/queue-9.nm --prop P=? [ F<=1000 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-04-10 05:08:20,594 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-10 05:08:20,595 - __main__ - DEBUG - Wrote CSV row to ~/tessa_space/tessa/reproduced/parqueues/testh/storm.add.csv
+2026-04-10 05:08:20,595 - __main__ - INFO -   => timeout

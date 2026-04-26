@@ -1,0 +1,190 @@
+=> meeting/meeting-10.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism meeting/meeting-10.prism --tojani meeting/meeting-10.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-10.jani' done. (0.001s seconds).
+=> meeting/meeting-11.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism meeting/meeting-11.prism --tojani meeting/meeting-11.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-11.jani' done. (0.001s seconds).
+=> meeting/meeting-12.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism meeting/meeting-12.prism --tojani meeting/meeting-12.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-12.jani' done. (0.002s seconds).
+=> meeting/meeting-13.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:02 2026
+Command line arguments: --prism meeting/meeting-13.prism --tojani meeting/meeting-13.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-13.jani' done. (0.002s seconds).
+=> meeting/meeting-14.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-14.prism --tojani meeting/meeting-14.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-14.jani' done. (0.002s seconds).
+=> meeting/meeting-15.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-15.prism --tojani meeting/meeting-15.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-15.jani' done. (0.002s seconds).
+=> meeting/meeting-16.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-16.prism --tojani meeting/meeting-16.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.005s seconds).
+Converting PRISM Program to JANI model ...  done. (0.001s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-16.jani' done. (0.004s seconds).
+=> meeting/meeting-17.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-17.prism --tojani meeting/meeting-17.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-17.jani' done. (0.002s seconds).
+=> meeting/meeting-18.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-18.prism --tojani meeting/meeting-18.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-18.jani' done. (0.002s seconds).
+=> meeting/meeting-19.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-19.prism --tojani meeting/meeting-19.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-19.jani' done. (0.003s seconds).
+=> meeting/meeting-20.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-20.prism --tojani meeting/meeting-20.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.002s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-20.jani' done. (0.002s seconds).
+=> meeting/meeting-2.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-2.prism --tojani meeting/meeting-2.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-2.jani' done. (0.000s seconds).
+=> meeting/meeting-3.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-3.prism --tojani meeting/meeting-3.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-3.jani' done. (0.000s seconds).
+=> meeting/meeting-4.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-4.prism --tojani meeting/meeting-4.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-4.jani' done. (0.000s seconds).
+=> meeting/meeting-5.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-5.prism --tojani meeting/meeting-5.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-5.jani' done. (0.001s seconds).
+=> meeting/meeting-6.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:03 2026
+Command line arguments: --prism meeting/meeting-6.prism --tojani meeting/meeting-6.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.000s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-6.jani' done. (0.001s seconds).
+=> meeting/meeting-7.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism meeting/meeting-7.prism --tojani meeting/meeting-7.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-7.jani' done. (0.001s seconds).
+=> meeting/meeting-8.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism meeting/meeting-8.prism --tojani meeting/meeting-8.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-8.jani' done. (0.001s seconds).
+=> meeting/meeting-9.prism
+Storm-conv 1.11.1
+
+Date: Sat Apr 25 15:31:04 2026
+Command line arguments: --prism meeting/meeting-9.prism --tojani meeting/meeting-9.jani
+Current working directory: ~/tessa_space/tessa/benchmarks
+
+Parsing PRISM input ...  done. (0.001s seconds).
+Converting PRISM Program to JANI model ...  done. (0.000s seconds).
+Exporting JANI model ... Stored to file 'meeting/meeting-9.jani' done. (0.001s seconds).
