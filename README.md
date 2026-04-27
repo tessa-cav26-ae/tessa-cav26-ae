@@ -1,8 +1,79 @@
-# Artifact: Tessa
+CAV 2026 Artifact
+=======================================
+Paper title: Tensor Probabilistic Model Checking of Finite-Horizon Markov Chains
 
-This repository contains the tool source code, benchmarks, and instructions to reproduce the results in the paper.
+Claimed badges: Available + Functional + Reusable
+
+Justification for the badges:
+
+* Functional:
+
+  The artifact replicates all of the experimental figures in the paper. 
+
+  It builds Tessa (our tool), Storm (used as the baseline for both the MTBDD and sparse engines), and the two scaling sweeps (`testn` size scaling, `testh` horizon scaling) for each of the four benchmark families.
+  
+  In addition, the kydice parametric workload exercises Tessa's parameter synthesis functionality and produces Figures 8(b) and 8(c).
+  
+  The end-to-end driver `reproduce.mk` runs Tessa, Storm-ADD, and Storm-SPM, cross-checks Tessa's reachability probabilities against Storm (`src.postprocess verify`, tolerance `atol=1e-5`, `rtol=1e-4`), and emits the scaling plots used in the paper.
+  
+  Pre-shipped reference outputs are included so reviewers can diff their own runs against ours.
+
+  - replicated:
+
+      * [Figure 1(c) left](reproduced-april/meeting/testn/meeting-testn.png)
+      * [Figure 1(c) right](reproduced-april/meeting/testh/meeting-testh.png)
+      * [Figure 5(a)](reproduced-april/parqueues/testq/parqueues-testq.png)
+      * [Figure 5(b)](reproduced-april/parqueues/testq/parqueues-testq-tessa.png)
+      * [Figure 5(c)](reproduced-april/parqueues/testh/parqueues-testh.png)
+      * [Figure 5(d)](reproduced-april/parqueues/testh/parqueues-testh-tessa.png)
+      * [Figure 6(a)](reproduced-april/weather-factory/testn/weather-factory-testn.png)
+      * [Figure 6(b)](reproduced-april/weather-factory/testn/weather-factory-testn-tessa.png)
+      * [Figure 6(c)](reproduced-april/weather-factory/testh/weather-factory-testh.png)
+      * [Figure 6(d)](reproduced-april/weather-factory/testh/weather-factory-testh-tessa.png)
+      * [Figure 7(a)](reproduced-april/herman/testn/herman-testn.png)
+      * [Figure 7(b)](reproduced-april/herman/testn/herman-testn-tessa.png)
+      * [Figure 7(c)](reproduced-april/herman/testh/herman-testh.png)
+      * [Figure 7(d)](reproduced-april/herman/testh/herman-testh-tessa.png)
+      * [Figure 8(b)](benchmarks/kydice/loss.png)
+      * [Figure 8(c)](benchmarks/kydice/landscape.png)
+      * Cross-tool correctness: `reproduced-april/<suite>/<test>/verify.csv` (Tessa vs Storm-ADD and Storm-SPM probabilities)
+  - not-replicated:
+
+      * Rubicon/Dice numbers reported in the paper require the external Rubicon artifact (https://github.com/sjunges/rubicon).
+
+        We point at it but do not bundle it.
+      * Geni numbers reported in the paper require the external Geni artifact (https://github.com/geni-icfp25-ae/geni-icfp25-ae).
+
+        We point at it but do not bundle it.
+
+* Reusable: 
+
+  The artifact ships under the MIT License (see `LICENSE`).
+  Tessa's source lives under `src/`; benchmark models under `benchmarks/`; a regression test suite under `tests/` (`pytest`).
+  
+  The build is fully pinned: `flake.nix` + `flake.lock` reproduce the exact toolchain (Storm, stormpy, JAX with CUDA, Python 3.12), and the `Dockerfile` wraps the same flake in a `nixos/nix` image for hosts without Nix.
+  
+  Examples in (`examples`) e.g. (`examples/complex_multi_action.prism` and `tessa/examples/complex_multi_action.jani`) demonstrates Tessa's usage beyond the paper figures.
+
+Machine Configuration and Time Consumption:
+
+  * RAM: 128 GB 
+  * CPU cores: 8 
+  * GPU: NVIDIA 2080 Ti
+  * Time (installation): ~1.5 h
+  * Time (smoke test): ~10 m
+  * Time (full review): ~18.7 h
+
+external connectivity: NO
+
+  The core reproduction does not need network access at run time. 
+  
+  Network is required only during the one-time install (the `Dockerfile` / `flake.nix` build pulls Nix substituters and source tarballs for Storm, JAX, and CUDA).
+
 
 ## Table of Contents
+
+This repository contains the tool source code, benchmarks, and instructions to reproduce the results in the paper.
 
 * [Overview](#overview)
 * [Platform Requirements](#platform-requirements)
