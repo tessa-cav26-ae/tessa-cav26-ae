@@ -11,7 +11,7 @@
           inherit system;
           config = {
             allowUnfree = true;
-            cudaCapabilities = [ "7.5" "8.0" "8.6" "8.9" "9.0" "10.0" "12.0" ];
+            cudaCapabilities = [ "6.0" "6.1" "7.0" "7.5" "8.0" "8.6" "8.9" "9.0" "10.0" "12.0" ];
             cudaForwardCompat = true;
             allowUnsupportedSystem = true;
             allowBroken = true;
@@ -34,15 +34,7 @@
           stormpy = stormpy;
         };
 
-      in
-      {
-        packages = {
-          tessa = tessa;
-          storm = storm;
-          stormpy = stormpy;
-        };
-
-        devShells.default = pkgs.mkShell {
+        tessa-shell = pkgs.mkShell {
           shellHook = ''
               echo "NIX_LD=$NIX_LD"
               echo "NIX_LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH"
@@ -78,6 +70,37 @@
             stormpy
             tessa
           ];
+        };
+
+        storm-shell = pkgs.mkShell {
+          shellHook = ''
+              echo "storm-shell: storm CLI is on PATH. Bring your own Tessa via pip and feed it .jani models."
+          '';
+          buildInputs = with pkgs; [
+            which
+            bash
+            fish
+            zsh
+            nano
+            vim
+            tree
+            htop
+            storm
+            plot
+          ];
+        };
+
+      in
+      {
+        packages = {
+          tessa = tessa;
+          storm = storm;
+          stormpy = stormpy;
+        };
+
+        devShells = {
+          inherit tessa-shell storm-shell;
+          default = tessa-shell;
         };
       }
     );

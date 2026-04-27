@@ -44,26 +44,47 @@ options:
 
 - **NVIDIA GPU** with a driver supporting CUDA 12.x (check with `nvidia-smi`)
 - **Linux** (x86_64)
-- **Nix** package manager (recommended — provides Storm, JAX with CUDA, and all other dependencies via `flake.nix`), *or* Python 3.12 with pip (see the [pip alternative](#alternative-pip-install-with-jaxcuda) below)
+- **Nix** package manager (recommended — provides Storm, JAX with CUDA, and all other dependencies via `flake.nix`), *or* Python 3.12 with pip (see [Option 3](#option-3-nix-storm--pip-tessa) below)
 
 ### Choose your GPU
 
-Tessa runs on any NVIDIA GPU with **CUDA compute capability ≥ 7.5** (Turing or newer). The pip path works on every supported architecture without recompilation.
+The Nix path bundles its own CUDA runtime for compute capabilities 6.0–12.0 (Pascal through Blackwell). 
 
-| Architecture | Compute cap | Example cards             | pip path                        | Nix path                          |
-| ------------ | ----------- | ------------------------- | ------------------------------- | --------------------------------- |
-| Turing       | 7.5         | RTX 2080, RTX 2080 Ti, T4 | works                           | works out of the box              |
-| Ampere       | 8.0 / 8.6   | A100, RTX 3090, RTX 3080  | works                           | works out of the box              |
-| Ada          | 8.9         | RTX 4090, L40             | works                           | works out of the box              |
-| Hopper       | 9.0         | H100                      | works                           | works out of the box              |
-| Blackwell    | 10.0 / 12.0 | B200, RTX 5090            | works (with a recent JAX wheel) | works out of the box              |
+Tessa is tested and experimental resultes are reproduced on a **Turing host (CUDA compute capability 7.5)**.
+
+
+| Architecture | Compute cap | Example cards               | pip path                        | Nix path                          |
+| ------------ | ----------- | --------------------------- | ------------------------------- | --------------------------------- |
+| Pascal       | 6.0 / 6.1   | P100, GTX 1080, GTX 1080 Ti | works                           | works out of the box              |
+| Volta        | 7.0         | V100, Titan V               | works                           | works out of the box              |
+| Turing       | 7.5         | RTX 2080, RTX 2080 Ti, T4   | works                           | works out of the box              |
+| Ampere       | 8.0 / 8.6   | A100, RTX 3090, RTX 3080    | works                           | works out of the box              |
+| Ada          | 8.9         | RTX 4090, L40               | works                           | works out of the box              |
+| Hopper       | 9.0         | H100                        | works                           | works out of the box              |
+| Blackwell    | 10.0 / 12.0 | B200, RTX 5090              | works (with a recent JAX wheel) | works out of the box              |
 
 Look up your card's compute capability at <https://developer.nvidia.com/cuda-gpus>.
+
+The Nix-based paths (Options 1 and 2) ship a default `cudaCapabilities` list in `flake.nix` (line 14) covering every card in the table above. **The first build compiles JAX/NCCL kernels for every entry in the list**, so narrowing it to your card's capability before `nix develop` (Option 1) or `docker build` (Option 2) noticeably shortens the build:
+
+```diff
+ # flake.nix (around line 14)
+ config = {
+   allowUnfree = true;
+-  cudaCapabilities = [ "6.0" "6.1" "7.0" "7.5" "8.0" "8.6" "8.9" "9.0" "10.0" "12.0" ];
++  cudaCapabilities = [ "7.5" ];  # your card's compute capability (e.g. RTX 2080 Ti = 7.5)
+   cudaForwardCompat = true;
+   allowUnsupportedSystem = true;
+   allowBroken = true;
+ };
+```
+
+Default ships all 10 archs for portability.
 
 ### Verified host
 
 The Nix development shell in `flake.nix` is tested on the machine below.
-`flake.nix` pins `cudaPackages_12_8` and builds JAX with `cudaSupport = true` for compute capabilities 7.5–12.0 (Turing through Blackwell), with `cudaForwardCompat = true`. The 12.8 build runs on any 12.x NVIDIA driver (≥ 525) via CUDA minor-version compatibility, including the host's driver 535.
+`flake.nix` pins `cudaPackages_12_8` and builds JAX with `cudaSupport = true` for compute capabilities 6.0–12.0 (Pascal through Blackwell), with `cudaForwardCompat = true`. The 12.8 build runs on any 12.x NVIDIA driver (≥ 525) via CUDA minor-version compatibility, including the host's driver 535.
 
 | Component        | Value                                                        |
 | ---------------- | ------------------------------------------------------------ |
@@ -89,7 +110,17 @@ Follow the official NVIDIA installer at <https://developer.nvidia.com/cuda-downl
 
 `nvidia-smi` should print a table with a non-empty **Driver Version** (≥ 525), a **CUDA Version** column showing `12.x`, and your GPU listed in the device table. If `nvidia-smi: command not found` or the device table is empty, the driver install did not complete — fix that before proceeding.
 
-### Set up the environment
+### Pick an install path
+
+Three supported paths. All three need the NVIDIA driver above; pick one for the rest of the toolchain.
+
+| Path                                                                  | What you get                                                                | When to use                                                                                                                  |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| [Option 1: Nix (recommended)](#option-1-nix-recommended)              | `tessa-shell`: Tessa, Storm, `stormpy`, JAX/CUDA, `plot`                    | Default. Full paper reproduction on a host where installing Nix is acceptable.                                               |
+| [Option 2: Docker](#option-2-docker)                                  | Same shell as Option 1, inside a `nixos/nix` container                      | You'd rather not install Nix on the host but have Docker + NVIDIA Container Toolkit.                                         |
+| [Option 3: Nix (Storm) + pip (Tessa)](#option-3-nix-storm--pip-tessa) | `storm-shell` (Storm CLI + `plot`) plus a pip venv with JAX + Tessa         | You'd rather manage Tessa/JAX yourself with `pip` and only need Nix for the Storm (no `stormpy`) baseline. JANI models only. |
+
+### Option 1: Nix (recommended)
 
 Install Nix by running:
 ```
@@ -97,21 +128,35 @@ sh <(curl -L https://nixos.org/nix/install) --daemon
 ```
 Please refer to https://nixos.org/download for more info.
 
-The flake builds JAX for compute capabilities 7.5–12.0 (Turing through Blackwell), so every shipped NVIDIA card works without editing `flake.nix`.
+The flake builds JAX for compute capabilities 6.0–12.0 (Pascal through Blackwell), so every shipped NVIDIA card works without editing `flake.nix`. For a faster first build, narrow `cudaCapabilities` in `flake.nix` (line 14) to just your card's capability — see [Choose your GPU](#choose-your-gpu).
 
-Enter the Nix development shell:
+The flake exposes two development shells:
+
+| Shell                   | Contents                                                    | When to use                                                                                                                                              |
+| ----------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `tessa-shell` (default) | `tessa`, `stormpy`, `storm`, `plot`, Python 3.12 + JAX/CUDA | Full environment — paper reproduction, PRISM models, interactive Tessa work                                                                              |
+| `storm-shell`           | `storm` CLI + `plot` only                                   | Lightweight — you bring Tessa via `pip` and use `.jani` models so `stormpy` isn't needed (see [Option 3](#option-3-nix-storm--pip-tessa)) |
+
+Enter the full development shell (this is the default):
 ```
 nix --experimental-features 'nix-command flakes' develop
+# equivalent to:
+nix --experimental-features 'nix-command flakes' develop .#tessa-shell
 ```
 
-The first build compiles JAX (and stormpy, if you use the included benchmarks) from source — expect ~30 minutes on a fast machine.
+Or enter the storm-only shell:
+```
+nix --experimental-features 'nix-command flakes' develop .#storm-shell
+```
 
-Verify the shell is working:
+The first build of `tessa-shell` compiles Storm, stormpy, JAX, CUDA from source, which can take hours. `storm-shell` only builds Storm, so its first build is is shorter.
+
+Verify `tessa-shell` is working:
 ```console
-> tessa examples/weather_factory_3.prism --property allStrike --horizon 10
+> tessa examples/weather_factory_3.jani --property allStrike --horizon 10
 ```
 
-### Alternative: Docker
+### Option 2: Docker
 
 If you'd rather not install Nix on the host, the repository ships a `Dockerfile` that builds Storm, `stormpy`, and `tessa` inside a `nixos/nix` image.
 
@@ -131,18 +176,22 @@ Build the image:
  => [1/7] FROM docker.io/nixos/nix:latest@sha256:e2fe74e96e965653c7b8f16ac64d1e56581c63c84d7fa07fb0692fd055cd06b0            0.0s
  => [internal] load build context                                                                                            0.3s
  => => transferring context: 149.38kB                                                                                        0.2s
- => CACHED [2/7] RUN mkdir -p /etc/nix &&  echo "experimental-features = nix-command flakes" > /etc/nix/nix.conf  && ..      0.0s
- => CACHED [3/7] COPY . /tessa                                                                                               0.0s
- => CACHED [4/7] WORKDIR /tessa                                                                                              0.0s
- => [5/7] RUN nix build .#storm --cores 8 --print-build-logs                                                               680.8s
- => [6/7] RUN nix build .#stormpy --cores 8 --print-build-logs                                                             204.0s
- => [7/7] RUN nix build .#tessa --cores 8 --print-build-logs                                                              1894.2s
- => exporting to image                                                                                                      73.6s
- => => exporting layers                                                                                                     73.3s
- => => writing image sha256:6c0d6015a599d1de460eb56edecf8d0d7530cbbc1823acfd8ac8038c416b004f                                 0.0s
- => => naming to docker.io/library/tessa     
+ => [2/7] RUN mkdir -p /etc/nix &&     echo "experimental-features = nix-command flakes" > /etc/nix/nix.conf ...             5.2s
+ => [3/7] COPY . /tessa                                                                                                      1.5s
+ => [4/7] WORKDIR /tessa                                                                                                     0.4s
+ => [5/7] RUN nix build .#storm --cores 4 --print-build-logs                                                              1167.9s
+ => [6/7] RUN nix build .#stormpy --cores 4 --print-build-logs                                                             352.3s
+ => [7/7] RUN nix build .#tessa --cores 4 --print-build-logs                                                              3693.5s
+ => exporting to image                                                                                                      72.6s
+ => => exporting layers                                                                                                     72.3s
+ => => writing image sha256:3d32911bc542a44446219905dc71e09457b39fab5b9e49d65929a230c8df280f                                 0.0s
+ => => naming to docker.io/library/tessa                                                                                     0.1s
 ```
-The first build takes roughly 60 minutes because Storm, `stormpy`, and CUDA-enabled JAX are compiled from scratch inside the container (no host Nix store to reuse). Subsequent builds reuse Docker's layer cache.
+The build takes ~1.5h because Storm, `stormpy`, and CUDA-enabled JAX are compiled from scratch inside the container (no host Nix store to reuse). Subsequent builds reuse Docker's layer cache.
+
+**Tune `--cores N` in the `Dockerfile` (lines 12–14).** The shipped value is `4`. NCCL (pulled in by the `tessa` step via JAX) compiles each `.cu` for all 10 CUDA archs in one NVCC call, so parallel jobs are memory-heavy. Raise it on a beefier host; if the `tessa` step OOMs (`builder failed due to signal 9` inside `all_reduce_*.cu`), drop to `2` or `1`. `storm` and `stormpy` don't hit NCCL and can stay higher.
+
+**Narrow `cudaCapabilities` in `flake.nix` (line 14)** to your card's capability before `docker build` for a faster build — see [Choose your GPU](#choose-your-gpu).
 
 Run the image — the `Dockerfile`'s `CMD` is `nix develop`, so this drops straight into the Nix shell. `--rm` removes the container on exit so they don't pile up; drop `--rm` if you want the stopped container to be recoverable later via `docker start`.
 ```shell
@@ -171,60 +220,38 @@ Then run `tessa --help` or any of the Makefile benchmarks described in [Experime
 > docker save tessa > tessa.tar
 ```
 
-### Alternative: pip install with jax[cuda]
+### Option 3: Nix (Storm) + pip (Tessa)
 
-If you'd rather manage your own Python/CUDA toolchain instead of using Nix, you can install `tessa` with pip using JAX's official CUDA wheels.
+Manage Tessa and JAX yourself in a pip venv outside Nix, and pull only the `storm` CLI in from the flake's lightweight `storm-shell` for the baseline used by `reproduce.mk`. This path does **not** install `stormpy`, so Tessa runs against `.jani` models only — PRISM loading is unavailable. Every benchmark suite (and both files in `examples/`) ships a `.jani` alongside the `.prism`, and `reproduce.mk` already passes `--model-type jani` to Tessa.
 
 Prerequisites:
 - Python **3.12** (hard pin in `pyproject.toml`: `requires-python = ">=3.12,<3.13"`).
-- An NVIDIA driver compatible with the JAX CUDA wheel you install (verify with `nvidia-smi`; see [Install the NVIDIA driver](#install-the-nvidia-driver)).
+- An NVIDIA driver compatible with the JAX CUDA wheel you install (verify with `nvidia-smi`; see [Install the NVIDIA driver](#install-the-nvidia-driver)). JAX's `jax[cuda]` wheel bundles the matching CUDA and cuDNN runtime, so a system-wide CUDA toolkit is **not** required. Pick the `jax[cuda...]` extra that matches your driver (see <https://jax.readthedocs.io/en/latest/installation.html> for the current list of supported CUDA versions).
 
-JAX's `jax[cuda]` wheel bundles the matching CUDA and cuDNN runtime, so a system-wide CUDA toolkit is **not** required — only a recent enough NVIDIA driver. Pick the `jax[cuda...]` extra that matches your driver (see https://jax.readthedocs.io/en/latest/installation.html for the current list of supported CUDA versions).
-
+**Step A — Tessa side (pip venv).** In a venv outside Nix, install JAX and Tessa:
 ```shell
+python3.12 -m venv .venv
+source .venv/bin/activate
 pip install -U "jax[cuda]"
 pip install -e .
+tessa --help                                  # verify the CLI is on PATH
+python -c "import jax; print(jax.devices())"  # should list CudaDevice(...)
 ```
 
-Sanity-check that JAX sees your GPU:
-```console
-> python -c "import jax; print(jax.devices())"
-[CudaDevice(id=0), ...]
-```
-
-Note: the pip path installs JAX + `tessa`, but it does **not** install Storm or `stormpy`. PRISM model loading and the Storm comparison in `reproduce.mk`won't be available. If you need them for the paper reproduction, you can pull them in from the flake while keeping the rest of your pip workflow — see [Hybrid: pip-installed Tessa with Storm/stormpy from Nix](#hybrid-pip-installed-tessa-with-stormstormpy-from-nix) below, or install [storm](https://www.stormchecker.org/getting-started.html) and (stormpy)[https://stormchecker.github.io/stormpy/installation.html] seperately.
-
-> **End-to-end smoke test on the pip path.** The example models bundled in `examples/` (`weather_factory_3.prism`, `complex_multi_action.prism`) are PRISM format and require **stormpy** for parsing. With JAX-only pip Tessa you can use the hybrid setup below to bring in stormpy from Nix.
-
-#### Hybrid: pip-installed Tessa with Storm/stormpy from Nix
-
-If you want PRISM parsing and the Storm comparison, but you'd rather not have Nix build Tessa itself from source (that step is the slow part of the dev shell), comment out the `tessa` entry in `flake.nix`'s `devShells.default.buildInputs` and enter the shell:
-
-```diff
- buildInputs = (with pkgs; [ … python312 ])
-   ++ (with python312.pkgs; [ jax jaxlib numpy ])
-   ++ [
-     plot
-     storm
-     stormpy
--    tessa
-+    # tessa   # provided by the pip editable install below
-   ];
-```
-
+**Step B — Storm side (Nix).** Enter the lightweight `storm-shell` — no Tessa, no `stormpy`, no JAX, no Python toolchain, just the `storm` CLI and `plot`:
 ```shell
-nix --experimental-features 'nix-command flakes' develop
+nix --experimental-features 'nix-command flakes' develop .#storm-shell
+storm --version                               # verify the CLI is on PATH
 ```
 
-Inside the shell, install Tessa as an editable package that inherits Nix's `python312` site-packages so it can `import stormpy` / `import jax`:
+If you only need Tessa itself and not the Storm baseline, skip Step B.
 
+Smoke-test the JANI workflow from the pip venv:
 ```shell
-pip install -e .
-tessa --help           # verify the CLI is on PATH
-python -c "import stormpy, jax; print(jax.devices())"
+tessa examples/weather_factory_3.jani --property allStrike --horizon 10
 ```
 
-You now have pip-editable Tessa sharing a single Python 3.12 interpreter with the Nix-built stormpy and JAX, so `make -f reproduce.mk` works end-to-end. Mixing Nix's stormpy from a *non-Nix* Python (e.g., system Python) can be problematic, and we don not recommand it.
+For the full paper reproduction, run `make -f reproduce.mk` from a shell where both `tessa` (pip venv) and `storm`/`plot` (`storm-shell`) are on `$PATH`. The simplest way is to enter `storm-shell` first, then `source .venv/bin/activate` inside it. Because `storm-shell` does not put its own Python on `$PATH`, the pip venv's Python wins and there is no Nix-Python ↔ pip-Python collision.
 
 ## Experimental Evaluation
 
@@ -338,7 +365,7 @@ Outputs land next to the script: `loss.csv`, `loss.png`, `landscape.png`. With t
 
 - **`no kernel image is available for execution on the device` (Nix path).** Your card's compute capability is not in `cudaCapabilities` and `cudaForwardCompat` PTX did not produce a runnable kernel. Add the capability to the `cudaCapabilities` list in `flake.nix` and re-enter the dev shell.
 
-- **`ImportError: stormpy` (pip path).** Expected — the pip path does not install stormpy. Switch to the Nix path, or use a JANI model (the pip path can load `.jani` without stormpy).
+- **`ImportError: stormpy` (Option 3).** Expected — Option 3 does not install `stormpy`. Either switch to `tessa-shell` (Option 1, `nix develop`), or feed Tessa a `.jani` model (the JANI loader is pure Python and works without `stormpy`).
 
 - **`ValueError: Could not infer model type from file extension`.** Model file does not end in `.prism`, `.pm`, `.nm`, or `.jani`. Pass `--type jani` or `--type prism` explicitly.
 

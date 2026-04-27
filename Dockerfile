@@ -9,9 +9,9 @@ RUN mkdir -p /etc/nix && \
 COPY . /tessa
 WORKDIR /tessa
 
-RUN nix build .#storm --cores 8 --print-build-logs
-RUN nix build .#stormpy --cores 8 --print-build-logs
-RUN nix build .#tessa --cores 8 --print-build-logs
+RUN nix build .#storm --cores 4 --print-build-logs
+RUN nix build .#stormpy --cores 4 --print-build-logs
+RUN nix build .#tessa --cores 4 --print-build-logs
 
 
 # ENV LC_ALL=en_US.UTF-8

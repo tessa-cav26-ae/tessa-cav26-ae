@@ -1,0 +1,326 @@
+{
+  "actions": [
+    {
+      "name": "a"
+    },
+    {
+      "name": "b"
+    }
+  ],
+  "automata": [
+    {
+      "edges": [
+        {
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x <- 0",
+                  "ref": "x",
+                  "value": 0
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(x = 1)",
+            "exp": {
+              "left": "x",
+              "op": "=",
+              "right": 1
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "a",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x <- 1",
+                  "ref": "x",
+                  "value": 1
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(x = 0)",
+            "exp": {
+              "left": "x",
+              "op": "=",
+              "right": 0
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "a",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x <- 2",
+                  "ref": "x",
+                  "value": 2
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(x = 0)",
+            "exp": {
+              "left": "x",
+              "op": "=",
+              "right": 0
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "b",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "x <- (x + 1)",
+                  "ref": "x",
+                  "value": {
+                    "left": "x",
+                    "op": "+",
+                    "right": 1
+                  }
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(x < 2)",
+            "exp": {
+              "left": "x",
+              "op": "<",
+              "right": 2
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l",
+          "transient-values": [
+            {
+              "comment": "goal <- ((x = 2) & (y = 0))",
+              "ref": "goal",
+              "value": {
+                "left": {
+                  "left": "x",
+                  "op": "=",
+                  "right": 2
+                },
+                "op": "\u2227",
+                "right": {
+                  "left": "y",
+                  "op": "=",
+                  "right": 0
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "name": "m1",
+      "variables": []
+    },
+    {
+      "edges": [
+        {
+          "action": "a",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "y <- y",
+                  "ref": "y",
+                  "value": "y"
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "location": "l"
+        },
+        {
+          "action": "b",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "y <- y",
+                  "ref": "y",
+                  "value": "y"
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "1/2",
+                "exp": 0.5
+              }
+            },
+            {
+              "assignments": [
+                {
+                  "comment": "y <- (y + 1)",
+                  "ref": "y",
+                  "value": {
+                    "left": "y",
+                    "op": "+",
+                    "right": 1
+                  }
+                }
+              ],
+              "location": "l",
+              "probability": {
+                "comment": "1/2",
+                "exp": 0.5
+              }
+            }
+          ],
+          "guard": {
+            "comment": "(y < 2)",
+            "exp": {
+              "left": "y",
+              "op": "<",
+              "right": 2
+            }
+          },
+          "location": "l"
+        },
+        {
+          "action": "b",
+          "destinations": [
+            {
+              "assignments": [
+                {
+                  "comment": "y <- 0",
+                  "ref": "y",
+                  "value": 0
+                }
+              ],
+              "location": "l"
+            }
+          ],
+          "guard": {
+            "comment": "(y < 2)",
+            "exp": {
+              "left": "y",
+              "op": "<",
+              "right": 2
+            }
+          },
+          "location": "l"
+        }
+      ],
+      "initial-locations": [
+        "l"
+      ],
+      "locations": [
+        {
+          "name": "l"
+        }
+      ],
+      "name": "m2",
+      "variables": []
+    }
+  ],
+  "constants": [],
+  "features": [
+    "derived-operators"
+  ],
+  "jani-version": 1,
+  "name": "complex_multi_action",
+  "properties": [
+    {
+      "name": "goal",
+      "expression": {
+        "left": {
+          "left": "x",
+          "op": "=",
+          "right": 2
+        },
+        "op": "\u2227",
+        "right": {
+          "left": "y",
+          "op": "=",
+          "right": 0
+        }
+      }
+    }
+  ],
+  "restrict-initial": {
+    "exp": true
+  },
+  "system": {
+    "elements": [
+      {
+        "automaton": "m1"
+      },
+      {
+        "automaton": "m2"
+      }
+    ],
+    "syncs": [
+      {
+        "result": "a",
+        "synchronise": [
+          "a",
+          "a"
+        ]
+      },
+      {
+        "result": "b",
+        "synchronise": [
+          "b",
+          "b"
+        ]
+      }
+    ]
+  },
+  "type": "dtmc",
+  "variables": [
+    {
+      "initial-value": false,
+      "name": "goal",
+      "transient": true,
+      "type": "bool"
+    },
+    {
+      "initial-value": 0,
+      "name": "x",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 2
+      }
+    },
+    {
+      "initial-value": 0,
+      "name": "y",
+      "type": {
+        "base": "int",
+        "kind": "bounded",
+        "lower-bound": 0,
+        "upper-bound": 2
+      }
+    }
+  ]
+}
