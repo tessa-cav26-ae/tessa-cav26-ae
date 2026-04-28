@@ -61,7 +61,7 @@ Machine Configuration and Time Consumption:
   * CPU cores: 8 
   * GPU: NVIDIA 2080 Ti
   * Time (installation): ~1.5 h
-  * Time (smoke test): ~10 m
+  * Time (smoke test): ~20 m
   * Time (full review): ~18.7 h
 
 external connectivity: NO
@@ -130,7 +130,7 @@ Tessa is tested and experimental resultes are reproduced on a **Turing host (CUD
 | Volta        | 7.0         | V100, Titan V               | works                           | works out of the box              |
 | Turing       | 7.5         | RTX 2080, RTX 2080 Ti, T4   | works                           | works out of the box              |
 | Ampere       | 8.0 / 8.6   | A100, RTX 3090, RTX 3080    | works                           | works out of the box              |
-| Ada          | 8.9         | RTX 4090, L40               | works                           | works out of the box              |
+| Ada          | 8.9         | RTX 4090, L40, L4           | works                           | works out of the box              |
 | Hopper       | 9.0         | H100                        | works                           | works out of the box              |
 | Blackwell    | 10.0 / 12.0 | B200, RTX 5090              | works (with a recent JAX wheel) | works out of the box              |
 
@@ -238,25 +238,25 @@ Prerequisites:
 Build the image:
 ```shell
 > docker build -t tessa .
-[+] Building 2854.1s (12/12) FINISHED                                                                              docker:default
- => [internal] load build definition from Dockerfile                                                                         0.1s
- => => transferring dockerfile: 803B                                                                                         0.0s
- => [internal] load metadata for docker.io/nixos/nix:latest                                                                  0.3s
- => [internal] load .dockerignore                                                                                            0.1s
- => => transferring context: 2B                                                                                              0.0s
- => [1/7] FROM docker.io/nixos/nix:latest@sha256:e2fe74e96e965653c7b8f16ac64d1e56581c63c84d7fa07fb0692fd055cd06b0            0.0s
- => [internal] load build context                                                                                            0.3s
- => => transferring context: 149.38kB                                                                                        0.2s
- => [2/7] RUN mkdir -p /etc/nix &&     echo "experimental-features = nix-command flakes" > /etc/nix/nix.conf ...             5.2s
- => [3/7] COPY . /tessa                                                                                                      1.5s
- => [4/7] WORKDIR /tessa                                                                                                     0.4s
- => [5/7] RUN nix build .#storm --cores 4 --print-build-logs                                                              1167.9s
- => [6/7] RUN nix build .#stormpy --cores 4 --print-build-logs                                                             352.3s
- => [7/7] RUN nix build .#tessa --cores 4 --print-build-logs                                                              3693.5s
- => exporting to image                                                                                                      72.6s
- => => exporting layers                                                                                                     72.3s
- => => writing image sha256:3d32911bc542a44446219905dc71e09457b39fab5b9e49d65929a230c8df280f                                 0.0s
- => => naming to docker.io/library/tessa                                                                                     0.1s
+[+] Building 2854.1s (12/12) FINISHED                    docker:default
+ => [internal] load build definition from Dockerfile               0.1s
+ => => transferring dockerfile: 803B                               0.0s
+ => [internal] load metadata for docker.io/nixos/nix:latest        0.3s
+ => [internal] load .dockerignore                                  0.1s
+ => => transferring context: 2B                                    0.0s
+ => [1/7] FROM docker.io/nixos/nix:latest@sha256:e2fe74            0.0s
+ => [internal] load build context                                  0.3s
+ => => transferring context: 149.38kB                              0.2s
+ => [2/7] RUN mkdir -p /etc/nix &&                                 5.2s
+ => [3/7] COPY . /tessa                                            1.5s
+ => [4/7] WORKDIR /tessa                                           0.4s
+ => [5/7] RUN nix build .#storm --cores 4 --print-build-logs    1167.9s
+ => [6/7] RUN nix build .#stormpy --cores 4 --print-build-logs   352.3s
+ => [7/7] RUN nix build .#tessa --cores 4 --print-build-logs    3693.5s
+ => exporting to image                                            72.6s
+ => => exporting layers                                           72.3s
+ => => writing image sha256:3d3291                                 0.0s
+ => => naming to docker.io/library/tessa                           0.1s
 ```
 The build takes ~1.5h because Storm, `stormpy`, and CUDA-enabled JAX are compiled from scratch inside the container (no host Nix store to reuse). Subsequent builds reuse Docker's layer cache.
 
@@ -360,7 +360,7 @@ Per-point timeout is `TO=1260` s (see top of `reproduce.mk`); parameter points t
 
 ### Quick Smoke Test
 
-Runs a minimal parameter subset (~10 minutes) to verify the pipeline:
+Runs a minimal parameter subset (~20 minutes) to verify the pipeline:
 
 ```shell
 make -f reproduce.mk SMOKE=1
