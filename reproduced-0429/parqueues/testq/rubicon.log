@@ -1,0 +1,127 @@
+2026-05-01 11:48:19,193 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/parqueues/testq'), 'engine': None}
+2026-05-01 11:48:19,207 - __main__ - INFO - [parqueues] q3-n3-h10 :: rubicon
+2026-05-01 11:48:19,207 - __main__ - INFO -   trial 1/3
+2026-05-01 11:48:19,208 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-3.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:23,201 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.783376242691"],["(false, true)","0."],["(false, false)","0.216623757309"]]}]
+2026-05-01 11:48:23,202 - __main__ - DEBUG -   0.78337624269100004
+2026-05-01 11:48:23,202 - __main__ - INFO -   trial 2/3
+2026-05-01 11:48:23,203 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-3.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:23,601 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.783376242691"],["(false, true)","0."],["(false, false)","0.216623757309"]]}]
+2026-05-01 11:48:23,601 - __main__ - DEBUG -   0.78337624269100004
+2026-05-01 11:48:23,601 - __main__ - INFO -   trial 3/3
+2026-05-01 11:48:23,602 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-3.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:23,959 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.783376242691"],["(false, true)","0."],["(false, false)","0.216623757309"]]}]
+2026-05-01 11:48:23,959 - __main__ - DEBUG -   0.78337624269100004
+2026-05-01 11:48:23,961 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:48:23,961 - __main__ - INFO -   => ok  P=7.833762e-01  total=1.583s
+2026-05-01 11:48:23,961 - __main__ - INFO - [parqueues] q4-n3-h10 :: rubicon
+2026-05-01 11:48:23,961 - __main__ - INFO -   trial 1/3
+2026-05-01 11:48:23,962 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-4.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:24,376 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0264876275794"],["(false, true)","0."],["(false, false)","0.973512372421"]]}]
+2026-05-01 11:48:24,376 - __main__ - DEBUG -   0.0264876275794
+2026-05-01 11:48:24,376 - __main__ - INFO -   trial 2/3
+2026-05-01 11:48:24,377 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-4.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:24,751 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0264876275794"],["(false, true)","0."],["(false, false)","0.973512372421"]]}]
+2026-05-01 11:48:24,752 - __main__ - DEBUG -   0.0264876275794
+2026-05-01 11:48:24,752 - __main__ - INFO -   trial 3/3
+2026-05-01 11:48:24,753 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-4.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:25,142 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0264876275794"],["(false, true)","0."],["(false, false)","0.973512372421"]]}]
+2026-05-01 11:48:25,142 - __main__ - DEBUG -   0.0264876275794
+2026-05-01 11:48:25,143 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:48:25,143 - __main__ - INFO -   => ok  P=2.648763e-02  total=0.392s
+2026-05-01 11:48:25,144 - __main__ - INFO - [parqueues] q5-n3-h10 :: rubicon
+2026-05-01 11:48:25,144 - __main__ - INFO -   trial 1/3
+2026-05-01 11:48:25,145 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-5.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:25,634 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0324026019816"],["(false, true)","0."],["(false, false)","0.967597398018"]]}]
+2026-05-01 11:48:25,634 - __main__ - DEBUG -   0.032402601981599999
+2026-05-01 11:48:25,634 - __main__ - INFO -   trial 2/3
+2026-05-01 11:48:25,634 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-5.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:26,095 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0324026019816"],["(false, true)","0."],["(false, false)","0.967597398018"]]}]
+2026-05-01 11:48:26,096 - __main__ - DEBUG -   0.032402601981599999
+2026-05-01 11:48:26,096 - __main__ - INFO -   trial 3/3
+2026-05-01 11:48:26,096 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-5.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:26,496 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0324026019816"],["(false, true)","0."],["(false, false)","0.967597398018"]]}]
+2026-05-01 11:48:26,496 - __main__ - DEBUG -   0.032402601981599999
+2026-05-01 11:48:26,498 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:48:26,498 - __main__ - INFO -   => ok  P=3.240260e-02  total=0.450s
+2026-05-01 11:48:26,498 - __main__ - INFO - [parqueues] q6-n3-h10 :: rubicon
+2026-05-01 11:48:26,498 - __main__ - INFO -   trial 1/3
+2026-05-01 11:48:26,499 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-6.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:27,189 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0344414119486"],["(false, true)","0."],["(false, false)","0.965558588051"]]}]
+2026-05-01 11:48:27,189 - __main__ - DEBUG -   0.034441411948600002
+2026-05-01 11:48:27,189 - __main__ - INFO -   trial 2/3
+2026-05-01 11:48:27,190 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-6.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:27,777 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0344414119486"],["(false, true)","0."],["(false, false)","0.965558588051"]]}]
+2026-05-01 11:48:27,777 - __main__ - DEBUG -   0.034441411948600002
+2026-05-01 11:48:27,777 - __main__ - INFO -   trial 3/3
+2026-05-01 11:48:27,778 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-6.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:28,403 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0344414119486"],["(false, true)","0."],["(false, false)","0.965558588051"]]}]
+2026-05-01 11:48:28,404 - __main__ - DEBUG -   0.034441411948600002
+2026-05-01 11:48:28,404 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:48:28,404 - __main__ - INFO -   => ok  P=3.444141e-02  total=0.634s
+2026-05-01 11:48:28,405 - __main__ - INFO - [parqueues] q7-n3-h10 :: rubicon
+2026-05-01 11:48:28,405 - __main__ - INFO -   trial 1/3
+2026-05-01 11:48:28,405 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-7.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:30,206 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0355979742616"],["(false, true)","0."],["(false, false)","0.964402025738"]]}]
+2026-05-01 11:48:30,207 - __main__ - DEBUG -   0.035597974261600003
+2026-05-01 11:48:30,207 - __main__ - INFO -   trial 2/3
+2026-05-01 11:48:30,207 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-7.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:32,005 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0355979742616"],["(false, true)","0."],["(false, false)","0.964402025738"]]}]
+2026-05-01 11:48:32,005 - __main__ - DEBUG -   0.035597974261600003
+2026-05-01 11:48:32,005 - __main__ - INFO -   trial 3/3
+2026-05-01 11:48:32,005 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-7.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:33,822 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0355979742616"],["(false, true)","0."],["(false, false)","0.964402025738"]]}]
+2026-05-01 11:48:33,822 - __main__ - DEBUG -   0.035597974261600003
+2026-05-01 11:48:33,823 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:48:33,823 - __main__ - INFO -   => ok  P=3.559797e-02  total=1.805s
+2026-05-01 11:48:33,823 - __main__ - INFO - [parqueues] q8-n3-h10 :: rubicon
+2026-05-01 11:48:33,823 - __main__ - INFO -   trial 1/3
+2026-05-01 11:48:33,824 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-8.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:43,099 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0358475492288"],["(false, true)","0."],["(false, false)","0.964152450771"]]}]
+2026-05-01 11:48:43,100 - __main__ - DEBUG -   0.035847549228799999
+2026-05-01 11:48:43,100 - __main__ - INFO -   trial 2/3
+2026-05-01 11:48:43,101 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-8.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:48:52,219 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0358475492288"],["(false, true)","0."],["(false, false)","0.964152450771"]]}]
+2026-05-01 11:48:52,219 - __main__ - DEBUG -   0.035847549228799999
+2026-05-01 11:48:52,219 - __main__ - INFO -   trial 3/3
+2026-05-01 11:48:52,220 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-8.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:49:01,411 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0358475492288"],["(false, true)","0."],["(false, false)","0.964152450771"]]}]
+2026-05-01 11:49:01,411 - __main__ - DEBUG -   0.035847549228799999
+2026-05-01 11:49:01,411 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:49:01,411 - __main__ - INFO -   => ok  P=3.584755e-02  total=9.195s
+2026-05-01 11:49:01,412 - __main__ - INFO - [parqueues] q9-n3-h10 :: rubicon
+2026-05-01 11:49:01,412 - __main__ - INFO -   trial 1/3
+2026-05-01 11:49:01,412 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-9.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:49:59,217 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0372938565593"],["(false, true)","0."],["(false, false)","0.962706143441"]]}]
+2026-05-01 11:49:59,217 - __main__ - DEBUG -   0.037293856559300002
+2026-05-01 11:49:59,217 - __main__ - INFO -   trial 2/3
+2026-05-01 11:49:59,218 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-9.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:50:56,821 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0372938565593"],["(false, true)","0."],["(false, false)","0.962706143441"]]}]
+2026-05-01 11:50:56,821 - __main__ - DEBUG -   0.037293856559300002
+2026-05-01 11:50:56,822 - __main__ - INFO -   trial 3/3
+2026-05-01 11:50:56,822 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-9.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:51:54,517 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0372938565593"],["(false, true)","0."],["(false, false)","0.962706143441"]]}]
+2026-05-01 11:51:54,517 - __main__ - DEBUG -   0.037293856559300002
+2026-05-01 11:51:54,518 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 11:51:54,518 - __main__ - INFO -   => ok  P=3.729386e-02  total=57.701s
+2026-05-01 11:51:54,518 - __main__ - INFO - [parqueues] q10-n3-h10 :: rubicon
+2026-05-01 11:51:54,518 - __main__ - INFO -   trial 1/3
+2026-05-01 11:51:54,518 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-10.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 11:59:28,136 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0373109389034"],["(false, true)","0."],["(false, false)","0.962689061097"]]}]
+2026-05-01 11:59:28,136 - __main__ - DEBUG -   0.037310938903400002
+2026-05-01 11:59:28,136 - __main__ - INFO -   trial 2/3
+2026-05-01 11:59:28,137 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-10.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 12:07:02,130 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0373109389034"],["(false, true)","0."],["(false, false)","0.962689061097"]]}]
+2026-05-01 12:07:02,130 - __main__ - DEBUG -   0.037310938903400002
+2026-05-01 12:07:02,130 - __main__ - INFO -   trial 3/3
+2026-05-01 12:07:02,130 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-10.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 12:14:38,516 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0373109389034"],["(false, true)","0."],["(false, false)","0.962689061097"]]}]
+2026-05-01 12:14:38,517 - __main__ - DEBUG -   0.037310938903400002
+2026-05-01 12:14:38,517 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 12:14:38,517 - __main__ - INFO -   => ok  P=3.731094e-02  total=454.665s
+2026-05-01 12:14:38,518 - __main__ - INFO - [parqueues] q11-n3-h10 :: rubicon
+2026-05-01 12:14:38,518 - __main__ - INFO -   trial 1/3
+2026-05-01 12:14:38,518 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-11.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-01 12:35:38,644 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-05-01 12:35:38,645 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testq/rubicon.csv
+2026-05-01 12:35:38,645 - __main__ - INFO -   => timeout

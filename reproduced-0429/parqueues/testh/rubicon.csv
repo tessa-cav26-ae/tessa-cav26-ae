@@ -1,0 +1,16 @@
+suite,case_id,tool,num_work_runs,property,horizon,constants,Q,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+parqueues,q9-n3-h1,rubicon,3,target,1,"{""N"": 3}",9,3,1,ok,0.0,0.3763348470092751,0.016525066651982317,
+parqueues,q9-n3-h2,rubicon,3,target,2,"{""N"": 3}",9,3,2,ok,0.0,0.3778191530145705,0.01769500248575831,
+parqueues,q9-n3-h3,rubicon,3,target,3,"{""N"": 3}",9,3,3,ok,0.00198157330898,0.42822983298295486,0.020656219333839564,
+parqueues,q9-n3-h4,rubicon,3,target,4,"{""N"": 3}",9,3,4,ok,0.0145785311174,1.991660390010414,0.023526021560389923,
+parqueues,q9-n3-h5,rubicon,3,target,5,"{""N"": 3}",9,3,5,ok,0.0275853592377,5.556009606341831,0.03672814453193128,
+parqueues,q9-n3-h6,rubicon,3,target,6,"{""N"": 3}",9,3,6,ok,0.0341182935092,11.919466878985986,0.04518509578795249,
+parqueues,q9-n3-h7,rubicon,3,target,7,"{""N"": 3}",9,3,7,ok,0.0364231530901,20.77668157464359,0.1540278142376351,
+parqueues,q9-n3-h8,rubicon,3,target,8,"{""N"": 3}",9,3,8,ok,0.0370866799217,31.796153064312723,0.046881782817845954,
+parqueues,q9-n3-h9,rubicon,3,target,9,"{""N"": 3}",9,3,9,ok,0.0372547500838,40.69144202700894,0.21737347642604715,
+parqueues,q9-n3-h10,rubicon,3,target,10,"{""N"": 3}",9,3,10,ok,0.0372938565593,57.37843494932167,0.09234840036121324,
+parqueues,q9-n3-h20,rubicon,3,target,20,"{""N"": 3}",9,3,20,ok,0.0373046980277,213.80730459765377,1.415957906107366,
+parqueues,q9-n3-h30,rubicon,3,target,30,"{""N"": 3}",9,3,30,ok,0.0373046980284,497.25922328266705,3.5712400853358557,
+parqueues,q9-n3-h40,rubicon,3,target,40,"{""N"": 3}",9,3,40,ok,0.0373046980284,824.6554848819893,0.8600647982210647,
+parqueues,q9-n3-h50,rubicon,3,target,50,"{""N"": 3}",9,3,50,timeout,,,0.0,Timed out after 1260 seconds
+parqueues,q9-n3-h60,rubicon,3,target,60,"{""N"": 3}",9,3,60,timeout,,,0.0,Timed out after 1260 seconds

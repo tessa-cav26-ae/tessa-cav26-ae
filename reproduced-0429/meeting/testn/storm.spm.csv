@@ -1,0 +1,12 @@
+suite,case_id,tool,num_work_runs,storm_extra_args,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+meeting,n2-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,2,10,ok,0.0632517554,0.05889453898028781,0.006338057119570413,
+meeting,n3-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,3,10,ok,0.02354395006,0.06321315434373294,0.0008415549182746141,
+meeting,n4-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,4,10,ok,0.01048038677,0.06398361634152631,0.0007254187349701531,
+meeting,n5-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,5,10,ok,0.005381740005,0.0677456123327526,0.007721518273433001,
+meeting,n6-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,6,10,ok,0.00310550674,0.0747564453437614,0.0025145726783295345,
+meeting,n7-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,7,10,ok,0.001973787081,0.11816744568447272,0.00042976605217353995,
+meeting,n8-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,8,10,ok,0.001359947825,0.3336581410064052,0.003364085924931285,
+meeting,n9-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,9,10,ok,0.001002708801,1.4467179136699997,0.01800619442282374,
+meeting,n10-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,10,10,ok,0.0007826807609,7.262380350303526,0.018229880958462275,
+meeting,n11-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,11,10,ok,0.0006409284511,38.566277021328766,0.17147170471401987,
+meeting,n12-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,12,10,ok,0.0005463714939,181.89705086565422,0.8504821356320841,

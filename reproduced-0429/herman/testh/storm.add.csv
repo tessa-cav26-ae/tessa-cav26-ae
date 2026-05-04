@@ -1,0 +1,22 @@
+suite,case_id,tool,num_work_runs,storm_extra_args,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+herman,n17-h1,storm.add,3,-tm --sylvan:threads 1,stable,1,,17,1,ok,0.0001871280341,2.097125693631824,0.04409191457627143,
+herman,n17-h2,storm.add,3,-tm --sylvan:threads 1,stable,2,,17,2,ok,0.003729208483,4.06742397765629,0.0680810839626149,
+herman,n17-h3,storm.add,3,-tm --sylvan:threads 1,stable,3,,17,3,ok,0.01465386225,12.064428303332534,0.1419199095237311,
+herman,n17-h4,storm.add,3,-tm --sylvan:threads 1,stable,4,,17,4,ok,0.03295467304,23.392007912004676,0.17520306732509358,
+herman,n17-h5,storm.add,3,-tm --sylvan:threads 1,stable,5,,17,5,ok,0.05684208239,36.025794781996716,0.132626413704254,
+herman,n17-h6,storm.add,3,-tm --sylvan:threads 1,stable,6,,17,6,ok,0.08444970738,53.76355576334754,0.14449550698012562,
+herman,n17-h7,storm.add,3,-tm --sylvan:threads 1,stable,7,,17,7,ok,0.1142782091,65.09604566732499,0.23895352306103299,
+herman,n17-h8,storm.add,3,-tm --sylvan:threads 1,stable,8,,17,8,ok,0.1452254011,77.87599578734564,0.2747385959676994,
+herman,n17-h9,storm.add,3,-tm --sylvan:threads 1,stable,9,,17,9,ok,0.1765164067,96.15472196933115,1.204716166033283,
+herman,n17-h10,storm.add,3,-tm --sylvan:threads 1,stable,10,,17,10,ok,0.2076203636,107.91185247700196,0.5650872677716028,
+herman,n17-h20,storm.add,3,-tm --sylvan:threads 1,stable,20,,17,20,ok,0.4697421099,247.45616730601373,2.64167770289125,
+herman,n17-h30,storm.add,3,-tm --sylvan:threads 1,stable,30,,17,30,ok,0.6406714371,390.9272554183456,14.226364443089414,
+herman,n17-h40,storm.add,3,-tm --sylvan:threads 1,stable,40,,17,40,ok,0.7525656265,498.35616667933454,2.8197109476912807,
+herman,n17-h50,storm.add,3,-tm --sylvan:threads 1,stable,50,,17,50,ok,0.8281557957,589.1077732243187,1.9012563246117204,
+herman,n17-h60,storm.add,3,-tm --sylvan:threads 1,stable,60,,17,60,ok,0.8802169372,714.0236255940205,1.6891940718814626,
+herman,n17-h70,storm.add,3,-tm --sylvan:threads 1,stable,70,,17,70,ok,0.9163881459,834.5327166103331,2.139334959257609,
+herman,n17-h80,storm.add,3,-tm --sylvan:threads 1,stable,80,,17,80,ok,0.9416066036,961.853940781982,2.422804755118841,
+herman,n17-h90,storm.add,3,-tm --sylvan:threads 1,stable,90,,17,90,ok,0.9592114172,1079.8721061393346,3.0140855467394854,
+herman,n17-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,17,100,ok,0.9715068235,1205.4342497739901,7.496803399846406,
+herman,n17-h200,storm.add,3,-tm --sylvan:threads 1,stable,200,,17,200,timeout,,,0.0,Timed out after 1260 seconds
+herman,n17-h300,storm.add,3,-tm --sylvan:threads 1,stable,300,,17,300,timeout,,,0.0,Timed out after 1260 seconds

@@ -1,0 +1,11 @@
+suite,case_id,tool,num_work_runs,geni_mode,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+weather-factory,n2-h10,geni,3,monolithic,allStrike,10,,2,10,ok,0.1840587,0.26212982163997367,0.10732914993485969,
+weather-factory,n7-h10,geni,3,monolithic,allStrike,10,,7,10,ok,6.87e-05,0.3890577743101555,0.02551800152629546,
+weather-factory,n8-h10,geni,3,monolithic,allStrike,10,,8,10,ok,1.25e-05,0.6426036986716402,0.010261153054796262,
+weather-factory,n9-h10,geni,3,monolithic,allStrike,10,,9,10,ok,1.7e-06,1.2523594340115476,0.021008769722827707,
+weather-factory,n10-h10,geni,3,monolithic,allStrike,10,,10,10,ok,9e-07,2.6940732143314867,0.06150762704073056,
+weather-factory,n11-h10,geni,3,monolithic,allStrike,10,,11,10,ok,5e-07,5.965521268333153,0.06559404426903331,
+weather-factory,n12-h10,geni,3,monolithic,allStrike,10,,12,10,ok,-2e-06,13.555359680341402,0.06647440845297924,
+weather-factory,n13-h10,geni,3,monolithic,allStrike,10,,13,10,ok,-2.4e-06,31.646896223983884,0.284567509377183,
+weather-factory,n15-h10,geni,3,monolithic,allStrike,10,,15,10,ok,3e-06,167.73223124068076,1.1061222005167972,
+weather-factory,n16-h10,geni,3,monolithic,allStrike,10,,16,10,ok,1.8e-06,379.3881759546736,0.5308927964078494,

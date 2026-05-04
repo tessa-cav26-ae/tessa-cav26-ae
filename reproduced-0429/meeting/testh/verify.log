@@ -1,0 +1,6 @@
+2026-04-30 20:41:50,583 - __main__ - INFO - Tessa file: reproduced/meeting/testh/tessa.csv (28 cases)
+2026-04-30 20:41:50,583 - __main__ - INFO -   vs reproduced/meeting/testh/storm.add.csv: no common cases to compare
+2026-04-30 20:41:50,583 - __main__ - INFO -   vs reproduced/meeting/testh/storm.spm.csv: 28 cases match (atol=1e-05, rtol=0.0001)
+2026-04-30 20:41:50,584 - __main__ - INFO -   vs reproduced/meeting/testh/rubicon.csv: 10 cases match (atol=1e-05, rtol=0.0001)
+2026-04-30 20:41:50,584 - __main__ - INFO - Wrote 38 rows to reproduced/meeting/testh/verify.csv
+2026-04-30 20:41:50,584 - __main__ - INFO - Verified 38 probability comparisons OK

@@ -1,0 +1,10 @@
+suite,case_id,tool,num_work_runs,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+herman,n3-h100,rubicon,3,stable,100,,3,100,ok,1.0,0.38209368104192737,0.01849248300793808,
+herman,n5-h100,rubicon,3,stable,100,,5,100,ok,1.0,0.3964867390265378,0.01812236383420095,
+herman,n7-h100,rubicon,3,stable,100,,7,100,ok,0.999999999237,0.4950187493232079,0.02538870196282822,
+herman,n9-h100,rubicon,3,stable,100,,9,100,ok,0.999996829306,1.2946442019892856,0.02705285388746829,
+herman,n11-h100,rubicon,3,stable,100,,11,100,ok,0.99979190041,6.12817694369005,0.027331946454564385,
+herman,n13-h100,rubicon,3,stable,100,,13,100,ok,0.997700490417,47.60743860698616,0.26789657777541054,
+herman,n15-h100,rubicon,3,stable,100,,15,100,ok,0.989611650876,438.19135502764647,0.40153242915985793,
+herman,n17-h100,rubicon,3,stable,100,,17,100,timeout,,,0.0,Timed out after 1260 seconds
+herman,n19-h100,rubicon,3,stable,100,,19,100,timeout,,,0.0,Timed out after 1260 seconds

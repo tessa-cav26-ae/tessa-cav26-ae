@@ -1,0 +1,208 @@
+2026-04-30 09:22:43,165 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/herman/testh'), 'engine': None}
+2026-04-30 09:22:43,168 - __main__ - INFO - [herman] n17-h1 :: rubicon
+2026-04-30 09:22:43,168 - __main__ - INFO -   trial 1/3
+2026-04-30 09:22:43,169 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 1 --dice-cmd dice
+2026-04-30 09:22:44,575 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.000187128034099"],["(false, true)","0."],["(false, false)","0.999812871966"]]}]
+2026-04-30 09:22:44,576 - __main__ - DEBUG -   0.00018712803409899999
+2026-04-30 09:22:44,576 - __main__ - INFO -   trial 2/3
+2026-04-30 09:22:44,576 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 1 --dice-cmd dice
+2026-04-30 09:22:44,994 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.000187128034099"],["(false, true)","0."],["(false, false)","0.999812871966"]]}]
+2026-04-30 09:22:44,994 - __main__ - DEBUG -   0.00018712803409899999
+2026-04-30 09:22:44,994 - __main__ - INFO -   trial 3/3
+2026-04-30 09:22:44,994 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 1 --dice-cmd dice
+2026-04-30 09:22:45,354 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.000187128034099"],["(false, true)","0."],["(false, false)","0.999812871966"]]}]
+2026-04-30 09:22:45,354 - __main__ - DEBUG -   0.00018712803409899999
+2026-04-30 09:22:45,355 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:22:45,355 - __main__ - INFO -   => ok  P=1.871280e-04  total=0.728s
+2026-04-30 09:22:45,355 - __main__ - INFO - [herman] n17-h2 :: rubicon
+2026-04-30 09:22:45,355 - __main__ - INFO -   trial 1/3
+2026-04-30 09:22:45,355 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 2 --dice-cmd dice
+2026-04-30 09:22:46,016 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.00372920848329"],["(false, true)","0."],["(false, false)","0.996270791517"]]}]
+2026-04-30 09:22:46,016 - __main__ - DEBUG -   0.0037292084832899999
+2026-04-30 09:22:46,016 - __main__ - INFO -   trial 2/3
+2026-04-30 09:22:46,016 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 2 --dice-cmd dice
+2026-04-30 09:22:46,692 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.00372920848329"],["(false, true)","0."],["(false, false)","0.996270791517"]]}]
+2026-04-30 09:22:46,692 - __main__ - DEBUG -   0.0037292084832899999
+2026-04-30 09:22:46,692 - __main__ - INFO -   trial 3/3
+2026-04-30 09:22:46,692 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 2 --dice-cmd dice
+2026-04-30 09:22:47,349 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.00372920848329"],["(false, true)","0."],["(false, false)","0.996270791517"]]}]
+2026-04-30 09:22:47,349 - __main__ - DEBUG -   0.0037292084832899999
+2026-04-30 09:22:47,350 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:22:47,350 - __main__ - INFO -   => ok  P=3.729208e-03  total=0.664s
+2026-04-30 09:22:47,350 - __main__ - INFO - [herman] n17-h3 :: rubicon
+2026-04-30 09:22:47,350 - __main__ - INFO -   trial 1/3
+2026-04-30 09:22:47,351 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 3 --dice-cmd dice
+2026-04-30 09:22:52,921 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0146538622455"],["(false, true)","0."],["(false, false)","0.985346137755"]]}]
+2026-04-30 09:22:52,922 - __main__ - DEBUG -   0.014653862245500001
+2026-04-30 09:22:52,922 - __main__ - INFO -   trial 2/3
+2026-04-30 09:22:52,922 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 3 --dice-cmd dice
+2026-04-30 09:22:58,530 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0146538622455"],["(false, true)","0."],["(false, false)","0.985346137755"]]}]
+2026-04-30 09:22:58,530 - __main__ - DEBUG -   0.014653862245500001
+2026-04-30 09:22:58,530 - __main__ - INFO -   trial 3/3
+2026-04-30 09:22:58,531 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 3 --dice-cmd dice
+2026-04-30 09:23:04,134 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0146538622455"],["(false, true)","0."],["(false, false)","0.985346137755"]]}]
+2026-04-30 09:23:04,134 - __main__ - DEBUG -   0.014653862245500001
+2026-04-30 09:23:04,134 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:23:04,135 - __main__ - INFO -   => ok  P=1.465386e-02  total=5.594s
+2026-04-30 09:23:04,135 - __main__ - INFO - [herman] n17-h4 :: rubicon
+2026-04-30 09:23:04,135 - __main__ - INFO -   trial 1/3
+2026-04-30 09:23:04,135 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 4 --dice-cmd dice
+2026-04-30 09:23:18,766 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0329546730438"],["(false, true)","0."],["(false, false)","0.967045326956"]]}]
+2026-04-30 09:23:18,766 - __main__ - DEBUG -   0.032954673043800002
+2026-04-30 09:23:18,766 - __main__ - INFO -   trial 2/3
+2026-04-30 09:23:18,767 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 4 --dice-cmd dice
+2026-04-30 09:23:33,385 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0329546730438"],["(false, true)","0."],["(false, false)","0.967045326956"]]}]
+2026-04-30 09:23:33,385 - __main__ - DEBUG -   0.032954673043800002
+2026-04-30 09:23:33,385 - __main__ - INFO -   trial 3/3
+2026-04-30 09:23:33,386 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 4 --dice-cmd dice
+2026-04-30 09:23:47,869 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0329546730438"],["(false, true)","0."],["(false, false)","0.967045326956"]]}]
+2026-04-30 09:23:47,869 - __main__ - DEBUG -   0.032954673043800002
+2026-04-30 09:23:47,870 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:23:47,870 - __main__ - INFO -   => ok  P=3.295467e-02  total=14.577s
+2026-04-30 09:23:47,871 - __main__ - INFO - [herman] n17-h5 :: rubicon
+2026-04-30 09:23:47,871 - __main__ - INFO -   trial 1/3
+2026-04-30 09:23:47,872 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 5 --dice-cmd dice
+2026-04-30 09:24:14,928 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0568420823903"],["(false, true)","0."],["(false, false)","0.94315791761"]]}]
+2026-04-30 09:24:14,928 - __main__ - DEBUG -   0.056842082390300003
+2026-04-30 09:24:14,929 - __main__ - INFO -   trial 2/3
+2026-04-30 09:24:14,929 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 5 --dice-cmd dice
+2026-04-30 09:24:42,001 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0568420823903"],["(false, true)","0."],["(false, false)","0.94315791761"]]}]
+2026-04-30 09:24:42,001 - __main__ - DEBUG -   0.056842082390300003
+2026-04-30 09:24:42,001 - __main__ - INFO -   trial 3/3
+2026-04-30 09:24:42,001 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 5 --dice-cmd dice
+2026-04-30 09:25:09,316 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0568420823903"],["(false, true)","0."],["(false, false)","0.94315791761"]]}]
+2026-04-30 09:25:09,316 - __main__ - DEBUG -   0.056842082390300003
+2026-04-30 09:25:09,316 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:25:09,317 - __main__ - INFO -   => ok  P=5.684208e-02  total=27.147s
+2026-04-30 09:25:09,317 - __main__ - INFO - [herman] n17-h6 :: rubicon
+2026-04-30 09:25:09,317 - __main__ - INFO -   trial 1/3
+2026-04-30 09:25:09,317 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 6 --dice-cmd dice
+2026-04-30 09:25:46,457 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0844497073779"],["(false, true)","0."],["(false, false)","0.915550292622"]]}]
+2026-04-30 09:25:46,457 - __main__ - DEBUG -   0.084449707377900002
+2026-04-30 09:25:46,457 - __main__ - INFO -   trial 2/3
+2026-04-30 09:25:46,458 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 6 --dice-cmd dice
+2026-04-30 09:26:23,398 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0844497073779"],["(false, true)","0."],["(false, false)","0.915550292622"]]}]
+2026-04-30 09:26:23,398 - __main__ - DEBUG -   0.084449707377900002
+2026-04-30 09:26:23,398 - __main__ - INFO -   trial 3/3
+2026-04-30 09:26:23,398 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 6 --dice-cmd dice
+2026-04-30 09:27:00,657 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0844497073779"],["(false, true)","0."],["(false, false)","0.915550292622"]]}]
+2026-04-30 09:27:00,658 - __main__ - DEBUG -   0.084449707377900002
+2026-04-30 09:27:00,659 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:27:00,659 - __main__ - INFO -   => ok  P=8.444971e-02  total=37.113s
+2026-04-30 09:27:00,659 - __main__ - INFO - [herman] n17-h7 :: rubicon
+2026-04-30 09:27:00,659 - __main__ - INFO -   trial 1/3
+2026-04-30 09:27:00,659 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 7 --dice-cmd dice
+2026-04-30 09:27:57,622 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.114278209131"],["(false, true)","0."],["(false, false)","0.885721790869"]]}]
+2026-04-30 09:27:57,622 - __main__ - DEBUG -   0.11427820913099999
+2026-04-30 09:27:57,622 - __main__ - INFO -   trial 2/3
+2026-04-30 09:27:57,623 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 7 --dice-cmd dice
+2026-04-30 09:28:54,595 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.114278209131"],["(false, true)","0."],["(false, false)","0.885721790869"]]}]
+2026-04-30 09:28:54,596 - __main__ - DEBUG -   0.11427820913099999
+2026-04-30 09:28:54,596 - __main__ - INFO -   trial 3/3
+2026-04-30 09:28:54,597 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 7 --dice-cmd dice
+2026-04-30 09:29:51,875 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.114278209131"],["(false, true)","0."],["(false, false)","0.885721790869"]]}]
+2026-04-30 09:29:51,875 - __main__ - DEBUG -   0.11427820913099999
+2026-04-30 09:29:51,877 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:29:51,877 - __main__ - INFO -   => ok  P=1.142782e-01  total=57.071s
+2026-04-30 09:29:51,877 - __main__ - INFO - [herman] n17-h8 :: rubicon
+2026-04-30 09:29:51,877 - __main__ - INFO -   trial 1/3
+2026-04-30 09:29:51,878 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 8 --dice-cmd dice
+2026-04-30 09:30:59,937 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.145225401093"],["(false, true)","0."],["(false, false)","0.854774598907"]]}]
+2026-04-30 09:30:59,938 - __main__ - DEBUG -   0.145225401093
+2026-04-30 09:30:59,938 - __main__ - INFO -   trial 2/3
+2026-04-30 09:30:59,938 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 8 --dice-cmd dice
+2026-04-30 09:32:08,493 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.145225401093"],["(false, true)","0."],["(false, false)","0.854774598907"]]}]
+2026-04-30 09:32:08,494 - __main__ - DEBUG -   0.145225401093
+2026-04-30 09:32:08,494 - __main__ - INFO -   trial 3/3
+2026-04-30 09:32:08,495 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 8 --dice-cmd dice
+2026-04-30 09:33:16,742 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.145225401093"],["(false, true)","0."],["(false, false)","0.854774598907"]]}]
+2026-04-30 09:33:16,742 - __main__ - DEBUG -   0.145225401093
+2026-04-30 09:33:16,743 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:33:16,743 - __main__ - INFO -   => ok  P=1.452254e-01  total=68.287s
+2026-04-30 09:33:16,743 - __main__ - INFO - [herman] n17-h9 :: rubicon
+2026-04-30 09:33:16,743 - __main__ - INFO -   trial 1/3
+2026-04-30 09:33:16,743 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 9 --dice-cmd dice
+2026-04-30 09:34:37,804 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.176516406671"],["(false, true)","0."],["(false, false)","0.823483593329"]]}]
+2026-04-30 09:34:37,805 - __main__ - DEBUG -   0.17651640667099999
+2026-04-30 09:34:37,805 - __main__ - INFO -   trial 2/3
+2026-04-30 09:34:37,806 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 9 --dice-cmd dice
+2026-04-30 09:35:59,808 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.176516406671"],["(false, true)","0."],["(false, false)","0.823483593329"]]}]
+2026-04-30 09:35:59,808 - __main__ - DEBUG -   0.17651640667099999
+2026-04-30 09:35:59,809 - __main__ - INFO -   trial 3/3
+2026-04-30 09:35:59,809 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 9 --dice-cmd dice
+2026-04-30 09:37:21,541 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.176516406671"],["(false, true)","0."],["(false, false)","0.823483593329"]]}]
+2026-04-30 09:37:21,541 - __main__ - DEBUG -   0.17651640667099999
+2026-04-30 09:37:21,542 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:37:21,542 - __main__ - INFO -   => ok  P=1.765164e-01  total=81.598s
+2026-04-30 09:37:21,542 - __main__ - INFO - [herman] n17-h10 :: rubicon
+2026-04-30 09:37:21,542 - __main__ - INFO -   trial 1/3
+2026-04-30 09:37:21,542 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 10 --dice-cmd dice
+2026-04-30 09:38:55,273 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.207620363554"],["(false, true)","0."],["(false, false)","0.792379636446"]]}]
+2026-04-30 09:38:55,273 - __main__ - DEBUG -   0.20762036355399999
+2026-04-30 09:38:55,273 - __main__ - INFO -   trial 2/3
+2026-04-30 09:38:55,274 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 10 --dice-cmd dice
+2026-04-30 09:40:29,217 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.207620363554"],["(false, true)","0."],["(false, false)","0.792379636446"]]}]
+2026-04-30 09:40:29,217 - __main__ - DEBUG -   0.20762036355399999
+2026-04-30 09:40:29,218 - __main__ - INFO -   trial 3/3
+2026-04-30 09:40:29,218 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 10 --dice-cmd dice
+2026-04-30 09:42:02,831 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.207620363554"],["(false, true)","0."],["(false, false)","0.792379636446"]]}]
+2026-04-30 09:42:02,831 - __main__ - DEBUG -   0.20762036355399999
+2026-04-30 09:42:02,832 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:42:02,832 - __main__ - INFO -   => ok  P=2.076204e-01  total=93.762s
+2026-04-30 09:42:02,832 - __main__ - INFO - [herman] n17-h20 :: rubicon
+2026-04-30 09:42:02,832 - __main__ - INFO -   trial 1/3
+2026-04-30 09:42:02,833 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 20 --dice-cmd dice
+2026-04-30 09:47:52,412 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.469742109898"],["(false, true)","0."],["(false, false)","0.530257890102"]]}]
+2026-04-30 09:47:52,412 - __main__ - DEBUG -   0.46974210989800003
+2026-04-30 09:47:52,412 - __main__ - INFO -   trial 2/3
+2026-04-30 09:47:52,412 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 20 --dice-cmd dice
+2026-04-30 09:53:41,364 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.469742109898"],["(false, true)","0."],["(false, false)","0.530257890102"]]}]
+2026-04-30 09:53:41,364 - __main__ - DEBUG -   0.46974210989800003
+2026-04-30 09:53:41,364 - __main__ - INFO -   trial 3/3
+2026-04-30 09:53:41,365 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 20 --dice-cmd dice
+2026-04-30 09:59:30,251 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.469742109898"],["(false, true)","0."],["(false, false)","0.530257890102"]]}]
+2026-04-30 09:59:30,251 - __main__ - DEBUG -   0.46974210989800003
+2026-04-30 09:59:30,252 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 09:59:30,252 - __main__ - INFO -   => ok  P=4.697421e-01  total=349.139s
+2026-04-30 09:59:30,252 - __main__ - INFO - [herman] n17-h30 :: rubicon
+2026-04-30 09:59:30,252 - __main__ - INFO -   trial 1/3
+2026-04-30 09:59:30,252 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 30 --dice-cmd dice
+2026-04-30 10:10:35,962 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.640671437057"],["(false, true)","0."],["(false, false)","0.359328562943"]]}]
+2026-04-30 10:10:35,963 - __main__ - DEBUG -   0.64067143705700003
+2026-04-30 10:10:35,963 - __main__ - INFO -   trial 2/3
+2026-04-30 10:10:35,963 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 30 --dice-cmd dice
+2026-04-30 10:21:41,723 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.640671437057"],["(false, true)","0."],["(false, false)","0.359328562943"]]}]
+2026-04-30 10:21:41,723 - __main__ - DEBUG -   0.64067143705700003
+2026-04-30 10:21:41,723 - __main__ - INFO -   trial 3/3
+2026-04-30 10:21:41,723 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 30 --dice-cmd dice
+2026-04-30 10:32:47,143 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.640671437057"],["(false, true)","0."],["(false, false)","0.359328562943"]]}]
+2026-04-30 10:32:47,143 - __main__ - DEBUG -   0.64067143705700003
+2026-04-30 10:32:47,144 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 10:32:47,145 - __main__ - INFO -   => ok  P=6.406714e-01  total=665.630s
+2026-04-30 10:32:47,145 - __main__ - INFO - [herman] n17-h40 :: rubicon
+2026-04-30 10:32:47,145 - __main__ - INFO -   trial 1/3
+2026-04-30 10:32:47,146 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 40 --dice-cmd dice
+2026-04-30 10:53:03,288 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.752565626543"],["(false, true)","0."],["(false, false)","0.247434373457"]]}]
+2026-04-30 10:53:03,288 - __main__ - DEBUG -   0.75256562654299997
+2026-04-30 10:53:03,288 - __main__ - INFO -   trial 2/3
+2026-04-30 10:53:03,289 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 40 --dice-cmd dice
+2026-04-30 11:13:29,944 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.752565626543"],["(false, true)","0."],["(false, false)","0.247434373457"]]}]
+2026-04-30 11:13:29,944 - __main__ - DEBUG -   0.75256562654299997
+2026-04-30 11:13:29,944 - __main__ - INFO -   trial 3/3
+2026-04-30 11:13:29,945 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 40 --dice-cmd dice
+2026-04-30 11:33:52,979 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.752565626543"],["(false, true)","0."],["(false, false)","0.247434373457"]]}]
+2026-04-30 11:33:52,979 - __main__ - DEBUG -   0.75256562654299997
+2026-04-30 11:33:52,980 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 11:33:52,980 - __main__ - INFO -   => ok  P=7.525656e-01  total=1221.944s
+2026-04-30 11:33:52,980 - __main__ - INFO - [herman] n17-h50 :: rubicon
+2026-04-30 11:33:52,980 - __main__ - INFO -   trial 1/3
+2026-04-30 11:33:52,981 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 50 --dice-cmd dice
+2026-04-30 11:54:53,085 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-30 11:54:53,087 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 11:54:53,087 - __main__ - INFO -   => timeout
+2026-04-30 11:54:53,087 - __main__ - INFO - [herman] n17-h60 :: rubicon
+2026-04-30 11:54:53,087 - __main__ - INFO -   trial 1/3
+2026-04-30 11:54:53,088 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 60 --dice-cmd dice
+2026-04-30 12:15:53,152 - __main__ - ERROR -   timeout: Timed out after 1260 seconds
+2026-04-30 12:15:53,153 - __main__ - DEBUG - Wrote CSV row to reproduced/herman/testh/rubicon.csv
+2026-04-30 12:15:53,154 - __main__ - INFO -   => timeout

@@ -1,0 +1,67 @@
+2026-04-30 12:15:58,723 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('reproduced/meeting/testn'), 'engine': None}
+2026-04-30 12:15:58,727 - __main__ - INFO - [meeting] n2-h10 :: tessa
+2026-04-30 12:15:58,727 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-2.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n2-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:11,532 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:11,532 - __main__ - DEBUG -   Array(0.06325176, dtype=float64)
+2026-04-30 12:16:11,534 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:11,534 - __main__ - INFO -   => ok  P=6.325176e-02  total=12.805s  work=0.288±0.001s  compile=0.010s  run=0.000s
+2026-04-30 12:16:11,534 - __main__ - INFO - [meeting] n3-h10 :: tessa
+2026-04-30 12:16:11,534 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-3.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n3-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:16,272 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:16,272 - __main__ - DEBUG -   Array(0.02354395, dtype=float64)
+2026-04-30 12:16:16,274 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:16,274 - __main__ - INFO -   => ok  P=2.354395e-02  total=4.737s  work=0.423±0.029s  compile=0.030s  run=0.000s
+2026-04-30 12:16:16,274 - __main__ - INFO - [meeting] n4-h10 :: tessa
+2026-04-30 12:16:16,274 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-4.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n4-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:21,366 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:21,367 - __main__ - DEBUG -   Array(0.01048039, dtype=float64)
+2026-04-30 12:16:21,369 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:21,369 - __main__ - INFO -   => ok  P=1.048039e-02  total=5.092s  work=0.458±0.002s  compile=0.019s  run=0.000s
+2026-04-30 12:16:21,369 - __main__ - INFO - [meeting] n5-h10 :: tessa
+2026-04-30 12:16:21,370 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-5.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n5-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:26,969 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:26,969 - __main__ - DEBUG -   Array(0.00538174, dtype=float64)
+2026-04-30 12:16:26,971 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:26,971 - __main__ - INFO -   => ok  P=5.381740e-03  total=5.599s  work=0.574±0.025s  compile=0.021s  run=0.001s
+2026-04-30 12:16:26,971 - __main__ - INFO - [meeting] n6-h10 :: tessa
+2026-04-30 12:16:26,971 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-6.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n6-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:33,113 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:33,113 - __main__ - DEBUG -   Array(0.00310551, dtype=float64)
+2026-04-30 12:16:33,115 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:33,115 - __main__ - INFO -   => ok  P=3.105510e-03  total=6.142s  work=0.652±0.020s  compile=0.027s  run=0.000s
+2026-04-30 12:16:33,116 - __main__ - INFO - [meeting] n7-h10 :: tessa
+2026-04-30 12:16:33,117 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-7.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n7-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:39,857 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:39,857 - __main__ - DEBUG -   Array(0.00197379, dtype=float64)
+2026-04-30 12:16:39,859 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:39,859 - __main__ - INFO -   => ok  P=1.973790e-03  total=6.740s  work=0.643±0.011s  compile=0.030s  run=0.001s
+2026-04-30 12:16:39,859 - __main__ - INFO - [meeting] n8-h10 :: tessa
+2026-04-30 12:16:39,860 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-8.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n8-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:47,311 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:47,311 - __main__ - DEBUG -   Array(0.00135995, dtype=float64)
+2026-04-30 12:16:47,312 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:47,312 - __main__ - INFO -   => ok  P=1.359950e-03  total=7.450s  work=0.805±0.060s  compile=0.046s  run=0.001s
+2026-04-30 12:16:47,312 - __main__ - INFO - [meeting] n9-h10 :: tessa
+2026-04-30 12:16:47,313 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-9.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n9-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:16:54,640 - __main__ - DEBUG -   gpu
+2026-04-30 12:16:54,640 - __main__ - DEBUG -   Array(0.00100271, dtype=float64)
+2026-04-30 12:16:54,643 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:16:54,643 - __main__ - INFO -   => ok  P=1.002710e-03  total=7.327s  work=0.757±0.038s  compile=0.032s  run=0.001s
+2026-04-30 12:16:54,643 - __main__ - INFO - [meeting] n10-h10 :: tessa
+2026-04-30 12:16:54,644 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-10.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n10-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:17:02,530 - __main__ - DEBUG -   gpu
+2026-04-30 12:17:02,530 - __main__ - DEBUG -   Array(0.00078268, dtype=float64)
+2026-04-30 12:17:02,531 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:17:02,531 - __main__ - INFO -   => ok  P=7.826800e-04  total=7.885s  work=0.906±0.066s  compile=0.040s  run=0.001s
+2026-04-30 12:17:02,531 - __main__ - INFO - [meeting] n11-h10 :: tessa
+2026-04-30 12:17:02,531 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-11.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n11-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:17:11,860 - __main__ - DEBUG -   gpu
+2026-04-30 12:17:11,860 - __main__ - DEBUG -   Array(0.00064093, dtype=float64)
+2026-04-30 12:17:11,863 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:17:11,863 - __main__ - INFO -   => ok  P=6.409300e-04  total=9.329s  work=1.107±0.027s  compile=0.041s  run=0.002s
+2026-04-30 12:17:11,863 - __main__ - INFO - [meeting] n12-h10 :: tessa
+2026-04-30 12:17:11,864 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-12.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/meeting/testn/n12-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-04-30 12:17:23,509 - __main__ - DEBUG -   gpu
+2026-04-30 12:17:23,510 - __main__ - DEBUG -   Array(0.00054637, dtype=float64)
+2026-04-30 12:17:23,511 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/tessa.csv
+2026-04-30 12:17:23,511 - __main__ - INFO -   => ok  P=5.463700e-04  total=11.645s  work=1.511±0.009s  compile=0.063s  run=0.004s

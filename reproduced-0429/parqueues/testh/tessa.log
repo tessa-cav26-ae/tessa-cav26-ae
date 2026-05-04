@@ -1,0 +1,169 @@
+2026-05-01 12:35:48,076 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('reproduced/parqueues/testh'), 'engine': None}
+2026-05-01 12:35:48,079 - __main__ - INFO - [parqueues] q9-n3-h1 :: tessa
+2026-05-01 12:35:48,079 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 1 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h1.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:03,921 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:03,922 - __main__ - DEBUG -   Array(0., dtype=float64)
+2026-05-01 12:36:03,925 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:03,925 - __main__ - INFO -   => ok  P=0.000000e+00  total=15.842s  work=0.950±0.015s  compile=0.045s  run=0.001s
+2026-05-01 12:36:03,925 - __main__ - INFO - [parqueues] q9-n3-h2 :: tessa
+2026-05-01 12:36:03,926 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 2 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h2.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:12,334 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:12,334 - __main__ - DEBUG -   Array(0., dtype=float64)
+2026-05-01 12:36:12,336 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:12,336 - __main__ - INFO -   => ok  P=0.000000e+00  total=8.407s  work=0.916±0.059s  compile=0.043s  run=0.001s
+2026-05-01 12:36:12,336 - __main__ - INFO - [parqueues] q9-n3-h3 :: tessa
+2026-05-01 12:36:12,337 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 3 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h3.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:20,565 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:20,565 - __main__ - DEBUG -   Array(0.00198157, dtype=float64)
+2026-05-01 12:36:20,567 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:20,567 - __main__ - INFO -   => ok  P=1.981570e-03  total=8.228s  work=0.928±0.007s  compile=0.039s  run=0.001s
+2026-05-01 12:36:20,568 - __main__ - INFO - [parqueues] q9-n3-h4 :: tessa
+2026-05-01 12:36:20,569 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 4 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h4.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:28,999 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:28,999 - __main__ - DEBUG -   Array(0.01457853, dtype=float64)
+2026-05-01 12:36:29,001 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:29,001 - __main__ - INFO -   => ok  P=1.457853e-02  total=8.430s  work=0.953±0.016s  compile=0.043s  run=0.001s
+2026-05-01 12:36:29,001 - __main__ - INFO - [parqueues] q9-n3-h5 :: tessa
+2026-05-01 12:36:29,003 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 5 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h5.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:37,440 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:37,440 - __main__ - DEBUG -   Array(0.02758536, dtype=float64)
+2026-05-01 12:36:37,443 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:37,443 - __main__ - INFO -   => ok  P=2.758536e-02  total=8.437s  work=0.921±0.023s  compile=0.039s  run=0.002s
+2026-05-01 12:36:37,443 - __main__ - INFO - [parqueues] q9-n3-h6 :: tessa
+2026-05-01 12:36:37,444 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 6 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h6.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:45,596 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:45,596 - __main__ - DEBUG -   Array(0.03411829, dtype=float64)
+2026-05-01 12:36:45,598 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:45,599 - __main__ - INFO -   => ok  P=3.411829e-02  total=8.152s  work=0.866±0.008s  compile=0.032s  run=0.002s
+2026-05-01 12:36:45,599 - __main__ - INFO - [parqueues] q9-n3-h7 :: tessa
+2026-05-01 12:36:45,600 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 7 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h7.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:36:53,650 - __main__ - DEBUG -   gpu
+2026-05-01 12:36:53,651 - __main__ - DEBUG -   Array(0.03642315, dtype=float64)
+2026-05-01 12:36:53,653 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:36:53,653 - __main__ - INFO -   => ok  P=3.642315e-02  total=8.050s  work=0.890±0.031s  compile=0.036s  run=0.002s
+2026-05-01 12:36:53,653 - __main__ - INFO - [parqueues] q9-n3-h8 :: tessa
+2026-05-01 12:36:53,654 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 8 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h8.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:01,642 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:01,643 - __main__ - DEBUG -   Array(0.03708668, dtype=float64)
+2026-05-01 12:37:01,644 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:01,644 - __main__ - INFO -   => ok  P=3.708668e-02  total=7.988s  work=0.873±0.013s  compile=0.032s  run=0.003s
+2026-05-01 12:37:01,644 - __main__ - INFO - [parqueues] q9-n3-h9 :: tessa
+2026-05-01 12:37:01,644 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 9 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h9.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:09,999 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:09,999 - __main__ - DEBUG -   Array(0.03725475, dtype=float64)
+2026-05-01 12:37:10,002 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:10,002 - __main__ - INFO -   => ok  P=3.725475e-02  total=8.355s  work=0.909±0.043s  compile=0.032s  run=0.003s
+2026-05-01 12:37:10,002 - __main__ - INFO - [parqueues] q9-n3-h10 :: tessa
+2026-05-01 12:37:10,003 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h10.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:18,230 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:18,230 - __main__ - DEBUG -   Array(0.03729386, dtype=float64)
+2026-05-01 12:37:18,233 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:18,233 - __main__ - INFO -   => ok  P=3.729386e-02  total=8.226s  work=0.907±0.018s  compile=0.039s  run=0.003s
+2026-05-01 12:37:18,233 - __main__ - INFO - [parqueues] q9-n3-h20 :: tessa
+2026-05-01 12:37:18,234 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 20 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h20.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:26,672 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:26,673 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:37:26,674 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:26,674 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.438s  work=0.953±0.024s  compile=0.034s  run=0.006s
+2026-05-01 12:37:26,674 - __main__ - INFO - [parqueues] q9-n3-h30 :: tessa
+2026-05-01 12:37:26,675 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 30 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h30.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:35,084 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:35,084 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:37:35,087 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:35,087 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.409s  work=0.951±0.016s  compile=0.047s  run=0.009s
+2026-05-01 12:37:35,087 - __main__ - INFO - [parqueues] q9-n3-h40 :: tessa
+2026-05-01 12:37:35,088 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 40 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h40.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:43,423 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:43,423 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:37:43,426 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:43,426 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.335s  work=0.908±0.021s  compile=0.030s  run=0.011s
+2026-05-01 12:37:43,426 - __main__ - INFO - [parqueues] q9-n3-h50 :: tessa
+2026-05-01 12:37:43,427 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 50 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h50.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:37:51,887 - __main__ - DEBUG -   gpu
+2026-05-01 12:37:51,888 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:37:51,890 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:37:51,890 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.460s  work=0.938±0.014s  compile=0.036s  run=0.014s
+2026-05-01 12:37:51,890 - __main__ - INFO - [parqueues] q9-n3-h60 :: tessa
+2026-05-01 12:37:51,892 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 60 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h60.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:00,295 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:00,295 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:00,297 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:00,297 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.403s  work=0.949±0.042s  compile=0.030s  run=0.017s
+2026-05-01 12:38:00,298 - __main__ - INFO - [parqueues] q9-n3-h70 :: tessa
+2026-05-01 12:38:00,299 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 70 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h70.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:08,733 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:08,733 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:08,735 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:08,735 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.434s  work=0.942±0.027s  compile=0.049s  run=0.020s
+2026-05-01 12:38:08,735 - __main__ - INFO - [parqueues] q9-n3-h80 :: tessa
+2026-05-01 12:38:08,736 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 80 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h80.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:17,475 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:17,475 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:17,478 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:17,478 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.739s  work=0.974±0.035s  compile=0.044s  run=0.023s
+2026-05-01 12:38:17,478 - __main__ - INFO - [parqueues] q9-n3-h90 :: tessa
+2026-05-01 12:38:17,479 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 90 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h90.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:26,234 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:26,234 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:26,235 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:26,235 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.755s  work=0.991±0.001s  compile=0.038s  run=0.026s
+2026-05-01 12:38:26,235 - __main__ - INFO - [parqueues] q9-n3-h100 :: tessa
+2026-05-01 12:38:26,236 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 100 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h100.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:34,879 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:34,879 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:34,881 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:34,881 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.643s  work=0.985±0.017s  compile=0.039s  run=0.028s
+2026-05-01 12:38:34,881 - __main__ - INFO - [parqueues] q9-n3-h200 :: tessa
+2026-05-01 12:38:34,882 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 200 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h200.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:44,105 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:44,105 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:44,107 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:44,107 - __main__ - INFO -   => ok  P=3.730470e-02  total=9.223s  work=1.004±0.025s  compile=0.045s  run=0.057s
+2026-05-01 12:38:44,107 - __main__ - INFO - [parqueues] q9-n3-h300 :: tessa
+2026-05-01 12:38:44,108 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 300 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h300.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:38:53,083 - __main__ - DEBUG -   gpu
+2026-05-01 12:38:53,084 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:38:53,086 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:38:53,086 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.975s  work=1.000±0.037s  compile=0.042s  run=0.086s
+2026-05-01 12:38:53,086 - __main__ - INFO - [parqueues] q9-n3-h400 :: tessa
+2026-05-01 12:38:53,087 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 400 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h400.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:01,834 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:01,835 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:01,837 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:01,838 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.747s  work=0.987±0.058s  compile=0.032s  run=0.093s
+2026-05-01 12:39:01,838 - __main__ - INFO - [parqueues] q9-n3-h500 :: tessa
+2026-05-01 12:39:01,839 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 500 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h500.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:11,058 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:11,058 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:11,061 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:11,061 - __main__ - INFO -   => ok  P=3.730470e-02  total=9.219s  work=1.052±0.006s  compile=0.043s  run=0.137s
+2026-05-01 12:39:11,061 - __main__ - INFO - [parqueues] q9-n3-h600 :: tessa
+2026-05-01 12:39:11,062 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 600 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h600.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:20,036 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:20,036 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:20,039 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:20,039 - __main__ - INFO -   => ok  P=3.730470e-02  total=8.974s  work=1.021±0.062s  compile=0.041s  run=0.134s
+2026-05-01 12:39:20,039 - __main__ - INFO - [parqueues] q9-n3-h700 :: tessa
+2026-05-01 12:39:20,039 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 700 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h700.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:29,297 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:29,297 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:29,298 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:29,299 - __main__ - INFO -   => ok  P=3.730470e-02  total=9.257s  work=1.036±0.012s  compile=0.031s  run=0.156s
+2026-05-01 12:39:29,299 - __main__ - INFO - [parqueues] q9-n3-h800 :: tessa
+2026-05-01 12:39:29,299 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 800 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h800.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:38,881 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:38,881 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:38,883 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:38,883 - __main__ - INFO -   => ok  P=3.730470e-02  total=9.582s  work=1.132±0.041s  compile=0.047s  run=0.178s
+2026-05-01 12:39:38,883 - __main__ - INFO - [parqueues] q9-n3-h900 :: tessa
+2026-05-01 12:39:38,885 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 900 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h900.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:48,343 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:48,343 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:48,344 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:48,344 - __main__ - INFO -   => ok  P=3.730470e-02  total=9.458s  work=1.057±0.015s  compile=0.031s  run=0.203s
+2026-05-01 12:39:48,344 - __main__ - INFO - [parqueues] q9-n3-h1000 :: tessa
+2026-05-01 12:39:48,345 - __main__ - DEBUG -   $ tessa benchmarks/parqueues/queue-9.jani --type jani --property target --horizon 1000 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log reproduced/parqueues/testh/q9-n3-h1000.tessa.jax-cuda-0.float64.time.jsonl --const N=3
+2026-05-01 12:39:58,074 - __main__ - DEBUG -   gpu
+2026-05-01 12:39:58,074 - __main__ - DEBUG -   Array(0.0373047, dtype=float64)
+2026-05-01 12:39:58,075 - __main__ - DEBUG - Wrote CSV row to reproduced/parqueues/testh/tessa.csv
+2026-05-01 12:39:58,075 - __main__ - INFO -   => ok  P=3.730470e-02  total=9.729s  work=1.113±0.014s  compile=0.034s  run=0.226s

@@ -1,0 +1,1024 @@
+2026-04-30 12:37:24,917 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/meeting/testn'), 'engine': 'spm'}
+2026-04-30 12:37:24,920 - __main__ - INFO - [meeting] n2-h10 :: storm.spm
+2026-04-30 12:37:24,920 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:24,920 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:24,972 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:24,972 - __main__ - DEBUG -   
+2026-04-30 12:37:24,972 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:24 2026
+2026-04-30 12:37:24,972 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   Time for model construction: 0.014s.
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   States: 	9
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   Transitions: 	25
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:24,973 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:24,973 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:24,973 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:24,974 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   
+2026-04-30 12:37:24,974 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:24,974 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:24,974 - __main__ - DEBUG -     * CPU time: 0.034s
+2026-04-30 12:37:24,974 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:24,975 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:24,975 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,037 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,037 - __main__ - DEBUG -   
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   States: 	9
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Transitions: 	25
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,038 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,038 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,038 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   
+2026-04-30 12:37:25,038 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,038 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,038 - __main__ - DEBUG -     * CPU time: 0.042s
+2026-04-30 12:37:25,038 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,038 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:25,039 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,102 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,102 - __main__ - DEBUG -   
+2026-04-30 12:37:25,102 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,102 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   States: 	9
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Transitions: 	25
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,103 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,103 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,103 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   
+2026-04-30 12:37:25,103 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,103 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-30 12:37:25,103 - __main__ - DEBUG -     * CPU time: 0.042s
+2026-04-30 12:37:25,103 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,104 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:25,104 - __main__ - INFO -   => ok  P=6.325176e-02  total=0.059s
+2026-04-30 12:37:25,104 - __main__ - INFO - [meeting] n3-h10 :: storm.spm
+2026-04-30 12:37:25,104 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:25,104 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,167 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   States: 	27
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Transitions: 	125
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,168 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,168 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,168 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   
+2026-04-30 12:37:25,168 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,168 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-30 12:37:25,168 - __main__ - DEBUG -     * CPU time: 0.044s
+2026-04-30 12:37:25,168 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,168 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:25,169 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   
+2026-04-30 12:37:25,233 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   States: 	27
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Transitions: 	125
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,234 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,234 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,234 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,234 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-30 12:37:25,234 - __main__ - DEBUG -     * CPU time: 0.038s
+2026-04-30 12:37:25,234 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,234 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:25,234 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,297 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,297 - __main__ - DEBUG -   
+2026-04-30 12:37:25,297 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,297 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,297 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   States: 	27
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Transitions: 	125
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,298 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,298 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,298 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   
+2026-04-30 12:37:25,298 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,298 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-30 12:37:25,298 - __main__ - DEBUG -     * CPU time: 0.040s
+2026-04-30 12:37:25,298 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,299 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:25,299 - __main__ - INFO -   => ok  P=2.354395e-02  total=0.063s
+2026-04-30 12:37:25,299 - __main__ - INFO - [meeting] n4-h10 :: storm.spm
+2026-04-30 12:37:25,299 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:25,299 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-4.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,363 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-4.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   States: 	81
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Transitions: 	625
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,364 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,364 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,364 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Result (for initial states): 0.01048038677
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   
+2026-04-30 12:37:25,364 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,364 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,364 - __main__ - DEBUG -     * CPU time: 0.044s
+2026-04-30 12:37:25,364 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,364 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:25,365 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-4.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,428 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,428 - __main__ - DEBUG -   
+2026-04-30 12:37:25,428 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,428 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-4.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,428 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,428 - __main__ - DEBUG -   
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   States: 	81
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Transitions: 	625
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,429 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,429 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,429 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Result (for initial states): 0.01048038677
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,429 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-30 12:37:25,429 - __main__ - DEBUG -     * CPU time: 0.043s
+2026-04-30 12:37:25,429 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,429 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:25,429 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-4.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,494 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,494 - __main__ - DEBUG -   
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-4.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Time for model construction: 0.013s.
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   States: 	81
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Transitions: 	625
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,495 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,495 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,495 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Result (for initial states): 0.01048038677
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   
+2026-04-30 12:37:25,495 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,495 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,495 - __main__ - DEBUG -     * CPU time: 0.044s
+2026-04-30 12:37:25,495 - __main__ - DEBUG -     * wallclock time: 0.015s
+2026-04-30 12:37:25,496 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:25,496 - __main__ - INFO -   => ok  P=1.048039e-02  total=0.064s
+2026-04-30 12:37:25,496 - __main__ - INFO - [meeting] n5-h10 :: storm.spm
+2026-04-30 12:37:25,496 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:25,496 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-5.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,560 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,560 - __main__ - DEBUG -   
+2026-04-30 12:37:25,560 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-5.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Time for model construction: 0.015s.
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   States: 	243
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Transitions: 	3125
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,561 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,561 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,561 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Result (for initial states): 0.005381740005
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,561 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,561 - __main__ - DEBUG -     * CPU time: 0.044s
+2026-04-30 12:37:25,561 - __main__ - DEBUG -     * wallclock time: 0.017s
+2026-04-30 12:37:25,561 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:25,561 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-5.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,638 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,638 - __main__ - DEBUG -   
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-5.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Time for model construction: 0.015s.
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   States: 	243
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Transitions: 	3125
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,639 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,639 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,639 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Result (for initial states): 0.005381740005
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   
+2026-04-30 12:37:25,639 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,639 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,639 - __main__ - DEBUG -     * CPU time: 0.055s
+2026-04-30 12:37:25,639 - __main__ - DEBUG -     * wallclock time: 0.018s
+2026-04-30 12:37:25,639 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:25,640 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-5.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,702 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-5.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Time for model construction: 0.015s.
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   States: 	243
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Transitions: 	3125
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,703 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,703 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,703 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Result (for initial states): 0.005381740005
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Time for model checking: 0.000s.
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   
+2026-04-30 12:37:25,703 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,703 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,703 - __main__ - DEBUG -     * CPU time: 0.046s
+2026-04-30 12:37:25,703 - __main__ - DEBUG -     * wallclock time: 0.017s
+2026-04-30 12:37:25,704 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:25,704 - __main__ - INFO -   => ok  P=5.381740e-03  total=0.068s
+2026-04-30 12:37:25,704 - __main__ - INFO - [meeting] n6-h10 :: storm.spm
+2026-04-30 12:37:25,704 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:25,704 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-6.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-6.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   Time for model construction: 0.022s.
+2026-04-30 12:37:25,778 - __main__ - DEBUG -   
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   States: 	729
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   Transitions: 	15625
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,779 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,779 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,779 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   
+2026-04-30 12:37:25,779 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,780 - __main__ - DEBUG -   Result (for initial states): 0.00310550674
+2026-04-30 12:37:25,780 - __main__ - DEBUG -   Time for model checking: 0.001s.
+2026-04-30 12:37:25,780 - __main__ - DEBUG -   
+2026-04-30 12:37:25,780 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,780 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,780 - __main__ - DEBUG -     * CPU time: 0.056s
+2026-04-30 12:37:25,780 - __main__ - DEBUG -     * wallclock time: 0.027s
+2026-04-30 12:37:25,780 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:25,781 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-6.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-6.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   
+2026-04-30 12:37:25,859 - __main__ - DEBUG -   Time for model construction: 0.026s.
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   States: 	729
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Transitions: 	15625
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,860 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,860 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,860 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Result (for initial states): 0.00310550674
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Time for model checking: 0.001s.
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,860 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:25,860 - __main__ - DEBUG -     * CPU time: 0.058s
+2026-04-30 12:37:25,860 - __main__ - DEBUG -     * wallclock time: 0.031s
+2026-04-30 12:37:25,860 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:25,860 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-6.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-6.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   Time for model construction: 0.022s.
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,934 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   States: 	729
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   Transitions: 	15625
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:25,935 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:25,935 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:25,935 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:25,935 - __main__ - DEBUG -   Result (for initial states): 0.00310550674
+2026-04-30 12:37:25,936 - __main__ - DEBUG -   Time for model checking: 0.001s.
+2026-04-30 12:37:25,936 - __main__ - DEBUG -   
+2026-04-30 12:37:25,936 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:25,936 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-04-30 12:37:25,936 - __main__ - DEBUG -     * CPU time: 0.054s
+2026-04-30 12:37:25,936 - __main__ - DEBUG -     * wallclock time: 0.026s
+2026-04-30 12:37:25,936 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:25,936 - __main__ - INFO -   => ok  P=3.105507e-03  total=0.075s
+2026-04-30 12:37:25,936 - __main__ - INFO - [meeting] n7-h10 :: storm.spm
+2026-04-30 12:37:25,936 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:25,937 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-7.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:25 2026
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-7.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   
+2026-04-30 12:37:26,055 - __main__ - DEBUG -   Time for model construction: 0.057s.
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   States: 	2187
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Transitions: 	78125
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:26,056 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:26,056 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:26,056 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Result (for initial states): 0.001973787081
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:26,056 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:26,056 - __main__ - DEBUG -     * CPU time: 0.089s
+2026-04-30 12:37:26,056 - __main__ - DEBUG -     * wallclock time: 0.069s
+2026-04-30 12:37:26,056 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:26,056 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-7.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:26,175 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:26,175 - __main__ - DEBUG -   
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:26 2026
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-7.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Time for model construction: 0.057s.
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   States: 	2187
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Transitions: 	78125
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:26,176 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:26,176 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:26,176 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Result (for initial states): 0.001973787081
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   
+2026-04-30 12:37:26,176 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:26,176 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:26,176 - __main__ - DEBUG -     * CPU time: 0.097s
+2026-04-30 12:37:26,176 - __main__ - DEBUG -     * wallclock time: 0.069s
+2026-04-30 12:37:26,176 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:26,177 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-7.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:26,294 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:26 2026
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-7.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Time for model construction: 0.057s.
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   States: 	2187
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Transitions: 	78125
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:26,295 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:26,295 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:26,295 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Result (for initial states): 0.001973787081
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   
+2026-04-30 12:37:26,295 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:26,295 - __main__ - DEBUG -     * peak memory usage: 53MB
+2026-04-30 12:37:26,295 - __main__ - DEBUG -     * CPU time: 0.093s
+2026-04-30 12:37:26,295 - __main__ - DEBUG -     * wallclock time: 0.068s
+2026-04-30 12:37:26,296 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:26,296 - __main__ - INFO -   => ok  P=1.973787e-03  total=0.118s
+2026-04-30 12:37:26,296 - __main__ - INFO - [meeting] n8-h10 :: storm.spm
+2026-04-30 12:37:26,296 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:26,296 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-8.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:26,630 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:26,630 - __main__ - DEBUG -   
+2026-04-30 12:37:26,630 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:26 2026
+2026-04-30 12:37:26,630 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-8.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:26,630 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:26,630 - __main__ - DEBUG -   
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Time for model construction: 0.232s.
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   States: 	6561
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Transitions: 	390625
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:26,631 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:26,631 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:26,631 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Result (for initial states): 0.001359947825
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Time for model checking: 0.048s.
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:26,631 - __main__ - DEBUG -     * peak memory usage: 66MB
+2026-04-30 12:37:26,631 - __main__ - DEBUG -     * CPU time: 0.296s
+2026-04-30 12:37:26,631 - __main__ - DEBUG -     * wallclock time: 0.285s
+2026-04-30 12:37:26,631 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:26,631 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-8.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:26 2026
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-8.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Time for model construction: 0.232s.
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   States: 	6561
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Transitions: 	390625
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:26,969 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:26,969 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:26,969 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Result (for initial states): 0.001359947825
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Time for model checking: 0.049s.
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   
+2026-04-30 12:37:26,969 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:26,969 - __main__ - DEBUG -     * peak memory usage: 66MB
+2026-04-30 12:37:26,969 - __main__ - DEBUG -     * CPU time: 0.303s
+2026-04-30 12:37:26,969 - __main__ - DEBUG -     * wallclock time: 0.286s
+2026-04-30 12:37:26,969 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:26,970 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-8.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:27,300 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:27,300 - __main__ - DEBUG -   
+2026-04-30 12:37:27,300 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:27 2026
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-8.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Time for model construction: 0.230s.
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   States: 	6561
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Transitions: 	390625
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:27,301 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:27,301 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:27,301 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Result (for initial states): 0.001359947825
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Time for model checking: 0.048s.
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   
+2026-04-30 12:37:27,301 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:27,301 - __main__ - DEBUG -     * peak memory usage: 66MB
+2026-04-30 12:37:27,301 - __main__ - DEBUG -     * CPU time: 0.293s
+2026-04-30 12:37:27,301 - __main__ - DEBUG -     * wallclock time: 0.282s
+2026-04-30 12:37:27,302 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:27,302 - __main__ - INFO -   => ok  P=1.359948e-03  total=0.334s
+2026-04-30 12:37:27,302 - __main__ - INFO - [meeting] n9-h10 :: storm.spm
+2026-04-30 12:37:27,302 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:27,302 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-9.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:28,738 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:28,738 - __main__ - DEBUG -   
+2026-04-30 12:37:28,738 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:27 2026
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-9.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Time for model construction: 1.111s.
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   States: 	19683
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Transitions: 	1953125
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:28,739 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:28,739 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:28,739 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Result (for initial states): 0.001002708801
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Time for model checking: 0.269s.
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   
+2026-04-30 12:37:28,739 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:28,739 - __main__ - DEBUG -     * peak memory usage: 185MB
+2026-04-30 12:37:28,739 - __main__ - DEBUG -     * CPU time: 1.360s
+2026-04-30 12:37:28,739 - __main__ - DEBUG -     * wallclock time: 1.386s
+2026-04-30 12:37:28,739 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:28,740 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-9.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:30,207 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:30,207 - __main__ - DEBUG -   
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:28 2026
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-9.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Time for model construction: 1.139s.
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   States: 	19683
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Transitions: 	1953125
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:30,208 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:30,208 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:30,208 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Result (for initial states): 0.001002708801
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Time for model checking: 0.272s.
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   
+2026-04-30 12:37:30,208 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:30,208 - __main__ - DEBUG -     * peak memory usage: 185MB
+2026-04-30 12:37:30,208 - __main__ - DEBUG -     * CPU time: 1.372s
+2026-04-30 12:37:30,208 - __main__ - DEBUG -     * wallclock time: 1.417s
+2026-04-30 12:37:30,208 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:30,209 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-9.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:31,645 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:30 2026
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-9.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Time for model construction: 1.109s.
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   States: 	19683
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Transitions: 	1953125
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:31,646 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:31,646 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:31,646 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Result (for initial states): 0.001002708801
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Time for model checking: 0.270s.
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   
+2026-04-30 12:37:31,646 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:31,646 - __main__ - DEBUG -     * peak memory usage: 185MB
+2026-04-30 12:37:31,646 - __main__ - DEBUG -     * CPU time: 1.337s
+2026-04-30 12:37:31,646 - __main__ - DEBUG -     * wallclock time: 1.384s
+2026-04-30 12:37:31,647 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:31,647 - __main__ - INFO -   => ok  P=1.002709e-03  total=1.447s
+2026-04-30 12:37:31,647 - __main__ - INFO - [meeting] n10-h10 :: storm.spm
+2026-04-30 12:37:31,647 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:31,647 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-10.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:38,927 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:31 2026
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-10.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   Time for model construction: 5.765s.
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:38,928 - __main__ - DEBUG -   States: 	59049
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   Transitions: 	9765625
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:38,929 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:38,929 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:38,929 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   Result (for initial states): 0.0007826807609
+2026-04-30 12:37:38,929 - __main__ - DEBUG -   Time for model checking: 1.448s.
+2026-04-30 12:37:38,930 - __main__ - DEBUG -   
+2026-04-30 12:37:38,930 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:38,930 - __main__ - DEBUG -     * peak memory usage: 722MB
+2026-04-30 12:37:38,930 - __main__ - DEBUG -     * CPU time: 6.837s
+2026-04-30 12:37:38,930 - __main__ - DEBUG -     * wallclock time: 7.230s
+2026-04-30 12:37:38,930 - __main__ - INFO -   trial 2/3
+2026-04-30 12:37:38,931 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-10.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:38 2026
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-10.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   
+2026-04-30 12:37:46,175 - __main__ - DEBUG -   Time for model construction: 5.737s.
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   States: 	59049
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   Transitions: 	9765625
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:46,176 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:46,176 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:46,176 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:46,176 - __main__ - DEBUG -   
+2026-04-30 12:37:46,177 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:46,177 - __main__ - DEBUG -   Result (for initial states): 0.0007826807609
+2026-04-30 12:37:46,177 - __main__ - DEBUG -   Time for model checking: 1.447s.
+2026-04-30 12:37:46,177 - __main__ - DEBUG -   
+2026-04-30 12:37:46,177 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:46,177 - __main__ - DEBUG -     * peak memory usage: 722MB
+2026-04-30 12:37:46,177 - __main__ - DEBUG -     * CPU time: 6.815s
+2026-04-30 12:37:46,177 - __main__ - DEBUG -     * wallclock time: 7.200s
+2026-04-30 12:37:46,177 - __main__ - INFO -   trial 3/3
+2026-04-30 12:37:46,178 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-10.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:37:53,441 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:46 2026
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-10.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Time for model construction: 5.755s.
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   States: 	59049
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Transitions: 	9765625
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:37:53,442 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:37:53,442 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:37:53,442 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Result (for initial states): 0.0007826807609
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Time for model checking: 1.442s.
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   
+2026-04-30 12:37:53,442 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:37:53,442 - __main__ - DEBUG -     * peak memory usage: 722MB
+2026-04-30 12:37:53,442 - __main__ - DEBUG -     * CPU time: 6.824s
+2026-04-30 12:37:53,442 - __main__ - DEBUG -     * wallclock time: 7.214s
+2026-04-30 12:37:53,443 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:37:53,443 - __main__ - INFO -   => ok  P=7.826808e-04  total=7.262s
+2026-04-30 12:37:53,443 - __main__ - INFO - [meeting] n11-h10 :: storm.spm
+2026-04-30 12:37:53,443 - __main__ - INFO -   trial 1/3
+2026-04-30 12:37:53,443 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-11.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Date: Thu Apr 30 12:37:53 2026
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-11.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Time for model construction: 30.883s.
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   States: 	177147
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Transitions: 	48828125
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:38:31,863 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:38:31,863 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:38:31,863 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Result (for initial states): 0.0006409284511
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   Time for model checking: 7.427s.
+2026-04-30 12:38:31,863 - __main__ - DEBUG -   
+2026-04-30 12:38:31,864 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:38:31,864 - __main__ - DEBUG -     * peak memory usage: 3408MB
+2026-04-30 12:38:31,864 - __main__ - DEBUG -     * CPU time: 36.456s
+2026-04-30 12:38:31,864 - __main__ - DEBUG -     * wallclock time: 38.369s
+2026-04-30 12:38:31,864 - __main__ - INFO -   trial 2/3
+2026-04-30 12:38:31,864 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-11.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:39:10,389 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:39:10,389 - __main__ - DEBUG -   
+2026-04-30 12:39:10,389 - __main__ - DEBUG -   Date: Thu Apr 30 12:38:31 2026
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-11.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   Time for model construction: 31.006s.
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   States: 	177147
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   Transitions: 	48828125
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:39:10,390 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:39:10,390 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:39:10,391 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:39:10,391 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   Result (for initial states): 0.0006409284511
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   Time for model checking: 7.410s.
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   
+2026-04-30 12:39:10,391 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:39:10,391 - __main__ - DEBUG -     * peak memory usage: 3408MB
+2026-04-30 12:39:10,391 - __main__ - DEBUG -     * CPU time: 36.567s
+2026-04-30 12:39:10,391 - __main__ - DEBUG -     * wallclock time: 38.472s
+2026-04-30 12:39:10,392 - __main__ - INFO -   trial 3/3
+2026-04-30 12:39:10,392 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-11.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:39:49,147 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:39:49,147 - __main__ - DEBUG -   
+2026-04-30 12:39:49,147 - __main__ - DEBUG -   Date: Thu Apr 30 12:39:10 2026
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-11.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Time for model construction: 31.279s.
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   States: 	177147
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Transitions: 	48828125
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:39:49,148 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:39:49,148 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:39:49,148 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Result (for initial states): 0.0006409284511
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Time for model checking: 7.369s.
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   
+2026-04-30 12:39:49,148 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:39:49,148 - __main__ - DEBUG -     * peak memory usage: 3408MB
+2026-04-30 12:39:49,148 - __main__ - DEBUG -     * CPU time: 36.722s
+2026-04-30 12:39:49,148 - __main__ - DEBUG -     * wallclock time: 38.702s
+2026-04-30 12:39:49,149 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:39:49,149 - __main__ - INFO -   => ok  P=6.409285e-04  total=38.566s
+2026-04-30 12:39:49,149 - __main__ - INFO - [meeting] n12-h10 :: storm.spm
+2026-04-30 12:39:49,149 - __main__ - INFO -   trial 1/3
+2026-04-30 12:39:49,149 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-12.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:42:50,489 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:42:50,489 - __main__ - DEBUG -   
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Date: Thu Apr 30 12:39:49 2026
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Time for model construction: 144.770s.
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   States: 	531441
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Transitions: 	244140625
+2026-04-30 12:42:50,490 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:42:50,491 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:42:50,491 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:42:50,491 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   Result (for initial states): 0.0005463714939
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   Time for model checking: 36.263s.
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   
+2026-04-30 12:42:50,491 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:42:50,491 - __main__ - DEBUG -     * peak memory usage: 16861MB
+2026-04-30 12:42:50,492 - __main__ - DEBUG -     * CPU time: 172.702s
+2026-04-30 12:42:50,492 - __main__ - DEBUG -     * wallclock time: 181.289s
+2026-04-30 12:42:50,492 - __main__ - INFO -   trial 2/3
+2026-04-30 12:42:50,492 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-12.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   Date: Thu Apr 30 12:42:50 2026
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   Time for model construction: 146.467s.
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   
+2026-04-30 12:45:53,369 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   States: 	531441
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   Transitions: 	244140625
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:45:53,370 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:45:53,370 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:45:53,370 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:45:53,370 - __main__ - DEBUG -   Result (for initial states): 0.0005463714939
+2026-04-30 12:45:53,371 - __main__ - DEBUG -   Time for model checking: 36.108s.
+2026-04-30 12:45:53,371 - __main__ - DEBUG -   
+2026-04-30 12:45:53,371 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:45:53,371 - __main__ - DEBUG -     * peak memory usage: 16861MB
+2026-04-30 12:45:53,371 - __main__ - DEBUG -     * CPU time: 174.252s
+2026-04-30 12:45:53,371 - __main__ - DEBUG -     * wallclock time: 182.823s
+2026-04-30 12:45:53,371 - __main__ - INFO -   trial 3/3
+2026-04-30 12:45:53,372 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-12.prism --prop P=? [ F<=10 "goal" ] --engine sparse -tm --sylvan:threads 1
+2026-04-30 12:48:54,847 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 12:48:54,847 - __main__ - DEBUG -   
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Date: Thu Apr 30 12:45:53 2026
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=10 "goal" ]' --engine sparse -tm '--sylvan:threads' 1
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Time for model construction: 145.300s.
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   States: 	531441
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Transitions: 	244140625
+2026-04-30 12:48:54,848 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-04-30 12:48:54,849 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-04-30 12:48:54,849 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-04-30 12:48:54,849 - __main__ - DEBUG -      * goal -> 1 item(s)
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   Choice Labels: 	none
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   Result (for initial states): 0.0005463714939
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   Time for model checking: 35.847s.
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   
+2026-04-30 12:48:54,849 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 12:48:54,849 - __main__ - DEBUG -     * peak memory usage: 16861MB
+2026-04-30 12:48:54,850 - __main__ - DEBUG -     * CPU time: 172.914s
+2026-04-30 12:48:54,850 - __main__ - DEBUG -     * wallclock time: 181.414s
+2026-04-30 12:48:54,851 - __main__ - DEBUG - Wrote CSV row to reproduced/meeting/testn/storm.spm.csv
+2026-04-30 12:48:54,851 - __main__ - INFO -   => ok  P=5.463715e-04  total=181.897s

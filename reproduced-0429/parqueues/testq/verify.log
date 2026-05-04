@@ -1,0 +1,6 @@
+2026-05-01 12:35:38,845 - __main__ - INFO - Tessa file: reproduced/parqueues/testq/tessa.csv (9 cases)
+2026-05-01 12:35:38,854 - __main__ - INFO -   vs reproduced/parqueues/testq/storm.add.csv: 7 cases match (atol=1e-05, rtol=0.0001)
+2026-05-01 12:35:38,854 - __main__ - INFO -   vs reproduced/parqueues/testq/storm.spm.csv: 8 cases match (atol=1e-05, rtol=0.0001)
+2026-05-01 12:35:38,855 - __main__ - INFO -   vs reproduced/parqueues/testq/rubicon.csv: 8 cases match (atol=1e-05, rtol=0.0001)
+2026-05-01 12:35:38,855 - __main__ - INFO - Wrote 23 rows to reproduced/parqueues/testq/verify.csv
+2026-05-01 12:35:38,855 - __main__ - INFO - Verified 23 probability comparisons OK

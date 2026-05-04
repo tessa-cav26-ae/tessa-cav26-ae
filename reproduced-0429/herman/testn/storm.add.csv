@@ -1,0 +1,10 @@
+suite,case_id,tool,num_work_runs,storm_extra_args,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+herman,n3-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,3,100,ok,1.0,0.06479811699440081,0.006217784545203468,
+herman,n5-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,5,100,ok,1.0,0.3402395320202534,0.013326781734008359,
+herman,n7-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,7,100,ok,0.9999999992,1.2939063716718617,0.020748245346000335,
+herman,n9-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,9,100,ok,0.9999968293,2.645912900334224,0.07770291724882145,
+herman,n11-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,11,100,ok,0.9997919004,6.737945702314998,0.1186994539735167,
+herman,n13-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,13,100,ok,0.9977004904,34.70125623064814,0.11038604303744262,
+herman,n15-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,15,100,ok,0.9896116509,212.5239138819937,0.5804275536917249,
+herman,n17-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,17,100,ok,0.9715068235,1202.4683513749817,1.9308996017193711,
+herman,n19-h100,storm.add,3,-tm --sylvan:threads 1,stable,100,,19,100,timeout,,,0.0,Timed out after 1260 seconds

@@ -1,0 +1,9 @@
+2026-05-01 10:19:32,532 - __main__ - INFO - Tessa file: reproduced/weather-factory/testh/tessa.csv (28 cases)
+2026-05-01 10:19:32,532 - __main__ - INFO -   vs reproduced/weather-factory/testh/storm.add.csv: no common cases to compare
+2026-05-01 10:19:32,532 - __main__ - INFO -   vs reproduced/weather-factory/testh/storm.spm.csv: 28 cases match (atol=1e-05, rtol=0.0001)
+2026-05-01 10:19:32,533 - __main__ - INFO -   vs reproduced/weather-factory/testh/rubicon.csv: 19 cases match (atol=1e-05, rtol=0.0001)
+2026-05-01 10:19:32,533 - __main__ - INFO -   vs reproduced/weather-factory/testh/geni.csv: 3 MISMATCH(es) out of 21:
+2026-05-01 10:19:32,533 - __main__ - INFO -     n13-h100: tessa=1.38712669e-08  storm=-1.25000000e-05  diff=1.25e-05
+2026-05-01 10:19:32,533 - __main__ - INFO -     n13-h300: tessa=4.11056642e-08  storm=-1.07000000e-05  diff=1.07e-05
+2026-05-01 10:19:32,533 - __main__ - INFO -     n13-h90: tessa=1.25095470e-08  storm=-1.12000000e-05  diff=1.12e-05
+2026-05-01 10:19:32,543 - __main__ - INFO - Wrote 68 rows to reproduced/weather-factory/testh/verify.csv

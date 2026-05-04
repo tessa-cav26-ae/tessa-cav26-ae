@@ -1,0 +1,11 @@
+suite,case_id,tool,num_work_runs,storm_extra_args,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+weather-factory,n2-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,2,10,ok,0.1840589397,0.100722019347207,0.06373801021927221,
+weather-factory,n7-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,7,10,ok,6.763643872e-05,0.09859879132515441,0.00624924666241603,
+weather-factory,n8-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,8,10,ok,1.298863213e-05,0.1897599773365073,0.0005781719041919205,
+weather-factory,n9-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,9,10,ok,2.518555747e-06,0.5927376916709667,0.008714892426106175,
+weather-factory,n10-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,10,10,ok,3.993548678e-07,2.271235444660609,0.005318197741748935,
+weather-factory,n11-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,11,10,ok,6.353660432e-08,9.21726557367947,0.02146963925302174,
+weather-factory,n12-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,12,10,ok,1.014243888e-08,38.13750702866431,0.04407577690847284,
+weather-factory,n13-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,13,10,ok,1.615787795e-09,157.6954806536669,0.2745149633115298,
+weather-factory,n15-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,15,10,timeout,,,0.0,Timed out after 1260 seconds
+weather-factory,n16-h10,storm.spm,3,-tm --sylvan:threads 1,allStrike,10,,16,10,timeout,,,0.0,Timed out after 1260 seconds

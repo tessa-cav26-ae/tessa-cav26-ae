@@ -1,0 +1,605 @@
+2026-04-30 20:43:52,496 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 1260, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('reproduced/weather-factory/testn'), 'engine': 'add'}
+2026-04-30 20:43:52,499 - __main__ - INFO - [weather-factory] n2-h10 :: storm.add
+2026-04-30 20:43:52,499 - __main__ - INFO -   trial 1/3
+2026-04-30 20:43:52,500 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory2.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:52 2026
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory2.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   Time for model construction: 0.007s.
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   
+2026-04-30 20:43:52,562 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   States: 	8 (1 nodes)
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Transitions: 	50 (90 nodes)
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (3 DD variables), columns: 3 meta variables (3 DD variables)
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:43:52,563 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:43:52,563 - __main__ - DEBUG -      * init -> 1 state(s) (4 nodes)
+2026-04-30 20:43:52,563 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:43:52,563 - __main__ - DEBUG -   Result (for initial states): 0.1840589397
+2026-04-30 20:43:52,564 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-30 20:43:52,564 - __main__ - DEBUG -   
+2026-04-30 20:43:52,564 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:43:52,564 - __main__ - DEBUG -     * peak memory usage: 49MB
+2026-04-30 20:43:52,564 - __main__ - DEBUG -     * CPU time: 0.042s
+2026-04-30 20:43:52,564 - __main__ - DEBUG -     * wallclock time: 0.025s
+2026-04-30 20:43:52,564 - __main__ - INFO -   trial 2/3
+2026-04-30 20:43:52,565 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory2.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:43:52,627 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:52 2026
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory2.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   Time for model construction: 0.007s.
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:43:52,628 - __main__ - DEBUG -   States: 	8 (1 nodes)
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Transitions: 	50 (90 nodes)
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (3 DD variables), columns: 3 meta variables (3 DD variables)
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:43:52,629 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:43:52,629 - __main__ - DEBUG -      * init -> 1 state(s) (4 nodes)
+2026-04-30 20:43:52,629 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Result (for initial states): 0.1840589397
+2026-04-30 20:43:52,629 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-30 20:43:52,630 - __main__ - DEBUG -   
+2026-04-30 20:43:52,630 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:43:52,630 - __main__ - DEBUG -     * peak memory usage: 49MB
+2026-04-30 20:43:52,630 - __main__ - DEBUG -     * CPU time: 0.045s
+2026-04-30 20:43:52,630 - __main__ - DEBUG -     * wallclock time: 0.025s
+2026-04-30 20:43:52,630 - __main__ - INFO -   trial 3/3
+2026-04-30 20:43:52,631 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory2.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:43:52,708 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:52 2026
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory2.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Time for model construction: 0.009s.
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   States: 	8 (1 nodes)
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Transitions: 	50 (90 nodes)
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (3 DD variables), columns: 3 meta variables (3 DD variables)
+2026-04-30 20:43:52,709 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:43:52,709 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:43:52,709 - __main__ - DEBUG -      * init -> 1 state(s) (4 nodes)
+2026-04-30 20:43:52,709 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   Result (for initial states): 0.1840589397
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   
+2026-04-30 20:43:52,710 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:43:52,710 - __main__ - DEBUG -     * peak memory usage: 49MB
+2026-04-30 20:43:52,710 - __main__ - DEBUG -     * CPU time: 0.053s
+2026-04-30 20:43:52,710 - __main__ - DEBUG -     * wallclock time: 0.024s
+2026-04-30 20:43:52,711 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:43:52,711 - __main__ - INFO -   => ok  P=1.840589e-01  total=0.067s
+2026-04-30 20:43:52,711 - __main__ - INFO - [weather-factory] n7-h10 :: storm.add
+2026-04-30 20:43:52,711 - __main__ - INFO -   trial 1/3
+2026-04-30 20:43:52,712 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory7.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:52 2026
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory7.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   Time for model construction: 1.234s.
+2026-04-30 20:43:54,930 - __main__ - DEBUG -   
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   States: 	256 (1 nodes)
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   Transitions: 	65026 (98298 nodes)
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   Variables: 	rows: 8 meta variables (8 DD variables), columns: 8 meta variables (8 DD variables)
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:43:54,931 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:43:54,931 - __main__ - DEBUG -      * init -> 1 state(s) (9 nodes)
+2026-04-30 20:43:54,931 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   
+2026-04-30 20:43:54,931 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:43:54,932 - __main__ - DEBUG -   Result (for initial states): 6.763643872e-05
+2026-04-30 20:43:54,932 - __main__ - DEBUG -   Time for model checking: 0.647s.
+2026-04-30 20:43:54,932 - __main__ - DEBUG -   
+2026-04-30 20:43:54,932 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:43:54,932 - __main__ - DEBUG -     * peak memory usage: 2648MB
+2026-04-30 20:43:54,932 - __main__ - DEBUG -     * CPU time: 1.206s
+2026-04-30 20:43:54,932 - __main__ - DEBUG -     * wallclock time: 2.167s
+2026-04-30 20:43:54,932 - __main__ - INFO -   trial 2/3
+2026-04-30 20:43:54,933 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory7.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:43:57,113 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:43:57,113 - __main__ - DEBUG -   
+2026-04-30 20:43:57,113 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:54 2026
+2026-04-30 20:43:57,113 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory7.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Time for model construction: 1.202s.
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   States: 	256 (1 nodes)
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Transitions: 	65026 (98298 nodes)
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Variables: 	rows: 8 meta variables (8 DD variables), columns: 8 meta variables (8 DD variables)
+2026-04-30 20:43:57,114 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:43:57,115 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:43:57,115 - __main__ - DEBUG -      * init -> 1 state(s) (9 nodes)
+2026-04-30 20:43:57,115 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   Result (for initial states): 6.763643872e-05
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   Time for model checking: 0.641s.
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   
+2026-04-30 20:43:57,115 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:43:57,115 - __main__ - DEBUG -     * peak memory usage: 2648MB
+2026-04-30 20:43:57,115 - __main__ - DEBUG -     * CPU time: 1.169s
+2026-04-30 20:43:57,115 - __main__ - DEBUG -     * wallclock time: 2.126s
+2026-04-30 20:43:57,116 - __main__ - INFO -   trial 3/3
+2026-04-30 20:43:57,116 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory7.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:57 2026
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory7.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   
+2026-04-30 20:43:59,307 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   Time for model construction: 1.205s.
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   States: 	256 (1 nodes)
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   Transitions: 	65026 (98298 nodes)
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   Variables: 	rows: 8 meta variables (8 DD variables), columns: 8 meta variables (8 DD variables)
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:43:59,308 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:43:59,308 - __main__ - DEBUG -      * init -> 1 state(s) (9 nodes)
+2026-04-30 20:43:59,308 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:43:59,308 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:43:59,309 - __main__ - DEBUG -   
+2026-04-30 20:43:59,309 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:43:59,309 - __main__ - DEBUG -   Result (for initial states): 6.763643872e-05
+2026-04-30 20:43:59,309 - __main__ - DEBUG -   Time for model checking: 0.657s.
+2026-04-30 20:43:59,309 - __main__ - DEBUG -   
+2026-04-30 20:43:59,309 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:43:59,309 - __main__ - DEBUG -     * peak memory usage: 2648MB
+2026-04-30 20:43:59,309 - __main__ - DEBUG -     * CPU time: 1.151s
+2026-04-30 20:43:59,309 - __main__ - DEBUG -     * wallclock time: 2.144s
+2026-04-30 20:43:59,310 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:43:59,311 - __main__ - INFO -   => ok  P=6.763644e-05  total=2.196s
+2026-04-30 20:43:59,311 - __main__ - INFO - [weather-factory] n8-h10 :: storm.add
+2026-04-30 20:43:59,311 - __main__ - INFO -   trial 1/3
+2026-04-30 20:43:59,312 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory8.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:44:02,987 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:44:02,987 - __main__ - DEBUG -   
+2026-04-30 20:44:02,987 - __main__ - DEBUG -   Date: Thu Apr 30 20:43:59 2026
+2026-04-30 20:44:02,987 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory8.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:44:02,987 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:44:02,987 - __main__ - DEBUG -   
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Time for model construction: 2.092s.
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   States: 	512 (1 nodes)
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Transitions: 	261122 (393210 nodes)
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (9 DD variables), columns: 9 meta variables (9 DD variables)
+2026-04-30 20:44:02,988 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:44:02,988 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:44:02,988 - __main__ - DEBUG -      * init -> 1 state(s) (10 nodes)
+2026-04-30 20:44:02,988 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   Result (for initial states): 1.298863213e-05
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   Time for model checking: 1.236s.
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   
+2026-04-30 20:44:02,989 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:44:02,989 - __main__ - DEBUG -     * peak memory usage: 2934MB
+2026-04-30 20:44:02,989 - __main__ - DEBUG -     * CPU time: 2.536s
+2026-04-30 20:44:02,989 - __main__ - DEBUG -     * wallclock time: 3.638s
+2026-04-30 20:44:02,989 - __main__ - INFO -   trial 2/3
+2026-04-30 20:44:02,990 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory8.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   Date: Thu Apr 30 20:44:03 2026
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory8.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   
+2026-04-30 20:44:06,744 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   Time for model construction: 2.171s.
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   States: 	512 (1 nodes)
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   Transitions: 	261122 (393210 nodes)
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (9 DD variables), columns: 9 meta variables (9 DD variables)
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:44:06,745 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:44:06,745 - __main__ - DEBUG -      * init -> 1 state(s) (10 nodes)
+2026-04-30 20:44:06,745 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:44:06,745 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:06,746 - __main__ - DEBUG -   
+2026-04-30 20:44:06,746 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:44:06,746 - __main__ - DEBUG -   Result (for initial states): 1.298863213e-05
+2026-04-30 20:44:06,746 - __main__ - DEBUG -   Time for model checking: 1.235s.
+2026-04-30 20:44:06,746 - __main__ - DEBUG -   
+2026-04-30 20:44:06,746 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:44:06,746 - __main__ - DEBUG -     * peak memory usage: 2934MB
+2026-04-30 20:44:06,746 - __main__ - DEBUG -     * CPU time: 2.604s
+2026-04-30 20:44:06,746 - __main__ - DEBUG -     * wallclock time: 3.716s
+2026-04-30 20:44:06,746 - __main__ - INFO -   trial 3/3
+2026-04-30 20:44:06,747 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory8.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   Date: Thu Apr 30 20:44:06 2026
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory8.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:44:10,474 - __main__ - DEBUG -   Time for model construction: 2.105s.
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   States: 	512 (1 nodes)
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   Transitions: 	261122 (393210 nodes)
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   Variables: 	rows: 9 meta variables (9 DD variables), columns: 9 meta variables (9 DD variables)
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:44:10,475 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:44:10,475 - __main__ - DEBUG -      * init -> 1 state(s) (10 nodes)
+2026-04-30 20:44:10,475 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   
+2026-04-30 20:44:10,475 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:44:10,476 - __main__ - DEBUG -   Result (for initial states): 1.298863213e-05
+2026-04-30 20:44:10,476 - __main__ - DEBUG -   Time for model checking: 1.275s.
+2026-04-30 20:44:10,476 - __main__ - DEBUG -   
+2026-04-30 20:44:10,476 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:44:10,476 - __main__ - DEBUG -     * peak memory usage: 2933MB
+2026-04-30 20:44:10,476 - __main__ - DEBUG -     * CPU time: 2.562s
+2026-04-30 20:44:10,476 - __main__ - DEBUG -     * wallclock time: 3.685s
+2026-04-30 20:44:10,477 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:44:10,478 - __main__ - INFO -   => ok  P=1.298863e-05  total=3.718s
+2026-04-30 20:44:10,478 - __main__ - INFO - [weather-factory] n9-h10 :: storm.add
+2026-04-30 20:44:10,478 - __main__ - INFO -   trial 1/3
+2026-04-30 20:44:10,478 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory9.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   Date: Thu Apr 30 20:44:10 2026
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory9.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:44:19,973 - __main__ - DEBUG -   Time for model construction: 3.889s.
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   States: 	1024 (1 nodes)
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   Transitions: 	1046530 (1572858 nodes)
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   Variables: 	rows: 10 meta variables (10 DD variables), columns: 10 meta variables (10 DD variables)
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:44:19,974 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:44:19,974 - __main__ - DEBUG -      * init -> 1 state(s) (11 nodes)
+2026-04-30 20:44:19,974 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:19,974 - __main__ - DEBUG -   
+2026-04-30 20:44:19,975 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:44:19,975 - __main__ - DEBUG -   Result (for initial states): 2.518555747e-06
+2026-04-30 20:44:19,975 - __main__ - DEBUG -   Time for model checking: 5.132s.
+2026-04-30 20:44:19,975 - __main__ - DEBUG -   
+2026-04-30 20:44:19,975 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:44:19,975 - __main__ - DEBUG -     * peak memory usage: 3200MB
+2026-04-30 20:44:19,975 - __main__ - DEBUG -     * CPU time: 8.289s
+2026-04-30 20:44:19,975 - __main__ - DEBUG -     * wallclock time: 9.443s
+2026-04-30 20:44:19,975 - __main__ - INFO -   trial 2/3
+2026-04-30 20:44:19,976 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory9.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:44:29,414 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:44:29,414 - __main__ - DEBUG -   
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Date: Thu Apr 30 20:44:20 2026
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory9.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Time for model construction: 3.886s.
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   States: 	1024 (1 nodes)
+2026-04-30 20:44:29,415 - __main__ - DEBUG -   Transitions: 	1046530 (1572858 nodes)
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Variables: 	rows: 10 meta variables (10 DD variables), columns: 10 meta variables (10 DD variables)
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:44:29,416 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:44:29,416 - __main__ - DEBUG -      * init -> 1 state(s) (11 nodes)
+2026-04-30 20:44:29,416 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Result (for initial states): 2.518555747e-06
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Time for model checking: 5.098s.
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   
+2026-04-30 20:44:29,416 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:44:29,417 - __main__ - DEBUG -     * peak memory usage: 3200MB
+2026-04-30 20:44:29,417 - __main__ - DEBUG -     * CPU time: 8.298s
+2026-04-30 20:44:29,417 - __main__ - DEBUG -     * wallclock time: 9.399s
+2026-04-30 20:44:29,417 - __main__ - INFO -   trial 3/3
+2026-04-30 20:44:29,417 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory9.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:44:38,857 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:44:38,857 - __main__ - DEBUG -   
+2026-04-30 20:44:38,857 - __main__ - DEBUG -   Date: Thu Apr 30 20:44:29 2026
+2026-04-30 20:44:38,857 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory9.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Time for model construction: 4.006s.
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   States: 	1024 (1 nodes)
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Transitions: 	1046530 (1572858 nodes)
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Variables: 	rows: 10 meta variables (10 DD variables), columns: 10 meta variables (10 DD variables)
+2026-04-30 20:44:38,858 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:44:38,859 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:44:38,859 - __main__ - DEBUG -      * init -> 1 state(s) (11 nodes)
+2026-04-30 20:44:38,859 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   Result (for initial states): 2.518555747e-06
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   Time for model checking: 4.982s.
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   
+2026-04-30 20:44:38,859 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:44:38,859 - __main__ - DEBUG -     * peak memory usage: 3200MB
+2026-04-30 20:44:38,859 - __main__ - DEBUG -     * CPU time: 8.163s
+2026-04-30 20:44:38,860 - __main__ - DEBUG -     * wallclock time: 9.403s
+2026-04-30 20:44:38,861 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:44:38,861 - __main__ - INFO -   => ok  P=2.518556e-06  total=9.457s
+2026-04-30 20:44:38,861 - __main__ - INFO - [weather-factory] n10-h10 :: storm.add
+2026-04-30 20:44:38,861 - __main__ - INFO -   trial 1/3
+2026-04-30 20:44:38,862 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory10.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Date: Thu Apr 30 20:44:38 2026
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory10.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Time for model construction: 11.060s.
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   States: 	2048 (1 nodes)
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Transitions: 	4190210 (6291450 nodes)
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Variables: 	rows: 11 meta variables (11 DD variables), columns: 11 meta variables (11 DD variables)
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:45:16,184 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:45:16,184 - __main__ - DEBUG -      * init -> 1 state(s) (12 nodes)
+2026-04-30 20:45:16,184 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Result (for initial states): 3.993548678e-07
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   Time for model checking: 25.346s.
+2026-04-30 20:45:16,184 - __main__ - DEBUG -   
+2026-04-30 20:45:16,185 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:45:16,185 - __main__ - DEBUG -     * peak memory usage: 3854MB
+2026-04-30 20:45:16,185 - __main__ - DEBUG -     * CPU time: 34.525s
+2026-04-30 20:45:16,185 - __main__ - DEBUG -     * wallclock time: 37.285s
+2026-04-30 20:45:16,185 - __main__ - INFO -   trial 2/3
+2026-04-30 20:45:16,185 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory10.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:45:53,295 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   Date: Thu Apr 30 20:45:16 2026
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory10.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   Time for model construction: 10.687s.
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:45:53,296 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   States: 	2048 (1 nodes)
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Transitions: 	4190210 (6291450 nodes)
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Variables: 	rows: 11 meta variables (11 DD variables), columns: 11 meta variables (11 DD variables)
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:45:53,297 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:45:53,297 - __main__ - DEBUG -      * init -> 1 state(s) (12 nodes)
+2026-04-30 20:45:53,297 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Result (for initial states): 3.993548678e-07
+2026-04-30 20:45:53,297 - __main__ - DEBUG -   Time for model checking: 25.494s.
+2026-04-30 20:45:53,298 - __main__ - DEBUG -   
+2026-04-30 20:45:53,298 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:45:53,298 - __main__ - DEBUG -     * peak memory usage: 3854MB
+2026-04-30 20:45:53,298 - __main__ - DEBUG -     * CPU time: 34.385s
+2026-04-30 20:45:53,298 - __main__ - DEBUG -     * wallclock time: 37.062s
+2026-04-30 20:45:53,298 - __main__ - INFO -   trial 3/3
+2026-04-30 20:45:53,299 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory10.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:46:30,719 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:46:30,719 - __main__ - DEBUG -   
+2026-04-30 20:46:30,719 - __main__ - DEBUG -   Date: Thu Apr 30 20:45:53 2026
+2026-04-30 20:46:30,719 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory10.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:46:30,719 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:46:30,719 - __main__ - DEBUG -   
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Time for model construction: 10.909s.
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   States: 	2048 (1 nodes)
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Transitions: 	4190210 (6291450 nodes)
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Variables: 	rows: 11 meta variables (11 DD variables), columns: 11 meta variables (11 DD variables)
+2026-04-30 20:46:30,720 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:46:30,720 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:46:30,720 - __main__ - DEBUG -      * init -> 1 state(s) (12 nodes)
+2026-04-30 20:46:30,720 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   Result (for initial states): 3.993548678e-07
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   Time for model checking: 25.593s.
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   
+2026-04-30 20:46:30,721 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:46:30,721 - __main__ - DEBUG -     * peak memory usage: 3854MB
+2026-04-30 20:46:30,721 - __main__ - DEBUG -     * CPU time: 34.788s
+2026-04-30 20:46:30,721 - __main__ - DEBUG -     * wallclock time: 37.374s
+2026-04-30 20:46:30,722 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:46:30,723 - __main__ - INFO -   => ok  P=3.993549e-07  total=37.284s
+2026-04-30 20:46:30,723 - __main__ - INFO - [weather-factory] n11-h10 :: storm.add
+2026-04-30 20:46:30,723 - __main__ - INFO -   trial 1/3
+2026-04-30 20:46:30,724 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory11.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:49:37,421 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:49:37,421 - __main__ - DEBUG -   
+2026-04-30 20:49:37,421 - __main__ - DEBUG -   Date: Thu Apr 30 20:46:30 2026
+2026-04-30 20:49:37,421 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory11.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Time for model construction: 49.950s.
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   States: 	4096 (1 nodes)
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Transitions: 	16769026 (25165818 nodes)
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Variables: 	rows: 12 meta variables (12 DD variables), columns: 12 meta variables (12 DD variables)
+2026-04-30 20:49:37,422 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:49:37,423 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:49:37,423 - __main__ - DEBUG -      * init -> 1 state(s) (13 nodes)
+2026-04-30 20:49:37,423 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   Result (for initial states): 6.353660432e-08
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   Time for model checking: 134.148s.
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   
+2026-04-30 20:49:37,423 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:49:37,423 - __main__ - DEBUG -     * peak memory usage: 3858MB
+2026-04-30 20:49:37,423 - __main__ - DEBUG -     * CPU time: 173.384s
+2026-04-30 20:49:37,423 - __main__ - DEBUG -     * wallclock time: 186.660s
+2026-04-30 20:49:37,424 - __main__ - INFO -   trial 2/3
+2026-04-30 20:49:37,424 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory11.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:52:44,212 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   Date: Thu Apr 30 20:49:37 2026
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory11.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   Time for model construction: 50.503s.
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   
+2026-04-30 20:52:44,213 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   States: 	4096 (1 nodes)
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Transitions: 	16769026 (25165818 nodes)
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Variables: 	rows: 12 meta variables (12 DD variables), columns: 12 meta variables (12 DD variables)
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:52:44,214 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:52:44,214 - __main__ - DEBUG -      * init -> 1 state(s) (13 nodes)
+2026-04-30 20:52:44,214 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:52:44,214 - __main__ - DEBUG -   Result (for initial states): 6.353660432e-08
+2026-04-30 20:52:44,215 - __main__ - DEBUG -   Time for model checking: 133.647s.
+2026-04-30 20:52:44,215 - __main__ - DEBUG -   
+2026-04-30 20:52:44,215 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:52:44,215 - __main__ - DEBUG -     * peak memory usage: 3858MB
+2026-04-30 20:52:44,215 - __main__ - DEBUG -     * CPU time: 173.350s
+2026-04-30 20:52:44,215 - __main__ - DEBUG -     * wallclock time: 186.746s
+2026-04-30 20:52:44,215 - __main__ - INFO -   trial 3/3
+2026-04-30 20:52:44,216 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory11.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:55:50,336 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:55:50,336 - __main__ - DEBUG -   
+2026-04-30 20:55:50,336 - __main__ - DEBUG -   Date: Thu Apr 30 20:52:44 2026
+2026-04-30 20:55:50,336 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory11.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Time for model input parsing: 0.002s.
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Time for model construction: 50.504s.
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   States: 	4096 (1 nodes)
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Transitions: 	16769026 (25165818 nodes)
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Reward Models:  none
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Variables: 	rows: 12 meta variables (12 DD variables), columns: 12 meta variables (12 DD variables)
+2026-04-30 20:55:50,337 - __main__ - DEBUG -   Labels: 	3
+2026-04-30 20:55:50,338 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-04-30 20:55:50,338 - __main__ - DEBUG -      * init -> 1 state(s) (13 nodes)
+2026-04-30 20:55:50,338 - __main__ - DEBUG -      * allStrike
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "allStrike"] ...
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   Result (for initial states): 6.353660432e-08
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   Time for model checking: 133.048s.
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   
+2026-04-30 20:55:50,338 - __main__ - DEBUG -   Performance statistics:
+2026-04-30 20:55:50,338 - __main__ - DEBUG -     * peak memory usage: 3858MB
+2026-04-30 20:55:50,338 - __main__ - DEBUG -     * CPU time: 172.641s
+2026-04-30 20:55:50,338 - __main__ - DEBUG -     * wallclock time: 186.083s
+2026-04-30 20:55:50,340 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:55:50,340 - __main__ - INFO -   => ok  P=6.353660e-08  total=186.535s
+2026-04-30 20:55:50,340 - __main__ - INFO - [weather-factory] n12-h10 :: storm.add
+2026-04-30 20:55:50,340 - __main__ - INFO -   trial 1/3
+2026-04-30 20:55:50,341 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory12.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:56:40,769 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:56:40,769 - __main__ - DEBUG -   
+2026-04-30 20:56:40,769 - __main__ - DEBUG -   Date: Thu Apr 30 20:55:50 2026
+2026-04-30 20:56:40,770 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory12.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:56:40,770 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-30 20:56:40,770 - __main__ - DEBUG -   
+2026-04-30 20:56:40,770 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:56:40,770 - __main__ - WARNING -   BDD Unique table full, 65661876 of 67108864 buckets filled!
+2026-04-30 20:56:40,770 - __main__ - ERROR -   failed: Exit code 1
+2026-04-30 20:56:40,770 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:56:40,771 - __main__ - INFO -   => failed  total=50.428s
+2026-04-30 20:56:40,771 - __main__ - INFO - [weather-factory] n13-h10 :: storm.add
+2026-04-30 20:56:40,771 - __main__ - INFO -   trial 1/3
+2026-04-30 20:56:40,771 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory13.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-04-30 20:58:19,482 - __main__ - DEBUG -   Storm 1.11.1
+2026-04-30 20:58:19,483 - __main__ - DEBUG -   
+2026-04-30 20:58:19,483 - __main__ - DEBUG -   Date: Thu Apr 30 20:56:40 2026
+2026-04-30 20:58:19,483 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=10 "allStrike" ]' --engine dd -tm '--sylvan:threads' 1
+2026-04-30 20:58:19,483 - __main__ - DEBUG -   Time for model input parsing: 0.003s.
+2026-04-30 20:58:19,483 - __main__ - DEBUG -   
+2026-04-30 20:58:19,483 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-04-30 20:58:19,483 - __main__ - WARNING -   BDD Unique table full, 65856705 of 67108864 buckets filled!
+2026-04-30 20:58:19,483 - __main__ - ERROR -   failed: Exit code 1
+2026-04-30 20:58:19,483 - __main__ - DEBUG - Wrote CSV row to reproduced/weather-factory/testn/storm.add.csv
+2026-04-30 20:58:19,483 - __main__ - INFO -   => failed  total=98.711s

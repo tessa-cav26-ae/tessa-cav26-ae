@@ -1,0 +1,45 @@
+let sun_0 = true in
+let state_1_0 = false in
+let state_2_0 = false in
+let state_3_0 = false in
+let state_4_0 = false in
+let state_5_0 = false in
+let state_6_0 = false in
+let state_7_0 = false in
+let state_8_0 = false in
+let state_9_0 = false in
+let state_10_0 = false in
+let state_11_0 = false in
+let state_12_0 = false in
+let state_13_0 = false in
+if state_1_0 && state_2_0 && state_3_0 && state_4_0 && state_5_0 && state_6_0 && state_7_0 && state_8_0 && state_9_0 && state_10_0 && state_11_0 && state_12_0 && state_13_0 then 1 else
+let sun_1 = if sun_0 then sample(Bernoulli(0.7)) else sample(Bernoulli(0.6)) in
+let state_1_1 = if sun_0 then if state_1_0 then sample(Bernoulli(0.03)) else sample(Bernoulli(0.13999999999999999)) else if state_1_0 then sample(Bernoulli(0.06)) else sample(Bernoulli(0.08000000000000002)) in
+let state_2_1 = if sun_0 then if state_2_0 then sample(Bernoulli(0.06)) else sample(Bernoulli(0.21)) else if state_2_0 then sample(Bernoulli(0.12)) else sample(Bernoulli(0.12)) in
+let state_3_1 = if sun_0 then if state_3_0 then sample(Bernoulli(0.12299999999999998)) else sample(Bernoulli(0.315)) else if state_3_0 then sample(Bernoulli(0.24599999999999997)) else sample(Bernoulli(0.18000000000000002)) in
+let state_4_1 = if sun_0 then if state_4_0 then sample(Bernoulli(0.282)) else sample(Bernoulli(0.17009999999999997)) else if state_4_0 then sample(Bernoulli(0.564)) else sample(Bernoulli(0.09720000000000001)) in
+let state_5_1 = if sun_0 then if state_5_0 then sample(Bernoulli(0.13019999999999998)) else sample(Bernoulli(0.20509999999999998)) else if state_5_0 then sample(Bernoulli(0.26039999999999996)) else sample(Bernoulli(0.1172)) in
+let state_6_1 = if sun_0 then if state_6_0 then sample(Bernoulli(0.13022999999999998)) else sample(Bernoulli(0.20537999999999998)) else if state_6_0 then sample(Bernoulli(0.26045999999999997)) else sample(Bernoulli(0.11736)) in
+let state_7_1 = if sun_0 then if state_7_0 then sample(Bernoulli(0.13035)) else sample(Bernoulli(0.20573)) else if state_7_0 then sample(Bernoulli(0.2607)) else sample(Bernoulli(0.11756)) in
+let state_8_1 = if sun_0 then if state_8_0 then sample(Bernoulli(0.13032)) else sample(Bernoulli(0.20467999999999997)) else if state_8_0 then sample(Bernoulli(0.26064)) else sample(Bernoulli(0.11696000000000001)) in
+let state_9_1 = if sun_0 then if state_9_0 then sample(Bernoulli(0.13497)) else sample(Bernoulli(0.20531)) else if state_9_0 then sample(Bernoulli(0.26994)) else sample(Bernoulli(0.11732000000000001)) in
+let state_10_1 = if sun_0 then if state_10_0 then sample(Bernoulli(0.1314)) else sample(Bernoulli(0.1631)) else if state_10_0 then sample(Bernoulli(0.2628)) else sample(Bernoulli(0.0932)) in
+let state_11_1 = if sun_0 then if state_11_0 then sample(Bernoulli(0.13152)) else sample(Bernoulli(0.16338)) else if state_11_0 then sample(Bernoulli(0.26304)) else sample(Bernoulli(0.09336)) in
+let state_12_1 = if sun_0 then if state_12_0 then sample(Bernoulli(0.131439)) else sample(Bernoulli(0.163758)) else if state_12_0 then sample(Bernoulli(0.262878)) else sample(Bernoulli(0.093576)) in
+let state_13_1 = if sun_0 then if state_13_0 then sample(Bernoulli(0.131466)) else sample(Bernoulli(0.163191)) else if state_13_0 then sample(Bernoulli(0.262932)) else sample(Bernoulli(0.093252)) in
+if state_1_1 && state_2_1 && state_3_1 && state_4_1 && state_5_1 && state_6_1 && state_7_1 && state_8_1 && state_9_1 && state_10_1 && state_11_1 && state_12_1 && state_13_1 then 1 else
+let sun_2 = if sun_1 then sample(Bernoulli(0.7)) else sample(Bernoulli(0.6)) in
+let state_1_2 = if sun_1 then if state_1_1 then sample(Bernoulli(0.03)) else sample(Bernoulli(0.13999999999999999)) else if state_1_1 then sample(Bernoulli(0.06)) else sample(Bernoulli(0.08000000000000002)) in
+let state_2_2 = if sun_1 then if state_2_1 then sample(Bernoulli(0.06)) else sample(Bernoulli(0.21)) else if state_2_1 then sample(Bernoulli(0.12)) else sample(Bernoulli(0.12)) in
+let state_3_2 = if sun_1 then if state_3_1 then sample(Bernoulli(0.12299999999999998)) else sample(Bernoulli(0.315)) else if state_3_1 then sample(Bernoulli(0.24599999999999997)) else sample(Bernoulli(0.18000000000000002)) in
+let state_4_2 = if sun_1 then if state_4_1 then sample(Bernoulli(0.282)) else sample(Bernoulli(0.17009999999999997)) else if state_4_1 then sample(Bernoulli(0.564)) else sample(Bernoulli(0.09720000000000001)) in
+let state_5_2 = if sun_1 then if state_5_1 then sample(Bernoulli(0.13019999999999998)) else sample(Bernoulli(0.20509999999999998)) else if state_5_1 then sample(Bernoulli(0.26039999999999996)) else sample(Bernoulli(0.1172)) in
+let state_6_2 = if sun_1 then if state_6_1 then sample(Bernoulli(0.13022999999999998)) else sample(Bernoulli(0.20537999999999998)) else if state_6_1 then sample(Bernoulli(0.26045999999999997)) else sample(Bernoulli(0.11736)) in
+let state_7_2 = if sun_1 then if state_7_1 then sample(Bernoulli(0.13035)) else sample(Bernoulli(0.20573)) else if state_7_1 then sample(Bernoulli(0.2607)) else sample(Bernoulli(0.11756)) in
+let state_8_2 = if sun_1 then if state_8_1 then sample(Bernoulli(0.13032)) else sample(Bernoulli(0.20467999999999997)) else if state_8_1 then sample(Bernoulli(0.26064)) else sample(Bernoulli(0.11696000000000001)) in
+let state_9_2 = if sun_1 then if state_9_1 then sample(Bernoulli(0.13497)) else sample(Bernoulli(0.20531)) else if state_9_1 then sample(Bernoulli(0.26994)) else sample(Bernoulli(0.11732000000000001)) in
+let state_10_2 = if sun_1 then if state_10_1 then sample(Bernoulli(0.1314)) else sample(Bernoulli(0.1631)) else if state_10_1 then sample(Bernoulli(0.2628)) else sample(Bernoulli(0.0932)) in
+let state_11_2 = if sun_1 then if state_11_1 then sample(Bernoulli(0.13152)) else sample(Bernoulli(0.16338)) else if state_11_1 then sample(Bernoulli(0.26304)) else sample(Bernoulli(0.09336)) in
+let state_12_2 = if sun_1 then if state_12_1 then sample(Bernoulli(0.131439)) else sample(Bernoulli(0.163758)) else if state_12_1 then sample(Bernoulli(0.262878)) else sample(Bernoulli(0.093576)) in
+let state_13_2 = if sun_1 then if state_13_1 then sample(Bernoulli(0.131466)) else sample(Bernoulli(0.163191)) else if state_13_1 then sample(Bernoulli(0.262932)) else sample(Bernoulli(0.093252)) in
+(state_1_2 && state_2_2 && state_3_2 && state_4_2 && state_5_2 && state_6_2 && state_7_2 && state_8_2 && state_9_2 && state_10_2 && state_11_2 && state_12_2 && state_13_2)
