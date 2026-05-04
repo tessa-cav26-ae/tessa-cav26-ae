@@ -222,9 +222,9 @@ The `-c fish` flag launches fish inside the dev shell — fish is shipped in `co
 
 The first build of `tessa-shell` compiles Storm, stormpy, Rubicon, Dice, JAX, CUDA from source, which can take hours. `rubicon-shell` builds Storm, Rubicon, Dice, and Gennifer but skips JAX/CUDA, so its first build is meaningfully shorter; `storm-shell` only builds Storm and is shortest.
 
-Verify `tessa-shell` is working:
+Verify `tessa-shell` is working. The `--backend jax:cuda:0` flag pins the same CUDA backend `reproduce.mk` uses, so a driver/toolkit mismatch fails here instead of ~20 minutes into `make -f reproduce.mk SMOKE=1`. On a multi-GPU host, swap in `jax:cuda:1` (etc.) to target a different device:
 ```console
-> tessa examples/weather_factory_3.jani --property allStrike --horizon 10
+> tessa examples/weather_factory_3.jani --property allStrike --horizon 10 --backend jax:cuda:0
 ```
 
 ### Option 2: Docker
@@ -330,9 +330,9 @@ storm --version                               # verify the CLI is on PATH
 
 If you only need Tessa itself and not the Storm baseline, skip Step B.
 
-Smoke-test the JANI workflow from the pip venv:
+Smoke-test the JANI workflow from the pip venv. Use `--backend jax:cuda:0` so this command exercises the pip path's own `jax[cuda]` wheel — the thing this option is supposed to verify. Without the flag, Tessa falls back to `jax:cpu` and a broken CUDA install is hidden until the full reproduction:
 ```shell
-tessa examples/weather_factory_3.jani --property allStrike --horizon 10
+tessa examples/weather_factory_3.jani --property allStrike --horizon 10 --backend jax:cuda:0
 ```
 
 For the full paper reproduction, run `make -f reproduce.mk` from a shell where both `tessa` (pip venv) and `storm`/`plot` (`storm-shell`) are on `$PATH`. The simplest way is to enter `storm-shell` first, then `source .venv/bin/activate` inside it. Because `storm-shell` does not put its own Python on `$PATH`, the pip venv's Python wins and there is no Nix-Python ↔ pip-Python collision.
@@ -343,6 +343,19 @@ For the full paper reproduction, run `make -f reproduce.mk` from a shell where b
 
 Benchmark scripts to reproduce the paper figures are driven by `reproduce.mk`.
 Four tools are compared on every suite: **Tessa** (JAX CUDA), **Storm ADD** (MTBDD engine), **Storm SPM** (Sparse engine), and **Rubicon** (PRISM → Dice compiler + Dice inference). **Geni** (gennifer interpreting a generated `.gir` program) is additionally included for the **weather-factory** suite.
+
+> **Only `--backend jax:cuda:0` is used to produce results in the paper.** `--backend numpy` is an internal debug backend; `--backend jax:cpu` is never used.
+>
+> Concretely, `reproduce.mk` hard-pins the CUDA backend at the top of the file:
+>
+> ```make
+> CUDA_DEVICE ?= 0
+> TESSA_JAX_BACKEND := jax:cuda:$(CUDA_DEVICE)
+> ...
+> RUNNER_TESSA := $(RUNNER) --tool tessa --model-type jani --backend $(TESSA_JAX_BACKEND) ...
+> ```
+>
+> So every `make -f reproduce.mk ...` and `make -f reproduce.mk SMOKE=1 ...` invocation passes `--backend jax:cuda:0` to Tessa (override the GPU index with `make -f reproduce.mk ... CUDA_DEVICE=N`). The kydice parametric example (`benchmarks/kydice/kydice.py`) defaults to `jax:cuda:0` for the same reason. Do not pass `--backend numpy` or `--backend jax:cpu` when reproducing experimental results.
 
 | Benchmark        | Size scaling                                                                                                                                                            | Horizon scaling                                                                                                                                                         |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -373,11 +386,54 @@ Per-point timeout is `TO=1260` s (see top of `reproduce.mk`); parameter points t
 
 ### Quick Smoke Test
 
-Runs a minimal parameter subset (~20 minutes) to verify the pipeline:
+Runs a minimal parameter subset (~20 minutes) to verify the pipeline **and the CUDA environment end-to-end**:
 
 ```shell
 make -f reproduce.mk SMOKE=1
 ```
+
+The smoke test exists to confirm that Tessa runs correctly **on your GPU**, not just that the Python entry point loads. It therefore invokes Tessa with `--backend jax:cuda:0` (override the GPU index with `make -f reproduce.mk SMOKE=1 CUDA_DEVICE=N`, e.g. `CUDA_DEVICE=1` for the second GPU) — exactly the same backend used for the full paper reproduction (see [Experimental Evaluation](#experimental-evaluation)).
+
+> **Never run the smoke test with `--backend numpy` (or `--backend jax:cpu`).** `numpy` is an internal debug-only path and `jax:cpu` is never used by this artifact; either would bypass the GPU code path and defeat the purpose of the smoke test. There is no make variable that flips the smoke run to those backends; if you find yourself wanting one, the right fix is to repair the CUDA toolchain (see [Troubleshooting](#troubleshooting)).
+
+A smoke-test failure on a CUDA-capable host is therefore a toolchain problem (driver, `cudaCapabilities`, libcuda preload — see [Troubleshooting](#troubleshooting)), not a Tessa-logic problem.
+
+#### Confirm CUDA was actually used (read it from the logs, don't trust `status=ok`)
+
+`status=ok` only means the runner finished without raising. JAX can silently fall back to CPU at initialization — `--backend jax:cuda:0` is parsed, the run completes, but every kernel ran on CPU and the wall-clock numbers are not the artifact's claim. Each `smoke/<suite>/<test>/tessa.log` carries three independent pieces of evidence that confirm the run hit the GPU. Check all three on at least one suite — pick `weather-factory/testn` for the smallest, fastest example:
+
+1. **Invocation** — the runner's first log line dumps the parsed cli args, including the resolved backend:
+   ```shell
+   grep -m1 "'backend':" smoke/weather-factory/testn/tessa.log
+   # expected: ... 'backend': 'jax:cuda:0', ...
+   ```
+
+2. **Runtime backend (the key check)** — for every parameter point, Tessa prints `compiled_model.backend` (`src/cli.py` line 199), which resolves to `str(jax.default_backend())` (`src/backend.py` lines 31–36). The runner captures it as a `DEBUG` line. JAX returns `gpu` **only** when CUDA is actually initialized; `cpu` here means a silent fallback even though `--backend jax:cuda:0` was requested:
+   ```shell
+   grep -cE 'DEBUG -   gpu$' smoke/weather-factory/testn/tessa.log    # >0  ✓ CUDA alive
+   grep -cE 'DEBUG -   cpu$' smoke/weather-factory/testn/tessa.log    # 0   ✓ no fallback
+   ```
+   A non-zero `cpu` count, or a zero `gpu` count, means the smoke run is invalid even if every row says `status=ok` — fix the CUDA toolchain before trusting the timing data (see [Troubleshooting](#troubleshooting)).
+
+3. **Time-log records** — every per-point JSONL under `smoke/<suite>/<test>/*.time.jsonl` embeds the requested backend in both the filename and every record:
+   ```shell
+   ls smoke/weather-factory/testn/*.time.jsonl
+   # expected: ...n2-h10.tessa.jax-cuda-0.float64.time.jsonl ...
+
+   head -1 smoke/weather-factory/testn/n2-h10.tessa.jax-cuda-0.float64.time.jsonl
+   # expected: {"backend": "jax:cuda:0", ...}
+   ```
+
+Quick one-liner across the whole smoke tree (every row should be `gpu=N cpu=0`, with `N` matching the number of parameter points for that slice):
+```shell
+for f in smoke/*/*/tessa.log; do
+  printf '%-45s gpu=%s cpu=%s\n' "$f" \
+    "$(grep -cE 'DEBUG -   gpu$' "$f")" \
+    "$(grep -cE 'DEBUG -   cpu$' "$f")"
+done
+```
+
+The committed reference at `smoke-0504/` already passes all three checks — running these greps against `smoke-0504/` instead of `smoke/` is a useful sanity check for the recipes themselves before you run your own smoke.
 
 A reference smoke output is committed at [`smoke-0504/`](smoke-0504/) (119 files, 8 leaf directories under `herman/`, `meeting/`, `weather-factory/`, `parqueues/`). Compare your `smoke/` against it:
 
@@ -442,8 +498,7 @@ Existing result files are reused automatically. Delete the output directory to f
 `benchmarks/kydice/` exercises Tessa's parametric mode: the Knuth-Yao algorithm samples a fair six-sided die from coin flips, and the model leaves the per-flip biases `x` and `y` symbolic. Reachability for each die face is compiled once with `defer_constants=["x", "y"]` (PRISM) or symbolic constants (JANI), and the resulting kernels are differentiable through JAX. The script trains `(x, y)` with `optax.adam` to minimise KL divergence between the induced face distribution and uniform, then plots the trajectory and the KL landscape.
 
 ```shell
-benchmarks/kydice/run.sh                       # uses benchmarks/kydice/kydice.jani
-benchmarks/kydice/run.sh --backend jax:cpu     # CPU-only
+benchmarks/kydice/run.sh # uses benchmarks/kydice/kydice.jani; --backend defaults to jax:cuda:0
 ```
 
 Outputs land next to the script: `loss.csv`, `loss.png`, `landscape.png`. With the default 100 steps, training converges to `(x, y) ≈ (0.5, 0.5)` and a final KL on the order of `1e-5`.

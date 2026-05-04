@@ -13,6 +13,9 @@ RUN nix build .#storm --cores 4 --print-build-logs
 RUN nix build .#stormpy --cores 4 --print-build-logs
 RUN nix build .#tessa --cores 4 --print-build-logs
 
+RUN nix build .#rubicon --print-build-logs
+RUN nix build .#dice --print-build-logs
+RUN nix build .#gennifer --print-build-logs
 
 # ENV LC_ALL=en_US.UTF-8
 ENV LANG=en_US.UTF-8
