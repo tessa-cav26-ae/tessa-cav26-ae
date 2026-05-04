@@ -1,0 +1,1890 @@
+diff --git a/bin/dice.ml b/bin/dice.ml
+index 8468f48..1cafce5 100644
+--- a/bin/dice.ml
++++ b/bin/dice.ml
+@@ -11,6 +11,7 @@ type result =
+     TableRes of String.t * tableres
+   | StringRes of String.t * String.t
+   | ErrorRes of String.t
++  | StringResNoTitle of String.t
+ 
+ let print_res r =
+   match r with
+@@ -27,9 +28,10 @@ let print_res r =
+   | ErrorRes(value) ->
+     Format.printf "================[ Error ]================\n";
+     Format.printf "%s\n" value
++  | StringResNoTitle(value) ->
++    Format.printf "%s\n" value
+ 
+-let json_res r : Yojson.json =
+-  let open Yojson in
++let json_res r : Yojson.t =
+   match r with
+   | StringRes(name, v) -> `Assoc([name, `String(v)])
+   | ErrorRes(v) -> `Assoc(["error", `String(v)])
+@@ -37,6 +39,7 @@ let json_res r : Yojson.json =
+     let tbljson = `List(List.map rows ~f:(fun row ->
+       `List(List.map row ~f:(fun i -> `String(i))))) in
+     `Assoc([name, tbljson])
++  | StringResNoTitle(_) -> failwith "not implemented"
+ 
+ let get_lexing_position lexbuf =
+   let p = Lexing.lexeme_start_p lexbuf in
+@@ -61,7 +64,9 @@ let parse_and_print ~print_parsed ~print_internal ~print_size ~skip_table
+     ~inline_functions ~sample_amount ~show_recursive_calls
+     ~flip_lifting ~branch_elimination ~determinism ~print_state_bdd
+     ~show_function_size ~print_unparsed ~print_function_bdd
+-    ~recursion_limit ~max_list_length ~eager_eval
++    ~recursion_limit ~max_list_length ~eager_eval 
++    (* ~print_internal_gennifer *)
++    (* ~print_internal_gennifer_nowrap *)
+     lexbuf : result List.t = try
+   let parsed = Compiler.parse_with_error lexbuf in
+   let res = if print_parsed then [StringRes("Parsed program", (ExternalGrammar.string_of_prog parsed))] else [] in
+@@ -80,6 +85,8 @@ let parse_and_print ~print_parsed ~print_internal ~print_size ~skip_table
+     else from_external_prog ~cfg parsed_norec in
+   let res = if print_internal then res @ [StringRes("Parsed program", CoreGrammar.string_of_prog internal)] else res in
+   let res = if print_unparsed then res @ [StringRes("Parsed program", CoreGrammar.string_of_prog_unparsed internal)] else res in
++  (* let res = if print_internal_gennifer then res @ [StringResNoTitle(CoreGrammar.string_of_prog_gennifer internal)] else res in *)
++  (* let res = if print_internal_gennifer_nowrap then res @ [StringResNoTitle(CoreGrammar.string_of_prog_gennifer_nowrap internal)] else res in *)
+   match sample_amount with
+   | None ->
+     let compiled = Compiler.compile_program internal ~eager_eval in
+@@ -182,7 +189,9 @@ let command =
+      and max_list_length = flag "-max-list-length" (optional int) ~doc:" maximum list length"
+      (* and print_marginals = flag "-show-marginals" no_arg ~doc:" print the marginal probabilities of a tuple in depth-first order" *)
+      and json = flag "-json" no_arg ~doc:" print output as JSON"
+-     in fun () ->
++     (* and print_internal_gennifer = flag "-show-internal-gennifer" no_arg ~doc:" pretty print desugared dice program into a gennifer program" *)
++     (* and print_internal_gennifer_nowrap = flag "-show-internal-gennifer-nowrap" no_arg ~doc:" pretty print desugared dice program into a gennifer program without wrapping" *)
++    in fun () ->
+        let inx = In_channel.create fname in
+        let lexbuf = Lexing.from_channel inx in
+        lexbuf.lex_curr_p <- { lexbuf.lex_curr_p with pos_fname = fname };
+@@ -190,7 +199,9 @@ let command =
+                   ~print_size ~inline_functions ~skip_table ~flip_lifting
+                   ~branch_elimination ~determinism ~show_recursive_calls ~print_state_bdd
+                   ~show_function_size ~print_unparsed ~print_function_bdd
+-                  ~recursion_limit ~max_list_length ~eager_eval
++                  ~recursion_limit ~max_list_length ~eager_eval 
++                  (* ~print_internal_gennifer *)
++                  (* ~print_internal_gennifer_nowrap *)
+                   lexbuf) in
+        if json then Format.printf "%s" (Yojson.to_string (`List(List.map r ~f:json_res)))
+        else List.iter r ~f:print_res
+diff --git a/bin/dice_geni.ml b/bin/dice_geni.ml
+new file mode 100644
+index 0000000..37f4e4e
+--- /dev/null
++++ b/bin/dice_geni.ml
+@@ -0,0 +1,213 @@
++open DiceLib
++open Core
++open Cudd
++open Passes_hack
++
++
++(** List of rows in a table *)
++type tableres = String.t List.t List.t
++
++type result =
++    TableRes of String.t * tableres
++  | StringRes of String.t * String.t
++  | ErrorRes of String.t
++  | StringResNoTitle of String.t
++
++let print_res r =
++  match r with
++  | TableRes(name, rows) ->
++    Format.printf "================[ %s ]================\n" name;
++    List.iter rows ~f:(fun row ->
++        List.iter row ~f:(fun i -> Format.printf "%s\t" i);
++        Format.printf "\n";
++      );
++    Format.printf "\n"
++  | StringRes(name, value) ->
++    Format.printf "================[ %s ]================\n" name;
++    Format.printf "%s\n" value;
++  | ErrorRes(value) ->
++    Format.printf "================[ Error ]================\n";
++    Format.printf "%s\n" value
++  | StringResNoTitle(value) ->
++    Format.printf "%s\n" value
++
++let json_res r : Yojson.t =
++  match r with
++  | StringRes(name, v) -> `Assoc([name, `String(v)])
++  | ErrorRes(v) -> `Assoc(["error", `String(v)])
++  | TableRes(name, rows) ->
++    let tbljson = `List(List.map rows ~f:(fun row ->
++      `List(List.map row ~f:(fun i -> `String(i))))) in
++    `Assoc([name, tbljson])
++  | StringResNoTitle(_) -> failwith "not implemented"
++
++let get_lexing_position lexbuf =
++  let p = Lexing.lexeme_start_p lexbuf in
++  let line_number = p.Lexing.pos_lnum in
++  let column = p.Lexing.pos_cnum - p.Lexing.pos_bol + 1 in
++  (line_number, column)
++
++let rec print_pretty e =
++  match e with
++  | `Int(v) -> string_of_int v
++  | `True -> "true"
++  | `False -> "false"
++  | `Tup(l, r) -> Format.sprintf "(%s, %s)" (print_pretty l) (print_pretty r)
++  | `List(values) ->
++    let rec format_elems = function
++    | [] -> ""
++    | [v] -> print_pretty v
++    | v::vs -> print_pretty v ^ ", " ^ format_elems vs in
++    "[" ^ format_elems values ^ "]"
++
++let parse_and_print ~print_parsed ~print_internal ~print_size ~skip_table
++    ~inline_functions ~sample_amount ~show_recursive_calls
++    ~flip_lifting ~branch_elimination ~determinism ~print_state_bdd
++    ~show_function_size ~print_unparsed ~print_function_bdd
++    ~recursion_limit ~max_list_length ~eager_eval 
++    ~print_internal_gennifer
++    ~print_internal_gennifer_nowrap
++    lexbuf : result List.t = try
++  let parsed = Compiler.parse_with_error lexbuf in
++  let res = if print_parsed then [StringRes("Parsed program", (ExternalGrammar.string_of_prog parsed))] else [] in
++  let parsed_norec = Passes_hack.expand_recursion ?recursion_limit parsed in
++  let cfg =
++    { max_list_length = Option.value (Option.first_some max_list_length recursion_limit)
++        ~default:Passes_hack.default_config.max_list_length } in
++  let optimize = flip_lifting || branch_elimination || determinism in
++  let (t, internal) =
++    if inline_functions && optimize then
++      (from_external_prog_optimize ~cfg (Passes_hack.inline_functions parsed_norec) flip_lifting branch_elimination determinism)
++    else if inline_functions && not optimize then
++      (from_external_prog ~cfg (Passes_hack.inline_functions parsed_norec))
++    else if not inline_functions && optimize then
++      (from_external_prog_optimize ~cfg parsed_norec flip_lifting branch_elimination determinism)
++    else from_external_prog ~cfg parsed_norec in
++  let res = if print_internal then res @ [StringRes("Parsed program", CoreGrammar.string_of_prog internal)] else res in
++  let res = if print_unparsed then res @ [StringRes("Parsed program", CoreGrammar.string_of_prog_unparsed internal)] else res in
++  let res = if print_internal_gennifer then res @ [StringResNoTitle(CoreGrammar.string_of_prog_gennifer internal)] else res in
++  let res = if print_internal_gennifer_nowrap then res @ [StringResNoTitle(CoreGrammar.string_of_prog_gennifer_nowrap internal)] else res in
++  match sample_amount with
++  | None ->
++    let compiled = Compiler.compile_program internal ~eager_eval in
++    let zbdd = compiled.body.z in
++    let res = if skip_table then res else res @
++       (let z = Wmc.wmc zbdd compiled.ctx.weights in
++       let table = VarState_hack.get_table cfg compiled.body.state t in
++       let probs = List.map table ~f:(fun (label, bdd) ->
++           if Util.within_epsilon z 0.0 then (label, 0.0) else
++             let prob = (Wmc.wmc (Bdd.dand bdd zbdd) compiled.ctx.weights) /. z in
++             (label, prob)) in
++       let l = [["Value"; "Probability"]] @
++         List.map probs ~f:(fun (typ, prob) -> [print_pretty typ; string_of_float prob]) in
++       [TableRes("Joint Distribution", l)]
++      ) in
++    let res = if show_recursive_calls then res @ [StringRes("Number of recursive calls",
++                                                            Format.sprintf "%f" (Man.num_recursive_calls compiled.ctx.man))]
++      else res in
++    let res = if show_function_size then
++        let all_sizes = List.map (Hashtbl.to_alist compiled.ctx.funcs) ~f:(fun (key, data) ->
++            (* let sz = VarState.state_size [data.body.state; VarState.Leaf(data.body.z)] in *)
++            let sz = Bdd.size (VarState.extract_leaf data.body.state) in
++            StringRes(Format.sprintf "Size of function '%s'" key, string_of_int sz)
++          ) in
++        res @ all_sizes else res in
++    let res = if print_function_bdd then
++        let all_bdds = List.map (Hashtbl.to_alist compiled.ctx.funcs) ~f:(fun (key, data) ->
++            let bdd = BddUtil.dump_dot_multiroot compiled.ctx.name_map data.body.state in
++            StringRes(Format.sprintf "BDD for function '%s'" key, bdd)
++          ) in
++        res @ all_bdds else res in
++    let res = if print_size then
++        res @ [StringRes("Final compiled BDD size",
++             string_of_int (VarState_hack.state_size [compiled.body.state; VarState.Leaf(compiled.body.z)]))]
++      else res in
++    let res = if print_state_bdd then
++        res @ [StringRes("State BDD (graphviz format)",
++                         BddUtil.dump_dot_multiroot compiled.ctx.name_map compiled.body.state);
++               StringRes("State accepting BDD (graphviz format)",
++                         BddUtil.dump_dot_multiroot compiled.ctx.name_map (VarState.Leaf(compiled.body.z)))
++              ]
++      else res in
++    res
++  | Some(n) ->
++    let sz = ref 0 in
++    let rec draw_sample (prob, oldz) n =
++      if n = 0 then (prob, oldz)
++      else
++        let compiled = Compiler.compile_program ~eager_eval:true internal in
++        sz := !sz + VarState_hack.state_size [compiled.body.state; VarState.Leaf(compiled.body.z)];
++        let table = VarState_hack.get_table cfg compiled.body.state t in
++        let zbdd = compiled.body.z in
++        let z = Wmc.wmc zbdd compiled.ctx.weights in
++        let probs = List.map table ~f:(fun (label, bdd) ->
++            if Util.within_epsilon z 0.0 then (label, 0.0) else
++              let prob = (Wmc.wmc (Bdd.dand bdd zbdd) compiled.ctx.weights) in
++              (label, prob)) in
++        (match prob with
++         | None -> draw_sample (Some(probs), z) (n-1)
++         | Some(v) ->
++           let summed = List.map (List.zip_exn v probs) ~f:(fun ((_, a), (lbl, b)) -> (lbl, a +. b)) in
++           draw_sample (Some(summed), z +. oldz) (n-1)) in
++    let (res_state, z) = draw_sample (None, 0.0) n in
++    let res = if skip_table then [] else
++        let l = [["Value"; "Probability"]] @
++          List.map (Option.value_exn res_state) ~f:(fun (typ, prob) ->
++            [print_pretty typ; string_of_float (prob /. z)]) in
++        [TableRes("Joint Probability", l)] in
++    let res = if print_size then
++        res @ [StringRes("Compiled BDD size", string_of_float(float_of_int !sz /. float_of_int n))] else res in
++    res
++  with Compiler.Syntax_error(s) -> [ErrorRes(s)]
++
++
++let command =
++  Command.basic
++    ~summary:"Evaluate a dice program. By default, prints the joint probability of each returned variable in depth-first order."
++    ~readme:(fun () -> "")
++    (let open Command.Let_syntax in
++     let open Command.Param in
++     let%map
++       fname = anon ("filename" %: string)
++     (* and print_info = flag "-show-info" no_arg ~doc:" print BDD info and statistics" *)
++     and print_size = flag "-show-size" no_arg ~doc:" show the size of the final compiled BDD"
++     and sample_amount = flag "-sample" (optional int) ~doc:" number of samples to draw"
++     and print_parsed = flag "-show-parsed" no_arg ~doc:" print parsed dice program"
++     and flip_lifting = flag "-flip-lifting" no_arg ~doc:" optimize dice program before compilation using flip lifting"
++     and branch_elimination = flag "-branch-elimination" no_arg ~doc:" optimize dice program before compilation using branch elimination"
++     and determinism = flag "-determinism" no_arg ~doc:" optimize dice program before compilation using determinism"
++     and show_function_size = flag "-show-function-size" no_arg ~doc:" print size of all function BDDs"
++     and inline_functions = flag "-inline-functions" no_arg ~doc:" inline all function calls"
++     and print_internal = flag "-show-internal" no_arg ~doc:" print desugared dice program"
++     and print_state_bdd = flag "-print-state-bdd" no_arg ~doc:" print final compiled state BDD (in graphviz format)"
++     and print_function_bdd = flag "-print-function-bdd" no_arg ~doc:" print final compiled function state BDD (in graphviz format)"
++     and print_unparsed = flag "-show-unparsed" no_arg ~doc:" print unparsed desugared dice program"
++     and skip_table = flag "-skip-table" no_arg ~doc:" skip printing the joint probability distribution"
++     and show_recursive_calls = flag "-num-recursive-calls" no_arg ~doc:" show the number of recursive calls invoked during compilation"
++     and eager_eval = flag "-eager-eval" no_arg ~doc:" eager let compilation"
++     and recursion_limit = flag "-recursion-limit" (optional int) ~doc:" maximum recursion depth"
++     and max_list_length = flag "-max-list-length" (optional int) ~doc:" maximum list length"
++     (* and print_marginals = flag "-show-marginals" no_arg ~doc:" print the marginal probabilities of a tuple in depth-first order" *)
++     and json = flag "-json" no_arg ~doc:" print output as JSON"
++     and print_internal_gennifer = flag "-show-internal-gennifer" no_arg ~doc:" pretty print desugared dice program into a gennifer program"
++     and print_internal_gennifer_nowrap = flag "-show-internal-gennifer-nowrap" no_arg ~doc:" pretty print desugared dice program into a gennifer program without wrapping"
++    in fun () ->
++       let inx = In_channel.create fname in
++       let lexbuf = Lexing.from_channel inx in
++       lexbuf.lex_curr_p <- { lexbuf.lex_curr_p with pos_fname = fname };
++       let r = (parse_and_print ~print_parsed ~print_internal ~sample_amount
++                  ~print_size ~inline_functions ~skip_table ~flip_lifting
++                  ~branch_elimination ~determinism ~show_recursive_calls ~print_state_bdd
++                  ~show_function_size ~print_unparsed ~print_function_bdd
++                  ~recursion_limit ~max_list_length ~eager_eval 
++                  ~print_internal_gennifer
++                  ~print_internal_gennifer_nowrap
++                  lexbuf) in
++       if json then Format.printf "%s" (Yojson.to_string (`List(List.map r ~f:json_res)))
++       else List.iter r ~f:print_res
++    )
++
++let () =
++  Command.run ~version:"1.0" command
++
++
+diff --git a/bin/dune b/bin/dune
+index 66d626a..7d135a7 100644
+--- a/bin/dune
++++ b/bin/dune
+@@ -1,8 +1,15 @@
+ (executable
+  (libraries core cudd sexplib menhirLib diceLib yojson)
+  (name dice)
++ (modules dice)
++ (preprocess (pps ppx_jane)))
++
++(executable
++ (libraries core cudd sexplib menhirLib diceLib yojson)
++ (name dice_geni)
++ (modules dice_geni)
+  (preprocess (pps ppx_jane)))
+ 
+ (install
+  (section bin)
+- (files (dice.exe as dice)))
++ (files (dice.exe as dice) (dice_geni.exe as dice-geni)))
+diff --git a/lib/Compiler.ml b/lib/Compiler.ml
+index 284cbef..76520f2 100644
+--- a/lib/Compiler.ml
++++ b/lib/Compiler.ml
+@@ -102,6 +102,7 @@ let rec compile_expr (ctx: compile_context) (tenv: tenv) (env: env) e : compiled
+       let cthn = compile_expr ctx tenv env thn in
+       let cels = compile_expr ctx tenv env els in
+       let gbdd = extract_leaf cg.state in
++      (* Format.printf "Compiling:\n%s\n" (string_of_expr e); *)
+       let zipped = zip_tree cthn.state cels.state in
+       let v' = map_tree zipped (fun (thn_state, els_state) ->
+           Bdd.ite gbdd thn_state els_state
+diff --git a/lib/Compiler.mli b/lib/Compiler.mli
+index 8369391..ca8756d 100644
+--- a/lib/Compiler.mli
++++ b/lib/Compiler.mli
+@@ -45,5 +45,5 @@ val parse_and_prob: ?debug:bool -> string -> float
+ val parse_optimize_and_prob: ?debug:bool -> string -> float
+ 
+ (** prints the current position of the lex buffer to the out channel *)
+-val print_position : out_channel -> Lexing.lexbuf -> unit
++val print_position : Out_channel.t -> Lexing.lexbuf -> unit
+ 
+diff --git a/lib/CoreGrammar.ml b/lib/CoreGrammar.ml
+index e49c9a1..e0e65fa 100644
+--- a/lib/CoreGrammar.ml
++++ b/lib/CoreGrammar.ml
+@@ -18,12 +18,12 @@ type expr =
+   | Let of String.t * expr * expr
+   | FuncCall of String.t * expr List.t
+   | Observe of expr
+-[@@deriving sexp_of]
++[@@deriving sexp_of, eq]
+ and fcall = {
+   fname: String.t;
+   args: expr
+ }
+-[@@deriving sexp_of]
++[@@deriving sexp_of, eq]
+ 
+ type typ =
+     TBool
+@@ -167,4 +167,212 @@ let string_of_prog_unparsed p =
+     in
+     Format.dprintf "@[%t\n@[fun@ %s(%t)@]@\n@<100>{@;<1 2>%t@;}@]\n" prev func.name string_of_args (pr_func func.body)
+   ) in
+-  Format.asprintf "%s%s" (Format.asprintf "%t\n" string_of_functions) (Format.asprintf "%t\n" (pr_func body))
+\ No newline at end of file
++  Format.asprintf "%s%s" (Format.asprintf "%t\n" string_of_functions) (Format.asprintf "%t\n" (pr_func body))
++  
++  let rename_expr expr =
++    let counter = ref 0 in
++    let fresh_var name =
++      let new_name = name ^ "_" ^ Int.to_string !counter in
++      incr counter;
++      new_name
++    in
++    let rec rename expr env =
++      match expr with
++      | Ident name ->
++        Ident (Map.find_exn env name)
++      | And (e1, e2) ->
++        And (rename e1 env, rename e2 env)
++      | Or (e1, e2) ->
++        Or (rename e1 env, rename e2 env)
++      | Eq (e1, e2) ->
++        Eq (rename e1 env, rename e2 env)
++      | Xor (e1, e2) ->
++        Xor (rename e1 env, rename e2 env)
++      | Not e ->
++        Not (rename e env)
++      | Tup (e1, e2) ->
++        Tup (rename e1 env, rename e2 env)
++      | Ite (e1, e2, e3) ->
++        Ite (rename e1 env, rename e2 env, rename e3 env)
++      | Sample e ->
++        Sample (rename e env)
++      | Fst e ->
++        Fst (rename e env)
++      | Snd e ->
++        Snd (rename e env)
++      | Let (name, e1, e2) ->
++        let new_name = fresh_var name in
++        let env' = Map.set env ~key:name ~data:new_name in
++        Let (new_name, rename e1 env, rename e2 env')
++      | FuncCall (fname, args) ->
++        FuncCall (fname, List.map args ~f:(fun arg -> rename arg env))
++      | Observe e ->
++        Observe (rename e env)
++      | Flip prob ->
++        Flip prob
++      | True -> True
++      | False -> False
++    in
++    rename expr (Map.empty (module String))
++  
++let string_of_prog_gennifer p =
++  let body = p.body in
++  let functions = p.functions in 
++
++  let string_of_op e = 
++    match e with 
++    | And(_, _) -> "&&"
++    | Xor(_, _) -> "^"
++    | Eq(_, _) -> "=="
++    | Or(_, _) -> "||"
++    | Observe(_) -> "observe"
++    | Fst(_) -> "fst"
++    | Snd(_) -> "snd"
++    | Sample(_) -> "sample"
++    | _ -> ""
++  in
++
++  let rec pr_func e = 
++    (* let renamed = rename_expr e in
++    Format.dprintf "@[<hov 2>%t@]" (pr_expr false renamed) *)
++    Format.dprintf "@[<hov 2>%t@]" (pr_expr false e)
++  and string_of_type typ = 
++    match typ with
++    | TBool -> "bool"
++    | TTuple(t1, t2) -> Format.asprintf "(%s, %s)" (string_of_type t1) (string_of_type t2)
++  and
++  pr_expr (p: bool) (e: expr) = 
++    match e with
++    | Let(x, e1, e2) ->
++      let s1 = pr_expr true e1 in
++      let s2 = pr_expr true e2 in
++      Format.dprintf "@[<hv>@[let@ %s@ =@;<1 2>%t@;in@]@\n%t@]" x s1 s2
++    | Ite(g, thn, els) ->
++      let s0 = pr_expr false g in
++      let s1 = pr_expr true thn in
++      let s2 = pr_expr true els in
++      Format.dprintf "@[<hv>@[if@;<1 2>%t@;then@]@;<1 2>@[%t@]@;else@;<1 2>@[%t@]@]" s0 s1 s2
++    | And(e1, e2) | Xor(e1, e2) | Eq(e1, e2) | Or(e1, e2) -> 
++      let s1 = pr_expr false e1 in
++      let s2 = pr_expr false e2 in
++      if p then
++        Format.dprintf "@[<hov 2>(%t@ %s@;%t)@]" s1 (string_of_op e) s2
++      else
++        Format.dprintf "@[<hov 2>%t@ %s@;%t@]" s1 (string_of_op e) s2
++    | Tup(e1, e2) ->
++      let s1 = pr_expr true e1 in
++      let s2 = pr_expr true e2 in
++      Format.dprintf "@[<hov 2>(%t,@ %t)@]" s1 s2
++    | Not(e1) -> 
++      let s1 = pr_expr false e1 in
++      if p then 
++        Format.dprintf "(!%t)" s1
++      else
++        Format.dprintf "!%t" s1
++    | Observe(e1) | Fst(e1) | Snd(e1) | Sample(e1) ->
++      let s1 = pr_expr false e1 in
++      Format.dprintf "@[<hov 2>(%s@ %t)@]" (string_of_op e) s1
++    | Flip(f) -> Format.dprintf "sample(Bern(%s))" (Format.asprintf "%f" f)
++    | Ident(s) -> Format.dprintf "%s" s
++    | FuncCall(id, args) ->
++      let args_s = 
++        match args with
++        | [] -> Format.dprintf ""
++        | head::[] -> Format.dprintf "%t" (pr_expr false head)
++        | head::tail -> 
++          List.fold tail ~init:(Format.dprintf "%t" (pr_expr false head)) ~f:(fun prev arg -> Format.dprintf "%t,@ %t" prev (pr_expr false arg))
++      in
++      Format.dprintf "@[<hov 2>%s(%t)@]" id args_s
++    | True -> Format.dprintf "true"
++    | False -> Format.dprintf "false"
++  in 
++  
++  let string_of_functions = List.fold functions ~init:(Format.dprintf "") ~f:(fun prev func -> 
++    let string_of_args = 
++      match func.args with
++        | [] -> Format.dprintf ""
++        | (var, typ)::[] -> Format.dprintf "%s: %s" var (string_of_type typ)
++        | (var, typ)::tail -> 
++          List.fold tail ~init:(Format.dprintf "%s: %s" var (string_of_type typ)) ~f:(fun prev (var, typ) -> Format.dprintf "%t,@ %t" prev (Format.dprintf "%s: %s" var (string_of_type typ)))
++    in
++    Format.dprintf "@[%t\n@[fun@ %s(%t)@]@\n@<100>{@;<1 2>%t@;}@]\n" prev func.name string_of_args (pr_func func.body)
++  ) in
++  Format.asprintf "%s%s" (Format.asprintf "%t\n" string_of_functions) (Format.asprintf "%t\n" (pr_func body))
++
++  let string_of_prog_gennifer_nowrap p =
++    let body = p.body in
++    let functions = p.functions in 
++  
++    let string_of_op e = 
++      match e with 
++      | And(_, _) -> "&&"
++      | Xor(_, _) -> "^"
++      | Eq(_, _) -> "=="
++      | Or(_, _) -> "||"
++      | Observe(_) -> "observe"
++      | Fst(_) -> "fst"
++      | Snd(_) -> "snd"
++      | Sample(_) -> "sample"
++      | _ -> ""
++    in
++  
++    let rec pr_func e = 
++      Format.dprintf "%t" (pr_expr 0 e)
++    and string_of_type typ = 
++      match typ with
++      | TBool -> "bool"
++      | TTuple(t1, t2) -> Format.asprintf "(%s, %s)" (string_of_type t1) (string_of_type t2)
++    and
++    pr_expr level e = 
++      match e with
++      | Let(x, e1, e2) ->
++        let s1 = pr_expr (level + 1) e1 in
++        let s2 = pr_expr level e2 in
++        Format.dprintf "let %s = %t in%c%t" x s1 (if level = 0 then '\n' else ' ') s2
++        (* Format.dprintf "@[<hv>@[let@ %s@ =@;<1 2>%t@;in@]@\n%t@]" x s1 s2 *)
++      | Ite(g, thn, els) ->
++        let s0 = pr_expr level g in
++        let s1 = pr_expr level thn in
++        let s2 = pr_expr level els in
++        Format.dprintf "if %t then %t else %t" s0 s1 s2
++      | And(e1, e2) | Xor(e1, e2) | Eq(e1, e2) | Or(e1, e2) -> 
++        let s1 = pr_expr level e1 in
++        let s2 = pr_expr level e2 in
++        Format.dprintf "%t %s %t" s1 (string_of_op e) s2
++      | Tup(e1, e2) ->
++        let s1 = pr_expr level e1 in
++        let s2 = pr_expr level e2 in
++        Format.dprintf "(%t, %t)" s1 s2
++      | Not(e1) -> 
++        let s1 = pr_expr level e1 in
++        Format.dprintf "!%t" s1
++      | Observe(e1) | Fst(e1) | Snd(e1) | Sample(e1) ->
++        let s1 = pr_expr level e1 in
++        Format.dprintf "(%s %t)" (string_of_op e) s1
++      | Flip(f) -> Format.dprintf "sample(Bern(%s))" (Format.asprintf "%f" f)
++      | Ident(s) -> Format.dprintf "%s" s
++      | FuncCall(id, args) ->
++        let args_s = 
++          match args with
++          | [] -> Format.dprintf ""
++          | head::[] -> Format.dprintf "%t" (pr_expr level head)
++          | head::tail -> 
++            List.fold tail ~init:(Format.dprintf "%t" (pr_expr level head)) ~f:(fun prev arg -> Format.dprintf "%t,@ %t" prev (pr_expr level arg))
++        in
++        Format.dprintf "%s(%t)" id args_s
++      | True -> Format.dprintf "true"
++      | False -> Format.dprintf "false"
++    in 
++    
++    let string_of_functions = List.fold functions ~init:(Format.dprintf "") ~f:(fun prev func -> 
++      let string_of_args = 
++        match func.args with
++          | [] -> Format.dprintf ""
++          | (var, typ)::[] -> Format.dprintf "%s: %s" var (string_of_type typ)
++          | (var, typ)::tail -> 
++            List.fold tail ~init:(Format.dprintf "%s: %s" var (string_of_type typ)) ~f:(fun prev (var, typ) -> Format.dprintf "%t,@ %t" prev (Format.dprintf "%s: %s" var (string_of_type typ)))
++      in
++      Format.dprintf "@[%t\n@[fun@ %s(%t)@]@\n@<100>{@;<1 2>%t@;}@]\n" prev func.name string_of_args (pr_func func.body)
++    ) in
++    (* Format.set_margin max_int; *)
++    Format.asprintf "%s%s" (Format.asprintf "%t\n" string_of_functions) (Format.asprintf "%t\n" (pr_func body))
+\ No newline at end of file
+diff --git a/lib/CoreGrammar.mli b/lib/CoreGrammar.mli
+index 12220da..749a3ae 100644
+--- a/lib/CoreGrammar.mli
++++ b/lib/CoreGrammar.mli
+@@ -19,12 +19,12 @@ type expr =
+   | Let of String.t * expr * expr
+   | FuncCall of String.t * expr List.t
+   | Observe of expr
+-[@@deriving sexp_of]
++[@@deriving sexp_of, eq]
+ and fcall = {
+   fname: String.t;
+   args: expr
+ }
+-[@@deriving sexp_of]
++[@@deriving sexp_of, eq]
+ 
+ 
+ type typ =
+@@ -60,4 +60,6 @@ val type_of_fun : tenv -> func -> typ
+ 
+ val string_of_expr : expr -> String.t
+ val string_of_prog : program -> String.t
+-val string_of_prog_unparsed : program -> String.t
+\ No newline at end of file
++val string_of_prog_unparsed : program -> String.t
++val string_of_prog_gennifer : program -> String.t
++val string_of_prog_gennifer_nowrap : program -> String.t
+\ No newline at end of file
+diff --git a/lib/Passes.ml b/lib/Passes.ml
+index 99de5a5..eefc8ce 100644
+--- a/lib/Passes.ml
++++ b/lib/Passes.ml
+@@ -171,7 +171,7 @@ let num_paths (p: EG.program) : LogProbability.t =
+     | _ -> failwith "unreachable, functions inlined" in
+   helper inlined.body
+ 
+-let num_binary_digits d = int_of_float (floor (Util.log2 (float_of_int (d)))) + 1
++let num_binary_digits d = int_of_float (Float.round_down (Util.log2 (float_of_int (d)))) + 1
+ 
+ (** converts a little-endian binary vector into an integer *)
+ let bin_to_int l =
+@@ -528,7 +528,7 @@ let rec and_of_l l =
+   | [x] -> x
+   | x::xs -> CG.And(x, and_of_l xs)
+ 
+-let rec gen_discrete mgr (l: float List.t) =
++let gen_discrete mgr (l: float List.t) =
+   let open Cudd in
+   let open CG in
+   (* first generate the ADD *)
+diff --git a/lib/Passes_hack.ml b/lib/Passes_hack.ml
+new file mode 100644
+index 0000000..f46474d
+--- /dev/null
++++ b/lib/Passes_hack.ml
+@@ -0,0 +1,1072 @@
++(** Performs optimization passes over the core grammar **)
++open Core
++open Util
++module EG = ExternalGrammar
++module CG = CoreGrammar
++
++type config = { max_list_length: int }
++
++let default_recursion_limit = 10
++
++let default_config = { max_list_length = default_recursion_limit }
++
++let n = ref 0
++
++let fresh () =
++  n := !n + 1;
++  (Format.sprintf "$%d" !n)
++
++let within_epsilon x y =
++  (Float.compare (Float.abs (x -. y)) 0.0001) < 0
++
++let map_eexpr f =
++  let open EG in
++  function
++  | And(s, e1, e2) -> And(s, f e1, f e2)
++  | Or(s, e1, e2) -> Or(s, f e1, f e2)
++  | Iff(s, e1, e2) -> Iff(s, f e1, f e2)
++  | Xor(s, e1, e2) -> Xor(s, f e1, f e2)
++  | Sample(s, e) -> Sample(s, f e)
++  | IntConst(s, i) -> IntConst(s, i)
++  | Not(s, e) -> Not(s, f e)
++  | Ite(s, e1, e2, e3) -> Ite(s, f e1, f e2, f e3)
++  | Flip(s, p) -> Flip(s, p)
++  | Let(s, id, e1, e2) -> Let(s, id, f e1, f e2)
++  | Observe(s, e) -> Observe(s, f e)
++  | Ident(s, id) -> Ident(s, id)
++  | Discrete(s, ps) -> Discrete(s, ps)
++  | Int(s, sz, v) -> Int(s, sz, v)
++  | Eq(s, e1, e2) -> Eq(s, f e1, f e2)
++  | LeftShift(s, e, i) -> LeftShift(s, f e, i)
++  | RightShift(s, e, i) -> RightShift(s, f e, i)
++  | Plus(s, e1, e2) -> Plus(s, f e1, f e2)
++  | Minus(s, e1, e2) -> Minus(s, f e1, f e2)
++  | Mult(s, e1, e2) -> Mult(s, f e1, f e2)
++  | Div(s, e1, e2) -> Div(s, f e1, f e2)
++  | Lte(s, e1, e2) -> Lte(s, f e1, f e2)
++  | Lt(s, e1, e2) -> Lt(s, f e1, f e2)
++  | Gte(s, e1, e2) -> Gte(s, f e1, f e2)
++  | Gt(s, e1, e2) -> Gt(s, f e1, f e2)
++  | Neq(s, e1, e2) -> Neq(s, f e1, f e2)
++  | Fst(s, e) -> Fst(s, f e)
++  | Snd(s, e) -> Snd(s, f e)
++  | Tup(s, e1, e2) -> Tup(s, f e1, f e2)
++  | FuncCall(s, fn, es) -> FuncCall(s, fn, List.map es ~f)
++  | Iter(s, fn, e, n) -> Iter(s, fn, f e, n)
++  | Unif(s, sz, b, e) -> Unif(s, sz, b, e) 
++  | True s -> True s
++  | False s -> False s
++  | ListLit(s, es) -> ListLit(s, List.map es ~f)
++  | ListLitEmpty(s, t) -> ListLitEmpty(s, t)
++  | Cons(s, e1, e2) -> Cons(s, f e1, f e2)
++  | Head(s, e) -> Head(s, f e)
++  | Tail(s, e) -> Tail(s, f e)
++  | Length(s, e) -> Length(s, f e)
++
++let unreachable e =
++  let open EG in
++  Let(gen_src, "$_", Observe(gen_src, False gen_src), e)
++
++let rec gen_default_value =
++  let open EG in
++  function
++  | TBool -> False gen_src
++  | TInt sz -> Int(gen_src, sz, 0)
++  | TTuple(t1, t2) -> Tup(gen_src, gen_default_value t1, gen_default_value t2)
++  | TList t -> ListLitEmpty(gen_src, TList t)
++  | TFunc _ -> failwith "Internal Error: gen_default_value called with function type"
++
++let expand_recursion ?(recursion_limit = default_recursion_limit) (p: EG.program) =
++  let open EG in
++  let expand_func func =
++    let gen_name i = Format.sprintf "%s$%d" func.name i in
++    let is_recursive = ref false in
++    let rec sub i e = map_eexpr (sub i) @@ match e with
++      | FuncCall(s, fn, es) when String.(fn = func.name) ->
++        is_recursive := true;
++        FuncCall(s, gen_name i, es)
++      | _ -> e in
++    let body' = sub 0 func.body in
++    if !is_recursive then
++      match func.return_type with
++      | Some rt ->
++        let base_copy =
++          { func with name = gen_name recursion_limit
++          ; body = unreachable (gen_default_value rt) } in
++        let rec_copies = List.map (List.range 0 recursion_limit)
++          ~f:(fun i -> { func with name = gen_name i
++                       ; body = sub (succ i) func.body }) in
++        base_copy :: List.rev_append rec_copies [{ func with body = body' }]
++      | None -> raise @@ Type_error (Format.sprintf
++        "Type error in function %s: \
++          return type annotation is required for recursive functions"
++        func.name)
++    else [func] in
++  { p with functions = List.concat_map p.functions ~f:expand_func }
++
++let rec expand_iter s f curv k : EG.eexpr =
++  assert (k >= 0);
++  if k = 0 then curv else
++    Let(s, "$iterident", FuncCall(s, f, [curv]), expand_iter s f (Ident(s, "$iterident")) (k-1))
++
++let inline_functions (p: EG.program) =
++  let open EG in
++  let function_map = List.fold p.functions ~init:(Map.Poly.empty) ~f:(fun acc f ->
++      Map.Poly.add_exn acc ~key:f.name ~data:f) in
++  let rec helper (e: EG.eexpr) =
++    match e with
++    | Iff(s, e1, e2) ->
++      let s1 = helper e1 in
++      let s2 = helper e2 in Eq(s, s1, s2)
++    | Lte(s, e1, e2) -> helper(Or(s, Lt(s, e1, e2), Eq(s, e1, e2)))
++    | Gt(s, e1, e2) -> helper(Not(s, Lte(s, e1, e2)))
++    | Gte(s, e1, e2) -> helper(Not(s, Lt(s, e1, e2)))
++    | Iter(s, f, init, k) -> helper (expand_iter s f init k)
++    | FuncCall(s, "nth_bit", args) ->
++      FuncCall(s, "nth_bit", List.map args ~f:helper)
++    | FuncCall(s, id, args) ->
++      let cur_f = try Map.Poly.find_exn function_map id
++        with _ -> failwith (Format.sprintf "Internal error: could not find inlined function %s" id) in
++      let inlined = helper cur_f.body in
++      List.fold (List.zip_exn cur_f.args args) ~init:inlined ~f:(fun acc (arg, v) -> Let(s, fst arg, v, acc))
++    | _ -> map_eexpr helper e in
++  {functions=[]; body=helper p.body}
++
++let num_paths (p: EG.program) : LogProbability.t =
++  let inlined = inline_functions p in
++  let rec helper (e: EG.eexpr) =
++    match e with
++    | And(_,e1, e2)
++    | Or(_,e1, e2)
++    | Plus(_,e1, e2)
++    | Eq(_,e1, e2)
++    | Minus(_,e1, e2)
++    | Neq(_,e1, e2)
++    | Div(_,e1, e2)
++    | Mult(_,e1, e2)
++    | Lt(_,e1, e2)
++    | Gt(_,e1, e2)
++    | Lte(_,e1, e2)
++    | Gte(_,e1, e2)
++    | Tup(_,e1, e2)
++    | Let(_,_, e1, e2)
++    | Cons(_, e1, e2) ->
++      let s1 = helper e1 in
++      let s2 = helper e2 in LogProbability.mult s1 s2
++    | Not(_,e) -> helper e
++    | Flip(_,_) -> LogProbability.make 2.0
++    | Ident(_,_) | Int(_,_, _) | True(_) | False(_) | ListLitEmpty(_, _) ->
++      LogProbability.make 1.0
++    | Discrete(_,l) -> LogProbability.make (float_of_int (List.length l))
++    | Unif(_, _, b, e) -> LogProbability.make (float_of_int (e-b))
++    | Observe(_,e) -> helper e
++    | Ite(_,g, thn, els) ->
++      let gc = helper g in
++      let tc = helper thn in
++      let ec = helper els in
++      LogProbability.mult gc (LogProbability.add tc ec)
++    | Snd(_,e) | Fst(_, e)
++    | Head(_, e) | Tail(_, e) | Length(_, e) -> helper e
++    | ListLit(_, es) -> List.reduce_exn (List.map es ~f:helper) ~f:LogProbability.mult
++    | _ -> failwith "unreachable, functions inlined" in
++  helper inlined.body
++
++let num_binary_digits d = int_of_float (Float.round_down (Util.log2 (float_of_int (d)))) + 1
++
++(** converts a little-endian binary vector into an integer *)
++let int_to_bin final_sz d =
++  let rec helper cur_pos d =
++    if cur_pos >= 0 then
++      let cur_v = 1 lsl cur_pos in
++      let p' = cur_pos - 1 in
++      if d < cur_v then [0] @ (helper p' d) else [1] @ (helper p' (d - cur_v))
++    else [] in
++  let sz = (num_binary_digits d) - 1 in
++  let r = helper sz d in
++  let padding = List.init (final_sz - List.length r) ~f:(fun _ -> 0) in
++  padding @ r
++
++let ite guard then_branch else_branch =
++  if CG.equal_expr then_branch else_branch then then_branch else 
++    CG.Ite(guard, then_branch, else_branch)
++
++(** builds a list of all assignments to `l`, a list of (expr, bdd) *)
++let rec all_assignments mgr l =
++  let open Cudd in
++  let open CG in
++  match l with
++  | [] -> [True, Bdd.dtrue mgr]
++  | (cur_constraint, cur_bdd)::xs ->
++    let l1 = List.map (all_assignments mgr xs)
++        ~f:(fun (constr, bdd) -> And(cur_constraint, constr), Bdd.dand cur_bdd bdd) in
++    let l2 = List.map (all_assignments mgr xs)
++        ~f:(fun (constr, bdd) -> And(Not(cur_constraint), constr), Bdd.dand (Bdd.dnot cur_bdd) bdd) in
++    l1 @ l2
++
++let fold_with_seen l ~init ~f =
++  let (_, r) = List.fold l ~init:(([], init)) ~f:(fun (seen, acc) i ->
++      let r = f seen acc i in
++      ([i] @ seen, r)) in
++  r
++
++(* given a list of expressions [e1; e2; e3; ..] makes a
++   tuple that looks like (e1, (e2, (e3, ...)))*)
++let rec mk_dfs_tuple l =
++  match l with
++  | [] -> failwith "cannot call with empty list"
++  | [x] -> x
++  | x::xs ->
++    CG.Tup(x, mk_dfs_tuple xs)
++
++let rec type_eq t1 t2 =
++  let open EG in
++  match (t1, t2) with
++  | (TBool, TBool) -> true
++  | ((TTuple(ll, lr), TTuple(rl, rr))) ->
++    (type_eq ll rl) && (type_eq lr rr)
++  | (TInt(d1), TInt(d2)) when d1 = d2 -> true
++  | TList l, TList r -> type_eq l r
++  | _ -> false
++
++type source = EG.source
++[@@deriving sexp_of]
++
++type ast =
++    And of source * tast * tast
++  | LeftShift of source * tast * int
++  | RightShift of source * tast * int
++  | Sample of source * tast
++  | Or of source * tast * tast
++  | Iff of source * tast * tast
++  | Xor of source * tast * tast
++  | IntConst of source * int
++  | Not of source * tast
++  | Ite of source * tast * tast * tast
++  | Flip of source * float
++  | Let of source * String.t * tast * tast
++  | Observe of source * tast
++  | Ident of source * String.t
++  | Discrete of source * float List.t
++  | Int of source * int * int (* value, size *)
++  | Eq of source * tast * tast
++  | Plus of source * tast * tast
++  | Minus of source * tast * tast
++  | Mult of source * tast * tast
++  | Div of source * tast * tast
++  | Lte of source * tast * tast
++  | Lt of source * tast * tast
++  | Gte of source * tast * tast
++  | Gt of source * tast * tast
++  | Neq of source * tast * tast
++  | Fst of source * tast
++  | Snd of source * tast
++  | Tup of source * tast * tast
++  | FuncCall of source * String.t * tast List.t
++  | Iter of source * String.t * tast * int
++  | Unif of source * int * int * int
++  | True of source
++  | False of source
++  | ListLit of source * tast List.t
++  | ListLitEmpty of source
++  | Cons of source * tast * tast
++  | Head of source * tast
++  | Tail of source * tast
++  | Length of source * tast
++and
++  tast = EG.typ * ast
++[@@deriving sexp_of]
++
++type arg = EG.arg
++[@@deriving sexp_of]
++
++type func = { name: String.t; args: arg List.t; body: tast}
++[@@deriving sexp_of]
++
++type program = { functions: func List.t; body: tast }
++[@@deriving sexp_of]
++
++type typ_ctx = { in_func: bool }
++
++let get_col (pos: EG.lexing_position) =
++  pos.pos_cnum - pos.pos_bol
++
++let rec type_of (cfg: config) (ctx: typ_ctx) (env: EG.tenv) (e: EG.eexpr) : tast =
++  let open EG in
++  let expect_t e (src: EG.lexing_position) typ : tast =
++    let (t, e) = type_of cfg ctx env e in
++    if (type_eq t typ) then (t, e) else
++      raise (EG.Type_error(Format.sprintf "Type error at line %d column %d: expected %s, got %s"
++                                      src.pos_lnum (get_col src) (EG.string_of_typ typ) (EG.string_of_typ t))) in
++  let expect_t' typ e = expect_t e (get_src e).startpos typ in
++  let expect_compatible_int (f: tast -> tast -> ast) src e1 e2 lbl =
++    let (t1, s1) = type_of cfg ctx env e1 and (t2, s2) = type_of cfg ctx env e2 in
++    match (t1, t2) with
++    | (TInt(d1), TInt(d2)) when d1 = d2 -> (d1, f (t1, s1) (t1, s2))
++    | (_, _) ->
++      raise (EG.Type_error(Format.sprintf "Type error at line %d column %d: expected compatible integer types for operation '%s', got %s and %s"
++                             src.pos_lnum (get_col src) lbl (EG.string_of_typ t1) (EG.string_of_typ t2)))  in
++  let expect_list e : typ * tast =
++    let (t, e') = type_of cfg ctx env e in
++    match t with
++    | TList t' -> (t', (t, e'))
++    | _ ->
++      let pos = (get_src e).startpos in
++      raise (Type_error (Format.sprintf "Type error at line %d column %d: expected a list type, got %s"
++                          pos.pos_lnum (get_col pos) (string_of_typ t))) in
++  match e with
++  | And(s, e1, e2) ->
++    let s1 = expect_t e1 s.startpos TBool in
++    let s2 = expect_t e2 s.startpos TBool in
++    (TBool, And(s, s1, s2))
++  | Or(s, e1, e2) ->
++    let s1 = expect_t e1 s.startpos TBool in
++    let s2 = expect_t e2 s.startpos TBool in
++    (TBool, Or(s, s1, s2))
++  | Iff(s, e1, e2) ->
++    let s1 = expect_t e1 s.startpos TBool in
++    let s2 = expect_t e2 s.startpos TBool in
++    (TBool, Iff(s, s1, s2))
++  | Sample(s, e1) ->
++    if ctx.in_func then
++      raise (Type_error (Format.sprintf "Type error at line %d column %d: \
++                                         Sampling within functions is not permitted"
++                           s.startpos.pos_lnum (get_col s.startpos)));
++    let t, e = type_of cfg ctx (Map.Poly.empty) e1 in
++    (t, Sample(s, (t, e)))
++  | Xor(s, e1, e2) ->
++    let s1 = expect_t e1 s.startpos TBool in
++    let s2 = expect_t e2 s.startpos TBool in
++    (TBool, Xor(s, s1, s2))
++  | Not(s, e1) ->
++    let s1 = expect_t e1 s.startpos TBool in
++    (TBool, Not(s, s1))
++  | Observe(s, e1) ->
++    let s1 = expect_t e1 s.startpos TBool in
++    (TBool, Observe(s, s1))
++  | True(s) -> (TBool, True(s))
++  | False(s) -> (TBool, False(s))
++  | Flip(s, f) -> (TBool, Flip(s,f))
++  | Ident(src, s) ->
++    let t = (try Map.Poly.find_exn env s
++     with _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: \
++                                         Could not find variable '%s' during typechecking"
++                                    src.startpos.pos_lnum (get_col src.startpos) s))) in
++    (t, Ident(src, s))
++  | Fst(s, e1) ->
++    let (t, s1) = type_of cfg ctx env e1 in
++    let t' = (match t with
++     | TTuple(l, _) -> l
++     | t -> raise (Type_error (Format.sprintf "Type error at line %d column %d: expected tuple, got %s"
++                                 s.startpos.pos_lnum (get_col s.startpos) (string_of_typ t)))) in
++    (t', Fst(s, (t, s1)))
++  | Snd(s, e1) ->
++    let s1 = type_of cfg ctx env e1 in
++    let t = (match fst s1 with
++     | TTuple(_, r) -> r
++     | t -> raise (Type_error (Format.sprintf "Type error at line %d column %d: expected tuple, got %s"
++                                 s.startpos.pos_lnum (get_col s.startpos) (string_of_typ t)))) in
++    (t, Snd(s, s1))
++  | Tup(s, e1, e2) ->
++    let t1 = type_of cfg ctx env e1 in
++    let t2 = type_of cfg ctx env e2 in
++    (TTuple(fst t1, fst t2), Tup(s, t1, t2))
++  | Int(src, sz, v) ->
++    if v >= 1 lsl sz then
++      (raise (Type_error (Format.sprintf "Type error at line %d column %d: integer constant out of range"
++                           src.startpos.pos_lnum (get_col src.startpos)))) else ();
++    (TInt(sz), Int(src, sz, v))
++  | Discrete(src, l) ->
++    let sum = List.fold l ~init:0.0 ~f:(fun acc i -> acc +. i) in
++    if not (within_epsilon sum 1.0) then
++      raise (Type_error (Format.sprintf "Type error at line %d column %d: discrete parameters must sum to 1, got %f"
++                           src.startpos.pos_lnum (get_col src.startpos) sum))
++    else (TInt(num_binary_digits ((List.length l) - 1)), Discrete(src, l))
++  | LeftShift(s, e1, i) ->
++    let (t, e) = type_of cfg ctx env e1 in
++    (t, LeftShift(s, (t, e), i))
++  | RightShift(s, e1, i) ->
++    let (t, e) = type_of cfg ctx env e1 in
++    (t, RightShift(s, (t, e), i))
++  | Eq(s, e1, e2) -> (TBool, snd (expect_compatible_int (fun s1 s2 -> Eq(s, s1, s2)) s.startpos e1 e2 "="))
++  | Lt(s, e1, e2) -> (TBool, snd (expect_compatible_int (fun e1 e2 -> Lt(s, e1, e2)) s.startpos e1 e2 "<"))
++  | Gt(s, e1, e2) -> (TBool, snd (expect_compatible_int (fun e1 e2 -> Gt(s, e1, e2)) s.startpos e1 e2 ">"))
++  | Lte(s, e1, e2) -> (TBool, snd (expect_compatible_int (fun e1 e2 -> Lte(s, e1, e2)) s.startpos e1 e2 "<="))
++  | Gte(s, e1, e2) -> (TBool, snd (expect_compatible_int (fun e1 e2 -> Gte(s, e1, e2)) s.startpos e1 e2 ">="))
++  | Neq(s, e1, e2) -> (TBool, snd (expect_compatible_int (fun e1 e2 -> Neq(s, e1, e2)) s.startpos e1 e2 "!="))
++  | Plus(s, e1, e2) ->
++    let sz, res = expect_compatible_int (fun e1 e2 -> Plus(s, e1, e2)) s.startpos e1 e2 "+" in
++    (TInt(sz), res)
++  | Minus(s, e1, e2) ->
++    let sz, res = expect_compatible_int (fun e1 e2 -> Minus(s, e1, e2)) s.startpos e1 e2 "-" in
++    (TInt(sz), res)
++  | Mult(s, e1, e2) ->
++    let sz, res = expect_compatible_int (fun e1 e2 -> Mult(s, e1, e2)) s.startpos e1 e2 "*" in
++    (TInt(sz), res)
++  | Div(s, e1, e2) ->
++    let sz, res = expect_compatible_int (fun e1 e2 -> Div(s, e1, e2)) s.startpos e1 e2 "/" in
++    (TInt(sz), res)
++  | Let(slet, x, e1, e2) ->
++    let r1 = type_of cfg ctx env e1 in
++    let r2 = type_of cfg ctx (Map.Poly.set env ~key:x ~data:(fst r1)) e2 in
++    (fst r2, Let(slet, x, r1, r2))
++  | Ite(s, g, thn, els) ->
++    let sg = expect_t g ((EG.get_src g).startpos) TBool in
++    let (t1, thnbody) = type_of cfg ctx env thn and (t2, elsbody) = type_of cfg ctx env els in
++    if not (type_eq t1 t2) then
++      raise (Type_error (Format.sprintf "Type error at line %d column %d: expected equal types \
++                                         from branches of if-statement, got %s and %s"
++                           s.startpos.pos_lnum (get_col s.startpos) (string_of_typ t1) (string_of_typ t2)))
++    else (t1, Ite(s, sg, (t1, thnbody), (t2, elsbody)))
++  | FuncCall(s, "nth_bit", [Int(src, sz, v); e2]) ->
++    let conve2 = match type_of cfg ctx env e2 with
++      | (TInt(v), r) ->(TInt(v), r)
++      | _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: expected int for second argument"
++                                  s.startpos.pos_lnum (get_col s.startpos))) in
++    (TBool, FuncCall(s, "nth_bit", [(TInt(v), Int(src, sz, v)); conve2]))
++  | FuncCall(s, id, args) ->
++    let res = try Map.Poly.find_exn env id
++      with _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: could not find function \
++                                                   '%s' during typechecking"
++                                     s.startpos.pos_lnum (get_col s.startpos) id)) in
++    let (targ, tres) = (match res with
++        | TFunc(targ, tres) -> targ, tres
++        | _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: non-function type found for \
++                                                   '%s' during typechecking, found %s "
++                                     s.startpos.pos_lnum (get_col s.startpos) id (string_of_typ res)))) in
++    let zipped = try List.zip_exn args targ
++      with _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: could incompatible argument length, expected \
++                                                   %d arguments and got %d arguments"
++                                     s.startpos.pos_lnum (get_col s.startpos) (List.length targ) (List.length args))) in
++    let arg' = List.mapi zipped ~f:(fun idx (arg, typ) ->
++        let (found_t, body) = type_of cfg ctx env arg in
++        if (type_eq found_t typ) then (found_t, body) else
++          raise (Type_error (Format.sprintf "Type error in argument %d at line %d column %d: expected type %s, got %s"
++                               s.startpos.pos_lnum (get_col s.startpos) (idx + 1) (string_of_typ typ) (string_of_typ found_t)))
++      ) in
++    (tres, FuncCall(s, id, arg'))
++  | IntConst(_, _) -> failwith "Internal Error: unstripped int const"
++  | Iter(s, id, init, k) ->
++    let res = try Map.Poly.find_exn env id
++      with _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: could not find function \
++                                                   '%s' during typechecking"
++                                     s.startpos.pos_lnum (get_col s.startpos) id)) in
++    let (_, tres) = (match res with
++        | TFunc(targ, tres) -> targ, tres
++        | _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: non-function type found for \
++                                                   '%s' during typechecking, found %s "
++                                     (get_col s.startpos) (get_col s.startpos) id (string_of_typ res)))) in
++    let init' = type_of cfg ctx env init in
++    (* TODO check arg validity*)
++    (tres, Iter(s, id, init', k))
++  | Unif (s, sz, b, e) -> 
++    if e > 1 lsl sz then
++      (raise (Type_error (Format.sprintf "Type error at line %d column %d: integer constant out of range"
++                           s.startpos.pos_lnum (get_col s.startpos)))) 
++    else (TInt(sz), Unif(s, sz, b, e))
++  | ListLit(s, es) ->
++    let len = List.length es in
++    if len > cfg.max_list_length then
++      raise (Type_error (Format.sprintf "Type error at line %d column %d: \
++                                         length of list literal (%d) exceeds maximum list length (%d)"
++                          s.startpos.pos_lnum (get_col s.startpos) len cfg.max_list_length))
++    else
++      let (t, e') = type_of cfg ctx env (List.hd_exn es) in
++      (TList t, ListLit(s, (t, e') :: List.map (List.tl_exn es) ~f:(expect_t' t)))
++  | ListLitEmpty(s, t) ->
++    begin match t with
++    | TList _ -> (t, ListLitEmpty s)
++    | _ -> raise (Type_error (Format.sprintf "Type error at line %d column %d: empty list must have a list type"
++                                s.startpos.pos_lnum (get_col s.startpos)))
++    end
++  | Cons(s, e1, e2) ->
++    let (t, e1') = type_of cfg ctx env e1 in
++    (TList t, Cons(s, (t, e1'), expect_t' (TList t) e2))
++  | Head(s, e) ->
++    let (t, tast) = expect_list e in
++    (t, Head(s, tast))
++  | Tail(s, e) ->
++    let (_, (t, e')) = expect_list e in
++    (t, Tail(s, (t, e')))
++  | Length(s, e) ->
++    let (_, tast) = expect_list e in
++    (TInt (bit_length cfg.max_list_length), Length(s, tast))
++
++let rec expand_iter_t s f ((t, curv):tast) k : tast =
++  assert (k >= 0);
++  if k = 0 then (t, curv) else
++    (t, Let(s, "$iterident", (t, FuncCall(s, f, [(t, curv)])),
++            expand_iter_t s f (t, Ident(s, "$iterident")) (k-1)))
++
++
++
++let rec from_external_typ cfg (t:EG.typ) : CG.typ =
++  match t with
++    TBool -> TBool
++  | TInt(sz) ->
++    let l = List.init sz ~f:(fun _ -> CG.TBool) in
++    let rec mk_dfs_typ l =
++      match l with
++      | [x] -> x
++      | x::xs ->
++        CG.TTuple(x, mk_dfs_typ xs)
++      | [] -> failwith "Internal Error: Invalid int type"
++    in
++    mk_dfs_typ l
++  | TTuple(t1, t2) -> TTuple(from_external_typ cfg t1, from_external_typ cfg t2)
++  | TList t -> from_external_typ cfg @@
++    TTuple(TInt(bit_length cfg.max_list_length),
++           Fn.apply_n_times ~n:(cfg.max_list_length - 1) (fun t' -> EG.TTuple(t, t')) t)
++  | _ -> failwith "Internal Error: unreachable"
++
++let rec and_of_l l =
++  match l with
++  | [] -> CG.True
++  | [x] -> x
++  | x::xs -> CG.And(x, and_of_l xs)
++
++(* type bitblasted = 
++  | Working of (CG.expr * CG.expr) list
++  | Done of CG.expr *)
++
++  let gen_discrete_balanced mgr (l: float List.t) =
++    let rec all_assignments mgr l =
++      let open Cudd in
++      let open CG in
++      match l with
++      | [] -> [True, Bdd.dtrue mgr]
++      | (cur_constraint, cur_bdd)::xs ->
++        let l1 = List.map (all_assignments mgr xs)
++            ~f:(fun (constr, bdd) -> And(cur_constraint, constr), Bdd.dand cur_bdd bdd) in
++        let l2 = List.map (all_assignments mgr xs)
++            ~f:(fun (constr, bdd) -> And(Not(cur_constraint), constr), Bdd.dand (Bdd.dnot cur_bdd) bdd) in
++        l1 @ l2
++    in
++    let rec build_balanced_ite seen idx branches l r = 
++      if l + 1 = r then
++        let (_, then_param) = List.nth_exn branches l in
++        let (_, else_param) = List.nth_exn branches r in 
++        ite (fst (List.nth_exn seen idx)) (Flip then_param) (Flip else_param)
++      else
++        let m = (l + r) / 2 in
++        let left = build_balanced_ite seen (idx + 1) branches l m in
++        let right = build_balanced_ite seen (idx + 1) branches (m + 1) r in
++        ite (fst (List.nth_exn seen idx)) left right
++    in
++    let open Cudd in
++    let open CG in
++    (* first generate the ADD *)
++    (* list of bits in little-endian order *)
++    let bits = List.init (num_binary_digits ((List.length l) - 1)) ~f:(fun i -> (Ident(Format.sprintf "d_%d" i), Bdd.newvar mgr)) in
++    let numbits = List.length bits in
++    let bitcube = List.fold bits ~init:(Bdd.dtrue mgr) ~f:(fun acc i -> Bdd.dand acc (snd i)) in
++    let add = List.foldi l ~init:(Add.cst mgr 0.0) ~f:(fun idx acc param ->
++        let bitvec = List.zip_exn (int_to_bin numbits idx) (bits) in
++        let indicator = List.fold bitvec ~init:(Bdd.dtrue mgr) ~f:(fun acc (v, (_, b)) ->
++            let curv = if v = 1 then b else Bdd.dnot b in
++            Bdd.dand acc curv
++          ) in
++        let leaf = Add.cst mgr param in
++        Add.ite indicator leaf acc
++      ) in
++    (* now make the list of flip assignments *)
++    let sum_add a = Add.dval (Add.exist bitcube a) in
++    let assgn = fold_with_seen bits ~init:[] ~f:(fun seen acc (cur_name, cur_bit) ->
++        let all_assgn = all_assignments mgr seen in
++        (* Format.printf "len(all_assgn) %d \t len(seen) %d\n" (List.length all_assgn) (List.length seen); *)
++        let branches = List.map all_assgn ~f:(fun (cur_constraint, cur_bdd) ->
++          (* Format.printf "%s\n" (CG.string_of_expr cur_constraint); *)
++            let p1 = sum_add (Add.mul add (Add.of_bdd (Bdd.dand cur_bit cur_bdd))) in
++            let p2 = sum_add (Add.mul add (Add.of_bdd (Bdd.dand cur_bdd (Bdd.dnot cur_bit)))) in
++            if within_epsilon p1 0.0 then
++              (cur_constraint, 0.)
++            else
++              (cur_constraint, (p1 /. (p1 +. p2)))
++          ) in
++        (* now build the expression *)
++        (* (match l with
++          | [] -> failwith "unreachable"
++          | [(_, param)] -> [cur_name, Flip(param)]
++          | (_, param)::xs ->
++            let ifbody = xs |> List.fold ~init:(Flip(param)) ~f:(fun acc (guard, param) -> ite guard (Flip param) acc) in
++            [cur_name, ifbody]
++        ) @ acc *)
++        (match branches with 
++        | [] -> failwith "unreachable"
++        | [(_, param)] -> [cur_name, Flip(param)]
++        | x::xs -> [(cur_name, build_balanced_ite seen 0 branches 0 (List.length branches - 1))]
++        ) @ acc
++      ) in
++    (* now finally build the entire let assignment *)
++    let inner_body = mk_dfs_tuple (List.map bits ~f:fst) in
++    List.fold assgn ~init:inner_body ~f:(fun acc (Ident(name), body) -> Let(name, body, acc))
++
++let gen_discrete mgr (l: float List.t) =
++  let open Cudd in
++  let open CG in
++  (* first generate the ADD *)
++  (* list of bits in little-endian order *)
++  let bits = List.init (num_binary_digits ((List.length l) - 1)) ~f:(fun i -> (Ident(Format.sprintf "d_%d" i), Bdd.newvar mgr)) in
++  let numbits = List.length bits in
++  let bitcube = List.fold bits ~init:(Bdd.dtrue mgr) ~f:(fun acc i -> Bdd.dand acc (snd i)) in
++  let add = List.foldi l ~init:(Add.cst mgr 0.0) ~f:(fun idx acc param ->
++      let bitvec = List.zip_exn (int_to_bin numbits idx) (bits) in
++      let indicator = List.fold bitvec ~init:(Bdd.dtrue mgr) ~f:(fun acc (v, (_, b)) ->
++          let curv = if v = 1 then b else Bdd.dnot b in
++          Bdd.dand acc curv
++        ) in
++      let leaf = Add.cst mgr param in
++      Add.ite indicator leaf acc
++    ) in
++  (* now make the list of flip assignments *)
++  let sum_add a = Add.dval (Add.exist bitcube a) in
++  let assgn = fold_with_seen bits ~init:[] ~f:(fun seen acc (cur_name, cur_bit) ->
++      let all_assgn = all_assignments mgr seen in
++      let l = List.map all_assgn ~f:(fun (cur_constraint, cur_bdd) ->
++        (* Format.printf "%s\n" (CG.string_of_expr cur_constraint); *)
++          let p1 = sum_add (Add.mul add (Add.of_bdd (Bdd.dand cur_bit cur_bdd))) in
++          let p2 = sum_add (Add.mul add (Add.of_bdd (Bdd.dand cur_bdd (Bdd.dnot cur_bit)))) in
++          if within_epsilon p1 0.0 then
++            (cur_constraint, 0.)
++          else
++            (cur_constraint, (p1 /. (p1 +. p2)))
++        ) in
++      (* now build the expression *)
++      (match l with
++        | [] -> failwith "unreachable"
++        | [(_, param)] -> [cur_name, Flip(param)]
++        | (_, param)::xs ->
++          let ifbody = xs |> List.fold ~init:(Flip(param)) ~f:(fun acc (guard, param) -> ite guard (Flip param) acc) in
++          [cur_name, ifbody]
++      ) @ acc
++    ) in
++  (* now finally build the entire let assignment *)
++  let inner_body = mk_dfs_tuple (List.map bits ~f:fst) in
++  List.fold assgn ~init:inner_body ~f:(fun acc (Ident(name), body) -> Let(name, body, acc))
++
++let rec nth_snd i inner =
++  assert (i >= 0);
++  match i with
++    0 -> inner
++  | n -> CG.Snd (nth_snd (n-1) inner)
++
++let nth_bit sz n e : CG.expr =
++  assert (n < sz && n >= 0);
++  if n = sz-1 then nth_snd n (e) else Fst(nth_snd n (e))
++
++let nth_bit_int sz n x: bool =
++  assert (n < sz && n >= 0);
++  (x lsr (sz - n - 1)) land 1 = 1
++
++let gen_adder sz a b : CG.expr =
++  let a_name = fresh () in
++  let b_name = fresh () in
++  let tmp_a = CG.Ident(a_name) in
++  let tmp_b = CG.Ident(b_name) in
++  let carryname = Format.sprintf "carry%s" (fresh ()) in
++  let outputname = Format.sprintf "output%s" (fresh ()) in
++  let halfout = (Format.sprintf "%s_0" outputname, CG.Xor(nth_bit sz (sz-1) tmp_a, nth_bit sz (sz-1) tmp_b)) in
++  let halfcarry = (Format.sprintf "%s_0" carryname, CG.And(nth_bit sz (sz-1) tmp_a, nth_bit sz (sz-1) tmp_b)) in
++  (* very finnicky business in here ... generate a sequence of full adders
++     that feed one into the next *)
++  let fulladders = List.init (sz - 1) ~f:(fun bit ->
++      let curidx = bit + 1 in
++      let curbit = sz - bit - 2 in
++      let curout = Format.sprintf "%s_%d" outputname curidx in
++      let curinput_a = nth_bit sz curbit tmp_a in
++      let curinput_b = nth_bit sz curbit tmp_b in
++      let prevcarry = Format.sprintf "%s_%d" carryname (curidx - 1) in
++      let curcarry = Format.sprintf "%s_%d" carryname curidx in
++      [(curout, CG.Xor(Ident(prevcarry), CG.Xor(curinput_a, curinput_b)));
++       (curcarry, CG.Or(CG.And(Ident(prevcarry), curinput_a),
++                        CG.Or(CG.And(Ident(prevcarry), curinput_b), CG.And(curinput_a, curinput_b))))]
++    ) |> List.concat in
++  let full_l = [(a_name, a); (b_name, b); halfout; halfcarry] @ fulladders in
++  let output_list = List.init sz ~f:(fun idx -> CG.Ident(Format.sprintf "%s_%d" outputname (sz - 1 - idx))) in
++  let inner = mk_dfs_tuple output_list in
++  List.fold_right full_l ~init:inner ~f:(fun (name, e) acc -> CG.Let(name, e, acc))
++
++(* generates a subtractor circuit for a - b *)
++let gen_subtractor sz a b : CG.expr =
++  let a_name = fresh () in
++  let b_name = fresh () in
++  let tmp_a = CG.Ident(a_name) in
++  let tmp_b = CG.Ident(b_name) in
++  let borrowname = Format.sprintf "borrow%s" (fresh ()) in
++  let outputname = Format.sprintf "output%s" (fresh ()) in
++  let halfout = (Format.sprintf "%s_0" outputname, CG.Xor(nth_bit sz (sz-1) tmp_a, nth_bit sz (sz-1) tmp_b)) in
++  let halfborrow = (Format.sprintf "%s_0" borrowname, CG.And(Not(nth_bit sz (sz-1) tmp_a), nth_bit sz (sz-1) tmp_b)) in
++  (* very finnicky business in here ... generate a sequence of full adders
++     that feed one into the next *)
++  let fullsubt = List.init (sz - 1) ~f:(fun bit ->
++      let curidx = bit + 1 in
++      let curbit = sz - bit - 2 in
++      let curout = Format.sprintf "%s_%d" outputname curidx in
++      let curinput_a = nth_bit sz curbit tmp_a in
++      let curinput_b = nth_bit sz curbit tmp_b in
++      let prevborrow = Format.sprintf "%s_%d" borrowname (curidx - 1) in
++      let curborrow = Format.sprintf "%s_%d" borrowname curidx in
++      [(curout, CG.Xor(Ident(prevborrow), CG.Xor(curinput_a, curinput_b)));
++       (curborrow, CG.Or(CG.And(Ident(prevborrow), Not(curinput_a)),
++                        CG.Or(CG.And(Ident(prevborrow), curinput_b), CG.And(Not(curinput_a), curinput_b))))]
++    ) |> List.concat in
++  let full_l = [(a_name, a); (b_name, b); halfout; halfborrow] @ fullsubt in
++  let output_list = List.init sz ~f:(fun idx -> CG.Ident(Format.sprintf "%s_%d" outputname (sz - 1 - idx))) in
++  let inner = mk_dfs_tuple output_list in
++  List.fold_right full_l ~init:inner ~f:(fun (name, e) acc -> CG.Let(name, e, acc))
++
++let extract_sz t =
++  (match t with
++   | EG.TInt(sz) -> sz
++   | _ -> failwith "Internal Type Error: expected int")
++
++let extract_elem_type = function
++| EG.TList t -> t
++| _ -> failwith "Internal Type Error: expected list type"
++
++let rec gen_default_core =
++  let open CG in
++  function
++  | TBool -> False
++  | TTuple(t1, t2) -> Tup(gen_default_core t1, gen_default_core t2)
++
++let unreachable_core e = CG.Let("$_", Observe False, e)
++
++type external_ctx = Cudd.Man.dt
++
++let var_eq_int (t1, e1) (t2, e2) =
++  let sz = extract_sz t1 in
++  assert (extract_sz t2 = sz);
++  let (id, v2) = match (e1, e2) with | (Ident(_, id), Int(_, _, v2)) -> (id, v2) | _ -> failwith "Internal Error: expected int" in
++  let inner = List.init sz ~f:(fun idx ->
++    if nth_bit_int sz idx v2 then 
++      nth_bit sz idx (CG.Ident id) 
++    else Not(nth_bit sz idx (CG.Ident id))
++  ) |> and_of_l in
++  inner
++
++let rec collect_branches (_, expr) id size idx =
++  match expr with
++  | Ite(_, (_, Eq(_, (_, Ident(_, name)), (_, Int(_, s, i)))), thn, (_, Ite(_, (_, Eq(_, (_, Ident(_, name')), (_, Int(_, s', i')))), _, _) as els)) 
++    when 
++    size = s  && (String.equal id name)  && i  = idx && 
++    size = s' && (String.equal id name') && i' = idx + 1 -> 
++      (* Format.printf "(a) id:%s size: %d idx: %d\n" id size idx;  *)
++      (collect_branches els id size (idx + 1)) 
++    |> Option.map ~f:(fun branches -> (idx, thn) :: branches)
++  | Ite(_, (_, Eq(_, (_, Ident(_, name)), (_, Int(_, s, i)))), thn, els)
++    when idx = i && size = s && (String.equal id name) -> 
++      (* Format.printf "(b) id:%s size: %d idx: %d\n" id size idx;  *)
++      Some [(idx, thn); (idx + 1, els)]
++  | _ -> 
++    (* Format.printf "(c) id:%s size: %d idx: %d\n" id size idx;  *)
++    None
++
++
++let rec massage_int (ctx: external_ctx) (cfg: config) ((t, e): tast) id sz =
++  let rec build_balanced_ite id sz idx branches l r = 
++    if l + 1 = r then
++      let (_, then_branch) = List.nth_exn branches l in
++      let (_, else_branch) = List.nth_exn branches r in 
++      ite (nth_bit sz idx (CG.Ident id)) else_branch then_branch
++    else
++      let m = (l + r) / 2 in
++      let left = build_balanced_ite id sz (idx + 1) branches l m in
++      let right = build_balanced_ite id sz (idx + 1) branches (m + 1) r in
++      ite (nth_bit sz idx (CG.Ident id)) right left
++  in
++  collect_branches (t, e) id sz 0 
++  |> Option.map ~f:(fun branches -> 
++    let branches = branches |> List.map ~f:(fun (idx, (t, e)) -> 
++      let e = from_external_expr_h ctx cfg (t, e) in
++      (idx, e)
++    ) in
++    let m = (List.length branches) in
++    let last = List.last_exn branches in
++    (* let default = gen_default_core (from_external_typ cfg t) in *)
++    (* Format.printf "%d\n" m; *)
++    let padding = List.init ((1 lsl sz) - m) ~f:(fun i -> (i + m, snd last)) in
++    let all = branches @ padding in
++    let ite = build_balanced_ite id sz 0 all 0 ((1 lsl sz) - 1) in
++    (* Format.printf "%s\n" (CG.string_of_expr ite); *)
++    ite
++  )
++and from_external_expr_h (ctx: external_ctx) (cfg: config) ((t, e): tast) : CG.expr =
++  let list_len_bits = bit_length cfg.max_list_length in
++  let list_len_type = EG.TInt list_len_bits in
++  let mk_length_int x = (list_len_type, Int(EG.gen_src, list_len_bits, x)) in
++  let gen_list_lit es =
++    let len = List.length es in
++    let length_core = from_external_expr_h ctx cfg @@ mk_length_int len in
++    let elems_core = List.map es ~f:(from_external_expr_h ctx cfg) in
++    let defaults_core = List.init (cfg.max_list_length - len)
++      ~f:(Fn.const @@ gen_default_core @@ from_external_typ cfg @@ extract_elem_type t) in
++    CG.Tup(length_core, mk_dfs_tuple (elems_core @ defaults_core)) in
++  let max_length_int = mk_length_int cfg.max_list_length in
++  let gen_get_length xs =
++    (* NOTE: the TBool here isn't actually the correct type but since we are
++     * just doing Fst on an Ident it doesn't matter. *)
++    (list_len_type, Fst(EG.gen_src, (TTuple(list_len_type, TBool), Ident(EG.gen_src, xs)))) in
++  let gen_check_empty elem_t xs res =
++    CG.Ite(
++      from_external_expr_h ctx cfg
++        (TBool, Eq(EG.gen_src, gen_get_length xs, mk_length_int 0)),
++      unreachable_core @@ gen_default_core @@ from_external_typ cfg elem_t,
++      res) in
++  let gen_eval_arg e f =
++    let x = fresh () in
++    CG.Let(x, from_external_expr_h ctx cfg e, f x) in
++  match e with
++  | And(_, e1, e2) ->
++    let s1 = from_external_expr_h ctx cfg e1 in
++    let s2 = from_external_expr_h ctx cfg e2 in And(s1, s2)
++  | Or(_, e1, e2) ->
++    let s1 = from_external_expr_h ctx cfg e1 in
++    let s2 = from_external_expr_h ctx cfg e2 in Or(s1, s2)
++  | Iff(_, e1, e2) ->
++    let s1 = from_external_expr_h ctx cfg e1 in
++    let s2 = from_external_expr_h ctx cfg e2 in Eq(s1, s2)
++  | Xor(_, e1, e2) ->
++    let s1 = from_external_expr_h ctx cfg e1 in
++    let s2 = from_external_expr_h ctx cfg e2 in Xor(s1, s2)
++  | LeftShift(_, e, 0) -> from_external_expr_h ctx cfg e
++  | LeftShift(_, e, amt) ->
++    let sube = from_external_expr_h ctx cfg e in
++    assert (amt > 0);
++    let sz = extract_sz t in
++    let id = Format.sprintf "leftshift_%s" (fresh ()) in
++    let rec h depth : CG.expr =
++      if depth = sz - 1 then False
++      else if depth + amt >= sz then Tup(False, h (depth+1))
++      else Tup(nth_bit sz (depth+amt) (Ident(id)), h (depth+1)) in
++    Let(id, sube, h 0)
++  | RightShift(_, e, 0) -> from_external_expr_h ctx cfg e
++  | RightShift(_, e, amt) ->
++    assert (amt > 0);
++    let sube = from_external_expr_h ctx cfg e in
++    let sz = extract_sz t in
++    let id = Format.sprintf "rightshift_%s" (fresh ()) in
++    let rec h depth : CG.expr =
++      if depth = sz - 1 then
++        if (depth - amt < 0) then False else nth_bit sz (depth - amt) (Ident(id))
++      else if depth < amt || amt >= sz then Tup(False, h (depth+1))
++      else Tup(nth_bit sz (depth - amt) (Ident(id)), h (depth+1)) in
++    Let(id, sube, h 0)
++  | Plus(_, e1, e2) ->
++    let sz = extract_sz (fst e1) in
++    gen_adder sz (from_external_expr_h ctx cfg e1) (from_external_expr_h ctx cfg e2)
++  | Minus(_, e1, e2) ->
++    let sz = extract_sz t in
++    gen_subtractor sz (from_external_expr_h ctx cfg e1) (from_external_expr_h ctx cfg e2)
++  | Eq(_, (t1, e1), (t2, e2)) ->
++      var_eq_int (t1, e1) (t2, e2)
++  | Neq(s, e1, e2) -> from_external_expr_h ctx cfg (TBool, Not(s, (TBool, Eq(s, e1, e2))))
++  | Mult(s, e1, e2) ->
++    let sz = extract_sz (fst e1) in
++    let sube1 = from_external_expr_h ctx cfg e1 in
++    let sube2 = from_external_expr_h ctx cfg e2 in
++    let fresha = Format.sprintf "multa_%s" (fresh ()) in
++    let freshb = Format.sprintf "multb_%s" (fresh ()) in
++    let freshout = Format.sprintf "multo_%s" (fresh ()) in
++    let lst : CG.expr List.t = List.init sz ~f:(fun i ->
++        let subadd = from_external_expr_h ctx cfg
++            (t, Plus(s, (t, Ident(s, freshout)), (t, LeftShift(s, (t, Ident(s, freshb)), i)))) in
++        CG.Ite(nth_bit sz (sz - i - 1) (Ident(fresha)), subadd, Ident(freshout))
++      ) in
++    let assgn = List.fold (List.rev lst) ~init:(CG.Ident(freshout)) ~f:(fun acc i ->
++        Let(freshout, i, acc)) in
++    let zeroconst = from_external_expr_h ctx cfg (TInt(sz), Int(s, sz, 0)) in
++    Let(freshout, zeroconst,
++        Let(fresha, sube1,
++            Let(freshb, sube2, assgn)))
++  | Div(_, _, _) -> failwith "not implemented /"
++  | Lt(_, (t1, e1), (t2, e2)) ->
++    let sz = extract_sz t1 in
++    let n1 = fresh () and n2 = fresh () in
++    let rec h idx : CG.expr =
++      if idx >= sz then False
++      else Ite(And(nth_bit sz idx (Ident(n1)), Not(nth_bit sz idx (Ident n2))),
++               False,
++               Ite(And(Not(nth_bit sz idx (Ident(n1))), nth_bit sz idx (Ident n2)), True,
++               h (idx + 1))) in
++    Let(n1, from_external_expr_h ctx cfg (t1, e1), Let(n2, from_external_expr_h ctx cfg (t2, e2), h 0))
++  | Lte(s, e1, e2) -> from_external_expr_h ctx cfg (TBool, Or(s, (TBool, Lt(s, e1, e2)), (TBool, Eq(s, e1, e2))))
++  | Gt(s, e1, e2) -> from_external_expr_h ctx cfg (TBool, Not(s, (TBool, Lte(s, e1, e2))))
++  | Gte(s, e1, e2) -> from_external_expr_h ctx cfg (TBool, Not(s, (TBool, Lt(s, e1, e2))))
++  | Not(_, e) -> Not(from_external_expr_h ctx cfg e)
++  | Flip(_, f) -> Flip(f)
++  | Ident(_, s) -> Ident(s)
++  | Discrete(_, l) -> (gen_discrete_balanced ctx l)
++  | Unif(s, sz, b, e) -> 
++	  assert(b >= 0);
++	  assert(e > b);
++	  if b > 0 then from_external_expr_h ctx cfg (TInt(sz), Plus(s, (TInt(sz), Int(s, sz, b)), (TInt(sz), Unif(s, sz, 0, e-b)))) else
++	  let rec make_flip_list bit_count length = 
++		  if length = 0 then []
++		  else if length > bit_count then CG.False :: (make_flip_list bit_count (length-1))
++		  else CG.Flip(0.5) :: (make_flip_list bit_count (length-1)) in
++	  let make_simple_unif bit_count length = 
++		  mk_dfs_tuple (make_flip_list bit_count length) in 
++	  let is_power_of_two num = 
++	  	(num land (num-1) = 0) in (* no zero check *) 
++	  if is_power_of_two e then
++		  let num_size = num_binary_digits e-1 in
++		  make_simple_unif num_size sz
++	  else
++		  let power_lt_float = 2.0 ** (float_of_int((num_binary_digits e) - 1)) in
++		  let power_lt_int = int_of_float power_lt_float in 
++		  from_external_expr_h ctx cfg 
++			  (TInt(sz), Ite(s, 	(TBool, Flip(s, power_lt_float /. (float_of_int e))), 
++								  (TInt(sz), Unif(s, sz, 0, power_lt_int)), 
++								  (TInt(sz), Unif(s, sz, power_lt_int, e))))
++  | Int(_, sz, v) ->
++    let bits = int_to_bin sz v
++               |> List.map ~f:(fun i -> if i = 1 then CG.True else CG.False) in
++    mk_dfs_tuple bits
++  | True(_) -> True
++  | False(_) -> False
++  | Observe(_, e) ->
++    Observe(from_external_expr_h ctx cfg e)
++  | Let(_, x, e1, e2) ->
++    Let(x, from_external_expr_h ctx cfg e1, from_external_expr_h ctx cfg e2)
++  | Ite (_,(_, Eq(_, (_, Ident(_, id)), (_, Int(_, s, 0))) as g),thn, els) -> (
++      (* Format.printf "%s Int(%d)\n" id s; *)
++      let massage = massage_int ctx cfg (t, e) id s in
++      match massage with 
++      | Some e -> e
++      | None -> Ite(from_external_expr_h ctx cfg g, from_external_expr_h ctx cfg thn, from_external_expr_h ctx cfg els)
++    )
++  | Ite(_, g, thn, els) -> Ite(from_external_expr_h ctx cfg g,
++                               from_external_expr_h ctx cfg thn,
++                               from_external_expr_h ctx cfg els)
++  | Snd(_, e) -> Snd(from_external_expr_h ctx cfg e)
++  | Fst(_, e) -> Fst(from_external_expr_h ctx cfg e)
++  | Tup(_, e1, e2) -> Tup(from_external_expr_h ctx cfg e1, from_external_expr_h ctx cfg e2)
++  | FuncCall(src, "nth_bit", [(_, Int(_, sz, v)); e2]) ->
++    if v >= sz then
++      (raise (EG.Type_error (Format.sprintf "Type error at line %d column %d: nth_bit exceeds maximum bit size"
++                               src.startpos.pos_lnum (get_col src.startpos))));
++    let internal = from_external_expr_h ctx cfg e2 in
++    nth_bit sz v internal
++  | FuncCall(_, id, args) -> FuncCall(id, List.map args ~f:(fun i -> from_external_expr_h ctx cfg i))
++  | Iter(s, f, init, k) ->
++    (* let e = from_external_expr_h ctx cfg init in
++     * List.fold (List.init k ~f:(fun _ -> ())) ~init:e
++     *   ~f:(fun acc _ -> FuncCall(f, [acc])) *)
++
++    let expanded = expand_iter_t s f init k in
++    from_external_expr_h ctx cfg expanded
++  | Sample(_, e) -> Sample(from_external_expr_h ctx cfg e)
++  | IntConst(_, _) -> failwith "not implemented"
++  | ListLit(_, es) -> gen_list_lit es
++  | ListLitEmpty _ -> gen_list_lit []
++  | Cons(s, e1, e2) ->
++    gen_eval_arg e1 @@ fun x ->
++      gen_eval_arg e2 @@ fun xs ->
++        let length_core =
++          (* if fst xs == max_list_length then max_list_length else (fst xs) + 1 *)
++          let length_xs = gen_get_length xs in
++          from_external_expr_h ctx cfg
++            (list_len_type, Ite(s,
++              (TBool, Eq(s, length_xs, max_length_int)),
++              max_length_int,
++              (list_len_type, Plus(s, length_xs, mk_length_int 1)))) in
++        let rec build_res_core i prev_tup =
++          let tup = CG.Snd prev_tup in
++          let elem = CG.Fst tup in
++          if i = cfg.max_list_length - 1 then elem else
++            CG.Tup(elem, build_res_core (succ i) tup) in
++        let res_core =
++          if cfg.max_list_length = 1 then CG.Ident x else
++            CG.Tup(CG.Ident x, build_res_core 1 (CG.Ident xs)) in
++        Tup(length_core, res_core)
++  | Head(_, e) ->
++    gen_eval_arg e @@ fun xs ->
++      let list_part = CG.Snd (Ident xs) in
++      gen_check_empty (extract_elem_type (fst e)) xs @@
++        if cfg.max_list_length = 1 then list_part else Fst list_part
++  | Tail(s, e) ->
++    gen_eval_arg e @@ fun xs ->
++      let length_core = from_external_expr_h ctx cfg
++        (list_len_type, Minus(s, gen_get_length xs, mk_length_int 1)) in
++      let default_core = gen_default_core @@
++        from_external_typ cfg @@ extract_elem_type t in
++      let rec build_res_core i prev_tup =
++        let tup = CG.Snd prev_tup in
++        if i = cfg.max_list_length - 1 then
++          CG.Tup(tup, default_core)
++        else
++          CG.Tup(CG.Fst tup, build_res_core (succ i) tup) in
++      let res_core =
++        if cfg.max_list_length = 1 then default_core else
++          build_res_core 1 @@ CG.Snd (CG.Ident xs) in
++      gen_check_empty t xs @@ Tup(length_core, res_core)
++  | Length(_, e) -> Fst (from_external_expr_h ctx cfg e)
++
++let from_external_expr mgr cfg in_func (env: EG.tenv) (e: EG.eexpr) : (EG.typ * CG.expr) =
++  let ctx = if in_func then {in_func=true} else {in_func=false} in
++  let (typ, e) = type_of cfg ctx env e in
++  let r = (typ, from_external_expr_h mgr cfg (typ, e)) in
++  r
++
++let from_external_arg cfg (a:EG.arg) : CG.arg =
++  let (name, t) = a in
++  (name, from_external_typ cfg t)
++
++let check_return_type (f: EG.func) (t : EG.typ) : unit =
++  let open EG in
++  match f.return_type with
++  | Some declared when not (type_eq declared t) ->
++    let src = get_src f.body in
++    raise (Type_error (Format.sprintf "Type error at line %d column %d: declared return type %s \
++                                       of function '%s' does not match inferred type %s"
++                       src.startpos.pos_lnum (get_col src.startpos) (string_of_typ declared)
++                       f.name (string_of_typ t)))
++  | _ -> ()
++
++let from_external_func mgr cfg (tenv: EG.tenv) (f: EG.func) : (EG.typ * CG.func) =
++  (* add the arguments to the type environment *)
++  let tenvwithargs = List.fold f.args ~init:tenv ~f:(fun acc (name, typ) ->
++      Map.Poly.set acc ~key:name ~data:typ
++    ) in
++  let (t, conv) = from_external_expr mgr cfg true tenvwithargs f.body in
++  check_return_type f t;
++  (* convert arguments *)
++  let args = List.map f.args ~f:(from_external_arg cfg) in
++  (TFunc(List.map f.args ~f:snd, t), {name = f.name;
++       args = args;
++       body = conv})
++
++let from_external_func_optimize mgr cfg (tenv: EG.tenv) (f: EG.func) (flip_lifting: bool) (branch_elimination: bool) (determinism: bool) : (EG.typ * CG.func) =
++  (* add the arguments to the type environment *)
++  let tenvwithargs = List.fold f.args ~init:tenv ~f:(fun acc (name, typ) ->
++      Map.Poly.set acc ~key:name ~data:typ
++    ) in
++  let (t, conv) = from_external_expr mgr cfg true tenvwithargs f.body in
++  check_return_type f t;
++  let optbody = Optimization.do_optimize conv !n flip_lifting branch_elimination determinism in
++  (* convert arguments *)
++  let args = List.map f.args ~f:(from_external_arg cfg) in
++  (TFunc(List.map f.args ~f:snd, t), {name = f.name;
++        args = args;
++        body = optbody})
++
++let from_external_prog ?(cfg: config = default_config) (p: EG.program) : (EG.typ * CG.program) =
++  let mgr = Cudd.Man.make_d () in
++  let (tenv, functions) = List.fold p.functions ~init:(Map.Poly.empty, []) ~f:(fun (tenv, flst) i ->
++      let (t, conv) = from_external_func mgr cfg tenv i in
++      let tenv' = Map.Poly.set tenv ~key:i.name ~data:t in
++      (tenv', flst @ [conv])
++    ) in
++  let (t, convbody) = from_external_expr mgr cfg false tenv p.body in
++  (t, {functions = functions; body = convbody})
++
++let from_external_prog_optimize ?(cfg: config = default_config) (p: EG.program) (flip_lifting: bool) (branch_elimination: bool) (determinism: bool) : (EG.typ * CG.program) =
++  let mgr = Cudd.Man.make_d () in
++  let (tenv, functions) = List.fold p.functions ~init:(Map.Poly.empty, []) ~f:(fun (tenv, flst) i ->
++      let (t, conv) = from_external_func_optimize mgr cfg tenv i flip_lifting branch_elimination determinism in
++      let tenv' = Map.Poly.set tenv ~key:i.name ~data:t in
++      (tenv', flst @ [conv])
++    ) in
++  let (t, convbody) = from_external_expr mgr cfg false tenv p.body in
++  let optbody = Optimization.do_optimize convbody !n flip_lifting branch_elimination determinism in
++  (t, {functions = functions; body = optbody})
+diff --git a/lib/VarState.mli b/lib/VarState.mli
+index a804fa7..dea889a 100644
+--- a/lib/VarState.mli
++++ b/lib/VarState.mli
+@@ -11,7 +11,7 @@ val map_tree: 'a btree -> ('a -> 'b) -> 'b btree
+ val iter_tree: 'a btree -> ('a -> unit) -> unit
+ val collect_leaves: 'a btree -> 'a List.t
+ val zip_tree : 'a btree -> 'b btree -> ('a * 'b) btree
+-
++val not_leaves : Bdd.dt btree -> Bdd.dt
+ val extract_leaf : 'a btree -> 'a
+ 
+ (** [get_table] gets a list of all possible instantiations of BDDs in [st]. *)
+diff --git a/lib/VarState_hack.ml b/lib/VarState_hack.ml
+new file mode 100644
+index 0000000..d3ccf54
+--- /dev/null
++++ b/lib/VarState_hack.ml
+@@ -0,0 +1,125 @@
++open Core
++open Cudd
++open VarState
++
++
++(** [get_table] gets a list of all possible instantiations of BDDs in [st]. *)
++let get_table (cfg : Passes_hack.config) st typ =
++  let rec process_state t state =
++    let open ExternalGrammar in
++    match (t, state) with
++    | (TBool, VarState.Leaf(bdd)) ->
++      [(`True, bdd); (`False, Bdd.dnot bdd)]
++    | (TInt(1), VarState.Leaf(bdd)) ->
++      [`Int(0), Bdd.dnot bdd; `Int(1), bdd;]
++    | (TInt(sz), VarState.Node(VarState.Leaf(bdd), r)) ->
++      let sub1 = process_state (TInt(sz-1)) r in
++      let curbitvalue = 1 lsl (sz - 1) in
++      let lower = List.map sub1 ~f:(fun (t, subbdd) ->
++          match t with
++            `Int(tval) -> `Int(tval), Bdd.dand (Bdd.dnot bdd) subbdd
++          | _ -> failwith "Unreachable"
++        ) in
++      let upper = List.map sub1 ~f:(fun (t, subbdd) ->
++          match t with
++            `Int(tval) -> `Int(tval + curbitvalue), Bdd.dand bdd subbdd
++          | _ -> failwith "Unreachable"
++        ) in
++      lower @ upper
++    | (TTuple(t1, t2), Node(l, r)) ->
++      let lst = process_state t1 l and rst = process_state t2 r in
++      List.map lst ~f:(fun (lt, lbdd) ->
++          List.map rst ~f:(fun (rt, rbdd) ->
++              (`Tup(lt, rt), Bdd.dand lbdd rbdd)
++            )
++        ) |> List.concat
++    | (TList(elem_t), Node(len_state, elems_state)) ->
++      let len_table = List.take
++        (process_state (TInt (Util.bit_length cfg.max_list_length)) len_state)
++        (succ cfg.max_list_length) in
++      let rec process_list elems_len max_len s =
++        match elems_len, max_len, s with
++        | 0, _, _ -> [[], VarState.not_leaves s]
++        | 1, 1, _ -> List.map (process_state elem_t s) ~f:(fun (v, bdd) -> [v], bdd)
++        | _, _, VarState.Node(x, xs) ->
++          let x_table = process_state elem_t x in
++          let xs_table = process_list (pred elems_len) (pred max_len) xs in
++          List.concat_map x_table ~f:(fun (x_val, x_bdd) ->
++            List.map xs_table ~f:(fun (xs_vals, xs_bdd) ->
++              x_val :: xs_vals, Bdd.dand x_bdd xs_bdd))
++        | _ -> failwith "Unreachable" in
++      List.concat_map len_table ~f:(fun (len_val, len_bdd) ->
++        match len_val with
++        | `Int(len) ->
++          List.map (process_list len cfg.max_list_length elems_state)
++            ~f:(fun (elems, elems_bdd) ->
++              `List elems, Bdd.dand len_bdd elems_bdd)
++        | _ -> failwith "Unreachable")
++    | _ -> failwith "Unreachable"
++  in
++  process_state typ st
++
++let rec collect_leaves t =
++  match t with
++  | Leaf(a) -> [a]
++  | Node(l, r) -> collect_leaves l @ collect_leaves r
++
++(** [state_size] computes the total number of unique nodes in the list of
++    varstates [states] *)
++let state_size (states : Bdd.dt btree List.t) =
++  let seen = Hash_set.Poly.create () in
++  let rec helper (bdd : Bdd.dt) =
++    match Hash_set.Poly.mem seen bdd with
++    | true -> 0
++    | false ->
++      Hash_set.Poly.add seen bdd;
++      (match Bdd.inspect bdd with
++       | Bool(_) -> 1
++       | Ite(_, l, r) -> 1 + (helper l) + (helper r)) in
++  List.fold states ~init:0 ~f:(fun acc i ->
++      let leaves = collect_leaves i in
++      List.fold leaves ~init:acc ~f:(fun acc bdd -> acc + (helper bdd)) )
++
++
++let rec subst_state_h tbl varset x state f =
++  if Bdd.is_cst f then f else
++    match Hashtbl.Poly.find tbl f with
++    | Some(x) -> x
++    | None ->
++      let res = (match (x, state) with
++       | ([], []) -> f
++       | (x::xs, state::states) ->
++         let var = Bdd.topvar f in
++         (* if we have passed all variables *)
++         if not (Set.Poly.mem varset var) then f
++         else if var == x then
++           (* subst for children, then compose in current variable *)
++           let subst_thn = subst_state_h tbl varset xs states (Bdd.dthen f) in
++           let subst_els = subst_state_h tbl varset xs states (Bdd.delse f) in
++           Bdd.ite state subst_thn subst_els
++         else if not (List.mem xs var ~equal:(==)) then
++           failwith "Out of order"
++         else
++           (* skip this var,state pair *)
++           subst_state_h tbl varset xs states f
++       | _ -> failwith "unreachable"
++        ) in
++      let _x = Hashtbl.Poly.add tbl ~key:f ~data:res in
++      res
++
++(** substitute the variable x for the state `state` in f *)
++let subst_state (x: Bdd.dt btree) (state: Bdd.dt btree) (f: Bdd.dt btree) =
++  (* let tbl = Hashtbl.Poly.create () in
++   * let xlst = (List.map ~f:Bdd.topvar (collect_leaves x)) in
++   * let varset = Set.Poly.of_list xlst in
++   * map_tree f (fun i ->
++   *     subst_state_h tbl varset xlst (collect_leaves state) i
++   *   ) *)
++  let newsubst = List.zip_exn (collect_leaves x) (collect_leaves state) in
++  List.fold ~init:f newsubst ~f:(fun acc (tmp, e1c) ->
++      map_tree acc (fun bdd ->
++          Bdd.compose (Bdd.topvar tmp) e1c bdd
++        )
++    )
++
++
+diff --git a/lib/VarState_hack.mli b/lib/VarState_hack.mli
+new file mode 100644
+index 0000000..ac60786
+--- /dev/null
++++ b/lib/VarState_hack.mli
+@@ -0,0 +1,14 @@
++open Cudd
++open Core
++
++(** [get_table] gets a list of all possible instantiations of BDDs in [st]. *)
++val get_table: Passes_hack.config -> Bdd.dt VarState.btree ->
++  ExternalGrammar.typ ->
++  (([> `False | `Int of int | `True | `Tup of 'a * 'a | `List of 'a list ] as 'a) *  Cudd.Man.d Cudd.Bdd.t) list
++
++(** [state_size] computes the total number of unique nodes in the list of
++    varstates [states] *)
++val state_size: Bdd.dt VarState.btree Core.List.t -> int
++
++(** [subst_state] : x -> state -> f -> bdd, substitutes the variable x for the state `state` in f *)
++val subst_state : Bdd.dt VarState.btree -> Bdd.dt VarState.btree -> Bdd.dt VarState.btree -> Bdd.dt VarState.btree
+\ No newline at end of file
+diff --git a/lib/dune b/lib/dune
+index efb9c5c..565ef64 100644
+--- a/lib/dune
++++ b/lib/dune
+@@ -7,4 +7,4 @@
+ (library
+  (libraries core cudd sexplib menhirLib ounit2)
+  (name diceLib)
+- (preprocess (pps ppx_jane)))
++ (preprocess (pps ppx_jane ppx_deriving.eq)))
+diff --git a/test/Test.ml b/test/Test.ml
+index 3709d5f..353b451 100644
+--- a/test/Test.ml
++++ b/test/Test.ml
+@@ -10,7 +10,7 @@ let test_1 _ =
+   assert_feq 0.4 (parse_and_prob prog);
+   assert_feq 0.4 (parse_optimize_and_prob prog)
+   
+-let test_not test_ctx =
++let test_not _ =
+   let prog = "let x = flip 0.4 in !x" in
+   assert_feq 0.6 (parse_and_prob prog);
+   assert_feq 0.6 (parse_optimize_and_prob prog)

@@ -61,12 +61,20 @@ def cli(
               help="One or more tessa CSVs to verify")
 @click.option("--storm-csv", type=click.Path(path_type=Path, exists=True), required=True, multiple=True,
               help="One or more storm CSVs (dd, sparse) to compare against")
+@click.option("--rubicon-csv", type=click.Path(path_type=Path, exists=True), default=(), multiple=True,
+              help="One or more rubicon CSVs to compare against (compared the same way as storm CSVs)")
+@click.option("--geni-csv", type=click.Path(path_type=Path, exists=True), default=(), multiple=True,
+              help="One or more geni CSVs to compare against (compared the same way as rubicon CSVs)")
 @click.option("--atol", type=float, default=1e-5, help="Absolute tolerance for probability comparison")
 @click.option("--rtol", type=float, default=1e-4, help="Relative tolerance for probability comparison")
 @click.option("--output-csv", type=click.Path(path_type=Path), default=None,
               help="Write per-case verification results to a CSV file")
-def verify_cmd(tessa_csv, storm_csv, atol, rtol, output_csv):
-    """Verify that tessa and storm compute the same probabilities."""
+def verify_cmd(tessa_csv, storm_csv, rubicon_csv, geni_csv, atol, rtol, output_csv):
+    """Verify that tessa and storm/rubicon/geni compute the same probabilities."""
+    # All non-tessa runners are treated as baselines: each baseline CSV is
+    # cross-checked against every tessa CSV. The CSV's tool field is captured
+    # so output rows distinguish storm/rubicon/geni comparisons.
+    baseline_csvs = list(storm_csv) + list(rubicon_csv) + list(geni_csv)
     all_ok = True
     total_checked = 0
     csv_rows: list[dict[str, str]] = []
@@ -79,7 +87,7 @@ def verify_cmd(tessa_csv, storm_csv, atol, rtol, output_csv):
             logger.warning("  No valid probabilities in %s — skipping", tessa_path)
             continue
 
-        for storm_path in storm_csv:
+        for storm_path in baseline_csvs:
             storm_probs = _probability_map(storm_path)
             storm_name = Path(storm_path).name
             common = sorted(set(tessa_probs) & set(storm_probs))

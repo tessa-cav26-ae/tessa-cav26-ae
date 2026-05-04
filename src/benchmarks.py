@@ -16,7 +16,17 @@ from typing import Any, ClassVar, Optional
 import click
 
 from .log_config import log_command_args, setup_logging
-from .timing import parse_storm_probability, parse_tessa_probability
+from .timing import (
+    parse_geni_probability,
+    parse_rubicon_probability,
+    parse_storm_probability,
+    parse_tessa_probability,
+)
+
+# Tools that drive a single one-shot subprocess per case (no in-process work
+# loop). For these we repeat at the subprocess level, average elapsed_seconds
+# across trials, and skip the tessa-only time-log JSONL.
+_SUBPROCESS_TOOLS = ("storm", "rubicon", "geni")
 
 # Each tessa phase contributes (mean, std) columns derived from a single
 # time-log. work_seconds = stable_compile + warmup_run, paired per warm-loop
@@ -143,8 +153,14 @@ class BenchmarkContext:
     output_dir: Path
     storm_cmd: str
     tessa_cmd: str
+    rubicon_cmd_argv: list[str] = field(default_factory=list)
+    dice_cmd: str = "dice"
+    geni_cmd_argv: list[str] = field(default_factory=list)
+    gennifer_cmd: str = "gennifer"
+    geni_mode: str = "monolithic"
     model_type: str = "prism"
     storm_extra_args: list[str] = field(default_factory=list)
+    dice_extra_args: list[str] = field(default_factory=list)
     engine: str | None = None
     _csv_header_written: bool = field(default=False, init=False)
 
@@ -164,6 +180,10 @@ class BenchmarkContext:
             if self.engine:
                 return f"storm.{self.engine}"
             return "storm"
+        if self.tool == "rubicon":
+            return "rubicon"
+        if self.tool == "geni":
+            return "geni"
         return "tessa"
 
     @property
@@ -173,6 +193,10 @@ class BenchmarkContext:
             if self.engine:
                 return f"storm.{self.engine}"
             return "storm"
+        if self.tool == "rubicon":
+            return "rubicon"
+        if self.tool == "geni":
+            return "geni"
         backend = self.backend or "numpy"
         return f"tessa.{backend.replace(':', '-')}"
 
@@ -193,19 +217,26 @@ class BenchmarkContext:
         probability: float | None = None
         error_message: str | None = None
 
-        # Storm has no in-process work-loop notion: we repeat at the subprocess
-        # level so elapsed_seconds becomes a mean (with std) across runs.
-        # Tessa: single subprocess, --num-work-runs carries the repetition.
-        storm_trials = self.num_work_runs if self.tool == "storm" else 1
-        storm_elapsed: list[float] = []
+        # Storm and rubicon have no in-process work-loop notion: we repeat at
+        # the subprocess level so elapsed_seconds becomes a mean (with std)
+        # across runs. Tessa: single subprocess, --num-work-runs carries the
+        # repetition.
+        is_subprocess_tool = self.tool in _SUBPROCESS_TOOLS
+        subprocess_trials = self.num_work_runs if is_subprocess_tool else 1
+        subprocess_elapsed: list[float] = []
         tessa_elapsed: float | None = None
         time_log: Path | None = None
 
-        for trial in range(1, storm_trials + 1):
-            if self.tool == "storm":
-                if storm_trials > 1:
-                    logger.info("  trial %d/%d", trial, storm_trials)
-                command = self._build_storm_command(model_path, property_name, horizon, constants)
+        for trial in range(1, subprocess_trials + 1):
+            if is_subprocess_tool:
+                if subprocess_trials > 1:
+                    logger.info("  trial %d/%d", trial, subprocess_trials)
+                if self.tool == "storm":
+                    command = self._build_storm_command(model_path, property_name, horizon, constants)
+                elif self.tool == "geni":
+                    command = self._build_geni_command(parameters)
+                else:
+                    command = self._build_rubicon_command(model_path, property_name, horizon, constants)
             else:
                 time_log = self.output_dir / f"{case_id}.{self.jsonl_tool_label}.{self.jsonl_tag}.time.jsonl"
                 # Fresh time-log per invocation to avoid appending to a stale
@@ -214,7 +245,7 @@ class BenchmarkContext:
                     time_log.unlink()
                 command = self._build_tessa_command(model_path, property_name, horizon, constants, time_log)
 
-            logger.debug("  $ %s", " ".join(command))
+            logger.debug("  $ %s", " ".join(_rel(token) for token in command))
 
             try:
                 started = time.perf_counter()
@@ -227,8 +258,8 @@ class BenchmarkContext:
                     cwd=REPO_ROOT,
                 )
                 elapsed = time.perf_counter() - started
-                if self.tool == "storm":
-                    storm_elapsed.append(elapsed)
+                if is_subprocess_tool:
+                    subprocess_elapsed.append(elapsed)
                 else:
                     tessa_elapsed = elapsed
                 if completed.stdout:
@@ -242,7 +273,12 @@ class BenchmarkContext:
                     error_message = f"Exit code {completed.returncode}"
                     logger.error("  %s: %s", status, error_message)
                     break
-                parser = parse_storm_probability if self.tool == "storm" else parse_tessa_probability
+                parser = {
+                    "storm": parse_storm_probability,
+                    "rubicon": parse_rubicon_probability,
+                    "geni": parse_geni_probability,
+                    "tessa": parse_tessa_probability,
+                }[self.tool]
                 try:
                     probability = parser(completed.stdout)
                 except ValueError as exc:
@@ -261,15 +297,15 @@ class BenchmarkContext:
                 logger.error("  %s: %s", status, error_message)
                 break
 
-        if self.tool == "storm":
-            elapsed_seconds, elapsed_std = _mean_std(storm_elapsed)
+        if is_subprocess_tool:
+            elapsed_seconds, elapsed_std = _mean_std(subprocess_elapsed)
         else:
             elapsed_seconds = tessa_elapsed
             elapsed_std = 0.0
 
         phase_timings: dict[str, Any] = {}
         tessa_timings: dict[str, Any] = {}
-        if self.tool != "storm" and time_log is not None:
+        if not is_subprocess_tool and time_log is not None:
             phase_timings = _read_phase_timings(time_log)
             # ``work_seconds`` = compile + warmup_avg is Tessa-only. Storm's
             # "work time" is already captured by ``elapsed_seconds``; writing
@@ -278,23 +314,30 @@ class BenchmarkContext:
             tessa_timings["work_seconds"] = phase_timings.pop("work_seconds", None)
             tessa_timings["work_std"] = phase_timings.pop("work_std", 0.0)
 
+        if self.tool == "storm":
+            tool_meta: dict[str, Any] = {
+                "num_work_runs": self.num_work_runs,
+                "storm_extra_args": " ".join(self.storm_extra_args) if self.storm_extra_args else "",
+            }
+        elif self.tool == "rubicon":
+            tool_meta = {"num_work_runs": self.num_work_runs}
+        elif self.tool == "geni":
+            tool_meta = {
+                "num_work_runs": self.num_work_runs,
+                "geni_mode": self.geni_mode,
+            }
+        else:
+            tool_meta = {
+                "backend": self.backend,
+                "dtype": self.dtype,
+                "num_work_runs": self.num_work_runs,
+                "num_timed_runs": self.num_timed_runs,
+            }
         result: dict[str, Any] = {
             "suite": suite,
             "case_id": case_id,
             "tool": self.jsonl_tool_label,
-            **(
-                {
-                    "backend": self.backend,
-                    "dtype": self.dtype,
-                    "num_work_runs": self.num_work_runs,
-                    "num_timed_runs": self.num_timed_runs,
-                }
-                if self.tool != "storm"
-                else {
-                    "num_work_runs": self.num_work_runs,
-                    "storm_extra_args": " ".join(self.storm_extra_args) if self.storm_extra_args else "",
-                }
-            ),
+            **tool_meta,
             "property": property_name,
             "horizon": horizon,
             "constants": json.dumps(constants) if constants else "",
@@ -302,7 +345,7 @@ class BenchmarkContext:
             "status": status,
             "probability": probability,
             "elapsed_seconds": elapsed_seconds,
-            **({"elapsed_std": elapsed_std} if self.tool == "storm" else {}),
+            **({"elapsed_std": elapsed_std} if is_subprocess_tool else {}),
             **tessa_timings,
             **phase_timings,
             "error_message": error_message,
@@ -361,6 +404,54 @@ class BenchmarkContext:
         command.extend(self.storm_extra_args)
         return command
 
+    def _build_geni_command(self, parameters: dict[str, int | float]) -> list[str]:
+        # Geni doesn't read PRISM/JANI: gen_weather_factory_gennifer.py emits
+        # a .gir from (N, H, mode) and gennifer interprets it. The runner
+        # caches the .gir under <output-dir>/geni-cache so multiple
+        # num_work_runs trials skip the generator after the first.
+        if "N" not in parameters or "H" not in parameters:
+            raise click.UsageError(
+                "--tool geni requires the suite to expose N and H parameters "
+                "(currently only weather-factory does)"
+            )
+        cache_dir = self.output_dir / "geni-cache"
+        command = [
+            *self.geni_cmd_argv,
+            "--n", str(parameters["N"]),
+            "--h", str(parameters["H"]),
+            "--mode", self.geni_mode,
+            "--gennifer-cmd", self.gennifer_cmd,
+            "--workdir", str(cache_dir),
+        ]
+        return command
+
+    def _build_rubicon_command(
+        self,
+        model_path: Path,
+        property_name: str,
+        horizon: int,
+        constants: dict[str, int | float | bool],
+    ) -> list[str]:
+        # Rubicon requires PRISM input — JANI models are not supported by the
+        # transpiler. Surface the mismatch loudly rather than producing a
+        # misleading translation error from rubicon itself.
+        if self.model_type != "prism":
+            raise click.UsageError(
+                f"--tool rubicon requires --model-type prism (got {self.model_type})"
+            )
+        command = [
+            *self.rubicon_cmd_argv,
+            "--prism", _rel(model_path),
+            "--property", property_name,
+            "--horizon", str(horizon),
+            "--dice-cmd", self.dice_cmd,
+        ]
+        for name, value in constants.items():
+            command.extend(["--const", f"{name}={value}"])
+        for token in self.dice_extra_args:
+            command.extend(["--dice-extra-arg", token])
+        return command
+
     def _build_tessa_command(
         self,
         model_path: Path,
@@ -387,7 +478,7 @@ class BenchmarkContext:
 
 
 @click.group(chain=True)
-@click.option("--tool", required=True, type=click.Choice(["storm", "tessa"]))
+@click.option("--tool", required=True, type=click.Choice(["storm", "tessa", "rubicon", "geni"]))
 @click.option("--backend", default=None, help="Tessa backend: numpy, jax:cpu, jax:cuda:N")
 @click.option("--timeout", default=600, type=int)
 @click.option(
@@ -406,6 +497,25 @@ class BenchmarkContext:
 @click.option("--storm-cmd", default="storm")
 @click.option("--storm-extra-args", default="", help="Extra arguments passed through to the storm command")
 @click.option("--tessa-cmd", default="tessa")
+@click.option(
+    "--rubicon-cmd",
+    default=f"{sys.executable} -m src.rubicon_runner",
+    help="Command (with optional args) that runs translate-and-dice; stdout's last line must be the probability",
+)
+@click.option("--dice-cmd", default="dice", help="Dice binary; passed through to --rubicon-cmd")
+@click.option("--dice-extra-args", default="", help="Extra arguments passed through to dice (only effective with --tool rubicon)")
+@click.option(
+    "--geni-cmd",
+    default=f"{sys.executable} -m src.geni_runner",
+    help="Command (with optional args) that generates a .gir and runs gennifer; stdout's last line must be the probability",
+)
+@click.option("--gennifer-cmd", default="gennifer", help="Gennifer binary; passed through to --geni-cmd")
+@click.option(
+    "--geni-mode",
+    default="monolithic",
+    type=click.Choice(["monolithic", "sequential"]),
+    help="Generator mode for the weather-factory .gir program",
+)
 @click.option("--log-file", default=None, type=click.Path(path_type=Path), help="Path to write detailed logs")
 @click.option(
     "--log-console-level",
@@ -434,6 +544,12 @@ def cli(
     storm_cmd,
     storm_extra_args,
     tessa_cmd,
+    rubicon_cmd,
+    dice_cmd,
+    dice_extra_args,
+    geni_cmd,
+    gennifer_cmd,
+    geni_mode,
     log_file: Optional[Path],
     log_console_level: str,
     log_file_level: str,
@@ -450,7 +566,7 @@ def cli(
         output_dir=output_dir,
         engine=engine,
     )
-    if tool == "storm":
+    if tool in _SUBPROCESS_TOOLS:
         tessa_only = {
             "backend": backend,
             "dtype": dtype,
@@ -463,7 +579,7 @@ def cli(
         ]
         if explicit:
             raise click.UsageError(
-                f"The following flags are tessa-only and cannot be used with --tool storm: {', '.join(explicit)}"
+                f"The following flags are tessa-only and cannot be used with --tool {tool}: {', '.join(explicit)}"
             )
 
     ctx.ensure_object(dict)
@@ -480,6 +596,12 @@ def cli(
         storm_cmd=storm_cmd,
         storm_extra_args=shlex.split(storm_extra_args),
         tessa_cmd=tessa_cmd,
+        rubicon_cmd_argv=shlex.split(rubicon_cmd),
+        dice_cmd=dice_cmd,
+        dice_extra_args=shlex.split(dice_extra_args),
+        geni_cmd_argv=shlex.split(geni_cmd),
+        gennifer_cmd=gennifer_cmd,
+        geni_mode=geni_mode,
         engine=engine,
         model_type=model_type,
     )

@@ -20,6 +20,7 @@ from src.timing import (
     append_jsonl_record,
     build_timing_summary_records,
     execute_timed_runs,
+    parse_rubicon_probability,
     parse_storm_probability,
     parse_tessa_probability,
 )
@@ -41,6 +42,20 @@ class BenchmarkingHelpersTests(unittest.TestCase):
             parse_storm_probability('Model checking property "1"\nResult (for initial states): 0.05142680456\n'),
             0.05142680456,
         )
+
+    def test_parse_rubicon_probability_reads_trailing_scalar(self) -> None:
+        # rubicon_runner echoes dice's JSON (which contains many scalars)
+        # then prints a sentinel newline + the probability on its own line.
+        # The parser must take the trailing scalar on the trailing line —
+        # not, say, an earlier scalar from inside the JSON.
+        stdout = (
+            'Translating model.prism to /tmp/model.dice\n'
+            '[{"Joint Distribution": [["Value", "Probability"], '
+            '["(true, false)", "0.875"], ["(false, false)", "0.125"]]}]\n'
+            '\n'
+            '0.875\n'
+        )
+        self.assertAlmostEqual(parse_rubicon_probability(stdout), 0.875)
 
     def test_append_jsonl_record_writes_one_json_object_per_line(self) -> None:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -213,6 +228,58 @@ class BenchmarkRunnerTests(unittest.TestCase):
         self.assertEqual(command[0], "storm")
         self.assertIn("--constants", command)
         self.assertIn("N=2", command)
+
+    def test_tool_label_rubicon(self) -> None:
+        ctx = BenchmarkContext(
+            tool="rubicon", backend=None, timeout=600, num_work_runs=1,
+            num_timed_runs=1, dtype="float32",
+            output_dir=Path("/tmp"), storm_cmd="storm", tessa_cmd="tessa",
+            rubicon_cmd_argv=["python", "-m", "src.rubicon_runner"],
+        )
+        self.assertEqual(ctx.tool_label, "rubicon")
+
+    def test_build_rubicon_command_includes_property_horizon_and_constants(self) -> None:
+        ctx = BenchmarkContext(
+            tool="rubicon", backend=None, timeout=600, num_work_runs=1,
+            num_timed_runs=1, dtype="float32",
+            output_dir=Path("/tmp"), storm_cmd="storm", tessa_cmd="tessa",
+            rubicon_cmd_argv=["python", "-m", "src.rubicon_runner"],
+            dice_cmd="dice",
+        )
+        command = ctx._build_rubicon_command(
+            REPO_ROOT / "benchmarks" / "parqueues" / "queue-3.prism",
+            "target", 10, {"N": 2},
+        )
+        self.assertEqual(command[:3], ["python", "-m", "src.rubicon_runner"])
+        self.assertIn("--prism", command)
+        self.assertIn("--property", command)
+        self.assertIn("target", command)
+        self.assertIn("--horizon", command)
+        self.assertIn("10", command)
+        self.assertIn("--const", command)
+        self.assertIn("N=2", command)
+        self.assertIn("--dice-cmd", command)
+        self.assertIn("dice", command)
+
+    def test_build_rubicon_command_threads_dice_extra_args(self) -> None:
+        ctx = BenchmarkContext(
+            tool="rubicon", backend=None, timeout=600, num_work_runs=1,
+            num_timed_runs=1, dtype="float32",
+            output_dir=Path("/tmp"), storm_cmd="storm", tessa_cmd="tessa",
+            rubicon_cmd_argv=["python", "-m", "src.rubicon_runner"],
+            dice_cmd="dice",
+            dice_extra_args=["-show-size", "-num-recursive-calls"],
+        )
+        command = ctx._build_rubicon_command(
+            REPO_ROOT / "benchmarks" / "herman" / "herman-3.prism",
+            "stable", 100, {},
+        )
+        # Each token must be paired with a fresh --dice-extra-arg flag so the
+        # inner runner doesn't have to re-shlex the list.
+        self.assertEqual(command.count("--dice-extra-arg"), 2)
+        flag_idx = [i for i, tok in enumerate(command) if tok == "--dice-extra-arg"]
+        self.assertEqual(command[flag_idx[0] + 1], "-show-size")
+        self.assertEqual(command[flag_idx[1] + 1], "-num-recursive-calls")
 
     def test_build_tessa_command_includes_benchmark_flags(self) -> None:
         ctx = BenchmarkContext(

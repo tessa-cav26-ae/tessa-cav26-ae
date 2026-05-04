@@ -8,6 +8,7 @@ let
   plotPy = pkgs.writeText "plot.py" ''
     import argparse
     import datetime
+    import sys
     from pathlib import Path
     import pandas as pd
     import matplotlib.pyplot as plt
@@ -86,7 +87,11 @@ let
         for csv_path, label, x_col, y_col, color in zip(
             args.csv, args.label, x_cols, y_cols, colors
         ):
-            df = pd.read_csv(csv_path)
+            try:
+                df = pd.read_csv(csv_path)
+            except (FileNotFoundError, pd.errors.EmptyDataError) as exc:
+                print(f"[plot] WARNING: skipping {csv_path}: {exc}", file=sys.stderr)
+                continue
             x = column(df, x_col, 0)
             y = column(df, y_col, 1)
             kwargs = {"label": label}

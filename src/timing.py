@@ -43,6 +43,40 @@ def parse_storm_probability(stdout: str) -> float:
     return float(matches[-1])
 
 
+def parse_rubicon_probability(stdout: str) -> float:
+    """Parse the trailing probability scalar emitted by ``src.rubicon_runner``.
+
+    The runner echoes dice's full JSON (which contains many scalars) on
+    earlier lines, then writes the extracted probability on its own final
+    line. We therefore take the *last* scalar on the *last* non-empty line
+    rather than scanning backwards across the whole stdout.
+    """
+    lines = [line.strip() for line in stdout.splitlines() if line.strip()]
+    if not lines:
+        raise ValueError("Could not parse a probability from empty rubicon output")
+    matches = _SCALAR_RE.findall(lines[-1])
+    if not matches:
+        raise ValueError("Could not parse a probability from rubicon output")
+    return float(matches[-1])
+
+
+def parse_geni_probability(stdout: str) -> float:
+    """Parse the trailing probability scalar emitted by ``src.geni_runner``.
+
+    Gennifer's stdout contains many scalars (per-value Pr lines and the
+    --pt timing block). The runner re-emits Pr(true) on its own final line
+    after a sentinel newline, so the same last-line-scalar contract used
+    for rubicon applies here.
+    """
+    lines = [line.strip() for line in stdout.splitlines() if line.strip()]
+    if not lines:
+        raise ValueError("Could not parse a probability from empty geni output")
+    matches = _SCALAR_RE.findall(lines[-1])
+    if not matches:
+        raise ValueError("Could not parse a probability from geni output")
+    return float(matches[-1])
+
+
 def append_jsonl_record(path: str | Path, record: dict[str, Any]) -> None:
     log_path = Path(path)
     log_path.parent.mkdir(parents=True, exist_ok=True)
@@ -187,6 +221,7 @@ __all__ = [
     "build_timing_summary_records",
     "coerce_probability",
     "execute_timed_runs",
+    "parse_rubicon_probability",
     "parse_storm_probability",
     "parse_tessa_probability",
 ]

@@ -18,6 +18,7 @@ NUM_TIMED_RUNS ?= 1
 NUM_WORK_RUNS ?= 3
 DTYPE ?= float64
 STORM_EXTRA_ARGS ?= -tm --sylvan:threads 1
+DICE_EXTRA_ARGS ?=
 
 VERIFIER := $(PYTHON) -m src.postprocess
 RUNNER := $(PYTHON) -m src.benchmarks
@@ -38,6 +39,12 @@ TESSA_COMMON_FLAGS := --num-timed-runs $(NUM_TIMED_RUNS) --dtype $(DTYPE)
 RUNNER_TESSA := $(RUNNER) --tool tessa --model-type jani --backend $(TESSA_JAX_BACKEND) $(COMMON_FLAGS) $(TESSA_COMMON_FLAGS)
 RUNNER_STORM_ADD := $(RUNNER) --tool storm --engine add $(COMMON_FLAGS)$(if $(STORM_EXTRA_ARGS), --storm-extra-args '$(STORM_EXTRA_ARGS)')
 RUNNER_STORM_SPM := $(RUNNER) --tool storm --engine spm $(COMMON_FLAGS)$(if $(STORM_EXTRA_ARGS), --storm-extra-args '$(STORM_EXTRA_ARGS)')
+# Rubicon transpiles PRISM → Dice, then runs the dice binary; both must be on
+# PATH (e.g. via `nix develop .#rubicon-shell`).
+RUNNER_RUBICON := $(RUNNER) --tool rubicon $(COMMON_FLAGS)$(if $(DICE_EXTRA_ARGS), --dice-extra-args '$(DICE_EXTRA_ARGS)')
+# Geni's runner generates a .gir from (N, H) and runs gennifer; only the
+# `gennifer` binary needs to be on PATH (e.g. via `nix develop .#geni-shell`).
+RUNNER_GENI := $(RUNNER) --tool geni $(COMMON_FLAGS)
 
 FULL_HORIZONS := 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000
 
@@ -49,6 +56,7 @@ ifdef SMOKE
   HERMAN_TESTN_N_TESSA := 3,5
   HERMAN_TESTN_N_STORM_ADD := 3,5
   HERMAN_TESTN_N_STORM_SPM := 3,5
+  HERMAN_TESTN_N_RUBICON := 3,5
   HERMAN_TESTN_H := 100
 
   # Herman testh
@@ -56,11 +64,13 @@ ifdef SMOKE
   HERMAN_TESTH_H_TESSA := 10,20
   HERMAN_TESTH_H_STORM_ADD := 10,20
   HERMAN_TESTH_H_STORM_SPM := 10,20
+  HERMAN_TESTH_H_RUBICON := 10,20
 
   # Meeting testn
   MEETING_TESTN_N_TESSA := 2,3
   MEETING_TESTN_N_STORM_ADD := 2,3
   MEETING_TESTN_N_STORM_SPM := 2,3
+  MEETING_TESTN_N_RUBICON := 2,3
   MEETING_TESTN_H := 10
 
   # Meeting testh
@@ -68,11 +78,14 @@ ifdef SMOKE
   MEETING_TESTH_H_TESSA := 1,10
   MEETING_TESTH_H_STORM_ADD := 1,10
   MEETING_TESTH_H_STORM_SPM := 1,10
+  MEETING_TESTH_H_RUBICON := 1,10
 
   # Weather Factory testn
   WF_TESTN_N_TESSA := 2,7
   WF_TESTN_N_STORM_ADD := 2,7
   WF_TESTN_N_STORM_SPM := 2,7
+  WF_TESTN_N_RUBICON := 2,7
+  WF_TESTN_N_GENI := 2,7
   WF_TESTN_H := 10
 
   # Weather Factory testh
@@ -80,11 +93,14 @@ ifdef SMOKE
   WF_TESTH_H_TESSA := 10,20
   WF_TESTH_H_STORM_ADD := 10,20
   WF_TESTH_H_STORM_SPM := 10,20
+  WF_TESTH_H_RUBICON := 10,20
+  WF_TESTH_H_GENI := 10,20
 
   # Parqueues testq
   PQ_TESTQ_Q_TESSA := 3,4
   PQ_TESTQ_Q_STORM_ADD := 3,4
   PQ_TESTQ_Q_STORM_SPM := 3,4
+  PQ_TESTQ_Q_RUBICON := 3,4
   PQ_TESTQ_N := 3
   PQ_TESTQ_H := 10
 
@@ -94,6 +110,7 @@ ifdef SMOKE
   PQ_TESTH_H_TESSA := 10,20
   PQ_TESTH_H_STORM_ADD := 10,20
   PQ_TESTH_H_STORM_SPM := 10,20
+  PQ_TESTH_H_RUBICON := 10,20
 
 else
 
@@ -107,6 +124,7 @@ else
   HERMAN_TESTN_N_TESSA := 3,5,7,9,11,13,15,17,19
   HERMAN_TESTN_N_STORM_ADD := 3,5,7,9,11,13,15,17,19
   HERMAN_TESTN_N_STORM_SPM := 3,5,7,9,11,13,15,17,19
+  HERMAN_TESTN_N_RUBICON := 3,5,7,9,11,13,15,17,19
 
   # Herman testh (N=17)
   #   H     storm.add    storm.spm
@@ -119,6 +137,7 @@ else
   HERMAN_TESTH_H_TESSA := $(FULL_HORIZONS)
   HERMAN_TESTH_H_STORM_ADD := 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300
   HERMAN_TESTH_H_STORM_SPM := $(FULL_HORIZONS)
+  HERMAN_TESTH_H_RUBICON := 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60
 
   # Meeting testn (H=10)
   #   N     storm.add    storm.spm
@@ -130,6 +149,7 @@ else
   MEETING_TESTN_N_TESSA := 2,3,4,5,6,7,8,9,10,11,12
   MEETING_TESTN_N_STORM_ADD := 2,3,4,5,6,7,8,9,10,11,12
   MEETING_TESTN_N_STORM_SPM := 2,3,4,5,6,7,8,9,10,11,12
+  MEETING_TESTN_N_RUBICON := 2,3,4,5,6,7,8,9,10,11,12
 
   # Meeting testh (N=12)
   #   H     storm.add    storm.spm
@@ -142,6 +162,7 @@ else
   MEETING_TESTH_H_TESSA := $(FULL_HORIZONS)
   MEETING_TESTH_H_STORM_ADD := 1,2
   MEETING_TESTH_H_STORM_SPM := $(FULL_HORIZONS)
+  MEETING_TESTH_H_RUBICON := 1,2,3,4,5,6,7,8,9,10,20,30
 
   # Weather Factory testn (H=10)
   #   N     storm.add    storm.spm
@@ -157,6 +178,8 @@ else
   WF_TESTN_N_TESSA := 2,7,8,9,10,11,12,13,15,16
   WF_TESTN_N_STORM_ADD := 2,7,8,9,10,11,12,13
   WF_TESTN_N_STORM_SPM := 2,7,8,9,10,11,12,13,15,16
+  WF_TESTN_N_RUBICON := 2,7,8,9,10,11,12,13,15,16
+  WF_TESTN_N_GENI := 2,7,8,9,10,11,12,13,15,16
   WF_TESTN_H := 10
 
   # Weather Factory testh (N=13)
@@ -171,6 +194,8 @@ else
   WF_TESTH_H_TESSA := $(FULL_HORIZONS)
   WF_TESTH_H_STORM_ADD := 1,2
   WF_TESTH_H_STORM_SPM := $(FULL_HORIZONS)
+  WF_TESTH_H_RUBICON := 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300
+  WF_TESTH_H_GENI :=  1,2,3,4,5,6,7,8,9,10,20,30,40,50,60,70,80,90,100,200,300,400,500
 
   # Parqueues testq (N=3, H=10)
   #   Q     storm.add    storm.spm
@@ -183,6 +208,7 @@ else
   PQ_TESTQ_Q_TESSA := 3,4,5,6,7,8,9,10,11
   PQ_TESTQ_Q_STORM_ADD := $(PQ_TESTQ_Q_TESSA)
   PQ_TESTQ_Q_STORM_SPM := $(PQ_TESTQ_Q_TESSA)
+  PQ_TESTQ_Q_RUBICON := $(PQ_TESTQ_Q_TESSA)
 
   # Parqueues testh (Q=9, N=3)
   #   H     storm.add    storm.spm
@@ -196,23 +222,24 @@ else
   PQ_TESTH_H_TESSA := $(FULL_HORIZONS)
   PQ_TESTH_H_STORM_ADD := 1,2,3,4,5,6,7,8,9,10,20,30,40,50
   PQ_TESTH_H_STORM_SPM := $(FULL_HORIZONS)
+  PQ_TESTH_H_RUBICON := 1,2,3,4,5,6,7,8,9,10,20,30,40,50,60
 endif
 
 # --- Targets ---
 
 .PHONY: all herman meeting weather-factory parqueues \
-	tessa storm-add storm-spm \
+	tessa storm-add storm-spm rubicon geni \
 	herman.testn herman.testh meeting.testn meeting.testh \
 	weather-factory.testn weather-factory.testh \
 	parqueues.testq parqueues.testh \
-	herman.testn.tessa herman.testn.storm-add herman.testn.storm-spm \
-	herman.testh.tessa herman.testh.storm-add herman.testh.storm-spm \
-	meeting.testn.tessa meeting.testn.storm-add meeting.testn.storm-spm \
-	meeting.testh.tessa meeting.testh.storm-add meeting.testh.storm-spm \
-	weather-factory.testn.tessa weather-factory.testn.storm-add weather-factory.testn.storm-spm \
-	weather-factory.testh.tessa weather-factory.testh.storm-add weather-factory.testh.storm-spm \
-	parqueues.testq.tessa parqueues.testq.storm-add parqueues.testq.storm-spm \
-	parqueues.testh.tessa parqueues.testh.storm-add parqueues.testh.storm-spm
+	herman.testn.tessa herman.testn.storm-add herman.testn.storm-spm herman.testn.rubicon \
+	herman.testh.tessa herman.testh.storm-add herman.testh.storm-spm herman.testh.rubicon \
+	meeting.testn.tessa meeting.testn.storm-add meeting.testn.storm-spm meeting.testn.rubicon \
+	meeting.testh.tessa meeting.testh.storm-add meeting.testh.storm-spm meeting.testh.rubicon \
+	weather-factory.testn.tessa weather-factory.testn.storm-add weather-factory.testn.storm-spm weather-factory.testn.rubicon \
+	weather-factory.testh.tessa weather-factory.testh.storm-add weather-factory.testh.storm-spm weather-factory.testh.rubicon \
+	parqueues.testq.tessa parqueues.testq.storm-add parqueues.testq.storm-spm parqueues.testq.rubicon \
+	parqueues.testh.tessa parqueues.testh.storm-add parqueues.testh.storm-spm parqueues.testh.rubicon
 
 all: herman meeting weather-factory parqueues
 
@@ -233,6 +260,13 @@ storm-spm: herman.testn.storm-spm herman.testh.storm-spm \
 	weather-factory.testn.storm-spm weather-factory.testh.storm-spm \
 	parqueues.testq.storm-spm parqueues.testh.storm-spm
 
+rubicon: herman.testn.rubicon herman.testh.rubicon \
+	meeting.testn.rubicon meeting.testh.rubicon \
+	weather-factory.testn.rubicon weather-factory.testh.rubicon \
+	parqueues.testq.rubicon parqueues.testh.rubicon
+
+geni: weather-factory.testn.geni weather-factory.testh.geni
+
 # --- Clean targets ---
 
 clean.tessa: clean.herman.testn.tessa clean.herman.testh.tessa \
@@ -249,6 +283,13 @@ clean.storm-spm: clean.herman.testn.storm-spm clean.herman.testh.storm-spm \
 	clean.meeting.testn.storm-spm clean.meeting.testh.storm-spm \
 	clean.weather-factory.testn.storm-spm clean.weather-factory.testh.storm-spm \
 	clean.parqueues.testq.storm-spm clean.parqueues.testh.storm-spm
+
+clean.rubicon: clean.herman.testn.rubicon clean.herman.testh.rubicon \
+	clean.meeting.testn.rubicon clean.meeting.testh.rubicon \
+	clean.weather-factory.testn.rubicon clean.weather-factory.testh.rubicon \
+	clean.parqueues.testq.rubicon clean.parqueues.testh.rubicon
+
+clean.geni: clean.weather-factory.testn.geni clean.weather-factory.testh.geni
 
 clean.herman.testn: clean.herman.testn.tessa clean.herman.testn.storm-add clean.herman.testn.storm-spm
 
@@ -288,17 +329,19 @@ clean.verify:
 
 herman: herman.testn herman.testh
 
-herman.testn: herman.testn.tessa herman.testn.storm-add herman.testn.storm-spm
+herman.testn: herman.testn.tessa herman.testn.storm-add herman.testn.storm-spm herman.testn.rubicon
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/herman/testn/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/herman/testn/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/herman/testn/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/herman/testn/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/herman/testn/rubicon.csv \
 		--output-csv $(RESULTS_ROOT)/herman/testn/verify.csv
 	plot --csv $(RESULTS_ROOT)/herman/testn/tessa.csv \
 		$(RESULTS_ROOT)/herman/testn/storm.add.csv \
 		$(RESULTS_ROOT)/herman/testn/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x N --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/herman/testn/rubicon.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" \
+		--x N --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "Herman — scaling with N" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/herman/testn/herman-testn.png
@@ -322,6 +365,10 @@ herman.testn.storm-spm:
 	test -f $(RESULTS_ROOT)/herman/testn/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/herman/testn/storm.spm.log --output-dir $(RESULTS_ROOT)/herman/testn herman -N $(HERMAN_TESTN_N_STORM_SPM) -H $(HERMAN_TESTN_H)
 
+herman.testn.rubicon:
+	test -f $(RESULTS_ROOT)/herman/testn/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/herman/testn/rubicon.log --output-dir $(RESULTS_ROOT)/herman/testn herman -N $(HERMAN_TESTN_N_RUBICON) -H $(HERMAN_TESTN_H)
+
 clean.herman.testn.tessa:
 	rm -f $(RESULTS_ROOT)/herman/testn/tessa.csv $(RESULTS_ROOT)/herman/testn/tessa.log
 	rm -f $(RESULTS_ROOT)/herman/testn/*tessa*.time.jsonl
@@ -332,17 +379,22 @@ clean.herman.testn.storm-add:
 clean.herman.testn.storm-spm:
 	rm -f $(RESULTS_ROOT)/herman/testn/storm.spm.csv $(RESULTS_ROOT)/herman/testn/storm.spm.log
 
-herman.testh: herman.testh.tessa herman.testh.storm-add herman.testh.storm-spm
+clean.herman.testn.rubicon:
+	rm -f $(RESULTS_ROOT)/herman/testn/rubicon.csv $(RESULTS_ROOT)/herman/testn/rubicon.log
+
+herman.testh: herman.testh.tessa herman.testh.storm-add herman.testh.storm-spm herman.testh.rubicon
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/herman/testh/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/herman/testh/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/herman/testh/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/herman/testh/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/herman/testh/rubicon.csv \
 		--output-csv $(RESULTS_ROOT)/herman/testh/verify.csv
 	plot --csv $(RESULTS_ROOT)/herman/testh/tessa.csv \
 		$(RESULTS_ROOT)/herman/testh/storm.add.csv \
 		$(RESULTS_ROOT)/herman/testh/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x horizon --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/herman/testh/rubicon.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" \
+		--x horizon --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "Herman (N=17) — scaling with H" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/herman/testh/herman-testh.png
@@ -366,6 +418,10 @@ herman.testh.storm-spm:
 	test -f $(RESULTS_ROOT)/herman/testh/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/herman/testh/storm.spm.log --output-dir $(RESULTS_ROOT)/herman/testh herman -N $(HERMAN_TESTH_N) -H $(HERMAN_TESTH_H_STORM_SPM)
 
+herman.testh.rubicon:
+	test -f $(RESULTS_ROOT)/herman/testh/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/herman/testh/rubicon.log --output-dir $(RESULTS_ROOT)/herman/testh herman -N $(HERMAN_TESTH_N) -H $(HERMAN_TESTH_H_RUBICON)
+
 clean.herman.testh.tessa:
 	rm -f $(RESULTS_ROOT)/herman/testh/tessa.csv $(RESULTS_ROOT)/herman/testh/tessa.log
 	rm -f $(RESULTS_ROOT)/herman/testh/*tessa*.time.jsonl
@@ -376,21 +432,26 @@ clean.herman.testh.storm-add:
 clean.herman.testh.storm-spm:
 	rm -f $(RESULTS_ROOT)/herman/testh/storm.spm.csv $(RESULTS_ROOT)/herman/testh/storm.spm.log
 
+clean.herman.testh.rubicon:
+	rm -f $(RESULTS_ROOT)/herman/testh/rubicon.csv $(RESULTS_ROOT)/herman/testh/rubicon.log
+
 # --- Meeting ---
 
 meeting: meeting.testn meeting.testh
 
-meeting.testn: meeting.testn.tessa meeting.testn.storm-add meeting.testn.storm-spm
+meeting.testn: meeting.testn.tessa meeting.testn.storm-add meeting.testn.storm-spm meeting.testn.rubicon
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/meeting/testn/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/meeting/testn/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/meeting/testn/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/meeting/testn/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/meeting/testn/rubicon.csv \
 		--output-csv $(RESULTS_ROOT)/meeting/testn/verify.csv
 	plot --csv $(RESULTS_ROOT)/meeting/testn/tessa.csv \
 		$(RESULTS_ROOT)/meeting/testn/storm.add.csv \
 		$(RESULTS_ROOT)/meeting/testn/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x N --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/meeting/testn/rubicon.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" \
+		--x N --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "Meeting — scaling with N" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/meeting/testn/meeting-testn.png
@@ -414,6 +475,10 @@ meeting.testn.storm-spm:
 	test -f $(RESULTS_ROOT)/meeting/testn/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/meeting/testn/storm.spm.log --output-dir $(RESULTS_ROOT)/meeting/testn meeting -N $(MEETING_TESTN_N_STORM_SPM) -H $(MEETING_TESTN_H)
 
+meeting.testn.rubicon:
+	test -f $(RESULTS_ROOT)/meeting/testn/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/meeting/testn/rubicon.log --output-dir $(RESULTS_ROOT)/meeting/testn meeting -N $(MEETING_TESTN_N_RUBICON) -H $(MEETING_TESTN_H)
+
 clean.meeting.testn.tessa:
 	rm -f $(RESULTS_ROOT)/meeting/testn/tessa.csv $(RESULTS_ROOT)/meeting/testn/tessa.log
 	rm -f $(RESULTS_ROOT)/meeting/testn/*tessa*.time.jsonl
@@ -424,17 +489,22 @@ clean.meeting.testn.storm-add:
 clean.meeting.testn.storm-spm:
 	rm -f $(RESULTS_ROOT)/meeting/testn/storm.spm.csv $(RESULTS_ROOT)/meeting/testn/storm.spm.log
 
-meeting.testh: meeting.testh.tessa meeting.testh.storm-add meeting.testh.storm-spm
+clean.meeting.testn.rubicon:
+	rm -f $(RESULTS_ROOT)/meeting/testn/rubicon.csv $(RESULTS_ROOT)/meeting/testn/rubicon.log
+
+meeting.testh: meeting.testh.tessa meeting.testh.storm-add meeting.testh.storm-spm meeting.testh.rubicon
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/meeting/testh/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/meeting/testh/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/meeting/testh/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/meeting/testh/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/meeting/testh/rubicon.csv \
 		--output-csv $(RESULTS_ROOT)/meeting/testh/verify.csv
 	plot --csv $(RESULTS_ROOT)/meeting/testh/tessa.csv \
 		$(RESULTS_ROOT)/meeting/testh/storm.add.csv \
 		$(RESULTS_ROOT)/meeting/testh/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x horizon --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/meeting/testh/rubicon.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" \
+		--x horizon --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "Meeting (N=12) — scaling with H" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/meeting/testh/meeting-testh.png
@@ -458,6 +528,10 @@ meeting.testh.storm-spm:
 	test -f $(RESULTS_ROOT)/meeting/testh/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/meeting/testh/storm.spm.log --output-dir $(RESULTS_ROOT)/meeting/testh meeting -N $(MEETING_TESTH_N) -H $(MEETING_TESTH_H_STORM_SPM)
 
+meeting.testh.rubicon:
+	test -f $(RESULTS_ROOT)/meeting/testh/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/meeting/testh/rubicon.log --output-dir $(RESULTS_ROOT)/meeting/testh meeting -N $(MEETING_TESTH_N) -H $(MEETING_TESTH_H_RUBICON)
+
 clean.meeting.testh.tessa:
 	rm -f $(RESULTS_ROOT)/meeting/testh/tessa.csv $(RESULTS_ROOT)/meeting/testh/tessa.log
 	rm -f $(RESULTS_ROOT)/meeting/testh/*tessa*.time.jsonl
@@ -468,21 +542,28 @@ clean.meeting.testh.storm-add:
 clean.meeting.testh.storm-spm:
 	rm -f $(RESULTS_ROOT)/meeting/testh/storm.spm.csv $(RESULTS_ROOT)/meeting/testh/storm.spm.log
 
+clean.meeting.testh.rubicon:
+	rm -f $(RESULTS_ROOT)/meeting/testh/rubicon.csv $(RESULTS_ROOT)/meeting/testh/rubicon.log
+
 # --- Weather Factory ---
 
 weather-factory: weather-factory.testn weather-factory.testh
 
-weather-factory.testn: weather-factory.testn.tessa weather-factory.testn.storm-add weather-factory.testn.storm-spm
+weather-factory.testn: weather-factory.testn.tessa weather-factory.testn.storm-add weather-factory.testn.storm-spm weather-factory.testn.rubicon weather-factory.testn.geni
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/weather-factory/testn/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/weather-factory/testn/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/weather-factory/testn/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/weather-factory/testn/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/weather-factory/testn/rubicon.csv \
+		--geni-csv $(RESULTS_ROOT)/weather-factory/testn/geni.csv \
 		--output-csv $(RESULTS_ROOT)/weather-factory/testn/verify.csv
 	plot --csv $(RESULTS_ROOT)/weather-factory/testn/tessa.csv \
 		$(RESULTS_ROOT)/weather-factory/testn/storm.add.csv \
 		$(RESULTS_ROOT)/weather-factory/testn/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x N --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/weather-factory/testn/rubicon.csv \
+		$(RESULTS_ROOT)/weather-factory/testn/geni.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" "Geni" \
+		--x N --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "Weather Factory — scaling with N" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/weather-factory/testn/weather-factory-testn.png
@@ -506,6 +587,14 @@ weather-factory.testn.storm-spm:
 	test -f $(RESULTS_ROOT)/weather-factory/testn/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/weather-factory/testn/storm.spm.log --output-dir $(RESULTS_ROOT)/weather-factory/testn weather-factory -N $(WF_TESTN_N_STORM_SPM) -H $(WF_TESTN_H)
 
+weather-factory.testn.rubicon:
+	test -f $(RESULTS_ROOT)/weather-factory/testn/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/weather-factory/testn/rubicon.log --output-dir $(RESULTS_ROOT)/weather-factory/testn weather-factory -N $(WF_TESTN_N_RUBICON) -H $(WF_TESTN_H)
+
+weather-factory.testn.geni:
+	test -f $(RESULTS_ROOT)/weather-factory/testn/geni.csv || \
+		$(RUNNER_GENI) --log-file $(RESULTS_ROOT)/weather-factory/testn/geni.log --output-dir $(RESULTS_ROOT)/weather-factory/testn weather-factory -N $(WF_TESTN_N_GENI) -H $(WF_TESTN_H)
+
 clean.weather-factory.testn.tessa:
 	rm -f $(RESULTS_ROOT)/weather-factory/testn/tessa.csv $(RESULTS_ROOT)/weather-factory/testn/tessa.log
 	rm -f $(RESULTS_ROOT)/weather-factory/testn/*tessa*.time.jsonl
@@ -516,17 +605,28 @@ clean.weather-factory.testn.storm-add:
 clean.weather-factory.testn.storm-spm:
 	rm -f $(RESULTS_ROOT)/weather-factory/testn/storm.spm.csv $(RESULTS_ROOT)/weather-factory/testn/storm.spm.log
 
-weather-factory.testh: weather-factory.testh.tessa weather-factory.testh.storm-add weather-factory.testh.storm-spm
+clean.weather-factory.testn.rubicon:
+	rm -f $(RESULTS_ROOT)/weather-factory/testn/rubicon.csv $(RESULTS_ROOT)/weather-factory/testn/rubicon.log
+
+clean.weather-factory.testn.geni:
+	rm -f $(RESULTS_ROOT)/weather-factory/testn/geni.csv $(RESULTS_ROOT)/weather-factory/testn/geni.log
+	rm -rf $(RESULTS_ROOT)/weather-factory/testn/geni-cache
+
+weather-factory.testh: weather-factory.testh.tessa weather-factory.testh.storm-add weather-factory.testh.storm-spm weather-factory.testh.rubicon weather-factory.testh.geni
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/weather-factory/testh/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/weather-factory/testh/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/weather-factory/testh/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/weather-factory/testh/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/weather-factory/testh/rubicon.csv \
+		--geni-csv $(RESULTS_ROOT)/weather-factory/testh/geni.csv \
 		--output-csv $(RESULTS_ROOT)/weather-factory/testh/verify.csv
 	plot --csv $(RESULTS_ROOT)/weather-factory/testh/tessa.csv \
 		$(RESULTS_ROOT)/weather-factory/testh/storm.add.csv \
 		$(RESULTS_ROOT)/weather-factory/testh/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x horizon --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/weather-factory/testh/rubicon.csv \
+		$(RESULTS_ROOT)/weather-factory/testh/geni.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" "Geni" \
+		--x horizon --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "Weather Factory (N=13) — scaling with H" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/weather-factory/testh/weather-factory-testh.png
@@ -550,6 +650,14 @@ weather-factory.testh.storm-spm:
 	test -f $(RESULTS_ROOT)/weather-factory/testh/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/weather-factory/testh/storm.spm.log --output-dir $(RESULTS_ROOT)/weather-factory/testh weather-factory -N $(WF_TESTH_N) -H $(WF_TESTH_H_STORM_SPM)
 
+weather-factory.testh.rubicon:
+	test -f $(RESULTS_ROOT)/weather-factory/testh/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/weather-factory/testh/rubicon.log --output-dir $(RESULTS_ROOT)/weather-factory/testh weather-factory -N $(WF_TESTH_N) -H $(WF_TESTH_H_RUBICON)
+
+weather-factory.testh.geni:
+	test -f $(RESULTS_ROOT)/weather-factory/testh/geni.csv || \
+		$(RUNNER_GENI) --log-file $(RESULTS_ROOT)/weather-factory/testh/geni.log --output-dir $(RESULTS_ROOT)/weather-factory/testh weather-factory -N $(WF_TESTH_N) -H $(WF_TESTH_H_GENI)
+
 clean.weather-factory.testh.tessa:
 	rm -f $(RESULTS_ROOT)/weather-factory/testh/tessa.csv $(RESULTS_ROOT)/weather-factory/testh/tessa.log
 	rm -f $(RESULTS_ROOT)/weather-factory/testh/*tessa*.time.jsonl
@@ -560,21 +668,30 @@ clean.weather-factory.testh.storm-add:
 clean.weather-factory.testh.storm-spm:
 	rm -f $(RESULTS_ROOT)/weather-factory/testh/storm.spm.csv $(RESULTS_ROOT)/weather-factory/testh/storm.spm.log
 
+clean.weather-factory.testh.rubicon:
+	rm -f $(RESULTS_ROOT)/weather-factory/testh/rubicon.csv $(RESULTS_ROOT)/weather-factory/testh/rubicon.log
+
+clean.weather-factory.testh.geni:
+	rm -f $(RESULTS_ROOT)/weather-factory/testh/geni.csv $(RESULTS_ROOT)/weather-factory/testh/geni.log
+	rm -rf $(RESULTS_ROOT)/weather-factory/testh/geni-cache
+
 # --- ParQueues ---
 
 parqueues: parqueues.testq parqueues.testh
 
-parqueues.testq: parqueues.testq.tessa parqueues.testq.storm-add parqueues.testq.storm-spm
+parqueues.testq: parqueues.testq.tessa parqueues.testq.storm-add parqueues.testq.storm-spm parqueues.testq.rubicon
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/parqueues/testq/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/parqueues/testq/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/parqueues/testq/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/parqueues/testq/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/parqueues/testq/rubicon.csv \
 		--output-csv $(RESULTS_ROOT)/parqueues/testq/verify.csv
 	plot --csv $(RESULTS_ROOT)/parqueues/testq/tessa.csv \
 		$(RESULTS_ROOT)/parqueues/testq/storm.add.csv \
 		$(RESULTS_ROOT)/parqueues/testq/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x Q --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/parqueues/testq/rubicon.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" \
+		--x Q --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--xlabel "Q (queues)" \
 		--title "ParQueues — scaling with Q" \
 		--marker o --grid \
@@ -600,6 +717,10 @@ parqueues.testq.storm-spm:
 	test -f $(RESULTS_ROOT)/parqueues/testq/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/parqueues/testq/storm.spm.log --output-dir $(RESULTS_ROOT)/parqueues/testq parqueues -Q $(PQ_TESTQ_Q_STORM_SPM) -N $(PQ_TESTQ_N) -H $(PQ_TESTQ_H)
 
+parqueues.testq.rubicon:
+	test -f $(RESULTS_ROOT)/parqueues/testq/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/parqueues/testq/rubicon.log --output-dir $(RESULTS_ROOT)/parqueues/testq parqueues -Q $(PQ_TESTQ_Q_RUBICON) -N $(PQ_TESTQ_N) -H $(PQ_TESTQ_H)
+
 clean.parqueues.testq.tessa:
 	rm -f $(RESULTS_ROOT)/parqueues/testq/tessa.csv $(RESULTS_ROOT)/parqueues/testq/tessa.log
 	rm -f $(RESULTS_ROOT)/parqueues/testq/*tessa*.time.jsonl
@@ -610,17 +731,22 @@ clean.parqueues.testq.storm-add:
 clean.parqueues.testq.storm-spm:
 	rm -f $(RESULTS_ROOT)/parqueues/testq/storm.spm.csv $(RESULTS_ROOT)/parqueues/testq/storm.spm.log
 
-parqueues.testh: parqueues.testh.tessa parqueues.testh.storm-add parqueues.testh.storm-spm
+clean.parqueues.testq.rubicon:
+	rm -f $(RESULTS_ROOT)/parqueues/testq/rubicon.csv $(RESULTS_ROOT)/parqueues/testq/rubicon.log
+
+parqueues.testh: parqueues.testh.tessa parqueues.testh.storm-add parqueues.testh.storm-spm parqueues.testh.rubicon
 	-$(VERIFIER) --log-file $(RESULTS_ROOT)/parqueues/testh/verify.log verify \
 		--tessa-csv $(RESULTS_ROOT)/parqueues/testh/tessa.csv \
 		--storm-csv $(RESULTS_ROOT)/parqueues/testh/storm.add.csv \
 		--storm-csv $(RESULTS_ROOT)/parqueues/testh/storm.spm.csv \
+		--rubicon-csv $(RESULTS_ROOT)/parqueues/testh/rubicon.csv \
 		--output-csv $(RESULTS_ROOT)/parqueues/testh/verify.csv
 	plot --csv $(RESULTS_ROOT)/parqueues/testh/tessa.csv \
 		$(RESULTS_ROOT)/parqueues/testh/storm.add.csv \
 		$(RESULTS_ROOT)/parqueues/testh/storm.spm.csv \
-		--label "Tessa" "Storm (ADD)" "Storm (SPM)" \
-		--x horizon --y work_seconds elapsed_seconds elapsed_seconds \
+		$(RESULTS_ROOT)/parqueues/testh/rubicon.csv \
+		--label "Tessa" "Storm (ADD)" "Storm (SPM)" "Rubicon" \
+		--x horizon --y work_seconds elapsed_seconds elapsed_seconds elapsed_seconds \
 		--title "ParQueues — scaling with H" \
 		--marker o --grid \
 		--savefig $(RESULTS_ROOT)/parqueues/testh/parqueues-testh.png
@@ -644,6 +770,10 @@ parqueues.testh.storm-spm:
 	test -f $(RESULTS_ROOT)/parqueues/testh/storm.spm.csv || \
 		$(RUNNER_STORM_SPM) --log-file $(RESULTS_ROOT)/parqueues/testh/storm.spm.log --output-dir $(RESULTS_ROOT)/parqueues/testh parqueues -Q $(PQ_TESTH_Q) -N $(PQ_TESTH_N) -H $(PQ_TESTH_H_STORM_SPM)
 
+parqueues.testh.rubicon:
+	test -f $(RESULTS_ROOT)/parqueues/testh/rubicon.csv || \
+		$(RUNNER_RUBICON) --log-file $(RESULTS_ROOT)/parqueues/testh/rubicon.log --output-dir $(RESULTS_ROOT)/parqueues/testh parqueues -Q $(PQ_TESTH_Q) -N $(PQ_TESTH_N) -H $(PQ_TESTH_H_RUBICON)
+
 clean.parqueues.testh.tessa:
 	rm -f $(RESULTS_ROOT)/parqueues/testh/tessa.csv $(RESULTS_ROOT)/parqueues/testh/tessa.log
 	rm -f $(RESULTS_ROOT)/parqueues/testh/*tessa*.time.jsonl
@@ -653,6 +783,9 @@ clean.parqueues.testh.storm-add:
 
 clean.parqueues.testh.storm-spm:
 	rm -f $(RESULTS_ROOT)/parqueues/testh/storm.spm.csv $(RESULTS_ROOT)/parqueues/testh/storm.spm.log
+
+clean.parqueues.testh.rubicon:
+	rm -f $(RESULTS_ROOT)/parqueues/testh/rubicon.csv $(RESULTS_ROOT)/parqueues/testh/rubicon.log
 
 # --- Tessa-only workflow (skips Storm; assumes Storm CSVs exist) ---
 # Use when iterating on Tessa without rerunning Storm baselines. The verify

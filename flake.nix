@@ -34,6 +34,66 @@
           stormpy = stormpy;
         };
 
+        dice = pkgs.callPackage ./nix/dice.nix { };
+        gennifer = pkgs.callPackage ./nix/gennifer.nix { };
+        rubicon = pkgs.callPackage ./nix/rubicon.nix {
+          python3Packages = python312.pkgs;
+          stormpy = stormpy;
+        };
+
+        common-shell-inputs = (with pkgs; [
+          which
+          bash
+          fish
+          zsh
+          nano
+          vim
+          tree
+          htop
+        ]) ++ [
+          plot
+        ];
+
+        storm-shell-inputs = common-shell-inputs ++ [ storm ];
+
+        geni-shell-inputs = storm-shell-inputs ++ [ gennifer ];
+
+        rubicon-shell-inputs = geni-shell-inputs ++ [
+          rubicon
+          dice
+        ];
+
+        tessa-shell-inputs = rubicon-shell-inputs
+          ++ [ python312 stormpy tessa ]
+          ++ (with python312.pkgs; [
+            jax
+            jaxlib
+            numpy
+            matplotlib
+            optax
+          ]);
+
+        storm-shell = pkgs.mkShell {
+          shellHook = ''
+              echo "storm-shell: storm CLI is on PATH. Bring your own Tessa via pip and feed it .jani models."
+          '';
+          buildInputs = storm-shell-inputs;
+        };
+
+        geni-shell = pkgs.mkShell {
+          shellHook = ''
+              echo "geni-shell: storm CLI + gennifer are on PATH."
+          '';
+          buildInputs = geni-shell-inputs;
+        };
+
+        rubicon-shell = pkgs.mkShell {
+          shellHook = ''
+              echo "rubicon-shell: storm CLI + gennifer + rubicon + dice are on PATH."
+          '';
+          buildInputs = rubicon-shell-inputs;
+        };
+
         tessa-shell = pkgs.mkShell {
           shellHook = ''
               echo "NIX_LD=$NIX_LD"
@@ -48,46 +108,7 @@
               # ctypes-preloads libcuda.so.1 so jaxlib finds it.
               export PYTHONPATH="$PWD''${PYTHONPATH:+:}$PYTHONPATH"
           '';
-          buildInputs = (with pkgs; [
-            which
-            bash
-            fish
-            zsh
-            nano
-            vim
-            tree
-            htop
-            python312
-          ]) ++ (with python312.pkgs; [
-            jax
-            jaxlib
-            numpy
-            matplotlib
-            optax
-          ]) ++ [
-            plot
-            storm
-            stormpy
-            tessa
-          ];
-        };
-
-        storm-shell = pkgs.mkShell {
-          shellHook = ''
-              echo "storm-shell: storm CLI is on PATH. Bring your own Tessa via pip and feed it .jani models."
-          '';
-          buildInputs = with pkgs; [
-            which
-            bash
-            fish
-            zsh
-            nano
-            vim
-            tree
-            htop
-            storm
-            plot
-          ];
+          buildInputs = tessa-shell-inputs;
         };
 
       in
@@ -96,10 +117,13 @@
           tessa = tessa;
           storm = storm;
           stormpy = stormpy;
+          rubicon = rubicon;
+          gennifer = gennifer;
+          dice = dice;
         };
 
         devShells = {
-          inherit tessa-shell storm-shell;
+          inherit tessa-shell rubicon-shell geni-shell storm-shell;
           default = tessa-shell;
         };
       }

@@ -10,48 +10,42 @@ Justification for the badges:
 
   The artifact replicates all of the experimental figures in the paper. 
 
-  It builds Tessa (our tool), Storm (used as the baseline for both the MTBDD and sparse engines), and the two scaling sweeps (`testn` size scaling, `testh` horizon scaling) for each of the four benchmark families.
+  It builds Tessa (our tool), Storm (used as the baseline for both the MTBDD and sparse engines), and Rubicon (a PRISM → Dice compiler plus the Dice inference backend), and runs the two scaling sweeps (`testn` size scaling, `testh` horizon scaling) for each of the four benchmark families.
   
   In addition, the kydice parametric workload exercises Tessa's parameter synthesis functionality and produces Figures 8(b) and 8(c).
   
-  The end-to-end driver `reproduce.mk` runs Tessa, Storm-ADD, and Storm-SPM, cross-checks Tessa's reachability probabilities against Storm (`src.postprocess verify`, tolerance `atol=1e-5`, `rtol=1e-4`), and emits the scaling plots used in the paper.
+  The end-to-end driver `reproduce.mk` runs Tessa, Storm-ADD, Storm-SPM, and Rubicon (via the bundled PRISM → Dice compiler), cross-checks Tessa's reachability probabilities against Storm and Rubicon (`src.postprocess verify`, tolerance `atol=1e-5`, `rtol=1e-4`), and emits the scaling plots used in the paper.
   
   Pre-shipped reference outputs are included so reviewers can diff their own runs against ours.
 
   - replicated:
 
-      * [Figure 1(c) left](reproduced-april/meeting/testn/meeting-testn.png)
-      * [Figure 1(c) right](reproduced-april/meeting/testh/meeting-testh.png)
-      * [Figure 5(a)](reproduced-april/parqueues/testq/parqueues-testq.png)
-      * [Figure 5(b)](reproduced-april/parqueues/testq/parqueues-testq-tessa.png)
-      * [Figure 5(c)](reproduced-april/parqueues/testh/parqueues-testh.png)
-      * [Figure 5(d)](reproduced-april/parqueues/testh/parqueues-testh-tessa.png)
-      * [Figure 6(a)](reproduced-april/weather-factory/testn/weather-factory-testn.png)
-      * [Figure 6(b)](reproduced-april/weather-factory/testn/weather-factory-testn-tessa.png)
-      * [Figure 6(c)](reproduced-april/weather-factory/testh/weather-factory-testh.png)
-      * [Figure 6(d)](reproduced-april/weather-factory/testh/weather-factory-testh-tessa.png)
-      * [Figure 7(a)](reproduced-april/herman/testn/herman-testn.png)
-      * [Figure 7(b)](reproduced-april/herman/testn/herman-testn-tessa.png)
-      * [Figure 7(c)](reproduced-april/herman/testh/herman-testh.png)
-      * [Figure 7(d)](reproduced-april/herman/testh/herman-testh-tessa.png)
+      * [Figure 1(c) left](reproduced-0429/meeting/testn/meeting-testn.png)
+      * [Figure 1(c) right](reproduced-0429/meeting/testh/meeting-testh.png)
+      * [Figure 5(a)](reproduced-0429/parqueues/testq/parqueues-testq.png)
+      * [Figure 5(b)](reproduced-0429/parqueues/testq/parqueues-testq-tessa.png)
+      * [Figure 5(c)](reproduced-0429/parqueues/testh/parqueues-testh.png)
+      * [Figure 5(d)](reproduced-0429/parqueues/testh/parqueues-testh-tessa.png)
+      * [Figure 6(a)](reproduced-0429/weather-factory/testn/weather-factory-testn.png)
+      * [Figure 6(b)](reproduced-0429/weather-factory/testn/weather-factory-testn-tessa.png)
+      * [Figure 6(c)](reproduced-0429/weather-factory/testh/weather-factory-testh.png)
+      * [Figure 6(d)](reproduced-0429/weather-factory/testh/weather-factory-testh-tessa.png)
+      * [Figure 7(a)](reproduced-0429/herman/testn/herman-testn.png)
+      * [Figure 7(b)](reproduced-0429/herman/testn/herman-testn-tessa.png)
+      * [Figure 7(c)](reproduced-0429/herman/testh/herman-testh.png)
+      * [Figure 7(d)](reproduced-0429/herman/testh/herman-testh-tessa.png)
       * [Figure 8(b)](benchmarks/kydice/loss.png)
       * [Figure 8(c)](benchmarks/kydice/landscape.png)
-      * Cross-tool correctness: `reproduced-april/<suite>/<test>/verify.csv` (Tessa vs Storm-ADD and Storm-SPM probabilities)
-  - not-replicated:
-
-      * Rubicon/Dice numbers reported in the paper require the external Rubicon artifact (https://github.com/sjunges/rubicon).
-
-        We point at it but do not bundle it.
-      * Geni numbers reported in the paper require the external Geni artifact (https://github.com/geni-icfp25-ae/geni-icfp25-ae).
-
-        We point at it but do not bundle it.
+      * Cross-tool correctness: `reproduced-0429/<suite>/<test>/verify.csv` (Tessa vs Storm-ADD, Storm-SPM, and Rubicon probabilities)
+      * Rubicon/Dice numbers (PRISM → Dice transpilation + Dice inference): `reproduced-0429/<suite>/<test>/rubicon.csv`, reproduced by `make -f reproduce.mk rubicon`. Rubicon and Dice are bundled by the flake (`nix/rubicon.nix`, `nix/dice.nix`) and exposed via `rubicon-shell` (and transitively `tessa-shell`).
+      * Geni numbers (gennifer interpreting a generated `.gir` program) for every suite in the paper: bundled for `weather-factory` (`reproduced-0429/weather-factory/<test>/geni.csv`, reproduced by `make -f reproduce.mk geni` or `make -f reproduce.mk weather-factory`).
 
 * Reusable: 
 
   The artifact ships under the MIT License (see `LICENSE`).
   Tessa's source lives under `src/`; benchmark models under `benchmarks/`; a regression test suite under `tests/` (`pytest`).
   
-  The build is fully pinned: `flake.nix` + `flake.lock` reproduce the exact toolchain (Storm, stormpy, JAX with CUDA, Python 3.12), and the `Dockerfile` wraps the same flake in a `nixos/nix` image for hosts without Nix.
+  The build is fully pinned: `flake.nix` + `flake.lock` reproduce the exact toolchain (Storm, stormpy, Rubicon, Dice, Gennifer, JAX with CUDA, Python 3.12), and the `Dockerfile` wraps the same flake in a `nixos/nix` image for hosts without Nix. The flake exposes `rubicon`, `dice`, and `gennifer` as packages alongside `storm`/`stormpy`/`tessa`, so the external comparison points reproduce inside the same toolchain.
   
   Examples in (`examples`) e.g. (`examples/complex_multi_action.prism` and `tessa/examples/complex_multi_action.jani`) demonstrates Tessa's usage beyond the paper figures.
 
@@ -62,7 +56,7 @@ Machine Configuration and Time Consumption:
   * GPU: NVIDIA 2080 Ti
   * Time (installation): ~1.5 h
   * Time (smoke test): ~20 m
-  * Time (full review): ~18.7 h
+  * Time (full review): ~50 h
 
 external connectivity: NO
 
@@ -201,12 +195,14 @@ Please refer to https://nixos.org/download for more info.
 
 The flake builds JAX for compute capabilities 6.0–12.0 (Pascal through Blackwell), so every shipped NVIDIA card works without editing `flake.nix`. For a faster first build, narrow `cudaCapabilities` in `flake.nix` (line 14) to just your card's capability — see [Choose your GPU](#choose-your-gpu).
 
-The flake exposes two development shells:
+The flake exposes four development shells, each layered on top of the previous (`storm-shell` ⊆ `geni-shell` ⊆ `rubicon-shell` ⊆ `tessa-shell`):
 
-| Shell                   | Contents                                                    | When to use                                                                                                                                              |
-| ----------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tessa-shell` (default) | `tessa`, `stormpy`, `storm`, `plot`, Python 3.12 + JAX/CUDA | Full environment — paper reproduction, PRISM models, interactive Tessa work                                                                              |
-| `storm-shell`           | `storm` CLI + `plot` only                                   | Lightweight — you bring Tessa via `pip` and use `.jani` models so `stormpy` isn't needed (see [Option 3](#option-3-nix-storm--pip-tessa)) |
+| Shell                   | Contents                                                                              | When to use                                                                                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `storm-shell`           | `storm` CLI + `plot`                                                                  | Lightweight — you bring Tessa via `pip` and use `.jani` models so `stormpy` isn't needed (see [Option 3](#option-3-nix-storm--pip-tessa)) |
+| `geni-shell`            | `storm-shell` + `gennifer`                                                            | Adds the Geni compiler                                                                                                                                 |
+| `rubicon-shell`         | `geni-shell` + `rubicon` + `dice`                                                     | Adds the Rubicon (PRISM → Dice) baseline used by `reproduce.mk`                                                                                          |
+| `tessa-shell` (default) | `rubicon-shell` + `stormpy`, `tessa`, Python 3.12 + JAX/CUDA                          | Full environment — paper reproduction (all four tools), PRISM models, interactive Tessa work                                                             |
 
 Enter the full development shell (this is the default):
 ```
@@ -215,12 +211,14 @@ nix --experimental-features 'nix-command flakes' develop
 nix --experimental-features 'nix-command flakes' develop .#tessa-shell
 ```
 
-Or enter the storm-only shell:
+Or enter one of the lighter shells:
 ```
+nix --experimental-features 'nix-command flakes' develop .#rubicon-shell
+nix --experimental-features 'nix-command flakes' develop .#geni-shell
 nix --experimental-features 'nix-command flakes' develop .#storm-shell
 ```
 
-The first build of `tessa-shell` compiles Storm, stormpy, JAX, CUDA from source, which can take hours. `storm-shell` only builds Storm, so its first build is is shorter.
+The first build of `tessa-shell` compiles Storm, stormpy, Rubicon, Dice, JAX, CUDA from source, which can take hours. `rubicon-shell` builds Storm, Rubicon, Dice, and Gennifer but skips JAX/CUDA, so its first build is meaningfully shorter; `storm-shell` only builds Storm and is shortest.
 
 Verify `tessa-shell` is working:
 ```console
@@ -259,6 +257,8 @@ Build the image:
  => => naming to docker.io/library/tessa                           0.1s
 ```
 The build takes ~1.5h because Storm, `stormpy`, and CUDA-enabled JAX are compiled from scratch inside the container (no host Nix store to reuse). Subsequent builds reuse Docker's layer cache.
+
+The shipped `Dockerfile` only pre-builds `storm`, `stormpy`, and `tessa`. Rubicon, Dice, and Gennifer are pulled in by the `tessa-shell` `buildInputs` and so build the first time you run `nix develop` (or `nix develop .#rubicon-shell`) inside the container. To pre-bake them into the image, add `RUN nix build .#rubicon .#dice .#gennifer --cores 4 --print-build-logs` to the `Dockerfile` next to the existing `nix build` lines.
 
 **Tune `--cores N` in the `Dockerfile` (lines 12–14).** The shipped value is `4`. NCCL (pulled in by the `tessa` step via JAX) compiles each `.cu` for all 10 CUDA archs in one NVCC call, so parallel jobs are memory-heavy. Raise it on a beefier host; if the `tessa` step OOMs (`builder failed due to signal 9` inside `all_reduce_*.cu`), drop to `2` or `1`. `storm` and `stormpy` don't hit NCCL and can stay higher.
 
@@ -329,14 +329,14 @@ For the full paper reproduction, run `make -f reproduce.mk` from a shell where b
 **Performance might be different on different hardware configurations, but the scaling trends should be similar.**
 
 Benchmark scripts to reproduce the paper figures are driven by `reproduce.mk`.
-Three tools are compared: **Tessa** (JAX CUDA), **Storm ADD** (MTBDD engine), and **Storm SPM** (Sparse engine).
+Four tools are compared on every suite: **Tessa** (JAX CUDA), **Storm ADD** (MTBDD engine), **Storm SPM** (Sparse engine), and **Rubicon** (PRISM → Dice compiler + Dice inference). **Geni** (gennifer interpreting a generated `.gir` program) is additionally included for the **weather-factory** suite.
 
 | Benchmark        | Size scaling                                                                                                                                                            | Horizon scaling                                                                                                                                                         |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Meeting          | [Figure 1(c) - left](reproduced-april/meeting/testn/meeting-testn.png)                                                                                                  | [Figure 1(c) - right](reproduced-april/meeting/testh/meeting-testh.png)                                                                                                 |
-| ParQueues        | [Figure 5(a)](reproduced-april/parqueues/testq/parqueues-testq.png)             • [Figure 5(b)](reproduced-april/parqueues/testq/parqueues-testq-tessa.png)             | [Figure 5(c)](reproduced-april/parqueues/testh/parqueues-testh.png)             • [Figure 5(d)](reproduced-april/parqueues/testh/parqueues-testh-tessa.png)             |
-| Weather Factory  | [Figure 6(a)](reproduced-april/weather-factory/testn/weather-factory-testn.png) • [Figure 6(b)](reproduced-april/weather-factory/testn/weather-factory-testn-tessa.png) | [Figure 6(c)](reproduced-april/weather-factory/testh/weather-factory-testh.png) • [Figure 6(d)](reproduced-april/weather-factory/testh/weather-factory-testh-tessa.png) |
-| Herman           | [Figure 7(a)](reproduced-april/herman/testn/herman-testn.png)                   • [Figure 7(b)](reproduced-april/herman/testn/herman-testn-tessa.png)                   | [Figure 7(c)](reproduced-april/herman/testh/herman-testh.png)                   • [Figure 7(d)](reproduced-april/herman/testh/herman-testh-tessa.png)                   |
+| Meeting          | [Figure 1(c) - left](reproduced-0429/meeting/testn/meeting-testn.png)                                                                                                  | [Figure 1(c) - right](reproduced-0429/meeting/testh/meeting-testh.png)                                                                                                 |
+| ParQueues        | [Figure 5(a)](reproduced-0429/parqueues/testq/parqueues-testq.png)             • [Figure 5(b)](reproduced-0429/parqueues/testq/parqueues-testq-tessa.png)             | [Figure 5(c)](reproduced-0429/parqueues/testh/parqueues-testh.png)             • [Figure 5(d)](reproduced-0429/parqueues/testh/parqueues-testh-tessa.png)             |
+| Weather Factory  | [Figure 6(a)](reproduced-0429/weather-factory/testn/weather-factory-testn.png) • [Figure 6(b)](reproduced-0429/weather-factory/testn/weather-factory-testn-tessa.png) | [Figure 6(c)](reproduced-0429/weather-factory/testh/weather-factory-testh.png) • [Figure 6(d)](reproduced-0429/weather-factory/testh/weather-factory-testh-tessa.png) |
+| Herman           | [Figure 7(a)](reproduced-0429/herman/testn/herman-testn.png)                   • [Figure 7(b)](reproduced-0429/herman/testn/herman-testn-tessa.png)                   | [Figure 7(c)](reproduced-0429/herman/testh/herman-testh.png)                   • [Figure 7(d)](reproduced-0429/herman/testh/herman-testh-tessa.png)                   |
 
 ### Wall-clock time for the full reproduction
 
@@ -344,18 +344,18 @@ Approximate wall-clock time spent on each `bench.suite.tool` slice on the verifi
 Tessa totals include warmup plus the configured number of timed runs; Storm totals are sequential subprocess invocations, one per parameter point.
 Cells where Storm ADD exits `FAILED` on the first parameter point (meeting.testh, weather-factory.testh) finish quickly but produce no useful data beyond H ≤ 2 — flagged explicitly.
 
-| Suite           | Test  |  Tessa  |  Storm ADD  |  Storm SPM |
-| --------------- | ----- | ------: | ----------: | ---------: |
-| Herman          | testn |      2m |         47m |    25m     |
-| Herman          | testh |      5m |      2h 48m | 1h 57m     |
-| Meeting         | testn |      2m |          9m |     5m     |
-| Meeting         | testh |      6m |          3m | 1h 59m     |
-| Weather Factory | testn |      2m |          7m |    46m     |
-| Weather Factory | testh |      7m |          4m | 1h 42m     |
-| ParQueues       | testq |      2m |         27m |    24m     |
-| ParQueues       | testh |      4m |      6h 28m |    15m     |
+| Suite           | Test  |  Tessa  | Storm ADD| Storm SPM |  Rubicon  |   Geni   |
+| --------------- | ----- | ------: | -------: | --------: | --------: | -------: |
+| Herman          | testn |      1m |   1h 34m |       30m |     1h 6m |    —     |
+| Herman          | testh |      4m |   6h 32m |    5h  9m |    2h 53m |    —     |
+| Meeting         | testn |      1m |      20m |       11m |       18m |    —     |
+| Meeting         | testh |      5m |       1m |    5h 51m |    1h 34m |    —     |
+| Weather Factory | testn |      1m |      14m |       52m |       26m |    30m   |
+| Weather Factory | testh |      6m |       3m |    4h 59m |    2h 22m |  4h 0m   |
+| ParQueues       | testq |      1m |      58m |       28m |       47m |    —     |
+| ParQueues       | testh |      4m |   4h 24m |       41m |     2h 7m |    —     |
 
-Totals: Tessa ≈ 27 min, Storm ADD ≈ 10.8 h, Storm SPM ≈ 7.5 h.
+Totals: Tessa ≈ 0.5 h, Storm ADD ≈ 14.2 h, Storm SPM ≈ 18.7 h, Rubicon ≈ 11.6 h, Geni ≈ 4.5 h (weather-factory only).
 Per-point timeout is `TO=1260` s (see top of `reproduce.mk`); parameter points that hit the timeout are recorded as `TIMEOUT` in the CSVs.
 
 ### Quick Smoke Test
@@ -368,7 +368,7 @@ make -f reproduce.mk SMOKE=1
 
 ### Full Reproduction
 
-Runs all benchmarks with the full parameter ranges from the paper (~18.7 hours):
+Runs all benchmarks with the full parameter ranges from the paper (~50 hours):
 
 ```shell
 make -f reproduce.mk
@@ -379,13 +379,15 @@ make -f reproduce.mk
 To rerun all suites against just one tool — useful when only one tool's CSVs need refreshing — use the tool-aggregate targets:
 
 ```shell
-make -f reproduce.mk tessa      # ~27 minutes -  Tessa across all suites
-make -f reproduce.mk storm-add  # ~10.8 hours   -  Storm ADD across all suites
-make -f reproduce.mk storm-spm  # ~7.5 hours   -  Storm SPM across all suites
-make -f reproduce.mk            # reuses the CSVs produced by the per-tool commands above; verifies Tessa probabilities against Storm and emits PNG scaling plots
+make -f reproduce.mk tessa      # ~26 minutes -  Tessa across all suites
+make -f reproduce.mk storm-add  # ~14.2 hours -  Storm ADD across all suites
+make -f reproduce.mk storm-spm  # ~18.7 hours -  Storm SPM across all suites
+make -f reproduce.mk rubicon    # ~11.6 hours -  Rubicon across all suites
+make -f reproduce.mk geni       # ~4.5 hours  -  Geni across the weather-factory suite (the only suite Geni runs against in this artifact)
+make -f reproduce.mk            # reuses the CSVs produced by the per-tool commands above; verifies Tessa probabilities against Storm, Rubicon, and Geni and emits PNG scaling plots
 ```
 
-Finer-grained slices follow the pattern `<suite>.<test>.<tool>`, e.g. `herman.testn.tessa` or `parqueues.testh.storm-spm`.
+Finer-grained slices follow the pattern `<suite>.<test>.<tool>`, e.g. `herman.testn.tessa`, `parqueues.testh.storm-spm`, or `meeting.testh.rubicon`. The eight Rubicon slices are `herman.test{n,h}.rubicon`, `meeting.test{n,h}.rubicon`, `weather-factory.test{n,h}.rubicon`, and `parqueues.test{q,h}.rubicon`.
 
 Each run target has a matching `clean.*` target that drops only that target's CSV and log. Use these to force a rerun of one slice without nuking the rest of the output tree:
 
@@ -393,6 +395,8 @@ Each run target has a matching `clean.*` target that drops only that target's CS
 make -f reproduce.mk clean.tessa                # drop all Tessa CSVs/logs
 make -f reproduce.mk clean.storm-add            # drop all Storm ADD CSVs/logs
 make -f reproduce.mk clean.storm-spm            # drop all Storm SPM CSVs/logs
+make -f reproduce.mk clean.rubicon              # drop all Rubicon CSVs/logs
+make -f reproduce.mk clean.geni                 # drop the weather-factory Geni CSVs/logs/cache
 ```
 
 For iterating on Tessa without re-running Storm baselines, use `tessa.all` — it runs the Tessa sweep, then re-runs verification and plotting against the existing `storm.add.csv` / `storm.spm.csv` on disk:
@@ -405,9 +409,10 @@ make -f reproduce.mk tessa.all                  # ~27 minutes
 
 Results are written to `reproduced/<benchmark>/<test>/` (or `smoke/` with `SMOKE=1`).
 Each sub-test directory contains:
-- `tessa.csv`, `storm.add.csv`, `storm.spm.csv` — timing data
-- `*.png` — scaling plots comparing the three tools
-- `verify.log` — correctness check (Tessa vs Storm probabilities)
+- `tessa.csv`, `storm.add.csv`, `storm.spm.csv`, `rubicon.csv` — timing data (plus `geni.csv` for `weather-factory`)
+- `tessa.log`, `storm.add.log`, `storm.spm.log`, `rubicon.log` — per-tool run logs (plus `geni.log` for `weather-factory`)
+- `*.png` — scaling plots comparing the tools
+- `verify.csv`, `verify.log` — correctness check (Tessa vs Storm, Rubicon, and — for `weather-factory` — Geni probabilities)
 
 Existing result files are reused automatically. Delete the output directory to force a rerun.
 
@@ -444,23 +449,6 @@ Outputs land next to the script: `loss.csv`, `loss.png`, `landscape.png`. With t
 
 If you hit something not listed above, please open an issue with the output of `nvidia-smi`, `python -c "import jax; print(jax.devices(), jax.__version__)"`, and the failing command's full traceback.
 
-## Reproducing External Tool Numbers
-
-### Rubicon (Dice)
-
-To reproduce the Rubicon/Dice numbers reported in the paper, please use the Rubicon artifact:
-
-> https://github.com/sjunges/rubicon
-
-Follow the instructions in that repository to set up and run the Dice benchmarks.
-
-### Geni
-
-To reproduce the Geni numbers reported in the paper, please use the Geni artifact:
-
-> https://github.com/geni-icfp25-ae/geni-icfp25-ae/tree/main/bench/ICFP/weather-factory
-
-Follow the instructions in that repository to set up and run the Geni benchmarks.
 
 ## Notes
 
