@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+weather-factory,n13-h10,rubicon,3,allStrike,10,,13,10,ok,1.61578779544e-09,14.588681573979557,0.08719323663024292,
+weather-factory,n13-h20,rubicon,3,allStrike,20,,13,20,ok,2.97750769389e-09,35.06882814298539,0.13951974354528057,

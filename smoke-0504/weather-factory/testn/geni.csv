@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,geni_mode,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+weather-factory,n2-h10,geni,3,monolithic,allStrike,10,,2,10,ok,0.1840587,0.20463663801395646,0.013871366397074557,
+weather-factory,n7-h10,geni,3,monolithic,allStrike,10,,7,10,ok,6.87e-05,0.40034324233420193,0.04533609798483007,

@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,property,horizon,constants,Q,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+parqueues,q3-n3-h10,rubicon,3,target,10,"{""N"": 3}",3,3,10,ok,0.783376242691,0.3766544612978275,0.01862477374963251,
+parqueues,q4-n3-h10,rubicon,3,target,10,"{""N"": 3}",4,3,10,ok,0.0264876275794,0.4046842160169035,0.019625281358310355,

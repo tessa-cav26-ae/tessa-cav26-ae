@@ -1,0 +1,7 @@
+tessa_file,storm_file,case_id,tessa_probability,storm_probability,abs_diff,rel_diff,status
+tessa.csv,storm.add.csv,n2-h10,6.32517600e-02,6.32517554e-02,4.60e-09,0.000%,ok
+tessa.csv,storm.add.csv,n3-h10,2.35439500e-02,2.35439501e-02,6.00e-11,0.000%,ok
+tessa.csv,storm.spm.csv,n2-h10,6.32517600e-02,6.32517554e-02,4.60e-09,0.000%,ok
+tessa.csv,storm.spm.csv,n3-h10,2.35439500e-02,2.35439501e-02,6.00e-11,0.000%,ok
+tessa.csv,rubicon.csv,n2-h10,6.32517600e-02,6.32517554e-02,4.60e-09,0.000%,ok
+tessa.csv,rubicon.csv,n3-h10,2.35439500e-02,2.35439501e-02,5.72e-11,0.000%,ok

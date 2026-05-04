@@ -1,0 +1,13 @@
+2026-05-04 15:20:14,024 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('smoke/herman/testh'), 'engine': None}
+2026-05-04 15:20:14,028 - __main__ - INFO - [herman] n17-h10 :: tessa
+2026-05-04 15:20:14,028 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-17.jani --type jani --property stable --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log smoke/herman/testh/n17-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-05-04 15:20:23,439 - __main__ - DEBUG -   gpu
+2026-05-04 15:20:23,440 - __main__ - DEBUG -   Array(0.20762036, dtype=float64)
+2026-05-04 15:20:23,443 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testh/tessa.csv
+2026-05-04 15:20:23,443 - __main__ - INFO -   => ok  P=2.076204e-01  total=9.411s  work=1.026±0.063s  compile=0.078s  run=0.002s
+2026-05-04 15:20:23,443 - __main__ - INFO - [herman] n17-h20 :: tessa
+2026-05-04 15:20:23,444 - __main__ - DEBUG -   $ tessa benchmarks/herman/herman-17.jani --type jani --property stable --horizon 20 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log smoke/herman/testh/n17-h20.tessa.jax-cuda-0.float64.time.jsonl
+2026-05-04 15:20:32,582 - __main__ - DEBUG -   gpu
+2026-05-04 15:20:32,582 - __main__ - DEBUG -   Array(0.46974211, dtype=float64)
+2026-05-04 15:20:32,585 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testh/tessa.csv
+2026-05-04 15:20:32,585 - __main__ - INFO -   => ok  P=4.697421e-01  total=9.138s  work=1.024±0.047s  compile=0.067s  run=0.004s

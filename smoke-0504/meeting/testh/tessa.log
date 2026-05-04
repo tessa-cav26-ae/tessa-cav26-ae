@@ -1,0 +1,13 @@
+2026-05-04 15:26:51,189 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('smoke/meeting/testh'), 'engine': None}
+2026-05-04 15:26:51,192 - __main__ - INFO - [meeting] n12-h1 :: tessa
+2026-05-04 15:26:51,193 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-12.jani --type jani --property goal --horizon 1 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log smoke/meeting/testh/n12-h1.tessa.jax-cuda-0.float64.time.jsonl
+2026-05-04 15:27:02,850 - __main__ - DEBUG -   gpu
+2026-05-04 15:27:02,850 - __main__ - DEBUG -   Array(0., dtype=float64)
+2026-05-04 15:27:02,852 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testh/tessa.csv
+2026-05-04 15:27:02,852 - __main__ - INFO -   => ok  P=0.000000e+00  total=11.657s  work=1.486±0.034s  compile=0.053s  run=0.001s
+2026-05-04 15:27:02,852 - __main__ - INFO - [meeting] n12-h10 :: tessa
+2026-05-04 15:27:02,853 - __main__ - DEBUG -   $ tessa benchmarks/meeting/meeting-12.jani --type jani --property goal --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log smoke/meeting/testh/n12-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-05-04 15:27:14,687 - __main__ - DEBUG -   gpu
+2026-05-04 15:27:14,687 - __main__ - DEBUG -   Array(0.00054637, dtype=float64)
+2026-05-04 15:27:14,689 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testh/tessa.csv
+2026-05-04 15:27:14,690 - __main__ - INFO -   => ok  P=5.463700e-04  total=11.834s  work=1.477±0.011s  compile=0.049s  run=0.004s

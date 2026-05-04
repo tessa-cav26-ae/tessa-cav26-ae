@@ -1,0 +1,13 @@
+2026-05-04 15:42:56,840 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/parqueues/testh'), 'engine': 'add'}
+2026-05-04 15:42:56,843 - __main__ - INFO - [parqueues] q9-n3-h10 :: storm.add
+2026-05-04 15:42:56,843 - __main__ - INFO -   trial 1/3
+2026-05-04 15:42:56,844 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=10 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:43:57,198 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:43:57,200 - __main__ - DEBUG - Wrote CSV row to smoke/parqueues/testh/storm.add.csv
+2026-05-04 15:43:57,200 - __main__ - INFO -   => timeout
+2026-05-04 15:43:57,200 - __main__ - INFO - [parqueues] q9-n3-h20 :: storm.add
+2026-05-04 15:43:57,200 - __main__ - INFO -   trial 1/3
+2026-05-04 15:43:57,200 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=20 "target" ] --engine dd --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:44:57,526 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:44:57,527 - __main__ - DEBUG - Wrote CSV row to smoke/parqueues/testh/storm.add.csv
+2026-05-04 15:44:57,527 - __main__ - INFO -   => timeout

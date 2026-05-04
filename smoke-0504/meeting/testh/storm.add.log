@@ -1,0 +1,13 @@
+2026-05-04 15:27:14,895 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/meeting/testh'), 'engine': 'add'}
+2026-05-04 15:27:14,898 - __main__ - INFO - [meeting] n12-h1 :: storm.add
+2026-05-04 15:27:14,898 - __main__ - INFO -   trial 1/3
+2026-05-04 15:27:14,899 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-12.prism --prop P=? [ F<=1 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:28:14,992 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:28:14,994 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testh/storm.add.csv
+2026-05-04 15:28:14,994 - __main__ - INFO -   => timeout
+2026-05-04 15:28:14,995 - __main__ - INFO - [meeting] n12-h10 :: storm.add
+2026-05-04 15:28:14,995 - __main__ - INFO -   trial 1/3
+2026-05-04 15:28:14,996 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-12.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:29:15,192 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:29:15,193 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testh/storm.add.csv
+2026-05-04 15:29:15,193 - __main__ - INFO -   => timeout

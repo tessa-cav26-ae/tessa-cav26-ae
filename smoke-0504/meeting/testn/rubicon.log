@@ -1,0 +1,43 @@
+2026-05-04 15:26:46,533 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/meeting/testn'), 'engine': None}
+2026-05-04 15:26:46,536 - __main__ - INFO - [meeting] n2-h10 :: rubicon
+2026-05-04 15:26:46,536 - __main__ - INFO -   trial 1/3
+2026-05-04 15:26:46,537 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-2.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:26:46,936 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmpx_5mpi6o/meeting-2.dice
+2026-05-04 15:26:46,936 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpx_5mpi6o/meeting-2.dice
+2026-05-04 15:26:46,936 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.063251755397"],["(false, true)","0."],["(false, false)","0.936748244603"]]}]
+2026-05-04 15:26:46,936 - __main__ - DEBUG -   0.063251755396999995
+2026-05-04 15:26:46,936 - __main__ - INFO -   trial 2/3
+2026-05-04 15:26:46,937 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-2.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:26:47,316 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmpueid7021/meeting-2.dice
+2026-05-04 15:26:47,317 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpueid7021/meeting-2.dice
+2026-05-04 15:26:47,317 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.063251755397"],["(false, true)","0."],["(false, false)","0.936748244603"]]}]
+2026-05-04 15:26:47,317 - __main__ - DEBUG -   0.063251755396999995
+2026-05-04 15:26:47,317 - __main__ - INFO -   trial 3/3
+2026-05-04 15:26:47,317 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-2.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:26:47,702 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmpjivr4luw/meeting-2.dice
+2026-05-04 15:26:47,702 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpjivr4luw/meeting-2.dice
+2026-05-04 15:26:47,702 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.063251755397"],["(false, true)","0."],["(false, false)","0.936748244603"]]}]
+2026-05-04 15:26:47,702 - __main__ - DEBUG -   0.063251755396999995
+2026-05-04 15:26:47,702 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testn/rubicon.csv
+2026-05-04 15:26:47,702 - __main__ - INFO -   => ok  P=6.325176e-02  total=0.388s
+2026-05-04 15:26:47,703 - __main__ - INFO - [meeting] n3-h10 :: rubicon
+2026-05-04 15:26:47,703 - __main__ - INFO -   trial 1/3
+2026-05-04 15:26:47,703 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-3.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:26:48,113 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmpxv1p1ycl/meeting-3.dice
+2026-05-04 15:26:48,113 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpxv1p1ycl/meeting-3.dice
+2026-05-04 15:26:48,113 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0235439500572"],["(false, true)","0."],["(false, false)","0.976456049943"]]}]
+2026-05-04 15:26:48,113 - __main__ - DEBUG -   0.023543950057199999
+2026-05-04 15:26:48,113 - __main__ - INFO -   trial 2/3
+2026-05-04 15:26:48,113 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-3.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:26:48,491 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmp8edl5m2b/meeting-3.dice
+2026-05-04 15:26:48,491 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp8edl5m2b/meeting-3.dice
+2026-05-04 15:26:48,491 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0235439500572"],["(false, true)","0."],["(false, false)","0.976456049943"]]}]
+2026-05-04 15:26:48,491 - __main__ - DEBUG -   0.023543950057199999
+2026-05-04 15:26:48,491 - __main__ - INFO -   trial 3/3
+2026-05-04 15:26:48,491 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-3.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:26:48,900 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmp9g7uiya2/meeting-3.dice
+2026-05-04 15:26:48,900 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp9g7uiya2/meeting-3.dice
+2026-05-04 15:26:48,900 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0235439500572"],["(false, true)","0."],["(false, false)","0.976456049943"]]}]
+2026-05-04 15:26:48,900 - __main__ - DEBUG -   0.023543950057199999
+2026-05-04 15:26:48,902 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testn/rubicon.csv
+2026-05-04 15:26:48,902 - __main__ - INFO -   => ok  P=2.354395e-02  total=0.399s

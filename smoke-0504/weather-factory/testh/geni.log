@@ -1,0 +1,61 @@
+2026-05-04 15:39:47,836 - src.log_config - INFO - cli arguments: {'tool': 'geni', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/weather-factory/testh'), 'engine': None}
+2026-05-04 15:39:47,839 - __main__ - INFO - [weather-factory] n13-h10 :: geni
+2026-05-04 15:39:47,839 - __main__ - INFO -   trial 1/3
+2026-05-04 15:39:47,839 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.geni_runner --n 13 --h 10 --mode monolithic --gennifer-cmd gennifer --workdir smoke/weather-factory/testh/geni-cache
+2026-05-04 15:40:19,357 - __main__ - DEBUG -   
+2026-05-04 15:40:19,357 - __main__ - DEBUG -   Live variable set information Some(16)
+2026-05-04 15:40:19,357 - __main__ - DEBUG -   Pr(0) = 1.0000024
+2026-05-04 15:40:19,357 - __main__ - DEBUG -   Pr(1) = -0.0000024
+2026-05-04 15:40:19,357 - __main__ - DEBUG -   Time consumption, 0.002892898, 0, 0, 0.015172562, 0.01988697, 28.744211117, 0, 0, 28.782163547
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Parse         	: 2.892898ms
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Desugar       	: 0ns
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Type check    	: 0ns
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       LVA           	: 15.172562ms
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Compilation   	: 19.88697ms
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Interpret     	: 28.744211117s
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Transpilation 	: 0ns = 0ns + 0ns
+2026-05-04 15:40:19,358 - __main__ - DEBUG -       Total         	: 28.782163547s
+2026-05-04 15:40:19,358 - __main__ - DEBUG -   
+2026-05-04 15:40:19,358 - __main__ - DEBUG -   -2.3999999999999999e-06
+2026-05-04 15:40:19,358 - __main__ - INFO -   trial 2/3
+2026-05-04 15:40:19,359 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.geni_runner --n 13 --h 10 --mode monolithic --gennifer-cmd gennifer --workdir smoke/weather-factory/testh/geni-cache
+2026-05-04 15:40:50,862 - __main__ - DEBUG -   
+2026-05-04 15:40:50,862 - __main__ - DEBUG -   Live variable set information Some(16)
+2026-05-04 15:40:50,863 - __main__ - DEBUG -   Pr(0) = 1.0000024
+2026-05-04 15:40:50,863 - __main__ - DEBUG -   Pr(1) = -0.0000024
+2026-05-04 15:40:50,863 - __main__ - DEBUG -   Time consumption, 0.002968139, 0, 0, 0.014419148, 0.014870767, 28.767767485, 0, 0, 28.800025539
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Parse         	: 2.968139ms
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Desugar       	: 0ns
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Type check    	: 0ns
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       LVA           	: 14.419148ms
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Compilation   	: 14.870767ms
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Interpret     	: 28.767767485s
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Transpilation 	: 0ns = 0ns + 0ns
+2026-05-04 15:40:50,863 - __main__ - DEBUG -       Total         	: 28.800025539s
+2026-05-04 15:40:50,863 - __main__ - DEBUG -   
+2026-05-04 15:40:50,863 - __main__ - DEBUG -   -2.3999999999999999e-06
+2026-05-04 15:40:50,863 - __main__ - INFO -   trial 3/3
+2026-05-04 15:40:50,864 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.geni_runner --n 13 --h 10 --mode monolithic --gennifer-cmd gennifer --workdir smoke/weather-factory/testh/geni-cache
+2026-05-04 15:41:22,429 - __main__ - DEBUG -   
+2026-05-04 15:41:22,430 - __main__ - DEBUG -   Live variable set information Some(16)
+2026-05-04 15:41:22,430 - __main__ - DEBUG -   Pr(0) = 1.0000024
+2026-05-04 15:41:22,430 - __main__ - DEBUG -   Pr(1) = -0.0000024
+2026-05-04 15:41:22,430 - __main__ - DEBUG -   Time consumption, 0.002909513, 0, 0, 0.01344442, 0.013216173, 28.818882488, 0, 0, 28.848452594
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       Parse         	: 2.909513ms
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       Desugar       	: 0ns
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       Type check    	: 0ns
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       LVA           	: 13.44442ms
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       Compilation   	: 13.216173ms
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       Interpret     	: 28.818882488s
+2026-05-04 15:41:22,430 - __main__ - DEBUG -       Transpilation 	: 0ns = 0ns + 0ns
+2026-05-04 15:41:22,431 - __main__ - DEBUG -       Total         	: 28.848452594s
+2026-05-04 15:41:22,431 - __main__ - DEBUG -   
+2026-05-04 15:41:22,431 - __main__ - DEBUG -   -2.3999999999999999e-06
+2026-05-04 15:41:22,432 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testh/geni.csv
+2026-05-04 15:41:22,433 - __main__ - INFO -   => ok  P=-2.400000e-06  total=31.529s
+2026-05-04 15:41:22,433 - __main__ - INFO - [weather-factory] n13-h20 :: geni
+2026-05-04 15:41:22,433 - __main__ - INFO -   trial 1/3
+2026-05-04 15:41:22,434 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.geni_runner --n 13 --h 20 --mode monolithic --gennifer-cmd gennifer --workdir smoke/weather-factory/testh/geni-cache
+2026-05-04 15:42:22,451 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:42:22,453 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testh/geni.csv
+2026-05-04 15:42:22,453 - __main__ - INFO -   => timeout

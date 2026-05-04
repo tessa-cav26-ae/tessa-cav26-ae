@@ -1,0 +1,4 @@
+tessa_file,storm_file,case_id,tessa_probability,storm_probability,abs_diff,rel_diff,status
+tessa.csv,rubicon.csv,n13-h10,1.61578780e-09,1.61578780e-09,4.56e-18,0.000%,ok
+tessa.csv,rubicon.csv,n13-h20,2.97750769e-09,2.97750769e-09,3.89e-18,0.000%,ok
+tessa.csv,geni.csv,n13-h10,1.61578780e-09,-2.40000000e-06,2.40e-06,100.067%,ok

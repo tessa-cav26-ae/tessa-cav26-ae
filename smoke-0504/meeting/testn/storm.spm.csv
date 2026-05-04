@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,storm_extra_args,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+meeting,n2-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,2,10,ok,0.0632517554,0.06129926268476993,0.00831128061937692,
+meeting,n3-h10,storm.spm,3,-tm --sylvan:threads 1,goal,10,,3,10,ok,0.02354395006,0.06213185967256626,0.001037537757247861,

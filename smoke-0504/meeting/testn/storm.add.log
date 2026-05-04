@@ -1,0 +1,193 @@
+2026-05-04 15:26:45,086 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/meeting/testn'), 'engine': 'add'}
+2026-05-04 15:26:45,089 - __main__ - INFO - [meeting] n2-h10 :: storm.add
+2026-05-04 15:26:45,089 - __main__ - INFO -   trial 1/3
+2026-05-04 15:26:45,090 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   Date: Mon May  4 15:26:45 2026
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   
+2026-05-04 15:26:45,157 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   Time for model construction: 0.008s.
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   States: 	9 (5 nodes)
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   Transitions: 	25 (86 nodes)
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   Variables: 	rows: 2 meta variables (4 DD variables), columns: 2 meta variables (4 DD variables)
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:26:45,158 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:26:45,158 - __main__ - DEBUG -      * init -> 1 state(s) (5 nodes)
+2026-05-04 15:26:45,158 - __main__ - DEBUG -      * goal
+2026-05-04 15:26:45,158 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,159 - __main__ - DEBUG -   
+2026-05-04 15:26:45,159 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-05-04 15:26:45,159 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-05-04 15:26:45,159 - __main__ - DEBUG -   Time for model checking: 0.009s.
+2026-05-04 15:26:45,159 - __main__ - DEBUG -   
+2026-05-04 15:26:45,159 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:26:45,159 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-05-04 15:26:45,159 - __main__ - DEBUG -     * CPU time: 0.040s
+2026-05-04 15:26:45,159 - __main__ - DEBUG -     * wallclock time: 0.027s
+2026-05-04 15:26:45,159 - __main__ - INFO -   trial 2/3
+2026-05-04 15:26:45,160 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:26:45,229 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   Date: Mon May  4 15:26:45 2026
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   Time for model construction: 0.008s.
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:26:45,230 - __main__ - DEBUG -   States: 	9 (5 nodes)
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Transitions: 	25 (86 nodes)
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Variables: 	rows: 2 meta variables (4 DD variables), columns: 2 meta variables (4 DD variables)
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:26:45,231 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:26:45,231 - __main__ - DEBUG -      * init -> 1 state(s) (5 nodes)
+2026-05-04 15:26:45,231 - __main__ - DEBUG -      * goal
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-05-04 15:26:45,231 - __main__ - DEBUG -   Time for model checking: 0.009s.
+2026-05-04 15:26:45,232 - __main__ - DEBUG -   
+2026-05-04 15:26:45,232 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:26:45,232 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-05-04 15:26:45,232 - __main__ - DEBUG -     * CPU time: 0.048s
+2026-05-04 15:26:45,232 - __main__ - DEBUG -     * wallclock time: 0.027s
+2026-05-04 15:26:45,232 - __main__ - INFO -   trial 3/3
+2026-05-04 15:26:45,233 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-2.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:26:45,303 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   Date: Mon May  4 15:26:45 2026
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-2.prism --prop 'P=? [ F<=10 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   Time for model construction: 0.008s.
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,304 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   States: 	9 (5 nodes)
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Transitions: 	25 (86 nodes)
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Variables: 	rows: 2 meta variables (4 DD variables), columns: 2 meta variables (4 DD variables)
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:26:45,305 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:26:45,305 - __main__ - DEBUG -      * init -> 1 state(s) (5 nodes)
+2026-05-04 15:26:45,305 - __main__ - DEBUG -      * goal
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Result (for initial states): 0.0632517554
+2026-05-04 15:26:45,305 - __main__ - DEBUG -   Time for model checking: 0.008s.
+2026-05-04 15:26:45,306 - __main__ - DEBUG -   
+2026-05-04 15:26:45,306 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:26:45,306 - __main__ - DEBUG -     * peak memory usage: 52MB
+2026-05-04 15:26:45,306 - __main__ - DEBUG -     * CPU time: 0.047s
+2026-05-04 15:26:45,306 - __main__ - DEBUG -     * wallclock time: 0.027s
+2026-05-04 15:26:45,307 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testn/storm.add.csv
+2026-05-04 15:26:45,308 - __main__ - INFO -   => ok  P=6.325176e-02  total=0.069s
+2026-05-04 15:26:45,308 - __main__ - INFO - [meeting] n3-h10 :: storm.add
+2026-05-04 15:26:45,308 - __main__ - INFO -   trial 1/3
+2026-05-04 15:26:45,309 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:26:45,441 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   Date: Mon May  4 15:26:45 2026
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   Time for model construction: 0.025s.
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:26:45,442 - __main__ - DEBUG -   States: 	27 (7 nodes)
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Transitions: 	125 (436 nodes)
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (6 DD variables), columns: 3 meta variables (6 DD variables)
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:26:45,443 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:26:45,443 - __main__ - DEBUG -      * init -> 1 state(s) (7 nodes)
+2026-05-04 15:26:45,443 - __main__ - DEBUG -      * goal
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-05-04 15:26:45,443 - __main__ - DEBUG -   Time for model checking: 0.040s.
+2026-05-04 15:26:45,444 - __main__ - DEBUG -   
+2026-05-04 15:26:45,444 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:26:45,444 - __main__ - DEBUG -     * peak memory usage: 126MB
+2026-05-04 15:26:45,444 - __main__ - DEBUG -     * CPU time: 0.076s
+2026-05-04 15:26:45,444 - __main__ - DEBUG -     * wallclock time: 0.089s
+2026-05-04 15:26:45,444 - __main__ - INFO -   trial 2/3
+2026-05-04 15:26:45,445 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:26:45,576 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   Date: Mon May  4 15:26:45 2026
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   Time for model construction: 0.025s.
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,577 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   States: 	27 (7 nodes)
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Transitions: 	125 (436 nodes)
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (6 DD variables), columns: 3 meta variables (6 DD variables)
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:26:45,578 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:26:45,578 - __main__ - DEBUG -      * init -> 1 state(s) (7 nodes)
+2026-05-04 15:26:45,578 - __main__ - DEBUG -      * goal
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-05-04 15:26:45,578 - __main__ - DEBUG -   Time for model checking: 0.040s.
+2026-05-04 15:26:45,579 - __main__ - DEBUG -   
+2026-05-04 15:26:45,579 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:26:45,579 - __main__ - DEBUG -     * peak memory usage: 126MB
+2026-05-04 15:26:45,579 - __main__ - DEBUG -     * CPU time: 0.077s
+2026-05-04 15:26:45,579 - __main__ - DEBUG -     * wallclock time: 0.087s
+2026-05-04 15:26:45,579 - __main__ - INFO -   trial 3/3
+2026-05-04 15:26:45,580 - __main__ - DEBUG -   $ storm --prism benchmarks/meeting/meeting-3.prism --prop P=? [ F<=10 "goal" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:26:45,725 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   Date: Mon May  4 15:26:45 2026
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/meeting/meeting-3.prism --prop 'P=? [ F<=10 "goal" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   Time for model construction: 0.026s.
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:26:45,726 - __main__ - DEBUG -   States: 	27 (7 nodes)
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Transitions: 	125 (436 nodes)
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (6 DD variables), columns: 3 meta variables (6 DD variables)
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:26:45,727 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:26:45,727 - __main__ - DEBUG -      * init -> 1 state(s) (7 nodes)
+2026-05-04 15:26:45,727 - __main__ - DEBUG -      * goal
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "goal"] ...
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Result (for initial states): 0.02354395006
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   Time for model checking: 0.040s.
+2026-05-04 15:26:45,727 - __main__ - DEBUG -   
+2026-05-04 15:26:45,728 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:26:45,728 - __main__ - DEBUG -     * peak memory usage: 126MB
+2026-05-04 15:26:45,728 - __main__ - DEBUG -     * CPU time: 0.088s
+2026-05-04 15:26:45,728 - __main__ - DEBUG -     * wallclock time: 0.088s
+2026-05-04 15:26:45,729 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testn/storm.add.csv
+2026-05-04 15:26:45,729 - __main__ - INFO -   => ok  P=2.354395e-02  total=0.137s

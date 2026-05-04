@@ -1,0 +1,187 @@
+2026-05-04 15:44:57,721 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/parqueues/testh'), 'engine': 'spm'}
+2026-05-04 15:44:57,724 - __main__ - INFO - [parqueues] q9-n3-h10 :: storm.spm
+2026-05-04 15:44:57,724 - __main__ - INFO -   trial 1/3
+2026-05-04 15:44:57,724 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:45:18,344 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:45:18,344 - __main__ - DEBUG -   
+2026-05-04 15:45:18,344 - __main__ - DEBUG -   Date: Mon May  4 15:44:57 2026
+2026-05-04 15:45:18,344 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/parqueues/queue-9.prism --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm '--sylvan:threads' 1
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   Time for model input parsing: 0.005s.
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   Time for model construction: 17.428s.
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   States: 	262144
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   Transitions: 	40240054
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:45:18,345 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-05-04 15:45:18,345 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-05-04 15:45:18,346 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-05-04 15:45:18,346 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   Choice Labels: 	none
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   Result (for initial states): 0.03729385656
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   Time for model checking: 3.107s.
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   
+2026-05-04 15:45:18,346 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:45:18,346 - __main__ - DEBUG -     * peak memory usage: 2487MB
+2026-05-04 15:45:18,346 - __main__ - DEBUG -     * CPU time: 19.315s
+2026-05-04 15:45:18,347 - __main__ - DEBUG -     * wallclock time: 20.580s
+2026-05-04 15:45:18,347 - __main__ - INFO -   trial 2/3
+2026-05-04 15:45:18,348 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:45:39,231 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:45:39,231 - __main__ - DEBUG -   
+2026-05-04 15:45:39,231 - __main__ - DEBUG -   Date: Mon May  4 15:45:18 2026
+2026-05-04 15:45:39,231 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/parqueues/queue-9.prism --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm '--sylvan:threads' 1
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   Time for model construction: 17.638s.
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   States: 	262144
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   Transitions: 	40240054
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:45:39,232 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-05-04 15:45:39,233 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-05-04 15:45:39,233 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-05-04 15:45:39,233 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   Choice Labels: 	none
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   Result (for initial states): 0.03729385656
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   Time for model checking: 3.157s.
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   
+2026-05-04 15:45:39,233 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:45:39,234 - __main__ - DEBUG -     * peak memory usage: 2487MB
+2026-05-04 15:45:39,234 - __main__ - DEBUG -     * CPU time: 19.560s
+2026-05-04 15:45:39,234 - __main__ - DEBUG -     * wallclock time: 20.835s
+2026-05-04 15:45:39,234 - __main__ - INFO -   trial 3/3
+2026-05-04 15:45:39,235 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=10 "target" ] --engine sparse --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   Date: Mon May  4 15:45:39 2026
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/parqueues/queue-9.prism --prop 'P=? [ F<=10 "target" ]' --engine sparse --constants N=3 -tm '--sylvan:threads' 1
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   
+2026-05-04 15:45:59,928 - __main__ - DEBUG -   Time for model construction: 17.490s.
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   States: 	262144
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   Transitions: 	40240054
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-05-04 15:45:59,929 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-05-04 15:45:59,929 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-05-04 15:45:59,929 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   Choice Labels: 	none
+2026-05-04 15:45:59,929 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:45:59,930 - __main__ - DEBUG -   
+2026-05-04 15:45:59,930 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=10 "target"] ...
+2026-05-04 15:45:59,930 - __main__ - DEBUG -   Result (for initial states): 0.03729385656
+2026-05-04 15:45:59,930 - __main__ - DEBUG -   Time for model checking: 3.118s.
+2026-05-04 15:45:59,930 - __main__ - DEBUG -   
+2026-05-04 15:45:59,930 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:45:59,930 - __main__ - DEBUG -     * peak memory usage: 2487MB
+2026-05-04 15:45:59,930 - __main__ - DEBUG -     * CPU time: 19.413s
+2026-05-04 15:45:59,930 - __main__ - DEBUG -     * wallclock time: 20.645s
+2026-05-04 15:45:59,932 - __main__ - DEBUG - Wrote CSV row to smoke/parqueues/testh/storm.spm.csv
+2026-05-04 15:45:59,932 - __main__ - INFO -   => ok  P=3.729386e-02  total=20.732s
+2026-05-04 15:45:59,932 - __main__ - INFO - [parqueues] q9-n3-h20 :: storm.spm
+2026-05-04 15:45:59,932 - __main__ - INFO -   trial 1/3
+2026-05-04 15:45:59,933 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=20 "target" ] --engine sparse --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:46:21,120 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:46:21,120 - __main__ - DEBUG -   
+2026-05-04 15:46:21,120 - __main__ - DEBUG -   Date: Mon May  4 15:45:59 2026
+2026-05-04 15:46:21,120 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/parqueues/queue-9.prism --prop 'P=? [ F<=20 "target" ]' --engine sparse --constants N=3 -tm '--sylvan:threads' 1
+2026-05-04 15:46:21,120 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   Time for model construction: 17.483s.
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   States: 	262144
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   Transitions: 	40240054
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:46:21,121 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-05-04 15:46:21,121 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-05-04 15:46:21,122 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-05-04 15:46:21,122 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   Choice Labels: 	none
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=20 "target"] ...
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   Result (for initial states): 0.03730469803
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   Time for model checking: 3.610s.
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   
+2026-05-04 15:46:21,122 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:46:21,123 - __main__ - DEBUG -     * peak memory usage: 2487MB
+2026-05-04 15:46:21,123 - __main__ - DEBUG -     * CPU time: 19.873s
+2026-05-04 15:46:21,123 - __main__ - DEBUG -     * wallclock time: 21.133s
+2026-05-04 15:46:21,123 - __main__ - INFO -   trial 2/3
+2026-05-04 15:46:21,124 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=20 "target" ] --engine sparse --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:46:41,341 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   Date: Mon May  4 15:46:21 2026
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/parqueues/queue-9.prism --prop 'P=? [ F<=20 "target" ]' --engine sparse --constants N=3 -tm '--sylvan:threads' 1
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   Time for model construction: 16.526s.
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:46:41,342 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   States: 	262144
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   Transitions: 	40240054
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-05-04 15:46:41,343 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-05-04 15:46:41,343 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-05-04 15:46:41,343 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   Choice Labels: 	none
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   
+2026-05-04 15:46:41,343 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=20 "target"] ...
+2026-05-04 15:46:41,344 - __main__ - DEBUG -   Result (for initial states): 0.03730469803
+2026-05-04 15:46:41,344 - __main__ - DEBUG -   Time for model checking: 3.604s.
+2026-05-04 15:46:41,344 - __main__ - DEBUG -   
+2026-05-04 15:46:41,344 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:46:41,344 - __main__ - DEBUG -     * peak memory usage: 2487MB
+2026-05-04 15:46:41,344 - __main__ - DEBUG -     * CPU time: 18.982s
+2026-05-04 15:46:41,344 - __main__ - DEBUG -     * wallclock time: 20.170s
+2026-05-04 15:46:41,344 - __main__ - INFO -   trial 3/3
+2026-05-04 15:46:41,345 - __main__ - DEBUG -   $ storm --prism benchmarks/parqueues/queue-9.prism --prop P=? [ F<=20 "target" ] --engine sparse --constants N=3 -tm --sylvan:threads 1
+2026-05-04 15:47:02,587 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   Date: Mon May  4 15:46:41 2026
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/parqueues/queue-9.prism --prop 'P=? [ F<=20 "target" ]' --engine sparse --constants N=3 -tm '--sylvan:threads' 1
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   Time for model construction: 17.502s.
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:47:02,588 - __main__ - DEBUG -   Model type: 	DTMC (sparse)
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   States: 	262144
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   Transitions: 	40240054
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   State Labels: 	3 labels
+2026-05-04 15:47:02,589 - __main__ - DEBUG -      * init -> 1 item(s)
+2026-05-04 15:47:02,589 - __main__ - DEBUG -      * deadlock -> 0 item(s)
+2026-05-04 15:47:02,589 - __main__ - DEBUG -      * target -> 4095 item(s)
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   Choice Labels: 	none
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:47:02,589 - __main__ - DEBUG -   
+2026-05-04 15:47:02,590 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=20 "target"] ...
+2026-05-04 15:47:02,590 - __main__ - DEBUG -   Result (for initial states): 0.03730469803
+2026-05-04 15:47:02,590 - __main__ - DEBUG -   Time for model checking: 3.656s.
+2026-05-04 15:47:02,590 - __main__ - DEBUG -   
+2026-05-04 15:47:02,590 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:47:02,590 - __main__ - DEBUG -     * peak memory usage: 2486MB
+2026-05-04 15:47:02,590 - __main__ - DEBUG -     * CPU time: 19.922s
+2026-05-04 15:47:02,590 - __main__ - DEBUG -     * wallclock time: 21.200s
+2026-05-04 15:47:02,592 - __main__ - DEBUG - Wrote CSV row to smoke/parqueues/testh/storm.spm.csv
+2026-05-04 15:47:02,592 - __main__ - INFO -   => ok  P=3.730470e-02  total=20.882s

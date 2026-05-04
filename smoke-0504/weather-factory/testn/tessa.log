@@ -1,0 +1,13 @@
+2026-05-04 15:32:19,322 - src.log_config - INFO - cli arguments: {'tool': 'tessa', 'backend': 'jax:cuda:0', 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float64', 'output_dir': PosixPath('smoke/weather-factory/testn'), 'engine': None}
+2026-05-04 15:32:19,324 - __main__ - INFO - [weather-factory] n2-h10 :: tessa
+2026-05-04 15:32:19,325 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory2.jani --type jani --property allStrike --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log smoke/weather-factory/testn/n2-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-05-04 15:32:24,781 - __main__ - DEBUG -   gpu
+2026-05-04 15:32:24,781 - __main__ - DEBUG -   Array(0.18405894, dtype=float64)
+2026-05-04 15:32:24,784 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testn/tessa.csv
+2026-05-04 15:32:24,784 - __main__ - INFO -   => ok  P=1.840589e-01  total=5.456s  work=0.541±0.026s  compile=0.020s  run=0.000s
+2026-05-04 15:32:24,784 - __main__ - INFO - [weather-factory] n7-h10 :: tessa
+2026-05-04 15:32:24,785 - __main__ - DEBUG -   $ tessa benchmarks/weather_factory/weatherfactory7.jani --type jani --property allStrike --horizon 10 --backend jax:cuda:0 --dtype float64 --num-work-runs 3 --num-timed-runs 1 --time-log smoke/weather-factory/testn/n7-h10.tessa.jax-cuda-0.float64.time.jsonl
+2026-05-04 15:32:33,911 - __main__ - DEBUG -   gpu
+2026-05-04 15:32:33,911 - __main__ - DEBUG -   Array(6.76364387e-05, dtype=float64)
+2026-05-04 15:32:33,914 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testn/tessa.csv
+2026-05-04 15:32:33,914 - __main__ - INFO -   => ok  P=6.763644e-05  total=9.126s  work=1.101±0.004s  compile=0.033s  run=0.000s

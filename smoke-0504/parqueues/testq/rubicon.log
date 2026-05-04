@@ -1,0 +1,43 @@
+2026-05-04 15:42:36,444 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/parqueues/testq'), 'engine': None}
+2026-05-04 15:42:36,446 - __main__ - INFO - [parqueues] q3-n3-h10 :: rubicon
+2026-05-04 15:42:36,447 - __main__ - INFO -   trial 1/3
+2026-05-04 15:42:36,447 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-3.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-04 15:42:36,802 - __main__ - DEBUG -   $ rubicon --prism benchmarks/parqueues/queue-3.prism --prop 'P=? [ F<=10 "target" ]' --output /tmp/nix-shell.o7ytsi/tmp2cz9zukp/queue-3.dice --constants N=3
+2026-05-04 15:42:36,802 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp2cz9zukp/queue-3.dice
+2026-05-04 15:42:36,803 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.783376242691"],["(false, true)","0."],["(false, false)","0.216623757309"]]}]
+2026-05-04 15:42:36,803 - __main__ - DEBUG -   0.78337624269100004
+2026-05-04 15:42:36,803 - __main__ - INFO -   trial 2/3
+2026-05-04 15:42:36,804 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-3.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-04 15:42:37,192 - __main__ - DEBUG -   $ rubicon --prism benchmarks/parqueues/queue-3.prism --prop 'P=? [ F<=10 "target" ]' --output /tmp/nix-shell.o7ytsi/tmpd83a1jyi/queue-3.dice --constants N=3
+2026-05-04 15:42:37,193 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpd83a1jyi/queue-3.dice
+2026-05-04 15:42:37,193 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.783376242691"],["(false, true)","0."],["(false, false)","0.216623757309"]]}]
+2026-05-04 15:42:37,193 - __main__ - DEBUG -   0.78337624269100004
+2026-05-04 15:42:37,193 - __main__ - INFO -   trial 3/3
+2026-05-04 15:42:37,194 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-3.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-04 15:42:37,580 - __main__ - DEBUG -   $ rubicon --prism benchmarks/parqueues/queue-3.prism --prop 'P=? [ F<=10 "target" ]' --output /tmp/nix-shell.o7ytsi/tmpyulor2rs/queue-3.dice --constants N=3
+2026-05-04 15:42:37,580 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpyulor2rs/queue-3.dice
+2026-05-04 15:42:37,580 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.783376242691"],["(false, true)","0."],["(false, false)","0.216623757309"]]}]
+2026-05-04 15:42:37,580 - __main__ - DEBUG -   0.78337624269100004
+2026-05-04 15:42:37,582 - __main__ - DEBUG - Wrote CSV row to smoke/parqueues/testq/rubicon.csv
+2026-05-04 15:42:37,582 - __main__ - INFO -   => ok  P=7.833762e-01  total=0.377s
+2026-05-04 15:42:37,582 - __main__ - INFO - [parqueues] q4-n3-h10 :: rubicon
+2026-05-04 15:42:37,582 - __main__ - INFO -   trial 1/3
+2026-05-04 15:42:37,583 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-4.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-04 15:42:38,011 - __main__ - DEBUG -   $ rubicon --prism benchmarks/parqueues/queue-4.prism --prop 'P=? [ F<=10 "target" ]' --output /tmp/nix-shell.o7ytsi/tmpjgn6koia/queue-4.dice --constants N=3
+2026-05-04 15:42:38,011 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpjgn6koia/queue-4.dice
+2026-05-04 15:42:38,011 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0264876275794"],["(false, true)","0."],["(false, false)","0.973512372421"]]}]
+2026-05-04 15:42:38,011 - __main__ - DEBUG -   0.0264876275794
+2026-05-04 15:42:38,011 - __main__ - INFO -   trial 2/3
+2026-05-04 15:42:38,012 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-4.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-04 15:42:38,405 - __main__ - DEBUG -   $ rubicon --prism benchmarks/parqueues/queue-4.prism --prop 'P=? [ F<=10 "target" ]' --output /tmp/nix-shell.o7ytsi/tmpmq_8igy1/queue-4.dice --constants N=3
+2026-05-04 15:42:38,405 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpmq_8igy1/queue-4.dice
+2026-05-04 15:42:38,405 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0264876275794"],["(false, true)","0."],["(false, false)","0.973512372421"]]}]
+2026-05-04 15:42:38,406 - __main__ - DEBUG -   0.0264876275794
+2026-05-04 15:42:38,406 - __main__ - INFO -   trial 3/3
+2026-05-04 15:42:38,406 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/parqueues/queue-4.prism --property target --horizon 10 --dice-cmd dice --const N=3
+2026-05-04 15:42:38,800 - __main__ - DEBUG -   $ rubicon --prism benchmarks/parqueues/queue-4.prism --prop 'P=? [ F<=10 "target" ]' --output /tmp/nix-shell.o7ytsi/tmpvs07uw1o/queue-4.dice --constants N=3
+2026-05-04 15:42:38,801 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpvs07uw1o/queue-4.dice
+2026-05-04 15:42:38,801 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0.0264876275794"],["(false, true)","0."],["(false, false)","0.973512372421"]]}]
+2026-05-04 15:42:38,801 - __main__ - DEBUG -   0.0264876275794
+2026-05-04 15:42:38,801 - __main__ - DEBUG - Wrote CSV row to smoke/parqueues/testq/rubicon.csv
+2026-05-04 15:42:38,801 - __main__ - INFO -   => ok  P=2.648763e-02  total=0.405s

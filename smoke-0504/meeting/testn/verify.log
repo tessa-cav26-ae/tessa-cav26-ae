@@ -1,0 +1,6 @@
+2026-05-04 15:26:49,074 - __main__ - INFO - Tessa file: smoke/meeting/testn/tessa.csv (2 cases)
+2026-05-04 15:26:49,074 - __main__ - INFO -   vs smoke/meeting/testn/storm.add.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:26:49,075 - __main__ - INFO -   vs smoke/meeting/testn/storm.spm.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:26:49,075 - __main__ - INFO -   vs smoke/meeting/testn/rubicon.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:26:49,075 - __main__ - INFO - Wrote 6 rows to smoke/meeting/testn/verify.csv
+2026-05-04 15:26:49,075 - __main__ - INFO - Verified 6 probability comparisons OK

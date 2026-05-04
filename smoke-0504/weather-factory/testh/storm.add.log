@@ -1,0 +1,13 @@
+2026-05-04 15:33:17,554 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/weather-factory/testh'), 'engine': 'add'}
+2026-05-04 15:33:17,557 - __main__ - INFO - [weather-factory] n13-h10 :: storm.add
+2026-05-04 15:33:17,557 - __main__ - INFO -   trial 1/3
+2026-05-04 15:33:17,557 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory13.prism --prop P=? [ F<=10 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:34:17,728 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:34:17,729 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testh/storm.add.csv
+2026-05-04 15:34:17,729 - __main__ - INFO -   => timeout
+2026-05-04 15:34:17,729 - __main__ - INFO - [weather-factory] n13-h20 :: storm.add
+2026-05-04 15:34:17,729 - __main__ - INFO -   trial 1/3
+2026-05-04 15:34:17,730 - __main__ - DEBUG -   $ storm --prism benchmarks/weather_factory/weatherfactory13.prism --prop P=? [ F<=20 "allStrike" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:35:17,899 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:35:17,901 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testh/storm.add.csv
+2026-05-04 15:35:17,901 - __main__ - INFO -   => timeout

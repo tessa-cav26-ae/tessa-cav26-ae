@@ -1,0 +1,6 @@
+2026-05-04 15:32:17,333 - __main__ - INFO - Tessa file: smoke/meeting/testh/tessa.csv (2 cases)
+2026-05-04 15:32:17,333 - __main__ - INFO -   vs smoke/meeting/testh/storm.add.csv: no common cases to compare
+2026-05-04 15:32:17,333 - __main__ - INFO -   vs smoke/meeting/testh/storm.spm.csv: no common cases to compare
+2026-05-04 15:32:17,333 - __main__ - INFO -   vs smoke/meeting/testh/rubicon.csv: 1 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:32:17,334 - __main__ - INFO - Wrote 1 rows to smoke/meeting/testh/verify.csv
+2026-05-04 15:32:17,334 - __main__ - INFO - Verified 1 probability comparisons OK

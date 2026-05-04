@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,property,horizon,constants,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+meeting,n12-h1,rubicon,3,goal,1,,12,1,ok,0.0,0.3912975423736498,0.002937924009539634,
+meeting,n12-h10,rubicon,3,goal,10,,12,10,timeout,,,0.0,Timed out after 60 seconds

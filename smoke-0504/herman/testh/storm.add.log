@@ -1,0 +1,13 @@
+2026-05-04 15:20:32,761 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/herman/testh'), 'engine': 'add'}
+2026-05-04 15:20:32,764 - __main__ - INFO - [herman] n17-h10 :: storm.add
+2026-05-04 15:20:32,764 - __main__ - INFO -   trial 1/3
+2026-05-04 15:20:32,764 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-17.prism --prop P=? [ F<=10 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:21:33,057 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:21:33,057 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testh/storm.add.csv
+2026-05-04 15:21:33,057 - __main__ - INFO -   => timeout
+2026-05-04 15:21:33,057 - __main__ - INFO - [herman] n17-h20 :: storm.add
+2026-05-04 15:21:33,057 - __main__ - INFO -   trial 1/3
+2026-05-04 15:21:33,058 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-17.prism --prop P=? [ F<=20 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:22:33,418 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:22:33,419 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testh/storm.add.csv
+2026-05-04 15:22:33,419 - __main__ - INFO -   => timeout

@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,property,horizon,constants,Q,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+parqueues,q9-n3-h10,rubicon,3,target,10,"{""N"": 3}",9,3,10,ok,0.0372938565593,57.95753256503182,0.2541093838415689,
+parqueues,q9-n3-h20,rubicon,3,target,20,"{""N"": 3}",9,3,20,timeout,,,0.0,Timed out after 60 seconds

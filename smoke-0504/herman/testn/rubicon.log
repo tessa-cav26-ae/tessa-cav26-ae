@@ -1,0 +1,43 @@
+2026-05-04 15:20:09,518 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/herman/testn'), 'engine': None}
+2026-05-04 15:20:09,521 - __main__ - INFO - [herman] n3-h100 :: rubicon
+2026-05-04 15:20:09,521 - __main__ - INFO -   trial 1/3
+2026-05-04 15:20:09,521 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-3.prism --property stable --horizon 100 --dice-cmd dice
+2026-05-04 15:20:09,876 - __main__ - DEBUG -   $ rubicon --prism benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --output /tmp/nix-shell.o7ytsi/tmprharirxq/herman-3.dice
+2026-05-04 15:20:09,876 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmprharirxq/herman-3.dice
+2026-05-04 15:20:09,876 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1."],["(false, true)","0."],["(false, false)","5.19760335658e-56"]]}]
+2026-05-04 15:20:09,876 - __main__ - DEBUG -   1
+2026-05-04 15:20:09,876 - __main__ - INFO -   trial 2/3
+2026-05-04 15:20:09,876 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-3.prism --property stable --horizon 100 --dice-cmd dice
+2026-05-04 15:20:10,282 - __main__ - DEBUG -   $ rubicon --prism benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --output /tmp/nix-shell.o7ytsi/tmpcn4wa_hu/herman-3.dice
+2026-05-04 15:20:10,282 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpcn4wa_hu/herman-3.dice
+2026-05-04 15:20:10,282 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1."],["(false, true)","0."],["(false, false)","5.19760335658e-56"]]}]
+2026-05-04 15:20:10,282 - __main__ - DEBUG -   1
+2026-05-04 15:20:10,282 - __main__ - INFO -   trial 3/3
+2026-05-04 15:20:10,282 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-3.prism --property stable --horizon 100 --dice-cmd dice
+2026-05-04 15:20:10,668 - __main__ - DEBUG -   $ rubicon --prism benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --output /tmp/nix-shell.o7ytsi/tmppt2yvlv2/herman-3.dice
+2026-05-04 15:20:10,668 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmppt2yvlv2/herman-3.dice
+2026-05-04 15:20:10,668 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1."],["(false, true)","0."],["(false, false)","5.19760335658e-56"]]}]
+2026-05-04 15:20:10,668 - __main__ - DEBUG -   1
+2026-05-04 15:20:10,669 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testn/rubicon.csv
+2026-05-04 15:20:10,669 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.382s
+2026-05-04 15:20:10,669 - __main__ - INFO - [herman] n5-h100 :: rubicon
+2026-05-04 15:20:10,669 - __main__ - INFO -   trial 1/3
+2026-05-04 15:20:10,670 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-5.prism --property stable --horizon 100 --dice-cmd dice
+2026-05-04 15:20:11,092 - __main__ - DEBUG -   $ rubicon --prism benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --output /tmp/nix-shell.o7ytsi/tmp37dl9h2q/herman-5.dice
+2026-05-04 15:20:11,092 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp37dl9h2q/herman-5.dice
+2026-05-04 15:20:11,092 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1."],["(false, true)","0."],["(false, false)","6.76615951679e-19"]]}]
+2026-05-04 15:20:11,092 - __main__ - DEBUG -   1
+2026-05-04 15:20:11,092 - __main__ - INFO -   trial 2/3
+2026-05-04 15:20:11,092 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-5.prism --property stable --horizon 100 --dice-cmd dice
+2026-05-04 15:20:11,501 - __main__ - DEBUG -   $ rubicon --prism benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --output /tmp/nix-shell.o7ytsi/tmp_9esvr2c/herman-5.dice
+2026-05-04 15:20:11,502 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp_9esvr2c/herman-5.dice
+2026-05-04 15:20:11,502 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1."],["(false, true)","0."],["(false, false)","6.76615951679e-19"]]}]
+2026-05-04 15:20:11,502 - __main__ - DEBUG -   1
+2026-05-04 15:20:11,502 - __main__ - INFO -   trial 3/3
+2026-05-04 15:20:11,502 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-5.prism --property stable --horizon 100 --dice-cmd dice
+2026-05-04 15:20:11,869 - __main__ - DEBUG -   $ rubicon --prism benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --output /tmp/nix-shell.o7ytsi/tmpsrjnrzuc/herman-5.dice
+2026-05-04 15:20:11,869 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpsrjnrzuc/herman-5.dice
+2026-05-04 15:20:11,869 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1."],["(false, true)","0."],["(false, false)","6.76615951679e-19"]]}]
+2026-05-04 15:20:11,870 - __main__ - DEBUG -   1
+2026-05-04 15:20:11,870 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testn/rubicon.csv
+2026-05-04 15:20:11,870 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.399s

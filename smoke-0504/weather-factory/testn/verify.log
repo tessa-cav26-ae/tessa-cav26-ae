@@ -1,0 +1,7 @@
+2026-05-04 15:32:46,480 - __main__ - INFO - Tessa file: smoke/weather-factory/testn/tessa.csv (2 cases)
+2026-05-04 15:32:46,480 - __main__ - INFO -   vs smoke/weather-factory/testn/storm.add.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:32:46,480 - __main__ - INFO -   vs smoke/weather-factory/testn/storm.spm.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:32:46,481 - __main__ - INFO -   vs smoke/weather-factory/testn/rubicon.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:32:46,481 - __main__ - INFO -   vs smoke/weather-factory/testn/geni.csv: 2 cases match (atol=1e-05, rtol=0.0001)
+2026-05-04 15:32:46,481 - __main__ - INFO - Wrote 8 rows to smoke/weather-factory/testn/verify.csv
+2026-05-04 15:32:46,481 - __main__ - INFO - Verified 8 probability comparisons OK

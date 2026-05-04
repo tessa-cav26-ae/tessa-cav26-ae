@@ -206,17 +206,19 @@ The flake exposes four development shells, each layered on top of the previous (
 
 Enter the full development shell (this is the default):
 ```
-nix --experimental-features 'nix-command flakes' develop
+nix --experimental-features 'nix-command flakes' develop -c fish
 # equivalent to:
-nix --experimental-features 'nix-command flakes' develop .#tessa-shell
+nix --experimental-features 'nix-command flakes' develop .#tessa-shell -c fish
 ```
 
 Or enter one of the lighter shells:
 ```
-nix --experimental-features 'nix-command flakes' develop .#rubicon-shell
-nix --experimental-features 'nix-command flakes' develop .#geni-shell
-nix --experimental-features 'nix-command flakes' develop .#storm-shell
+nix --experimental-features 'nix-command flakes' develop .#rubicon-shell -c fish
+nix --experimental-features 'nix-command flakes' develop .#geni-shell    -c fish
+nix --experimental-features 'nix-command flakes' develop .#storm-shell   -c fish
 ```
+
+The `-c fish` flag launches fish inside the dev shell — fish is shipped in `common-shell-inputs` of every shell variant (`flake.nix` line 47), and the rest of this README's command examples assume fish. Drop `-c fish` if you prefer bash; `nix develop` defaults to bash without it.
 
 The first build of `tessa-shell` compiles Storm, stormpy, Rubicon, Dice, JAX, CUDA from source, which can take hours. `rubicon-shell` builds Storm, Rubicon, Dice, and Gennifer but skips JAX/CUDA, so its first build is meaningfully shorter; `storm-shell` only builds Storm and is shortest.
 
@@ -266,17 +268,28 @@ The shipped `Dockerfile` only pre-builds `storm`, `stormpy`, and `tessa`. Rubico
 
 Run the image — the `Dockerfile`'s `CMD` is `nix develop`, so this drops straight into the Nix shell. `--rm` removes the container on exit so they don't pile up; drop `--rm` if you want the stopped container to be recoverable later via `docker start`.
 ```shell
-> docker run -it --rm --gpus all tessa
+> mkdir -p smoke reproduced
+> docker run -it --rm --gpus all \
+    -v "$(pwd)/smoke:/tessa/smoke" \
+    -v "$(pwd)/reproduced:/tessa/reproduced" \
+    tessa
 ```
+
+The two `-v` mounts expose the in-container output directories `/tessa/smoke` and `/tessa/reproduced` to host paths of the same name, so `smoke/parqueues/testq/tessa.csv` and friends are readable from the host as soon as `make` writes them. The `mkdir -p` line runs first because docker would otherwise create the host paths as root, which then fights with `make` runs from the host shell. Drop a mount if you only plan to run one of the two flows.
 
 Or start the container detached and re-enter it later. `--rm` is fine for the detach/re-enter loop because `ctrl-p ctrl-q` only detaches (the container keeps running) — drop `--rm` if you want the container to survive an `exit` of the inner shell so you can `docker start` it back up across sessions:
 ```shell
-> docker run -it --rm --gpus all tessa #(and then detach by ctrl-p ctrl-q)
+> docker run -it --rm --gpus all \
+    -v "$(pwd)/smoke:/tessa/smoke" \
+    -v "$(pwd)/reproduced:/tessa/reproduced" \
+    tessa #(and then detach by ctrl-p ctrl-q)
 > docker ps
 CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS    PORTS    NAMES
 3ac16580a16e    tessa    "nix …"    ....       ....      ....     ....
-> docker exec -it 3ac1 bash -c "cd /tessa && nix develop"
+> docker exec -it 3ac1 bash -c "cd /tessa && nix develop -c fish"
 ```
+
+The `Dockerfile`'s `CMD` is `nix develop -c fish`, so the interactive `docker run` lands in fish; `docker exec` re-entries should pass `-c fish` to match (commands in the rest of this README assume the fish shell).
 
 Inside the container, verify the GPU is visible:
 ```console
@@ -365,6 +378,14 @@ Runs a minimal parameter subset (~20 minutes) to verify the pipeline:
 ```shell
 make -f reproduce.mk SMOKE=1
 ```
+
+A reference smoke output is committed at [`smoke-0504/`](smoke-0504/) (119 files, 8 leaf directories under `herman/`, `meeting/`, `weather-factory/`, `parqueues/`). Compare your `smoke/` against it:
+
+- `diff <(cd smoke && find . | sort) <(cd smoke-0504 && find . | sort)` — same tree, same filenames.
+- `cut -d, -f1-13 smoke/parqueues/testq/tessa.csv` matches the same columns of `smoke-0504/parqueues/testq/tessa.csv` (timing columns will differ by host; identifiers, parameters, `status`, and `probability` should not).
+- All `verify.csv` rows show `status=ok` (probabilities agree across tools within `atol=1e-5, rtol=1e-4`).
+
+`status=TIMEOUT` / `status=FAILED` rows or `verify.csv` mismatches mean the pipeline ran but the result is not clean — usually a host slower than the smoke `TO=60` s budget, or a tool's nix shell missing from `PATH`.
 
 ### Full Reproduction
 

@@ -1,0 +1,43 @@
+2026-05-04 15:37:18,682 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/weather-factory/testh'), 'engine': None}
+2026-05-04 15:37:18,685 - __main__ - INFO - [weather-factory] n13-h10 :: rubicon
+2026-05-04 15:37:18,685 - __main__ - INFO -   trial 1/3
+2026-05-04 15:37:18,686 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/weather_factory/weatherfactory13.prism --property allStrike --horizon 10 --dice-cmd dice
+2026-05-04 15:37:33,186 - __main__ - DEBUG -   $ rubicon --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=10 "allStrike" ]' --output /tmp/nix-shell.o7ytsi/tmpjbrqdm06/weatherfactory13.dice
+2026-05-04 15:37:33,186 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpjbrqdm06/weatherfactory13.dice
+2026-05-04 15:37:33,186 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1.61578779544e-09"],["(false, true)","0."],["(false, false)","0.999999998384"]]}]
+2026-05-04 15:37:33,187 - __main__ - DEBUG -   1.61578779544e-09
+2026-05-04 15:37:33,187 - __main__ - INFO -   trial 2/3
+2026-05-04 15:37:33,187 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/weather_factory/weatherfactory13.prism --property allStrike --horizon 10 --dice-cmd dice
+2026-05-04 15:37:47,862 - __main__ - DEBUG -   $ rubicon --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=10 "allStrike" ]' --output /tmp/nix-shell.o7ytsi/tmp4wrjf86n/weatherfactory13.dice
+2026-05-04 15:37:47,862 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp4wrjf86n/weatherfactory13.dice
+2026-05-04 15:37:47,863 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1.61578779544e-09"],["(false, true)","0."],["(false, false)","0.999999998384"]]}]
+2026-05-04 15:37:47,863 - __main__ - DEBUG -   1.61578779544e-09
+2026-05-04 15:37:47,863 - __main__ - INFO -   trial 3/3
+2026-05-04 15:37:47,864 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/weather_factory/weatherfactory13.prism --property allStrike --horizon 10 --dice-cmd dice
+2026-05-04 15:38:02,455 - __main__ - DEBUG -   $ rubicon --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=10 "allStrike" ]' --output /tmp/nix-shell.o7ytsi/tmpoysl1qwg/weatherfactory13.dice
+2026-05-04 15:38:02,455 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpoysl1qwg/weatherfactory13.dice
+2026-05-04 15:38:02,455 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","1.61578779544e-09"],["(false, true)","0."],["(false, false)","0.999999998384"]]}]
+2026-05-04 15:38:02,456 - __main__ - DEBUG -   1.61578779544e-09
+2026-05-04 15:38:02,457 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testh/rubicon.csv
+2026-05-04 15:38:02,457 - __main__ - INFO -   => ok  P=1.615788e-09  total=14.589s
+2026-05-04 15:38:02,458 - __main__ - INFO - [weather-factory] n13-h20 :: rubicon
+2026-05-04 15:38:02,458 - __main__ - INFO -   trial 1/3
+2026-05-04 15:38:02,458 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/weather_factory/weatherfactory13.prism --property allStrike --horizon 20 --dice-cmd dice
+2026-05-04 15:38:37,688 - __main__ - DEBUG -   $ rubicon --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=20 "allStrike" ]' --output /tmp/nix-shell.o7ytsi/tmp8owbyyrw/weatherfactory13.dice
+2026-05-04 15:38:37,689 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp8owbyyrw/weatherfactory13.dice
+2026-05-04 15:38:37,689 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","2.97750769389e-09"],["(false, true)","0."],["(false, false)","0.999999997022"]]}]
+2026-05-04 15:38:37,689 - __main__ - DEBUG -   2.9775076938899999e-09
+2026-05-04 15:38:37,689 - __main__ - INFO -   trial 2/3
+2026-05-04 15:38:37,690 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/weather_factory/weatherfactory13.prism --property allStrike --horizon 20 --dice-cmd dice
+2026-05-04 15:39:12,674 - __main__ - DEBUG -   $ rubicon --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=20 "allStrike" ]' --output /tmp/nix-shell.o7ytsi/tmp46u1vop5/weatherfactory13.dice
+2026-05-04 15:39:12,674 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp46u1vop5/weatherfactory13.dice
+2026-05-04 15:39:12,674 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","2.97750769389e-09"],["(false, true)","0."],["(false, false)","0.999999997022"]]}]
+2026-05-04 15:39:12,674 - __main__ - DEBUG -   2.9775076938899999e-09
+2026-05-04 15:39:12,675 - __main__ - INFO -   trial 3/3
+2026-05-04 15:39:12,675 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/weather_factory/weatherfactory13.prism --property allStrike --horizon 20 --dice-cmd dice
+2026-05-04 15:39:47,668 - __main__ - DEBUG -   $ rubicon --prism benchmarks/weather_factory/weatherfactory13.prism --prop 'P=? [ F<=20 "allStrike" ]' --output /tmp/nix-shell.o7ytsi/tmpw7zvqdt5/weatherfactory13.dice
+2026-05-04 15:39:47,669 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpw7zvqdt5/weatherfactory13.dice
+2026-05-04 15:39:47,669 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","2.97750769389e-09"],["(false, true)","0."],["(false, false)","0.999999997022"]]}]
+2026-05-04 15:39:47,669 - __main__ - DEBUG -   2.9775076938899999e-09
+2026-05-04 15:39:47,669 - __main__ - DEBUG - Wrote CSV row to smoke/weather-factory/testh/rubicon.csv
+2026-05-04 15:39:47,669 - __main__ - INFO -   => ok  P=2.977508e-09  total=35.069s

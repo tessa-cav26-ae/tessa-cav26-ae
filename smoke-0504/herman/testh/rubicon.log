@@ -1,0 +1,13 @@
+2026-05-04 15:24:34,013 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/herman/testh'), 'engine': None}
+2026-05-04 15:24:34,015 - __main__ - INFO - [herman] n17-h10 :: rubicon
+2026-05-04 15:24:34,016 - __main__ - INFO -   trial 1/3
+2026-05-04 15:24:34,016 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 10 --dice-cmd dice
+2026-05-04 15:25:34,032 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:25:34,033 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testh/rubicon.csv
+2026-05-04 15:25:34,034 - __main__ - INFO -   => timeout
+2026-05-04 15:25:34,034 - __main__ - INFO - [herman] n17-h20 :: rubicon
+2026-05-04 15:25:34,034 - __main__ - INFO -   trial 1/3
+2026-05-04 15:25:34,035 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/herman/herman-17.prism --property stable --horizon 20 --dice-cmd dice
+2026-05-04 15:26:34,100 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:26:34,101 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testh/rubicon.csv
+2026-05-04 15:26:34,101 - __main__ - INFO -   => timeout

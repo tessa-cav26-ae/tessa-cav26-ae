@@ -1,0 +1,3 @@
+suite,case_id,tool,num_work_runs,storm_extra_args,property,horizon,constants,Q,N,H,status,probability,elapsed_seconds,elapsed_std,error_message
+parqueues,q3-n3-h10,storm.spm,3,-tm --sylvan:threads 1,target,10,"{""N"": 3}",3,3,10,ok,0.7833762427,0.06609298199570428,0.016323626933313445,
+parqueues,q4-n3-h10,storm.spm,3,-tm --sylvan:threads 1,target,10,"{""N"": 3}",4,3,10,ok,0.02648762758,0.06694972231828918,0.003420437511503962,

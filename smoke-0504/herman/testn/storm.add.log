@@ -1,0 +1,193 @@
+2026-05-04 15:20:07,507 - src.log_config - INFO - cli arguments: {'tool': 'storm', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/herman/testn'), 'engine': 'add'}
+2026-05-04 15:20:07,509 - __main__ - INFO - [herman] n3-h100 :: storm.add
+2026-05-04 15:20:07,510 - __main__ - INFO -   trial 1/3
+2026-05-04 15:20:07,510 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-3.prism --prop P=? [ F<=100 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:20:07,569 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   Date: Mon May  4 15:20:07 2026
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   Time for model construction: 0.005s.
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:20:07,570 - __main__ - DEBUG -   States: 	8 (1 nodes)
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Transitions: 	22 (33 nodes)
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (3 DD variables), columns: 3 meta variables (3 DD variables)
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:20:07,571 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:20:07,571 - __main__ - DEBUG -      * init -> 1 state(s) (4 nodes)
+2026-05-04 15:20:07,571 - __main__ - DEBUG -      * stable
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Result (for initial states): 1
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   Time for model checking: 0.010s.
+2026-05-04 15:20:07,571 - __main__ - DEBUG -   
+2026-05-04 15:20:07,572 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:20:07,572 - __main__ - DEBUG -     * peak memory usage: 50MB
+2026-05-04 15:20:07,572 - __main__ - DEBUG -     * CPU time: 0.043s
+2026-05-04 15:20:07,572 - __main__ - DEBUG -     * wallclock time: 0.024s
+2026-05-04 15:20:07,572 - __main__ - INFO -   trial 2/3
+2026-05-04 15:20:07,573 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-3.prism --prop P=? [ F<=100 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:20:07,643 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:20:07,643 - __main__ - DEBUG -   
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Date: Mon May  4 15:20:07 2026
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Time for model construction: 0.005s.
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   States: 	8 (1 nodes)
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Transitions: 	22 (33 nodes)
+2026-05-04 15:20:07,644 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (3 DD variables), columns: 3 meta variables (3 DD variables)
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:20:07,645 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:20:07,645 - __main__ - DEBUG -      * init -> 1 state(s) (4 nodes)
+2026-05-04 15:20:07,645 - __main__ - DEBUG -      * stable
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   Result (for initial states): 1
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   Time for model checking: 0.010s.
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   
+2026-05-04 15:20:07,645 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:20:07,645 - __main__ - DEBUG -     * peak memory usage: 50MB
+2026-05-04 15:20:07,646 - __main__ - DEBUG -     * CPU time: 0.044s
+2026-05-04 15:20:07,646 - __main__ - DEBUG -     * wallclock time: 0.024s
+2026-05-04 15:20:07,646 - __main__ - INFO -   trial 3/3
+2026-05-04 15:20:07,646 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-3.prism --prop P=? [ F<=100 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:20:07,734 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Date: Mon May  4 15:20:07 2026
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/herman/herman-3.prism --prop 'P=? [ F<=100 "stable" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Time for model input parsing: 0.000s.
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Time for model construction: 0.015s.
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   States: 	8 (1 nodes)
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Transitions: 	22 (33 nodes)
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Variables: 	rows: 3 meta variables (3 DD variables), columns: 3 meta variables (3 DD variables)
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:20:07,735 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:20:07,735 - __main__ - DEBUG -      * init -> 1 state(s) (4 nodes)
+2026-05-04 15:20:07,735 - __main__ - DEBUG -      * stable
+2026-05-04 15:20:07,735 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:07,736 - __main__ - DEBUG -   
+2026-05-04 15:20:07,736 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-05-04 15:20:07,736 - __main__ - DEBUG -   Result (for initial states): 1
+2026-05-04 15:20:07,736 - __main__ - DEBUG -   Time for model checking: 0.017s.
+2026-05-04 15:20:07,736 - __main__ - DEBUG -   
+2026-05-04 15:20:07,736 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:20:07,736 - __main__ - DEBUG -     * peak memory usage: 50MB
+2026-05-04 15:20:07,736 - __main__ - DEBUG -     * CPU time: 0.049s
+2026-05-04 15:20:07,736 - __main__ - DEBUG -     * wallclock time: 0.038s
+2026-05-04 15:20:07,737 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testn/storm.add.csv
+2026-05-04 15:20:07,737 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.073s
+2026-05-04 15:20:07,737 - __main__ - INFO - [herman] n5-h100 :: storm.add
+2026-05-04 15:20:07,737 - __main__ - INFO -   trial 1/3
+2026-05-04 15:20:07,737 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-5.prism --prop P=? [ F<=100 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:20:08,078 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:20:08,078 - __main__ - DEBUG -   
+2026-05-04 15:20:08,078 - __main__ - DEBUG -   Date: Mon May  4 15:20:07 2026
+2026-05-04 15:20:08,078 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:20:08,078 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:20:08,078 - __main__ - DEBUG -   
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Time for model construction: 0.020s.
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   States: 	32 (1 nodes)
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Transitions: 	234 (239 nodes)
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Variables: 	rows: 5 meta variables (5 DD variables), columns: 5 meta variables (5 DD variables)
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:20:08,079 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:20:08,079 - __main__ - DEBUG -      * init -> 1 state(s) (6 nodes)
+2026-05-04 15:20:08,079 - __main__ - DEBUG -      * stable
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Result (for initial states): 1
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Time for model checking: 0.220s.
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:20:08,079 - __main__ - DEBUG -     * peak memory usage: 415MB
+2026-05-04 15:20:08,079 - __main__ - DEBUG -     * CPU time: 0.165s
+2026-05-04 15:20:08,079 - __main__ - DEBUG -     * wallclock time: 0.287s
+2026-05-04 15:20:08,079 - __main__ - INFO -   trial 2/3
+2026-05-04 15:20:08,079 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-5.prism --prop P=? [ F<=100 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   Date: Mon May  4 15:20:08 2026
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   
+2026-05-04 15:20:08,414 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   Time for model construction: 0.021s.
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   States: 	32 (1 nodes)
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   Transitions: 	234 (239 nodes)
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   Variables: 	rows: 5 meta variables (5 DD variables), columns: 5 meta variables (5 DD variables)
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:20:08,415 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:20:08,415 - __main__ - DEBUG -      * init -> 1 state(s) (6 nodes)
+2026-05-04 15:20:08,415 - __main__ - DEBUG -      * stable
+2026-05-04 15:20:08,415 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   Result (for initial states): 1
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   Time for model checking: 0.230s.
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:20:08,416 - __main__ - DEBUG -     * peak memory usage: 415MB
+2026-05-04 15:20:08,416 - __main__ - DEBUG -     * CPU time: 0.156s
+2026-05-04 15:20:08,416 - __main__ - DEBUG -     * wallclock time: 0.300s
+2026-05-04 15:20:08,416 - __main__ - INFO -   trial 3/3
+2026-05-04 15:20:08,416 - __main__ - DEBUG -   $ storm --prism benchmarks/herman/herman-5.prism --prop P=? [ F<=100 "stable" ] --engine dd -tm --sylvan:threads 1
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Storm 1.11.1
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Date: Mon May  4 15:20:08 2026
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Command line arguments: --prism benchmarks/herman/herman-5.prism --prop 'P=? [ F<=100 "stable" ]' --engine dd -tm '--sylvan:threads' 1
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Time for model input parsing: 0.001s.
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Using Sylvan with 1 parallel threads.
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Time for model construction: 0.020s.
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Model type: 	DTMC (symbolic)
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   States: 	32 (1 nodes)
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Transitions: 	234 (239 nodes)
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Reward Models:  none
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Variables: 	rows: 5 meta variables (5 DD variables), columns: 5 meta variables (5 DD variables)
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Labels: 	3
+2026-05-04 15:20:08,756 - __main__ - DEBUG -      * deadlock -> 0 state(s) (1 nodes)
+2026-05-04 15:20:08,756 - __main__ - DEBUG -      * init -> 1 state(s) (6 nodes)
+2026-05-04 15:20:08,756 - __main__ - DEBUG -      * stable
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   -------------------------------------------------------------- 
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Model checking property "1": P=? [true U<=100 "stable"] ...
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Result (for initial states): 1
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Time for model checking: 0.221s.
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   
+2026-05-04 15:20:08,756 - __main__ - DEBUG -   Performance statistics:
+2026-05-04 15:20:08,756 - __main__ - DEBUG -     * peak memory usage: 415MB
+2026-05-04 15:20:08,756 - __main__ - DEBUG -     * CPU time: 0.163s
+2026-05-04 15:20:08,756 - __main__ - DEBUG -     * wallclock time: 0.291s
+2026-05-04 15:20:08,757 - __main__ - DEBUG - Wrote CSV row to smoke/herman/testn/storm.add.csv
+2026-05-04 15:20:08,757 - __main__ - INFO -   => ok  P=1.000000e+00  total=0.338s

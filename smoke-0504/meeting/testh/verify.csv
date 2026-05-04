@@ -1,0 +1,2 @@
+tessa_file,storm_file,case_id,tessa_probability,storm_probability,abs_diff,rel_diff,status
+tessa.csv,rubicon.csv,n12-h1,0.00000000e+00,0.00000000e+00,0.00e+00,inf%,ok

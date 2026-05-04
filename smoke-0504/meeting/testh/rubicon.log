@@ -1,0 +1,28 @@
+2026-05-04 15:31:15,913 - src.log_config - INFO - cli arguments: {'tool': 'rubicon', 'backend': None, 'timeout': 60, 'num_work_runs': 3, 'num_timed_runs': 1, 'dtype': 'float32', 'output_dir': PosixPath('smoke/meeting/testh'), 'engine': None}
+2026-05-04 15:31:15,916 - __main__ - INFO - [meeting] n12-h1 :: rubicon
+2026-05-04 15:31:15,916 - __main__ - INFO -   trial 1/3
+2026-05-04 15:31:15,916 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-12.prism --property goal --horizon 1 --dice-cmd dice
+2026-05-04 15:31:16,305 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=1 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmpug2v3o8v/meeting-12.dice
+2026-05-04 15:31:16,305 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmpug2v3o8v/meeting-12.dice
+2026-05-04 15:31:16,305 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0."],["(false, true)","0."],["(false, false)","1."]]}]
+2026-05-04 15:31:16,306 - __main__ - DEBUG -   0
+2026-05-04 15:31:16,306 - __main__ - INFO -   trial 2/3
+2026-05-04 15:31:16,307 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-12.prism --property goal --horizon 1 --dice-cmd dice
+2026-05-04 15:31:16,697 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=1 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmprh5h9zv_/meeting-12.dice
+2026-05-04 15:31:16,698 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmprh5h9zv_/meeting-12.dice
+2026-05-04 15:31:16,698 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0."],["(false, true)","0."],["(false, false)","1."]]}]
+2026-05-04 15:31:16,698 - __main__ - DEBUG -   0
+2026-05-04 15:31:16,698 - __main__ - INFO -   trial 3/3
+2026-05-04 15:31:16,698 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-12.prism --property goal --horizon 1 --dice-cmd dice
+2026-05-04 15:31:17,093 - __main__ - DEBUG -   $ rubicon --prism benchmarks/meeting/meeting-12.prism --prop 'P=? [ F<=1 "goal" ]' --output /tmp/nix-shell.o7ytsi/tmp_okkcnd7/meeting-12.dice
+2026-05-04 15:31:17,093 - __main__ - DEBUG -   $ dice -json /tmp/nix-shell.o7ytsi/tmp_okkcnd7/meeting-12.dice
+2026-05-04 15:31:17,093 - __main__ - DEBUG -   [{"Joint Distribution":[["Value","Probability"],["(true, true)","0."],["(true, false)","0."],["(false, true)","0."],["(false, false)","1."]]}]
+2026-05-04 15:31:17,093 - __main__ - DEBUG -   0
+2026-05-04 15:31:17,094 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testh/rubicon.csv
+2026-05-04 15:31:17,094 - __main__ - INFO -   => ok  P=0.000000e+00  total=0.391s
+2026-05-04 15:31:17,094 - __main__ - INFO - [meeting] n12-h10 :: rubicon
+2026-05-04 15:31:17,094 - __main__ - INFO -   trial 1/3
+2026-05-04 15:31:17,094 - __main__ - DEBUG -   $ /nix/store/jd20rkmqmkfkcvk2wl2lmzz7acq4svlr-python3-3.12.12/bin/python -m src.rubicon_runner --prism benchmarks/meeting/meeting-12.prism --property goal --horizon 10 --dice-cmd dice
+2026-05-04 15:32:17,148 - __main__ - ERROR -   timeout: Timed out after 60 seconds
+2026-05-04 15:32:17,149 - __main__ - DEBUG - Wrote CSV row to smoke/meeting/testh/rubicon.csv
+2026-05-04 15:32:17,149 - __main__ - INFO -   => timeout
