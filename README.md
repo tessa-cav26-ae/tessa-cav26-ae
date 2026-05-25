@@ -47,7 +47,7 @@ Justification for the badges:
   
   The build is fully pinned: `flake.nix` + `flake.lock` reproduce the exact toolchain (Storm, stormpy, Rubicon, Dice, Gennifer, JAX with CUDA, Python 3.12), and the `Dockerfile` wraps the same flake in a `nixos/nix` image for hosts without Nix. The flake exposes `rubicon`, `dice`, and `gennifer` as packages alongside `storm`/`stormpy`/`tessa`, so the external comparison points reproduce inside the same toolchain.
   
-  Examples in (`examples`) e.g. (`examples/complex_multi_action.prism` and `tessa/examples/complex_multi_action.jani`) demonstrates Tessa's usage beyond the paper figures.
+  **Using Tessa beyond the paper figures:** [`examples/USAGE.md`](examples/USAGE.md) is a standalone tutorial that walks through writing your own PRISM or JANI model, picking a property to check, passing CLI constants, and using Tessa's parametric (differentiable) mode end-to-end. It is anchored on the two ready-made examples [`examples/weather_factory_3.{prism,jani}`](examples/) and [`examples/complex_multi_action.{prism,jani}`](examples/), and pins the expected probability for each command so you can confirm your run matches.
 
 Machine Configuration and Time Consumption:
 
