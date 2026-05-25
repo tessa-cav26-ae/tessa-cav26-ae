@@ -437,7 +437,7 @@ The committed reference at `smoke-0504/` already passes all three checks — run
 
 A reference smoke output is committed at [`smoke-0504/`](smoke-0504/) (119 files, 8 leaf directories under `herman/`, `meeting/`, `weather-factory/`, `parqueues/`). Compare your `smoke/` against it:
 
-- `diff <(cd smoke && find . | sort) <(cd smoke-0504 && find . | sort)` — same tree, same filenames.
+- `bash -c 'diff <(cd smoke && find . | sort) <(cd smoke-0504 && find . | sort)'` — same tree, same filenames. (Wrapped in `bash -c` because `<(...)` is bash process substitution and the Docker container's default shell is fish.)
 - `cut -d, -f1-13 smoke/parqueues/testq/tessa.csv` matches the same columns of `smoke-0504/parqueues/testq/tessa.csv` (timing columns will differ by host; identifiers, parameters, `status`, and `probability` should not).
 - All `verify.csv` rows show `status=ok` (probabilities agree across tools within `atol=1e-5, rtol=1e-4`).
 
